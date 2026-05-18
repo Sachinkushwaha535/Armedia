@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 const serviceIcons = {
   web: (
@@ -72,40 +73,8 @@ const serviceIcons = {
       <path d="M12 18.5v-13" />
       <path d="M18.5 18.5v-8" />
       <path d="M4 18.5h16" />
-      <path d="M5.5 8.2h.1" />
-      <path d="M12 3.5h.1" />
-      <path d="M18.5 7.6h.1" />
     </svg>
   ),
-  leads: (
-    <svg viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 5v14" />
-      <path d="M5 12h14" />
-    </svg>
-  ),
-  workflow: (
-    <svg viewBox="0 0 24 24">
-      <path d="M4 6h6v6H4z" />
-      <path d="M14 12h6v6h-6z" />
-      <path d="M10 9h4" />
-    </svg>
-  ),
-  procurement: (
-    <svg viewBox="0 0 24 24">
-      <path d="M3 7h18" />
-      <path d="M5 7l2 12h10l2-12" />
-    </svg>
-  ),
-  framework: (
-    <svg viewBox="0 0 24 24">
-      <path d="M3 3h7v7H3z" />
-      <path d="M14 3h7v7h-7z" />
-      <path d="M3 14h7v7H3z" />
-      <path d="M14 14h7v7h-7z" />
-    </svg>
-  ),
-
   ai: (
     <svg viewBox="0 0 24 24">
       <circle cx="12" cy="12" r="9" />
@@ -213,10 +182,6 @@ const serviceCards = [
     ],
     icon: 'strategy',
   },
-
-
-  // ✅ NEW SERVICES ADDED
-
   {
     id: 'leads',
     title: 'Lead Generation',
@@ -265,64 +230,36 @@ const serviceCards = [
     ],
     icon: 'framework',
   },
-];
-
-const trustedClients = ['Google', 'Salesforce', 'Adobe', 'AWS', 'Microsoft']
-
-const clientTestimonials = [
-  {
-    quote:
-      'We were incredibly impressed by their solutions. Their depth of expertise is clear.',
-    name: 'Jane Doe',
-    role: 'CEO of Apex',
-    icon: 'strategy',
-  },
-  {
-    quote:
-      'The team brought innovative and tech-savvy direction with a professional, dedicated effort.',
-    name: 'John Smith',
-    role: 'CTO of Innovate',
-    icon: 'security',
-  },
 ]
 
 function ServicesPage() {
+  useEffect(() => {
+    const cards = document.querySelectorAll<HTMLElement>('.reveal-card')
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('visible')
+            }, index * 120)
+
+            io.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.12,
+      }
+    )
+
+    cards.forEach((card) => io.observe(card))
+
+    return () => io.disconnect()
+  }, [])
+
   return (
     <section className="services-cinematic" aria-labelledby="services-title">
-      <div className="services-bg">
-        <div className="services-screen" aria-hidden="true">
-          <span className="screen-bar bar-a" />
-          <span className="screen-bar bar-b" />
-          <span className="screen-ring" />
-        </div>
-        <span className="wire wire-top" />
-        <span className="wire wire-right" />
-        <span className="wire wire-low" />
-      </div>
-
-      <div className="service-float float-code" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
-      <div className="service-float float-chart" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
-      <div className="molecule molecule-top" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-        <i />
-      </div>
-      <div className="molecule molecule-low" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-        <i />
-      </div>
-
       <div className="services-cinematic-inner">
         <div className="services-copy">
           <p className="services-kicker">Armedia IT & Creative Services</p>
@@ -330,25 +267,32 @@ function ServicesPage() {
           <p>
             Innovative IT solutions and creative digital strategies tailored for your business growth.
           </p>
-          <Link
-            className="services-cta"
-            href="/contact"
-          >
+
+          <Link className="services-cta" href="/contact">
             Explore services
           </Link>
         </div>
 
-        <div className="cinematic-services-grid" aria-label="Service categories">
+        <div className="cinematic-services-grid">
           {serviceCards.map((service) => (
             <article
-              className="cinematic-service-card"
+              className="cinematic-service-card reveal-card"
               key={service.title}
               id={service.id}
             >
-              <div className={`service-icon service-icon-${service.icon}`} aria-hidden="true">
+              <span className="card-glow" />
+              <span className="card-line" />
+              <span className="card-shine" />
+
+              <div
+                className={`service-icon service-icon-${service.icon}`}
+                aria-hidden="true"
+              >
                 {serviceIcons[service.icon as keyof typeof serviceIcons]}
               </div>
+
               <h2>{service.title}</h2>
+
               <ul>
                 {service.items.map((item) => (
                   <li key={item}>{item}</li>
@@ -357,47 +301,10 @@ function ServicesPage() {
             </article>
           ))}
         </div>
-
-        <section className="services-trusted" aria-labelledby="trusted-title">
-          <div className="services-section-heading">
-            <h2 id="trusted-title">Trusted By</h2>
-            <p>We are proud to serve client leaders across technology and growth companies.</p>
-          </div>
-          <div className="trusted-client-row" aria-label="Trusted clients">
-            {trustedClients.map((client) => (
-              <span key={client}>{client}</span>
-            ))}
-          </div>
-        </section>
-
-        <section className="services-testimonials" aria-labelledby="testimonials-title">
-          <div className="services-section-heading">
-            <h2 id="testimonials-title">Client Testimonials</h2>
-          </div>
-          <div className="services-testimonial-grid">
-            {clientTestimonials.map((testimonial) => (
-              <article className="services-testimonial-card" key={testimonial.name}>
-                <div
-                  className={`service-icon service-icon-${testimonial.icon}`}
-                  aria-hidden="true"
-                >
-                  {serviceIcons[testimonial.icon as keyof typeof serviceIcons]}
-                </div>
-                <blockquote>{testimonial.quote}</blockquote>
-                <div className="testimonial-person">
-                  <span>{testimonial.name.charAt(0)}</span>
-                  <div>
-                    <strong>{testimonial.name}</strong>
-                    <p>{testimonial.role}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
       </div>
     </section>
   )
 }
 
 export default ServicesPage
+
