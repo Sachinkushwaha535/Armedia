@@ -82,6 +82,46 @@ const serviceIcons = {
       <path d="M12 8v8" />
     </svg>
   ),
+  leads: (
+  <svg viewBox="0 0 24 24" role="img" aria-label="Lead generation icon">
+    <circle cx="12" cy="8" r="3" />
+    <path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" />
+    <path d="M19 5v4" />
+    <path d="M17 7h4" />
+  </svg>
+),
+
+workflow: (
+  <svg viewBox="0 0 24 24" role="img" aria-label="Workflow development icon">
+    <rect x="3" y="4" width="6" height="6" rx="1" />
+    <rect x="15" y="14" width="6" height="6" rx="1" />
+    <path d="M9 7h6" />
+    <path d="M15 7v7" />
+    <path d="M12 14h3" />
+  </svg>
+),
+
+procurement: (
+  <svg viewBox="0 0 24 24" role="img" aria-label="Procurement services icon">
+    <path d="M4 7h16" />
+    <path d="M6 7l1.5 11h9L18 7" />
+    <path d="M9 11h6" />
+    <path d="M10 14h4" />
+  </svg>
+),
+
+framework: (
+  <svg viewBox="0 0 24 24" role="img" aria-label="Strategic framework icon">
+    <rect x="3" y="3" width="7" height="7" rx="1" />
+    <rect x="14" y="3" width="7" height="7" rx="1" />
+    <rect x="3" y="14" width="7" height="7" rx="1" />
+    <rect x="14" y="14" width="7" height="7" rx="1" />
+    <path d="M10 6.5h4" />
+    <path d="M6.5 10v4" />
+    <path d="M17.5 10v4" />
+    <path d="M10 17.5h4" />
+  </svg>
+),
 }
 
 const serviceCards = [

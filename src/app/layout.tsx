@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import ChatWidget from '../components/ChatWidget'
 import '../index.css'
 import '../App.css'
 
@@ -127,6 +128,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         {children}
+        <ChatWidget /> 
       </body>
     </html>
   )
