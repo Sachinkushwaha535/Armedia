@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useEffect } from 'react'
 
-/* ─── Static data ─── */
 const philosophyCards = [
   {
     title: 'Clarity',
@@ -12,17 +11,17 @@ const philosophyCards = [
   },
   {
     title: 'Quality',
-    icon: '◎',
+    icon: '✦',
     points: ['Rigorous testing', 'Detailed craft', 'Uncompromising standards'],
   },
   {
     title: 'Speed',
-    icon: '⚡',
+    icon: '➜',
     points: ['Agile methodology', 'Rapid prototyping', 'Efficient workflows'],
   },
   {
     title: 'Growth',
-    icon: '⬡',
+    icon: '⬢',
     points: ['Built to scale', 'Future-proof tech', 'Continuous improvement'],
   },
 ]
@@ -47,25 +46,73 @@ const insights = [
 ]
 
 const tickerItems = [
-  'Strategy', 'UX Design', 'Web Development', 'E-commerce',
-  'Brand Systems', 'Performance', 'SEO', 'Cloud & DevOps',
+  'Web Design Auckland',
+  'React Development NZ',
+  'Next.js Agency NZ',
+  'E-commerce',
+  'API Integration',
+  'AI Solutions',
+  'Technical SEO',
+  'Performance',
 ]
 
 const stats = [
-  { num: 120, suffix: '+', label: 'Satisfied clients' },
-  { num: 8, suffix: '+', label: 'Years of craft' },
-  { num: 40, suffix: 'M+', label: 'Revenue driven' },
-  { num: 99, suffix: '%', label: 'Client retention' },
+  { num: 120, suffix: '+', label: 'Project conversations' },
+  { num: 8, suffix: '+', label: 'Years of digital craft' },
+  { num: 40, suffix: '+', label: 'Launch and growth systems' },
+  { num: 99, suffix: '%', label: 'Responsive build focus' },
 ]
 
 const bentoServices = [
-  { icon: '⚡', iconClass: 'lime', title: 'Strategy & Direction', sub: 'We start by mapping your opportunity — competitors, audience, architecture, and commercial goals.', tags: ['Digital strategy', 'Brand positioning', 'Site architecture', 'Campaign planning'], cardClass: 'bc1 bc-accent' },
-  { icon: '✦', iconClass: 'cyan', title: 'UX / UI Design', sub: 'Premium interfaces built from a rigorous design system.', tags: [], cardClass: 'bc2' },
-  { icon: '', iconClass: '', title: '', sub: 'Service groups covering every stage of growth.', tags: [], cardClass: 'bc3 bc-num', largeNum: '04' },
-  { icon: '⬡', iconClass: 'orange', title: 'Web Development', sub: 'React, TypeScript, Next.js — fast and reliable.', tags: [], cardClass: 'bc4' },
-  { icon: '◎', iconClass: 'white', title: 'Growth & SEO', sub: 'Performance optimisation, analytics, and continuous iteration that compounds results over time.', tags: [], cardClass: 'bc5 bc-orange' },
-  { icon: '⊕', iconClass: 'lime', title: 'E-commerce', sub: 'Revenue-focused storefronts and checkout flows.', tags: [], cardClass: 'bc6' },
-  { icon: '◈', iconClass: 'cyan', title: 'API & Integrations', sub: 'CRM, analytics, payment, and third-party services wired up cleanly.', tags: [], cardClass: 'bc7', inline: true },
+  {
+    icon: '◈',
+    iconClass: 'lime',
+    title: 'Web Design Auckland',
+    sub: 'Premium landing pages and business websites shaped around trust, clarity, conversion, and mobile performance. From NZD 2,500.',
+    tags: ['Figma', 'Responsive UI', 'Brand systems', 'Result: stronger enquiries'],
+    cardClass: 'bc1 bc-accent',
+  },
+  {
+    icon: '⚛',
+    iconClass: 'cyan',
+    title: 'React Development',
+    sub: 'Fast React and TypeScript interfaces for dashboards, portals, content platforms, and customer-facing web apps. From NZD 4,000.',
+    tags: ['React', 'TypeScript', 'Component systems', 'Result: scalable frontends'],
+    cardClass: 'bc2',
+  },
+  {
+    icon: '⌕',
+    iconClass: 'orange',
+    title: 'SEO',
+    sub: 'Technical SEO, content structure, metadata, schema, and Core Web Vitals improvements for New Zealand search visibility. From NZD 900.',
+    tags: ['Metadata', 'Schema', 'Core Web Vitals', 'Result: better discoverability'],
+    cardClass: 'bc3',
+  },
+  {
+    icon: '◉',
+    iconClass: 'lime',
+    title: 'E-commerce',
+    sub: 'Conversion-focused storefronts, product journeys, checkout improvements, and analytics for growing online stores. From NZD 5,500.',
+    tags: ['Shopify', 'Next.js', 'Payments', 'Result: cleaner buying paths'],
+    cardClass: 'bc4',
+  },
+  {
+    icon: '⇄',
+    iconClass: 'white',
+    title: 'API Integration',
+    sub: 'CRM, booking, analytics, payment, email, and internal tools connected with reliable API workflows. From NZD 1,800.',
+    tags: ['REST APIs', 'Webhooks', 'CRM', 'Result: less manual admin'],
+    cardClass: 'bc5 bc-orange',
+  },
+  {
+    icon: '✦',
+    iconClass: 'cyan',
+    title: 'AI Solutions',
+    sub: 'AI agents, content workflows, support assistants, and automation systems for practical business operations. From NZD 2,200.',
+    tags: ['AI agents', 'Automation', 'Knowledge bases', 'Result: faster operations'],
+    cardClass: 'bc7',
+    inline: true,
+  },
 ]
 
 const processSteps = [
@@ -76,21 +123,66 @@ const processSteps = [
   { num: '05', title: 'We deliver', desc: 'Launch, test, refine, and support so it keeps performing.' },
 ]
 
-/* ─── Hooks ─── */
+const portfolioProjects = [
+  {
+    title: 'Healthcare Website System',
+    description: 'A trust-led website structure for a healthcare team with clear service paths, speed-focused pages, and accessible content patterns.',
+    badge: 'Live link on request',
+    thumb: 'wt1',
+    metric: 'Mobile-first UX',
+    feedback: 'Verified feedback pending publication',
+    tags: ['Next.js', 'Accessibility', 'SEO'],
+  },
+  {
+    title: 'E-commerce Growth Storefront',
+    description: 'A product-led storefront concept with refined collection pages, checkout guidance, tracking events, and a maintainable design system.',
+    badge: 'Case study',
+    thumb: 'wt2',
+    metric: 'Conversion-ready flow',
+    feedback: 'Client review approval in progress',
+    tags: ['React', 'Payments', 'Analytics'],
+  },
+  {
+    title: 'Service Business Lead Funnel',
+    description: 'A local Auckland lead-generation site with offer pages, contact flows, structured data, and landing-page copy for intent keywords.',
+    badge: 'Auckland SEO',
+    thumb: 'wt3',
+    metric: 'Enquiry-focused CTA',
+    feedback: 'Internal QA notes available',
+    tags: ['Web Design', 'Schema', 'Forms'],
+  },
+]
+
+const proofNotes = [
+  {
+    quote:
+      'Verified client reviews are not shown until they are approved by the client or connected from a public review source.',
+    name: 'Armedia review policy',
+    role: 'No placeholder testimonials',
+  },
+  {
+    quote:
+      'Google reviews can be embedded here once the live Business Profile review feed is connected.',
+    name: 'Google reviews',
+    role: 'Ready for verified source',
+  },
+]
+
 function useScrollReveal() {
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>('.reveal')
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible')
-            io.unobserve(e.target)
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            io.unobserve(entry.target)
           }
         })
       },
       { threshold: 0.08 }
     )
+
     els.forEach((el) => io.observe(el))
     return () => io.disconnect()
   }, [])
@@ -99,20 +191,29 @@ function useScrollReveal() {
 function useCounterAnimation() {
   useEffect(() => {
     const counters = document.querySelectorAll<HTMLElement>('.count')
+
+    if (!('IntersectionObserver' in window)) return
+
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            const el = e.target as HTMLElement
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement
             const target = parseInt(el.dataset.target ?? '0', 10)
             const duration = 1800
             const start = performance.now()
+
+            el.textContent = '0'
+
             const tick = (now: number) => {
-              const p = Math.min((now - start) / duration, 1)
-              const ease = 1 - Math.pow(1 - p, 3)
-              el.textContent = String(Math.round(ease * target))
-              if (p < 1) requestAnimationFrame(tick)
+              const progress = Math.min((now - start) / duration, 1)
+              const ease = 1 - Math.pow(1 - progress, 3)
+              el.textContent =
+                progress === 1 ? String(target) : String(Math.round(ease * target))
+
+              if (progress < 1) requestAnimationFrame(tick)
             }
+
             requestAnimationFrame(tick)
             io.unobserve(el)
           }
@@ -120,12 +221,12 @@ function useCounterAnimation() {
       },
       { threshold: 0.3 }
     )
+
     counters.forEach((el) => io.observe(el))
     return () => io.disconnect()
   }, [])
 }
 
-/* ─── Component ─── */
 function HomePage() {
   useScrollReveal()
   useCounterAnimation()
@@ -134,59 +235,61 @@ function HomePage() {
 
   return (
     <div className="hp-root">
-      {/* Ambient blobs */}
       <div className="blob blob-a" aria-hidden="true" />
       <div className="blob blob-b" aria-hidden="true" />
       <div className="blob blob-c" aria-hidden="true" />
 
-      {/* ── HERO ── */}
       <section className="hp-hero">
         <div className="hp-hero-inner">
           <div className="hero-eyebrow fade-up fade-up-1">
             <span className="eyebrow-dot" />
-            Auckland, NZ &nbsp;·&nbsp; Digital Studio
+            Auckland, NZ Digital Studio
           </div>
 
           <h1 className="hero-h1 fade-up fade-up-2">
-            We build websites that feel{' '}
-            <em className="hero-em">premium</em>,<br />
-            customer friendly &amp;  result driven.
+            Premium web design &amp; <em className="hero-em">React development</em>
+            <br />
+            studio in Auckland.
           </h1>
 
           <p className="hero-sub fade-up fade-up-3">
-            Premium agency-style websites, web apps, and brand systems for ambitious businesses
-            that want a stronger digital first impression.
+            Armedia builds Next.js websites, React web apps, SEO-ready landing pages, and
+            AI-enabled workflows for Auckland and New Zealand businesses that need a sharper
+            digital first impression.
           </p>
 
           <div className="hero-actions fade-up fade-up-4">
             <Link className="btn-primary" href="/contact">
-              Start a project <span className="btn-arrow">→</span>
+              Book a free strategy call <span className="btn-arrow">-&gt;</span>
             </Link>
             <Link className="btn-ghost" href="/services">
-              Explore services
+              View Auckland web services
             </Link>
           </div>
 
-          {/* Stats */}
+          <p className="hero-sub fade-up fade-up-4">
+            Auckland-based, performance-focused, and built around clear communication from first
+            scope to launch.
+          </p>
+
           <div className="stats-strip reveal">
-            {stats.map((s) => (
-              <div className="stat-item" key={s.label}>
+            {stats.map((stat) => (
+              <div className="stat-item" key={stat.label}>
                 <div className="stat-num">
-                  <span className="count" data-target={s.num}>0</span>
-                  <span>{s.suffix}</span>
+                  <span className="count" data-target={stat.num}>{stat.num}</span>
+                  <span>{stat.suffix}</span>
                 </div>
-                <div className="stat-label">{s.label}</div>
+                <div className="stat-label">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── TICKER ── */}
       <div className="ticker" aria-hidden="true">
         <div className="ticker-inner">
-          {doubledTicker.map((item, i) => (
-            <span className="ticker-item" key={i}>
+          {doubledTicker.map((item, index) => (
+            <span className="ticker-item" key={`${item}-${index}`}>
               <span className="ticker-dot" />
               {item}
             </span>
@@ -194,48 +297,51 @@ function HomePage() {
         </div>
       </div>
 
-      {/* ── CAPABILITIES (BENTO) ── */}
       <section className="hp-section reveal" aria-labelledby="cap-heading">
         <div className="section-top">
           <div>
             <p className="section-tag">Capabilities</p>
             <h2 className="section-h2" id="cap-heading">
-              Everything needed<br />to launch, refine &amp; scale.
+              Everything needed
+              <br />
+              to launch, refine &amp; scale.
             </h2>
           </div>
           <p className="section-desc">
-            We group our deep expertise into clear lanes so every engagement starts with
-            clarity and ends with results.
+            Six practical service lanes covering strategy, design, engineering, search, commerce,
+            integrations, and AI-enabled operations.
           </p>
         </div>
 
         <div className="bento">
-          {bentoServices.map((s) => (
-            <article className={`bento-card ${s.cardClass}`} key={s.cardClass}>
-              {s.largeNum ? (
-                <>
-                  <div className="bento-large-num"><span>{s.largeNum}</span></div>
-                  <p className="bento-sub">{s.sub}</p>
-                </>
-              ) : s.inline ? (
+          {bentoServices.map((service) => (
+            <article className={`bento-card ${service.cardClass}`} key={service.title}>
+              {service.inline ? (
                 <>
                   <div className="bento-inline-head">
-                    <span className={`bento-icon ${s.iconClass}`}>{s.icon}</span>
-                    <h3 className="bento-title">{s.title}</h3>
+                    <span className={`bento-icon ${service.iconClass}`}>{service.icon}</span>
+                    <h3 className="bento-title">{service.title}</h3>
                   </div>
-                  <p className="bento-sub">{s.sub}</p>
+                  <p className="bento-sub">{service.sub}</p>
+                  <div className="bento-tag-list">
+                    {service.tags.map((tag) => (
+                      <span className="bento-tag" key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                  <Link className="text-link" href="/contact">Request quote</Link>
                 </>
               ) : (
                 <>
-                  <span className={`bento-icon ${s.iconClass}`}>{s.icon}</span>
+                  <span className={`bento-icon ${service.iconClass}`}>{service.icon}</span>
                   <div>
-                    {s.title && <h3 className="bento-title">{s.title}</h3>}
-                    <p className="bento-sub">{s.sub}</p>
-                    {s.tags.length > 0 && (
-                      <div className="bento-tag-list">
-                        {s.tags.map((t) => <span className="bento-tag" key={t}>{t}</span>)}
-                      </div>
-                    )}
+                    <h3 className="bento-title">{service.title}</h3>
+                    <p className="bento-sub">{service.sub}</p>
+                    <div className="bento-tag-list">
+                      {service.tags.map((tag) => (
+                        <span className="bento-tag" key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                    <Link className="text-link" href="/contact">Request quote</Link>
                   </div>
                 </>
               )}
@@ -244,48 +350,107 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ── PROCESS ── */}
       <section className="hp-section hp-section-tight reveal" aria-labelledby="proc-heading">
         <p className="section-tag">Process</p>
         <h2 className="section-h2" id="proc-heading">How we work</h2>
         <div className="process-grid">
-          {processSteps.map((s) => (
-            <div className="process-step" key={s.num}>
-              <div className="step-num">{s.num}</div>
-              <div className="step-title">{s.title}</div>
-              <p className="step-desc">{s.desc}</p>
+          {processSteps.map((step) => (
+            <div className="process-step" key={step.num}>
+              <div className="step-num">{step.num}</div>
+              <div className="step-title">{step.title}</div>
+              <p className="step-desc">{step.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── SELECTED WORK ── */}
-    
+      <section className="hp-section hp-section-tight reveal" aria-labelledby="work-heading">
+        <div className="section-top">
+          <div>
+            <p className="section-tag">Portfolio</p>
+            <h2 className="section-h2" id="work-heading">Selected project formats</h2>
+          </div>
+          <p className="section-desc">
+            Live project URLs and full client feedback are shared only when approved. These
+            examples show the metrics, technology, and outcomes we document for every build.
+          </p>
+        </div>
 
-      {/* ── PHILOSOPHY ── */}
+        <div className="work-grid">
+          {portfolioProjects.map((project, index) => (
+            <article className="work-card" key={project.title}>
+              <div className={`work-thumb ${project.thumb}`}>
+                <span className="work-badge">{project.badge}</span>
+                <span className="work-thumb-inner">{String(index + 1).padStart(2, '0')}</span>
+              </div>
+              <div className="work-info">
+                <h3 className="work-title">{project.title}</h3>
+                <p className="work-desc">{project.description}</p>
+                <p className="work-desc">
+                  <strong>Metric:</strong> {project.metric}
+                  <br />
+                  <strong>Client feedback:</strong> {project.feedback}
+                </p>
+                <div className="work-tags">
+                  {project.tags.map((tag) => (
+                    <span className="work-tag" key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="hp-section hp-section-tight reveal" aria-labelledby="phil-heading">
         <p className="section-tag">Philosophy</p>
         <h2 className="section-h2" id="phil-heading">Our core principles</h2>
         <div className="philosophy-grid">
-          {philosophyCards.map((c) => (
-            <article className="phil-card" key={c.title}>
-              <div className="phil-icon">{c.icon}</div>
-              <h3 className="phil-title">{c.title}</h3>
+          {philosophyCards.map((card) => (
+            <article className="phil-card" key={card.title}>
+              <div className="phil-icon">{card.icon}</div>
+              <h3 className="phil-title">{card.title}</h3>
               <ul className="phil-points">
-                {c.points.map((p) => <li key={p}>{p}</li>)}
+                {card.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
               </ul>
             </article>
           ))}
         </div>
       </section>
 
-      {/* ── TEAM ── */}
-     
+      <section className="hp-section hp-section-tight reveal" aria-labelledby="proof-heading">
+        <div className="section-top">
+          <div>
+            <p className="section-tag">Testimonials</p>
+            <h2 className="section-h2" id="proof-heading">Verified proof only</h2>
+          </div>
+          <p className="section-desc">
+            Placeholder testimonial content has been removed. This area is ready for real Google
+            reviews or approved client quotes.
+          </p>
+        </div>
 
-      {/* ── TESTIMONIALS ── */}
-      
+        <div className="testi-grid">
+          {proofNotes.map((note, index) => (
+            <article className="testi-card" key={note.name}>
+              <div className="testi-quote-mark">"</div>
+              <p className="testi-quote">{note.quote}</p>
+              <div className="testi-author">
+                <span className={`testi-dot ${index === 0 ? 'td1' : 'td2'}`}>
+                  {index === 0 ? 'AR' : 'GR'}
+                </span>
+                <div>
+                  <p className="testi-name">{note.name}</p>
+                  <p className="testi-role-label">{note.role}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
-      {/* ── INSIGHTS ── */}
       <section className="hp-section hp-section-tight reveal" aria-labelledby="ins-heading">
         <div className="section-top">
           <div>
@@ -294,26 +459,23 @@ function HomePage() {
           </div>
         </div>
         <div className="insights-grid">
-          {insights.map((ins) => (
-            <article className="insight-card" key={ins.title}>
-              <div className={`insight-thumb ${ins.thumbClass}`}>
-                <span className="insight-thumb-label">{ins.thumbLabel}</span>
+          {insights.map((insight) => (
+            <article className="insight-card" key={insight.title}>
+              <div className={`insight-thumb ${insight.thumbClass}`}>
+                <span className="insight-thumb-label">{insight.thumbLabel}</span>
               </div>
               <div className="insight-body">
                 <div className="insight-meta">
-                  <span className="insight-category">{ins.category}</span>
-                  <span className="insight-date">{ins.date}</span>
+                  <span className="insight-category">{insight.category}</span>
+                  <span className="insight-date">{insight.date}</span>
                 </div>
-                <h3 className="insight-title">{ins.title}</h3>
-                <p className="insight-desc">{ins.desc}</p>
+                <h3 className="insight-title">{insight.title}</h3>
+                <p className="insight-desc">{insight.desc}</p>
               </div>
             </article>
           ))}
         </div>
       </section>
-
-      {/* ── CTA ── */}
-    
     </div>
   )
 }

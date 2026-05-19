@@ -98,23 +98,23 @@ export const processSteps = [
 export const testimonials = [
   {
     quote:
-      'Northstar Studio made the whole process feel calm and clear, and the final site lifted our brand immediately.',
-    name: 'Michael Pearce',
-    role: 'Managing Director',
+      'Verified client reviews are shown only after client approval or after connecting a public review source.',
+    name: 'Armedia review policy',
+    role: 'No placeholder testimonials',
   },
   {
     quote:
-      'The team cared about the details, but they also kept the bigger picture in focus. That balance is rare.',
-    name: 'Emma Bell-Norris',
-    role: 'Marketing Manager',
+      'Google reviews can be connected here once the live Business Profile review feed is available.',
+    name: 'Google reviews',
+    role: 'Ready for verified reviews',
   },
 ]
 
 export const clients = [
-  'Breast Cancer Foundation NZ',
-  'IWG Insight Hub',
-  'SPCA',
-  'Cure Kids',
-  'Stuff',
-  'Auckland Arts Festival',
+  'Auckland service businesses',
+  'NZ e-commerce teams',
+  'Healthcare and wellness brands',
+  'Professional service firms',
+  'Startup product teams',
+  'Growth-focused operators',
 ]

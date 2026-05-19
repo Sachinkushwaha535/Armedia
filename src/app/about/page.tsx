@@ -4,14 +4,17 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 
 export const metadata: Metadata = {
-  title: 'About | Auckland Digital Studio for Strategy, Design & Engineering',
+  title: 'About Armedia | Founder-Led Auckland Web Design & React Studio',
   description:
-    'Learn about Armedia, an Auckland digital studio combining strategy, UX/UI design, React, TypeScript, and modern engineering to build fast, trusted digital products.',
+    'Learn about Armedia, a founder-led Auckland digital studio for premium web design, React development, Next.js websites, SEO, API integrations, and AI workflows.',
   keywords: [
     'about Armedia',
+    'founder led Auckland digital studio',
     'Auckland digital studio',
+    'web design Auckland team',
     'digital strategy',
     'React development',
+    'Next.js development',
     'TypeScript development',
     'website design agency',
     'technology consulting',
@@ -20,10 +23,16 @@ export const metadata: Metadata = {
     canonical: '/about',
   },
   openGraph: {
-    title: 'About Armedia | Auckland Digital Studio',
+    title: 'About Armedia | Founder-Led Auckland Digital Studio',
     description:
-      'Strategy, design, and dependable engineering for websites, web apps, and digital growth systems.',
+      'Founder-led strategy, design, React development, SEO, integrations, and AI workflow thinking for websites and digital growth systems.',
     url: '/about',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Armedia | Founder-Led Auckland Digital Studio',
+    description:
+      'Premium web design, React development, Next.js delivery, SEO, API integrations, and AI workflows from Auckland.',
   },
 }
 
