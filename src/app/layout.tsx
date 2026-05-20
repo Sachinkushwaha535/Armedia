@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import ChatWidget from '../components/ChatWidget'
 import '../index.css'
 import '../App.css'
 
@@ -8,11 +9,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Armedia | IT Services, Web Development & AI Solutions in Auckland',
+    default: 'Armedia | Web Design Auckland, React Development NZ & AI Solutions',
     template: '%s | Armedia',
   },
   description:
-    'Armedia is an Auckland digital studio offering web development, AI solutions, data analytics, cybersecurity, mobile apps, UX/UI design, lead generation, and IT consulting.',
+    'Armedia is an Auckland digital studio for premium web design, React development, Next.js websites, SEO, e-commerce, API integrations, and AI solutions.',
   applicationName: 'Armedia',
   authors: [{ name: 'Armedia' }],
   creator: 'Armedia',
@@ -21,10 +22,16 @@ export const metadata: Metadata = {
   keywords: [
     'Armedia',
     'Armedia Auckland',
-    'IT services Auckland',
+    'Web Design Auckland',
+    'React Development NZ',
+    'Next.js Agency NZ',
     'web development Auckland',
     'website design Auckland',
+    'premium web design Auckland',
     'AI solutions New Zealand',
+    'API integration Auckland',
+    'ecommerce website Auckland',
+    'technical SEO Auckland',
     'data analytics services',
     'cybersecurity services',
     'mobile app development',
@@ -43,15 +50,15 @@ export const metadata: Metadata = {
     locale: 'en_NZ',
     url: '/',
     siteName: 'Armedia',
-    title: 'Armedia | IT Services, Web Development & AI Solutions in Auckland',
+    title: 'Armedia | Web Design Auckland, React Development NZ & AI Solutions',
     description:
-      'Auckland digital studio for web development, AI solutions, data analytics, cybersecurity, mobile apps, UX/UI design, and business growth systems.',
+      'Auckland digital studio for premium web design, React development, Next.js websites, SEO, e-commerce, API integrations, and AI solutions.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Armedia | IT Services, Web Development & AI Solutions in Auckland',
+    title: 'Armedia | Web Design Auckland, React Development NZ & AI Solutions',
     description:
-      'Web development, AI, data, cybersecurity, mobile apps, UX/UI design, and IT consulting for growing businesses.',
+      'Premium web design, React development, Next.js websites, SEO, e-commerce, API integrations, and AI solutions for growing businesses.',
   },
   robots: {
     index: true,
@@ -66,10 +73,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/logo-icon.png', type: 'image/png' },
     ],
-    shortcut: '/favicon.svg',
+    shortcut: '/logo-icon.png',
+    apple: '/logo-icon.png',
   },
 }
 
@@ -91,9 +98,15 @@ export default function RootLayout({
     },
     areaServed: ['Auckland', 'New Zealand', 'Australia'],
     description:
-      'Armedia provides web development, AI solutions, data analytics, cybersecurity, mobile app development, UX/UI design, lead generation, workflow automation, and IT consulting.',
+      'Armedia provides premium web design, React development, Next.js websites, SEO, e-commerce, API integration, AI solutions, workflow automation, and IT consulting.',
     serviceType: [
+      'Web Design Auckland',
+      'React Development NZ',
+      'Next.js Agency NZ',
       'Web Development',
+      'SEO',
+      'E-commerce',
+      'API Integration',
       'AI Solutions',
       'Data Solutions',
       'Cybersecurity',
@@ -115,6 +128,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         {children}
+        <ChatWidget /> 
       </body>
     </html>
   )

@@ -4,11 +4,15 @@ import Header from '../../components/Header'
 import ServicesPage from '../../components/ServicesPage'
 
 export const metadata: Metadata = {
-  title: 'Services | Web Development, AI, Data, Cybersecurity & Apps',
+  title: 'Services | Web Design Auckland, React Developers NZ, SEO & Ecommerce',
   description:
-    'Explore Armedia services including web development, AI agents, data engineering, cybersecurity, mobile app development, UX/UI design, IT consulting, lead generation, and workflow automation.',
+    'Explore Armedia services including Web Design Auckland, React Developers NZ, SEO Agency Auckland, Ecommerce Website Auckland, AI agents, data, cybersecurity, and integrations.',
   keywords: [
     'Armedia services',
+    'Web Design Auckland',
+    'React Developers NZ',
+    'SEO Agency Auckland',
+    'Ecommerce Website Auckland',
     'web development services',
     'AI agents development',
     'custom AI solutions',
@@ -27,9 +31,9 @@ export const metadata: Metadata = {
     canonical: '/services',
   },
   openGraph: {
-    title: 'Armedia Services | Web Development, AI, Data, Cybersecurity & Apps',
+    title: 'Armedia Services | Web Design, React, SEO, Ecommerce & AI',
     description:
-      'Professional IT and creative digital services for business growth, from web apps and AI automation to cybersecurity and analytics.',
+      'Dedicated service pages for web design, React development, SEO, ecommerce, AI automation, integrations, and digital growth systems.',
     url: '/services',
   },
 }
