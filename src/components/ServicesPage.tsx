@@ -76,55 +76,98 @@ const serviceIcons = {
     </svg>
   ),
   ai: (
-    <svg viewBox="0 0 24 24">
+    <svg viewBox="0 0 24 24" role="img" aria-label="AI icon">
       <circle cx="12" cy="12" r="9" />
       <path d="M8 12h8" />
       <path d="M12 8v8" />
     </svg>
   ),
+  rag: (
+    <svg viewBox="0 0 24 24" role="img" aria-label="RAG & Knowledge Systems icon">
+      <path d="M9 3H5a2 2 0 0 0-2 2v4" />
+      <path d="M21 3h-4" />
+      <path d="M15 3h-4v2c0 1 .5 2 1.5 2.5L14 9" />
+      <path d="M3 13v4a2 2 0 0 0 2 2h4" />
+      <path d="M21 13v4a2 2 0 0 0-2 2h-4" />
+      <circle cx="12" cy="13" r="3" />
+    </svg>
+  ),
+  agents: (
+    <svg viewBox="0 0 24 24" role="img" aria-label="AI Agents icon">
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 4v2M12 18v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M6.3 17.7l1.4-1.4M16.3 7.7l1.4-1.4" />
+    </svg>
+  ),
+  finetune: (
+    <svg viewBox="0 0 24 24" role="img" aria-label="LLM fine-tuning icon">
+      <path d="M12 2L2 7l10 5 10-5-10-5z" />
+      <path d="M2 17l10 5 10-5" />
+      <path d="M2 12l10 5 10-5" />
+    </svg>
+  ),
+  aiapi: (
+    <svg viewBox="0 0 24 24" role="img" aria-label="AI API integration icon">
+      <path d="m9 8-4 4 4 4" />
+      <path d="m15 8 4 4-4 4" />
+      <path d="M12 5v14" />
+    </svg>
+  ),
+  aistrategy: (
+    <svg viewBox="0 0 24 24" role="img" aria-label="AI strategy icon">
+      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+      <line x1="4" y1="22" x2="4" y2="15" />
+    </svg>
+  ),
+  docai: (
+    <svg viewBox="0 0 24 24" role="img" aria-label="AI Document Processing icon">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <path d="M14 2v6h6" />
+      <path d="M8 13h8" />
+      <path d="M8 17h5" />
+      <path d="M10 9H8" />
+    </svg>
+  ),
   leads: (
-  <svg viewBox="0 0 24 24" role="img" aria-label="Lead generation icon">
-    <circle cx="12" cy="8" r="3" />
-    <path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" />
-    <path d="M19 5v4" />
-    <path d="M17 7h4" />
-  </svg>
-),
-
-workflow: (
-  <svg viewBox="0 0 24 24" role="img" aria-label="Workflow development icon">
-    <rect x="3" y="4" width="6" height="6" rx="1" />
-    <rect x="15" y="14" width="6" height="6" rx="1" />
-    <path d="M9 7h6" />
-    <path d="M15 7v7" />
-    <path d="M12 14h3" />
-  </svg>
-),
-
-procurement: (
-  <svg viewBox="0 0 24 24" role="img" aria-label="Procurement services icon">
-    <path d="M4 7h16" />
-    <path d="M6 7l1.5 11h9L18 7" />
-    <path d="M9 11h6" />
-    <path d="M10 14h4" />
-  </svg>
-),
-
-framework: (
-  <svg viewBox="0 0 24 24" role="img" aria-label="Strategic framework icon">
-    <rect x="3" y="3" width="7" height="7" rx="1" />
-    <rect x="14" y="3" width="7" height="7" rx="1" />
-    <rect x="3" y="14" width="7" height="7" rx="1" />
-    <rect x="14" y="14" width="7" height="7" rx="1" />
-    <path d="M10 6.5h4" />
-    <path d="M6.5 10v4" />
-    <path d="M17.5 10v4" />
-    <path d="M10 17.5h4" />
-  </svg>
-),
-}
+    <svg viewBox="0 0 24 24" role="img" aria-label="Lead generation icon">
+      <circle cx="12" cy="8" r="3" />
+      <path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" />
+      <path d="M19 5v4" />
+      <path d="M17 7h4" />
+    </svg>
+  ),
+  workflow: (
+    <svg viewBox="0 0 24 24" role="img" aria-label="Workflow development icon">
+      <rect x="3" y="4" width="6" height="6" rx="1" />
+      <rect x="15" y="14" width="6" height="6" rx="1" />
+      <path d="M9 7h6" />
+      <path d="M15 7v7" />
+      <path d="M12 14h3" />
+    </svg>
+  ),
+  procurement: (
+    <svg viewBox="0 0 24 24" role="img" aria-label="Procurement services icon">
+      <path d="M4 7h16" />
+      <path d="M6 7l1.5 11h9L18 7" />
+      <path d="M9 11h6" />
+      <path d="M10 14h4" />
+    </svg>
+  ),
+  framework: (
+    <svg viewBox="0 0 24 24" role="img" aria-label="Strategic framework icon">
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+      <path d="M10 6.5h4" />
+      <path d="M6.5 10v4" />
+      <path d="M17.5 10v4" />
+      <path d="M10 17.5h4" />
+    </svg>
+  ),
+} // ✅ serviceIcons closes here
 
 const serviceCards = [
+  // ─── Data ───────────────────────────────────────────────
   {
     id: 'data',
     title: 'Data Solutions',
@@ -133,23 +176,123 @@ const serviceCards = [
       'ETL Development',
       'Data Warehousing',
       'Business Intelligence & Dashboards',
-      'Data Analytics & Reporting'
+      'Data Analytics & Reporting',
+    ],
+    icon: 'data',
+  },
+
+  // ─── AI (all specific cards, old generic card removed) ──
+  {
+    id: 'ai-agents',
+    title: 'AI Agents',
+    items: [
+      'Autonomous task agents',
+      'Multi-agent orchestration',
+      'Tool-use & function calling',
+      'Long-running agent pipelines',
+      'Human-in-the-loop agents',
+    ],
+    icon: 'agents',
+  },
+  {
+    id: 'rag',
+    title: 'RAG & Knowledge Systems',
+    items: [
+      'Retrieval-augmented generation',
+      'Vector database setup',
+      'Document Q&A systems',
+      'Semantic search pipelines',
+      'Knowledge base integration',
+    ],
+    icon: 'rag',
+  },
+  {
+    id: 'chatbots',
+    title: 'Chatbots & Assistants',
+    items: [
+      'LLM-powered chat interfaces',
+      'Voice AI assistants',
+      'Customer support bots',
+      'Internal team assistants',
+      'Multi-language support',
+    ],
+    icon: 'ai',
+  },
+  {
+    id: 'ai-automation',
+    title: 'AI Workflow Automation',
+    items: [
+      'n8n / Make / Zapier AI flows',
+      'Document processing pipelines',
+      'Email & calendar automation',
+      'Trigger-based AI actions',
+      'No-code + custom automation',
+    ],
+    icon: 'workflow',
+  },
+  {
+    id: 'fine-tuning',
+    title: 'LLM Fine-Tuning',
+    items: [
+      'Custom model fine-tuning',
+      'Domain-specific training data',
+      'Prompt engineering & evals',
+      'Model distillation',
+      'RLHF / preference tuning',
+    ],
+    icon: 'finetune',
+  },
+  {
+    id: 'ai-api',
+    title: 'AI API Integration',
+    items: [
+      'OpenAI / Claude / Gemini APIs',
+      'LangChain & LlamaIndex',
+      'Custom AI middleware',
+      'Streaming response handling',
+      'Rate limiting & cost control',
+    ],
+    icon: 'aiapi',
+  },
+  {
+    id: 'ai-strategy',
+    title: 'AI Strategy & Consulting',
+    items: [
+      'AI readiness assessment',
+      'Use-case discovery workshops',
+      'Build vs buy analysis',
+      'AI governance & ethics',
+      'ROI modeling for AI projects',
+    ],
+    icon: 'aistrategy',
+  },
+  {
+    id: 'predictive',
+    title: 'Predictive Analytics',
+    items: [
+      'Demand forecasting',
+      'Churn prediction models',
+      'Anomaly detection',
+      'Recommendation engines',
+      'Scoring & ranking systems',
     ],
     icon: 'data',
   },
   {
-    id: 'ai',
-    title: 'AI Solutions',
+    id: 'doc-ai',
+    title: 'AI Document Processing',
     items: [
-      'AI Agents Development',
-      'Custom AI Solutions',
-      'Machine Learning Models',
-      'Predictive Analytics',
-      'AI Automation Workflows',
-      'Chatbots & Virtual Assistants'
+      'Intelligent document extraction',
+      'OCR + AI data capture',
+      'Contract & invoice analysis',
+      'Auto classification & tagging',
+      'Multi-format parsing (PDF, Word, Excel)',
+      'Summarization & report generation',
     ],
-    icon: 'ai',
+    icon: 'docai',
   },
+
+  // ─── Other Services ──────────────────────────────────────
   {
     id: 'cybersecurity',
     title: 'Cybersecurity & Compliance',
@@ -158,7 +301,7 @@ const serviceCards = [
       'Network defense',
       'Risk management',
       'Security audits',
-      'Compliance solutions'
+      'Compliance solutions',
     ],
     icon: 'security',
   },
@@ -170,7 +313,7 @@ const serviceCards = [
       'E-commerce',
       'Responsive design',
       'SEO optimization',
-      'Performance tuning'
+      'Performance tuning',
     ],
     icon: 'web',
   },
@@ -182,7 +325,7 @@ const serviceCards = [
       'Play Store and App Store deployment',
       'API & Firebase integration',
       'Swift / Objective-C / Kotlin',
-      'Performance tuning & optimization'
+      'Performance tuning & optimization',
     ],
     icon: 'mobile',
   },
@@ -194,7 +337,7 @@ const serviceCards = [
       'Prototyping',
       'Design systems',
       'Wireframing',
-      'Usability testing'
+      'Usability testing',
     ],
     icon: 'design',
   },
@@ -206,7 +349,7 @@ const serviceCards = [
       'Cloud-native solutions',
       'Full-stack development',
       'Microservices',
-      'Scalable systems'
+      'Scalable systems',
     ],
     icon: 'code',
   },
@@ -218,7 +361,7 @@ const serviceCards = [
       'Process optimization',
       'Strategic planning',
       'Digital transformation',
-      'Technology roadmap'
+      'Technology roadmap',
     ],
     icon: 'strategy',
   },
@@ -230,7 +373,7 @@ const serviceCards = [
       'Email marketing campaigns',
       'Sales funnel optimization',
       'CRM integration',
-      'Conversion tracking'
+      'Conversion tracking',
     ],
     icon: 'leads',
   },
@@ -242,7 +385,7 @@ const serviceCards = [
       'Custom workflow systems',
       'Integration with tools',
       'Task automation',
-      'Efficiency optimization'
+      'Efficiency optimization',
     ],
     icon: 'workflow',
   },
@@ -254,7 +397,7 @@ const serviceCards = [
       'Cost optimization',
       'Supply chain management',
       'Contract negotiation',
-      'Procurement strategy'
+      'Procurement strategy',
     ],
     icon: 'procurement',
   },
@@ -266,7 +409,7 @@ const serviceCards = [
       'Growth planning',
       'Market analysis',
       'Operational frameworks',
-      'KPI & performance tracking'
+      'KPI & performance tracking',
     ],
     icon: 'framework',
   },
@@ -347,4 +490,3 @@ function ServicesPage() {
 }
 
 export default ServicesPage
-
