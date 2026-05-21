@@ -7,7 +7,7 @@ const footerGroups = [
   {
     title: 'Company',
     links: [
-      { label: 'About', href: '/about' },
+      // { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
     ],
   },

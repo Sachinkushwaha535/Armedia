@@ -82,8 +82,8 @@ function ContactPage() {
           </ul>
 
           <div className="contact-details">
-            <a href="mailto:hello@armedia.co.nz">
-              hello@armedia.co.nz
+            <a href="mailto:contact.armedianz@gmail.com" className="text-link">
+              contact.armedianz@gmail.com
             </a>
 
             <p>Auckland, New Zealand</p>
