@@ -9,7 +9,7 @@ export type NavItem = {
 export const navItems: NavItem[] = [
   { key: 'home', label: 'Home', path: '/' },
   { key: 'services', label: 'Services', path: '/services' },
-  { key: 'about', label: 'About', path: '/about' },
+  // { key: 'about', label: 'About', path: '/about' },
   { key: 'contact', label: 'Contact', path: '/contact' },
 ]
 

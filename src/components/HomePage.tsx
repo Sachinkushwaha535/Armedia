@@ -68,7 +68,7 @@ const bentoServices = [
     icon: '◈',
     iconClass: 'lime',
     title: 'Web Design Auckland',
-    sub: 'Premium landing pages and business websites shaped around trust, clarity, conversion, and mobile performance. From NZD 2,500.',
+    sub: 'Premium landing pages and business websites shaped around trust, clarity, conversion, and mobile performance.',
     tags: ['Figma', 'Responsive UI', 'Brand systems', 'Result: stronger enquiries'],
     cardClass: 'bc1 bc-accent',
   },
@@ -76,7 +76,7 @@ const bentoServices = [
     icon: '⚛',
     iconClass: 'cyan',
     title: 'React Development',
-    sub: 'Fast React and TypeScript interfaces for dashboards, portals, content platforms, and customer-facing web apps. From NZD 4,000.',
+    sub: 'Fast React and TypeScript interfaces for dashboards, portals, content platforms, and customer-facing web apps.',
     tags: ['React', 'TypeScript', 'Component systems', 'Result: scalable frontends'],
     cardClass: 'bc2',
   },
@@ -84,7 +84,7 @@ const bentoServices = [
     icon: '⌕',
     iconClass: 'orange',
     title: 'SEO',
-    sub: 'Technical SEO, content structure, metadata, schema, and Core Web Vitals improvements for New Zealand search visibility. From NZD 900.',
+    sub: 'Technical SEO, content structure, metadata, schema, and Core Web Vitals improvements for New Zealand search visibility.',
     tags: ['Metadata', 'Schema', 'Core Web Vitals', 'Result: better discoverability'],
     cardClass: 'bc3',
   },
@@ -92,7 +92,7 @@ const bentoServices = [
     icon: '◉',
     iconClass: 'lime',
     title: 'E-commerce',
-    sub: 'Conversion-focused storefronts, product journeys, checkout improvements, and analytics for growing online stores. From NZD 5,500.',
+    sub: 'Conversion-focused storefronts, product journeys, checkout improvements, and analytics for growing online stores.',
     tags: ['Shopify', 'Next.js', 'Payments', 'Result: cleaner buying paths'],
     cardClass: 'bc4',
   },
@@ -100,7 +100,7 @@ const bentoServices = [
     icon: '⇄',
     iconClass: 'white',
     title: 'API Integration',
-    sub: 'CRM, booking, analytics, payment, email, and internal tools connected with reliable API workflows. From NZD 1,800.',
+    sub: 'CRM, booking, analytics, payment, email, and internal tools connected with reliable API workflows.',
     tags: ['REST APIs', 'Webhooks', 'CRM', 'Result: less manual admin'],
     cardClass: 'bc5 bc-orange',
   },
@@ -108,7 +108,7 @@ const bentoServices = [
     icon: '✦',
     iconClass: 'cyan',
     title: 'AI Solutions',
-    sub: 'AI agents, content workflows, support assistants, and automation systems for practical business operations. From NZD 2,200.',
+    sub: 'AI agents, content workflows, support assistants, and automation systems for practical business operations.',
     tags: ['AI agents', 'Automation', 'Knowledge bases', 'Result: faster operations'],
     cardClass: 'bc7',
     inline: true,
@@ -313,41 +313,39 @@ function HomePage() {
           </p>
         </div>
 
-        <div className="bento">
-          {bentoServices.map((service) => (
-            <article className={`bento-card ${service.cardClass}`} key={service.title}>
-              {service.inline ? (
-                <>
-                  <div className="bento-inline-head">
-                    <span className={`bento-icon ${service.iconClass}`}>{service.icon}</span>
-                    <h3 className="bento-title">{service.title}</h3>
-                  </div>
-                  <p className="bento-sub">{service.sub}</p>
-                  <div className="bento-tag-list">
-                    {service.tags.map((tag) => (
-                      <span className="bento-tag" key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                  <Link className="text-link" href="/contact">Request quote</Link>
-                </>
-              ) : (
-                <>
-                  <span className={`bento-icon ${service.iconClass}`}>{service.icon}</span>
-                  <div>
-                    <h3 className="bento-title">{service.title}</h3>
-                    <p className="bento-sub">{service.sub}</p>
-                    <div className="bento-tag-list">
-                      {service.tags.map((tag) => (
-                        <span className="bento-tag" key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                    <Link className="text-link" href="/contact">Request quote</Link>
-                  </div>
-                </>
-              )}
-            </article>
-          ))}
-        </div>
+       <div className="bento">
+  {bentoServices.map((service) => (
+    <article className={`bento-card ${service.cardClass}`} key={service.title}>
+      {service.inline ? (
+        <>
+          <div className="bento-inline-head">
+            <span className={`bento-icon ${service.iconClass}`}>{service.icon}</span>
+            <h3 className="bento-title">{service.title}</h3>
+          </div>
+          <p className="bento-sub">{service.sub}</p>
+          <div className="bento-tag-list">
+            {service.tags.map((tag) => (
+              <span className="bento-tag" key={tag}>{tag}</span>
+            ))}
+          </div>
+          <Link className="text-link" href="/contact">Request quote</Link>
+        </>
+      ) : (
+        <>
+          <span className={`bento-icon ${service.iconClass}`}>{service.icon}</span>
+          <h3 className="bento-title">{service.title}</h3>
+          <p className="bento-sub">{service.sub}</p>
+          <div className="bento-tag-list">
+            {service.tags.map((tag) => (
+              <span className="bento-tag" key={tag}>{tag}</span>
+            ))}
+          </div>
+          <Link className="text-link" href="/contact">Request quote</Link>
+        </>
+      )}
+    </article>
+  ))}
+</div>
       </section>
 
       <section className="hp-section hp-section-tight reveal" aria-labelledby="proc-heading">
@@ -364,7 +362,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="hp-section hp-section-tight reveal" aria-labelledby="work-heading">
+      {/* <section className="hp-section hp-section-tight reveal" aria-labelledby="work-heading">
         <div className="section-top">
           <div>
             <p className="section-tag">Portfolio</p>
@@ -400,7 +398,7 @@ function HomePage() {
             </article>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <section className="hp-section hp-section-tight reveal" aria-labelledby="phil-heading">
         <p className="section-tag">Philosophy</p>
@@ -420,7 +418,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="hp-section hp-section-tight reveal" aria-labelledby="proof-heading">
+      {/* <section className="hp-section hp-section-tight reveal" aria-labelledby="proof-heading">
         <div className="section-top">
           <div>
             <p className="section-tag">Testimonials</p>
@@ -449,7 +447,7 @@ function HomePage() {
             </article>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <section className="hp-section hp-section-tight reveal" aria-labelledby="ins-heading">
         <div className="section-top">

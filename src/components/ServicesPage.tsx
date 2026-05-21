@@ -168,18 +168,18 @@ const serviceIcons = {
 
 const serviceCards = [
   // ─── Data ───────────────────────────────────────────────
-  {
-    id: 'data',
-    title: 'Data Solutions',
-    items: [
-      'Data Engineering & Pipelines',
-      'ETL Development',
-      'Data Warehousing',
-      'Business Intelligence & Dashboards',
-      'Data Analytics & Reporting',
-    ],
-    icon: 'data',
-  },
+  // {
+  //   id: 'data',
+  //   title: 'Data Solutions',
+  //   items: [
+  //     'Data Engineering & Pipelines',
+  //     'ETL Development',
+  //     'Data Warehousing',
+  //     'Business Intelligence & Dashboards',
+  //     'Data Analytics & Reporting',
+  //   ],
+  //   icon: 'data',
+  // },
 
   // ─── AI (all specific cards, old generic card removed) ──
   {
@@ -194,18 +194,18 @@ const serviceCards = [
     ],
     icon: 'agents',
   },
-  {
-    id: 'rag',
-    title: 'RAG & Knowledge Systems',
-    items: [
-      'Retrieval-augmented generation',
-      'Vector database setup',
-      'Document Q&A systems',
-      'Semantic search pipelines',
-      'Knowledge base integration',
-    ],
-    icon: 'rag',
-  },
+  // {
+  //   id: 'rag',
+  //   title: 'RAG & Knowledge Systems',
+  //   items: [
+  //     'Retrieval-augmented generation',
+  //     'Vector database setup',
+  //     'Document Q&A systems',
+  //     'Semantic search pipelines',
+  //     'Knowledge base integration',
+  //   ],
+  //   icon: 'rag',
+  // },
   {
     id: 'chatbots',
     title: 'Chatbots & Assistants',
@@ -230,18 +230,18 @@ const serviceCards = [
     ],
     icon: 'workflow',
   },
-  {
-    id: 'fine-tuning',
-    title: 'LLM Fine-Tuning',
-    items: [
-      'Custom model fine-tuning',
-      'Domain-specific training data',
-      'Prompt engineering & evals',
-      'Model distillation',
-      'RLHF / preference tuning',
-    ],
-    icon: 'finetune',
-  },
+  // {
+  //   id: 'fine-tuning',
+  //   title: 'LLM Fine-Tuning',
+  //   items: [
+  //     'Custom model fine-tuning',
+  //     'Domain-specific training data',
+  //     'Prompt engineering & evals',
+  //     'Model distillation',
+  //     'RLHF / preference tuning',
+  //   ],
+  //   icon: 'finetune',
+  // },
   {
     id: 'ai-api',
     title: 'AI API Integration',
