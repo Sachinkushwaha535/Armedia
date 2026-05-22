@@ -66,37 +66,64 @@ function ContactPage() {
       description="A premium inquiry panel inspired by the contact-focused layout."
     >
       <div className="contact-showcase">
-        
-        {/* LEFT INFO PANEL */}
         <div className="contact-aside">
           <p className="eyebrow">Let's talk</p>
 
           <h2>
-            We respond within 12 hours and keep the process clear.
+            Clear project guidance before we talk numbers.
           </h2>
+
+          <p className="contact-aside-copy">
+            Share the goal, timeline, and tools involved. We will reply with the next sensible
+            step instead of pushing a generic package.
+          </p>
 
           <ul className="contact-points">
             <li>We sign an NDA if requested</li>
-            <li>Access to dedicated consultant specialists</li>
-            <li>Premium website and web app projects</li>
+            <li>Strategy-first project scoping</li>
+            <li>Premium website, app, and AI workflow projects</li>
           </ul>
 
+          <div className="contact-metric-grid" aria-label="Contact highlights">
+            <div>
+              <strong>&lt;12h</strong>
+              <span>Typical reply</span>
+            </div>
+            <div>
+              <strong>30m</strong>
+              <span>Intro call</span>
+            </div>
+          </div>
+
           <div className="contact-details">
-            <a href="mailto:contact.armedianz@gmail.com" className="text-link">
-              contact.armedianz@gmail.com
-            </a>
+            <div className="contact-detail-row">
+              <span>Email</span>
+              <a href="mailto:contact.armedianz@gmail.com" className="text-link">
+                contact.armedianz@gmail.com
+              </a>
+            </div>
 
-            <p>Auckland, New Zealand</p>
+            <div className="contact-detail-row">
+              <span>Location</span>
+              <p>Auckland, New Zealand</p>
+            </div>
 
-            <Link className="text-link" href="/services">
-              Explore our services
-            </Link>
+            <div className="contact-detail-row">
+              <span>Services</span>
+              <Link className="text-link" href="/services">
+                Explore our services
+              </Link>
+            </div>
           </div>
         </div>
 
-
-        {/* CONTACT FORM */}
         <div className="contact-card">
+          <div className="contact-form-head">
+            <p className="eyebrow">Project inquiry</p>
+            <h2>Send the details</h2>
+            <p>Tell us enough to understand the opportunity. Short is fine.</p>
+          </div>
+
           <form
             className="contact-form"
             onSubmit={handleSubmit}

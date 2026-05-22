@@ -6,22 +6,22 @@ import { useEffect } from 'react'
 const philosophyCards = [
   {
     title: 'Clarity',
-    icon: '◈',
+    icon: '01',
     points: ['Transparent communication', 'Clear deliverables', 'Jargon-free process'],
   },
   {
     title: 'Quality',
-    icon: '✦',
+    icon: '02',
     points: ['Rigorous testing', 'Detailed craft', 'Uncompromising standards'],
   },
   {
     title: 'Speed',
-    icon: '➜',
+    icon: '03',
     points: ['Agile methodology', 'Rapid prototyping', 'Efficient workflows'],
   },
   {
     title: 'Growth',
-    icon: '⬢',
+    icon: '04',
     points: ['Built to scale', 'Future-proof tech', 'Continuous improvement'],
   },
 ]
@@ -65,7 +65,7 @@ const stats = [
 
 const bentoServices = [
   {
-    icon: '◈',
+    icon: 'WD',
     iconClass: 'lime',
     title: 'Web Design Auckland',
     sub: 'Premium landing pages and business websites shaped around trust, clarity, conversion, and mobile performance.',
@@ -73,7 +73,7 @@ const bentoServices = [
     cardClass: 'bc1 bc-accent',
   },
   {
-    icon: '⚛',
+    icon: 'RD',
     iconClass: 'cyan',
     title: 'React Development',
     sub: 'Fast React and TypeScript interfaces for dashboards, portals, content platforms, and customer-facing web apps.',
@@ -81,7 +81,7 @@ const bentoServices = [
     cardClass: 'bc2',
   },
   {
-    icon: '⌕',
+    icon: 'SEO',
     iconClass: 'orange',
     title: 'SEO',
     sub: 'Technical SEO, content structure, metadata, schema, and Core Web Vitals improvements for New Zealand search visibility.',
@@ -89,7 +89,7 @@ const bentoServices = [
     cardClass: 'bc3',
   },
   {
-    icon: '◉',
+    icon: 'EC',
     iconClass: 'lime',
     title: 'E-commerce',
     sub: 'Conversion-focused storefronts, product journeys, checkout improvements, and analytics for growing online stores.',
@@ -97,7 +97,7 @@ const bentoServices = [
     cardClass: 'bc4',
   },
   {
-    icon: '⇄',
+    icon: 'API',
     iconClass: 'white',
     title: 'API Integration',
     sub: 'CRM, booking, analytics, payment, email, and internal tools connected with reliable API workflows.',
@@ -105,7 +105,7 @@ const bentoServices = [
     cardClass: 'bc5 bc-orange',
   },
   {
-    icon: '✦',
+    icon: 'AI',
     iconClass: 'cyan',
     title: 'AI Solutions',
     sub: 'AI agents, content workflows, support assistants, and automation systems for practical business operations.',
@@ -121,51 +121,6 @@ const processSteps = [
   { num: '03', title: 'We design', desc: 'Premium, credible, and effortless to use.' },
   { num: '04', title: 'We build', desc: 'Fast, responsive code with careful attention to detail.' },
   { num: '05', title: 'We deliver', desc: 'Launch, test, refine, and support so it keeps performing.' },
-]
-
-const portfolioProjects = [
-  {
-    title: 'Healthcare Website System',
-    description: 'A trust-led website structure for a healthcare team with clear service paths, speed-focused pages, and accessible content patterns.',
-    badge: 'Live link on request',
-    thumb: 'wt1',
-    metric: 'Mobile-first UX',
-    feedback: 'Verified feedback pending publication',
-    tags: ['Next.js', 'Accessibility', 'SEO'],
-  },
-  {
-    title: 'E-commerce Growth Storefront',
-    description: 'A product-led storefront concept with refined collection pages, checkout guidance, tracking events, and a maintainable design system.',
-    badge: 'Case study',
-    thumb: 'wt2',
-    metric: 'Conversion-ready flow',
-    feedback: 'Client review approval in progress',
-    tags: ['React', 'Payments', 'Analytics'],
-  },
-  {
-    title: 'Service Business Lead Funnel',
-    description: 'A local Auckland lead-generation site with offer pages, contact flows, structured data, and landing-page copy for intent keywords.',
-    badge: 'Auckland SEO',
-    thumb: 'wt3',
-    metric: 'Enquiry-focused CTA',
-    feedback: 'Internal QA notes available',
-    tags: ['Web Design', 'Schema', 'Forms'],
-  },
-]
-
-const proofNotes = [
-  {
-    quote:
-      'Verified client reviews are not shown until they are approved by the client or connected from a public review source.',
-    name: 'Armedia review policy',
-    role: 'No placeholder testimonials',
-  },
-  {
-    quote:
-      'Google reviews can be embedded here once the live Business Profile review feed is connected.',
-    name: 'Google reviews',
-    role: 'Ready for verified source',
-  },
 ]
 
 function useScrollReveal() {
@@ -241,36 +196,84 @@ function HomePage() {
 
       <section className="hp-hero">
         <div className="hp-hero-inner">
-          <div className="hero-eyebrow fade-up fade-up-1">
-            <span className="eyebrow-dot" />
-            Auckland, NZ Digital Studio
+          <div className="hp-hero-shell">
+            <div className="hp-hero-copy">
+              <div className="hero-eyebrow fade-up fade-up-1">
+                <span className="eyebrow-dot" />
+                Auckland, NZ Digital Studio
+              </div>
+
+              <h1 className="hero-h1 fade-up fade-up-2">
+                Premium web design &amp; <em className="hero-em">React development</em>
+                <br />
+                studio in Auckland.
+              </h1>
+
+              <p className="hero-sub fade-up fade-up-3">
+                Armedia builds Next.js websites, React web apps, SEO-ready landing pages, and
+                AI-enabled workflows for Auckland and New Zealand businesses that need a sharper
+                digital first impression.
+              </p>
+
+              <ul className="hero-feature-list fade-up fade-up-3" aria-label="Key service strengths">
+                <li>Fast Next.js builds</li>
+                <li>SEO-ready structure</li>
+                <li>AI workflow options</li>
+              </ul>
+
+              <div className="hero-actions fade-up fade-up-4">
+                <Link className="btn-primary" href="/contact">
+                  Book a free strategy call <span className="btn-arrow">-&gt;</span>
+                </Link>
+                <Link className="btn-ghost" href="/services">
+                  View Auckland web services
+                </Link>
+              </div>
+
+              <p className="hero-sub hero-note fade-up fade-up-4">
+                Auckland-based, performance-focused, and built around clear communication from first
+                scope to launch.
+              </p>
+            </div>
+
+            <div className="hp-hero-media fade-up fade-up-3" aria-hidden="true">
+              <div className="hp-media-frame">
+                <div className="hp-media-toolbar">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <div className="hp-media-screen">
+                  <div className="hp-screen-row hp-screen-row-wide" />
+                  <div className="hp-screen-row" />
+                  <div className="hp-screen-grid">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="hp-screen-chart">
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                </div>
+              </div>
+              <div className="hp-float-card hp-float-card-top">
+                <span>Launch score</span>
+                <strong>98%</strong>
+              </div>
+              <div className="hp-float-card hp-float-card-bottom">
+                <span>Avg. handoff</span>
+                <strong>2-4 weeks</strong>
+              </div>
+              <div className="hp-proof-badge">
+                <strong>120+</strong>
+                <span>project conversations</span>
+              </div>
+            </div>
           </div>
-
-          <h1 className="hero-h1 fade-up fade-up-2">
-            Premium web design &amp; <em className="hero-em">React development</em>
-            <br />
-            studio in Auckland.
-          </h1>
-
-          <p className="hero-sub fade-up fade-up-3">
-            Armedia builds Next.js websites, React web apps, SEO-ready landing pages, and
-            AI-enabled workflows for Auckland and New Zealand businesses that need a sharper
-            digital first impression.
-          </p>
-
-          <div className="hero-actions fade-up fade-up-4">
-            <Link className="btn-primary" href="/contact">
-              Book a free strategy call <span className="btn-arrow">-&gt;</span>
-            </Link>
-            <Link className="btn-ghost" href="/services">
-              View Auckland web services
-            </Link>
-          </div>
-
-          <p className="hero-sub fade-up fade-up-4">
-            Auckland-based, performance-focused, and built around clear communication from first
-            scope to launch.
-          </p>
 
           <div className="stats-strip reveal">
             {stats.map((stat) => (

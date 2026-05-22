@@ -30,9 +30,19 @@ function ServiceLandingPage({
   portfolio,
   faq,
 }: ServiceLandingPageProps) {
+  const detailCards = [
+    { title: 'What is included', items: points },
+    { title: 'Business outcomes', items: outcomes },
+    { title: 'Benefits', items: benefits },
+    { title: 'Pricing', body: pricing },
+    { title: 'Timeline', items: timeline },
+    { title: 'Technologies', items: technologies },
+    { title: 'Portfolio fit', items: portfolio },
+  ]
+
   return (
-    <section className="page-shell section">
-      <div className="section-heading">
+    <section className="page-shell section service-landing">
+      <div className="section-heading service-landing-hero">
         <p className="eyebrow">{kicker}</p>
         <h1 className="page-title">{title}</h1>
         <p>{description}</p>
@@ -42,66 +52,30 @@ function ServiceLandingPage({
         </div>
       </div>
 
-      <div className="studio-grid">
-        <article className="studio-card">
-          <h2>What is included</h2>
-          <ul>
-            {points.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="studio-card">
-          <h2>Business outcomes</h2>
-          <ul>
-            {outcomes.map((outcome) => (
-              <li key={outcome}>{outcome}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="studio-card">
-          <h2>Benefits</h2>
-          <ul>
-            {benefits.map((benefit) => (
-              <li key={benefit}>{benefit}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="studio-card">
-          <h2>Pricing</h2>
-          <p>{pricing}</p>
-        </article>
-        <article className="studio-card">
-          <h2>Timeline</h2>
-          <ul>
-            {timeline.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="studio-card">
-          <h2>Technologies</h2>
-          <ul>
-            {technologies.map((technology) => (
-              <li key={technology}>{technology}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="studio-card">
-          <h2>Portfolio fit</h2>
-          <ul>
-            {portfolio.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="studio-card">
+      <div className="studio-grid service-detail-grid">
+        {detailCards.map((card, index) => (
+          <article className="studio-card service-detail-card" key={card.title}>
+            <span className="service-card-num">{String(index + 1).padStart(2, '0')}</span>
+            <h2>{card.title}</h2>
+            {card.body ? <p>{card.body}</p> : null}
+            {card.items ? (
+              <ul>
+                {card.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            ) : null}
+          </article>
+        ))}
+
+        <article className="studio-card service-detail-card service-faq-card">
+          <span className="service-card-num">08</span>
           <h2>FAQ</h2>
           {faq.map((item) => (
-            <div key={item.question}>
-              <h3>{item.question}</h3>
+            <details className="service-faq-item" key={item.question}>
+              <summary>{item.question}</summary>
               <p>{item.answer}</p>
-            </div>
+            </details>
           ))}
         </article>
       </div>
