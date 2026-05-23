@@ -185,6 +185,7 @@ const serviceCards = [
   {
     id: 'ai-agents',
     title: 'AI Agents',
+    desc: 'Automate repeatable tasks, speed up team decisions, and connect AI with the tools your business already uses.',
     items: [
       'Autonomous task agents',
       'Multi-agent orchestration',
@@ -209,6 +210,7 @@ const serviceCards = [
   {
     id: 'chatbots',
     title: 'Chatbots & Assistants',
+    desc: 'Give customers and internal teams faster answers with intelligent assistants built around your content and workflows.',
     items: [
       'LLM-powered chat interfaces',
       'Voice AI assistants',
@@ -221,6 +223,7 @@ const serviceCards = [
   {
     id: 'ai-automation',
     title: 'AI Workflow Automation',
+    desc: 'Turn manual admin into connected automation that saves time, reduces errors, and keeps work moving.',
     items: [
       'n8n / Make / Zapier AI flows',
       'Document processing pipelines',
@@ -245,6 +248,7 @@ const serviceCards = [
   {
     id: 'ai-api',
     title: 'AI API Integration',
+    desc: 'Add AI features into your product or process with reliable integrations, cost control, and scalable architecture.',
     items: [
       'OpenAI / Claude / Gemini APIs',
       'LangChain & LlamaIndex',
@@ -257,6 +261,7 @@ const serviceCards = [
   {
     id: 'ai-strategy',
     title: 'AI Strategy & Consulting',
+    desc: 'Find the right AI use cases, avoid wasted build time, and create a practical roadmap for measurable value.',
     items: [
       'AI readiness assessment',
       'Use-case discovery workshops',
@@ -269,6 +274,7 @@ const serviceCards = [
   {
     id: 'predictive',
     title: 'Predictive Analytics',
+    desc: 'Use business data to forecast demand, identify risk, rank opportunities, and support smarter decisions.',
     items: [
       'Demand forecasting',
       'Churn prediction models',
@@ -281,6 +287,7 @@ const serviceCards = [
   {
     id: 'doc-ai',
     title: 'AI Document Processing',
+    desc: 'Extract, classify, summarize, and structure documents so your team can move faster through information-heavy work.',
     items: [
       'Intelligent document extraction',
       'OCR + AI data capture',
@@ -296,6 +303,7 @@ const serviceCards = [
   {
     id: 'cybersecurity',
     title: 'Cybersecurity & Compliance',
+    desc: 'Strengthen your digital foundation with practical security checks, risk reduction, and compliance-ready improvements.',
     items: [
       'Threat assessment',
       'Network defense',
@@ -308,6 +316,7 @@ const serviceCards = [
   {
     id: 'web',
     title: 'Web Development',
+    desc: 'Build fast, responsive websites and web apps designed to create trust, improve visibility, and convert visitors.',
     items: [
       'Custom web apps',
       'E-commerce',
@@ -320,6 +329,7 @@ const serviceCards = [
   {
     id: 'mobile',
     title: 'Android & iOS Development',
+    desc: 'Launch mobile experiences that feel polished, connect cleanly with your systems, and support real customer journeys.',
     items: [
       'Native Android and iOS apps',
       'Play Store and App Store deployment',
@@ -332,6 +342,7 @@ const serviceCards = [
   {
     id: 'design',
     title: 'UX/UI Design',
+    desc: 'Design clear, premium interfaces that make your offer easier to understand and your product easier to use.',
     items: [
       'User research',
       'Prototyping',
@@ -344,6 +355,7 @@ const serviceCards = [
   {
     id: 'software',
     title: 'Software Engineering',
+    desc: 'Create scalable software foundations for products, platforms, internal tools, and business-critical systems.',
     items: [
       'Modern architectures',
       'Cloud-native solutions',
@@ -356,6 +368,7 @@ const serviceCards = [
   {
     id: 'consulting',
     title: 'IT Consulting',
+    desc: 'Make better technology decisions with clear audits, roadmaps, and digital transformation planning.',
     items: [
       'Tech audits',
       'Process optimization',
@@ -368,6 +381,7 @@ const serviceCards = [
   {
     id: 'leads',
     title: 'Lead Generation',
+    desc: 'Improve how your website, CRM, tracking, and funnel work together to capture and qualify better enquiries.',
     items: [
       'B2B lead generation',
       'Email marketing campaigns',
@@ -380,6 +394,7 @@ const serviceCards = [
   {
     id: 'workflow',
     title: 'Workflow Development',
+    desc: 'Design custom workflow systems that connect teams, tools, and tasks into a smoother operating process.',
     items: [
       'Business process automation',
       'Custom workflow systems',
@@ -392,6 +407,7 @@ const serviceCards = [
   {
     id: 'procurement',
     title: 'Procurement Services',
+    desc: 'Support smarter vendor decisions, better cost control, and clearer procurement planning for technology needs.',
     items: [
       'Vendor sourcing',
       'Cost optimization',
@@ -404,6 +420,7 @@ const serviceCards = [
   {
     id: 'framework',
     title: 'Strategic Framework',
+    desc: 'Build a practical growth framework with priorities, KPIs, market direction, and clear next actions.',
     items: [
       'Business strategy development',
       'Growth planning',
@@ -446,13 +463,15 @@ function ServicesPage() {
       <div className="services-cinematic-inner">
         <div className="services-copy">
           <p className="services-kicker">Armedia IT & Creative Services</p>
-          <h1 id="services-title">Our Professional Services</h1>
+          <h1 id="services-title">Services built to improve visibility, workflow, and growth.</h1>
           <p>
-            Innovative IT solutions and creative digital strategies tailored for your business growth.
+            From premium websites and mobile apps to AI automation, cybersecurity, integrations,
+            and strategic consulting, Armedia helps businesses build digital systems that work
+            clearly, perform reliably, and support measurable outcomes.
           </p>
 
           <Link className="services-cta" href="/contact">
-            Explore services
+            Start your project
           </Link>
         </div>
 
@@ -475,6 +494,7 @@ function ServicesPage() {
               </div>
 
               <h2>{service.title}</h2>
+              <p className="service-card-desc">{service.desc}</p>
 
               <ul>
                 {service.items.map((item) => (

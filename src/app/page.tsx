@@ -4,9 +4,9 @@ import Header from '../components/Header'
 import HomePage from '../components/HomePage'
 
 export const metadata: Metadata = {
-  title: 'Premium Web Design & React Development Studio in Auckland',
+  title: 'Web Design, React, SEO & AI Solutions in Auckland',
   description:
-    'Armedia builds premium web design, React development, Next.js websites, SEO-ready landing pages, e-commerce, API integrations, and AI solutions in Auckland, NZ.',
+    'Armedia helps Auckland and New Zealand businesses grow with premium web design, React and Next.js development, SEO-ready landing pages, e-commerce, API integrations, automation, and AI solutions.',
   keywords: [
     'Web Design Auckland',
     'React Development NZ',
@@ -21,17 +21,17 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Premium Web Design & React Development Studio in Auckland',
+    title: 'Web Design, React, SEO & AI Solutions in Auckland',
     description:
-      'Next.js websites, React web apps, SEO-ready pages, e-commerce, API integrations, and AI solutions for Auckland and New Zealand businesses.',
+      'Fast websites, scalable web apps, SEO-ready landing pages, e-commerce, API workflows, and AI-enabled systems for measurable digital growth.',
     url: '/',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Premium Web Design & React Development Studio in Auckland',
+    title: 'Web Design, React, SEO & AI Solutions in Auckland',
     description:
-      'Armedia builds premium web design, React development, Next.js websites, SEO, e-commerce, API integrations, and AI solutions in Auckland.',
+      'Armedia builds websites, web apps, SEO-ready pages, e-commerce, API integrations, automation, and AI solutions for growing businesses.',
   },
 }
 

@@ -5,8 +5,9 @@ import ArmediaLogo from './ArmediaLogo'
 
 const footerGroups = [
   {
-    title: 'Company',
+    title: 'Studio',
     links: [
+      { label: 'Home', href: '/' },
       // { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
     ],
@@ -15,21 +16,25 @@ const footerGroups = [
   title: 'Services',
   links: [
     { label: 'Web development', href: '/services#web' },
-    { label: 'AI and data', href: '/services#ai' },
+    { label: 'AI solutions', href: '/services#ai-agents' },
+    { label: 'Automation', href: '/services#ai-automation' },
     { label: 'Cybersecurity', href: '/services#cybersecurity' },
-    { label: 'UX/UI design', href: '/services#design' },
   ],
 },
   {
-    title: 'Start',
+    title: 'Growth',
     links: [
-      { label: 'Book a call', href: '/contact' },
-      { label: 'Email us', href: 'mailto:hello@armedia.co.nz' },
+      { label: 'SEO-ready websites', href: '/services#web' },
+      { label: 'Lead generation', href: '/services#leads' },
+      { label: 'UX/UI design', href: '/services#design' },
+      { label: 'Workflow systems', href: '/services#workflow' },
     ],
   },
   {
-    title: 'Legal',
+    title: 'Start',
     links: [
+      { label: 'Start a project', href: '/contact' },
+      { label: 'Email us', href: 'mailto:contact.armedianz@gmail.com' },
       { label: 'Privacy', href: '/privacy' },
       { label: 'Terms', href: '/terms' },
     
@@ -45,6 +50,10 @@ function Footer() {
           <Link className="footer-logo" href="/" aria-label="Armedia home">
             <ArmediaLogo className="footer-logo-svg" title="Armedia logo" />
           </Link>
+          {/* <p className="footer-positioning">
+            Websites, web apps, AI workflows, automation, and digital systems built for clearer
+            visibility, stronger performance, and measurable growth.
+          </p> */}
         </div>
 
         <div className="footer-top">
@@ -67,7 +76,7 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 Armedia. All rights reserved.</span>
+          <span>© 2026 Armedia. Auckland digital studio for web, AI, and growth systems.</span>
         </div>
       </div>
     </footer>

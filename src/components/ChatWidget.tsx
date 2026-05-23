@@ -5,9 +5,9 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 type Message = { role: 'user' | 'assistant'; content: string }
 
 const SUGGESTED = [
-  'What services do you offer?',
-  'How do I start a project?',
-  'Tell me about your AI solutions',
+  'How can my website generate better leads?',
+  'Suggest a high-converting website plan',
+  'How can AI improve my business workflow?',
 ]
 
 export default function ChatWidget() {
@@ -15,16 +15,10 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput]       = useState('')
   const [loading, setLoading]   = useState(false)
-  const [mounted, setMounted]   = useState(false)
   const [pulse, setPulse]       = useState(true)
   const bottomRef  = useRef<HTMLDivElement>(null)
   const inputRef   = useRef<HTMLInputElement>(null)
   const panelRef   = useRef<HTMLDivElement>(null)
-
-  useEffect(() => { setMounted(true) }, [])
-
-  /* stop pulsing after first open */
-  useEffect(() => { if (open) setPulse(false) }, [open])
 
   /* scroll to bottom whenever messages change */
   useEffect(() => {
@@ -63,14 +57,12 @@ export default function ChatWidget() {
     } catch {
       setMessages(prev => [
         ...prev,
-        { role: 'assistant', content: 'Something went wrong. Please try again or email hello@armedia.co.nz' },
+        { role: 'assistant', content: 'Something went wrong. Please try again or email hello@armedia.co.nz for website, SEO, AI, or digital growth support.' },
       ])
     } finally {
       setLoading(false)
     }
   }, [input, messages, loading])
-
-  if (!mounted) return null
 
   return (
     <>
@@ -80,7 +72,7 @@ export default function ChatWidget() {
         className={`cw-panel ${open ? 'cw-panel--open' : ''}`}
         role="dialog"
         aria-modal="true"
-        aria-label="Armedia chat assistant"
+        aria-label="Armedia growth assistant"
       >
         {/* Header */}
         <div className="cw-header">
@@ -92,7 +84,7 @@ export default function ChatWidget() {
               </svg>
             </span>
             <div>
-              <p className="cw-title">Armedia Assistant</p>
+              <p className="cw-title">Armedia Growth Assistant</p>
               <span className="cw-status">
                 <span className="cw-dot" aria-hidden="true" />
                 Online now
@@ -107,7 +99,7 @@ export default function ChatWidget() {
           {messages.length === 0 && (
             <div className="cw-empty">
               <p className="cw-welcome">
-                Hi! I'm the Armedia assistant. Ask me anything about our services, process, or how we can help grow your business.
+                Hi! Tell me your business goal and I will suggest practical website, SEO, AI, automation, and digital product ideas to improve visibility, leads, and conversions.
               </p>
               <div className="cw-suggestions">
                 {SUGGESTED.map(s => (
@@ -152,7 +144,7 @@ export default function ChatWidget() {
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() } }}
-              placeholder="Ask anything…"
+              placeholder="Ask for a growth idea..."
               aria-label="Chat message"
               disabled={loading}
               maxLength={500}
@@ -176,8 +168,11 @@ export default function ChatWidget() {
       {/* ── FAB trigger ── */}
       <button
         className={`cw-fab ${open ? 'cw-fab--active' : ''} ${pulse ? 'cw-fab--pulse' : ''}`}
-        onClick={() => setOpen(o => !o)}
-        aria-label={open ? 'Close chat' : 'Open chat with Armedia assistant'}
+        onClick={() => {
+          setPulse(false)
+          setOpen(o => !o)
+        }}
+        aria-label={open ? 'Close chat' : 'Open chat with Armedia growth assistant'}
         aria-expanded={open}
         aria-controls="cw-panel"
       >
@@ -192,7 +187,7 @@ export default function ChatWidget() {
             <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
           </svg>
         </span>
-        {!open && <span className="cw-fab-label">Chat with us</span>}
+        {!open && <span className="cw-fab-label">Get growth ideas</span>}
       </button>
 
       

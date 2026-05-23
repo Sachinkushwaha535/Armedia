@@ -62,23 +62,23 @@ function ContactPage() {
   return (
     <PageShell
       kicker="Contact"
-      title="Tell us about your project."
-      description="A premium inquiry panel inspired by the contact-focused layout."
+      title="Share your vision. We will help shape the next step."
+      description="Tell us what you want to build or improve, and Armedia will help you turn it into a clear digital plan for websites, apps, AI, automation, SEO, or technical systems."
     >
       <div className="contact-showcase">
         
         {/* LEFT INFO PANEL */}
         <div className="contact-aside">
-          <p className="eyebrow">Let's talk</p>
+          <p className="eyebrow">Let's build with clarity</p>
 
           <h2>
-            We respond within 12 hours and keep the process clear.
+            Get practical guidance for your next website, app, AI workflow, or digital growth project.
           </h2>
 
           <ul className="contact-points">
-            <li>We sign an NDA if requested</li>
-            <li>Access to dedicated consultant specialists</li>
-            <li>Premium website and web app projects</li>
+            <li>Clear recommendations based on your business goal</li>
+            <li>Premium website, web app, AI, and automation project support</li>
+            <li>Focused next steps for visibility, performance, and conversions</li>
           </ul>
 
           <div className="contact-details">
@@ -150,7 +150,7 @@ function ContactPage() {
               <textarea
                 name="message"
                 rows={6}
-                placeholder="Tell us what you need, timeline, and references."
+                placeholder="Tell us your goal, what you need, timeline, current website or tools, and the result you want to achieve."
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -163,7 +163,7 @@ function ContactPage() {
               className="button button-primary contact-submit"
               disabled={loading}
             >
-              {loading ? 'Sending...' : 'Submit inquiry'}
+              {loading ? 'Sending...' : 'Start the conversation'}
             </button>
 
             {statusMessage ? (
