@@ -8,36 +8,38 @@ const footerGroups = [
     title: 'Studio',
     links: [
       { label: 'Home', href: '/' },
-      // { label: 'About', href: '/about' },
+      { label: 'About', href: '/about' },
+      { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/contact' },
     ],
   },
   {
-  title: 'Services',
-  links: [
-    { label: 'Web development', href: '/services#web' },
-    { label: 'AI solutions', href: '/services#ai-agents' },
-    { label: 'Automation', href: '/services#ai-automation' },
-    { label: 'Cybersecurity', href: '/services#cybersecurity' },
-  ],
-},
-  {
-    title: 'Growth',
+    title: 'Services',
     links: [
-      { label: 'SEO-ready websites', href: '/services#web' },
-      { label: 'Lead generation', href: '/services#leads' },
-      { label: 'UX/UI design', href: '/services#design' },
-      { label: 'Workflow systems', href: '/services#workflow' },
+      { label: 'AI Marketing Studio', href: '/services#ai-marketing-studio' },
+      { label: 'Business Intelligence', href: '/services#business-intelligence' },
+      { label: 'Advertising', href: '/services#advertising' },
+      { label: 'Digital Media', href: '/services#digital-media' },
+    ],
+  },
+  {
+    title: 'Media',
+    links: [
+      { label: 'OOH media', href: '/services#ooh-offline-media' },
+      { label: 'Media buying', href: '/services#media-buying-planning' },
+      { label: 'Content production', href: '/services#content-creative-production' },
+      { label: 'Influencer marketing', href: '/services#social-influencer-marketing' },
     ],
   },
   {
     title: 'Start',
     links: [
-      { label: 'Start a project', href: '/contact' },
+      { label: 'Start a project', href: '/start-project' },
       { label: 'Email us', href: 'mailto:contact.armedianz@gmail.com' },
+      { label: 'Web development', href: '/services#web-development' },
+      { label: 'Android & iOS', href: '/services#android-ios-development' },
       { label: 'Privacy', href: '/privacy' },
       { label: 'Terms', href: '/terms' },
-    
     ],
   },
 ]
@@ -50,10 +52,6 @@ function Footer() {
           <Link className="footer-logo" href="/" aria-label="Armedia home">
             <ArmediaLogo className="footer-logo-svg" title="Armedia logo" />
           </Link>
-          {/* <p className="footer-positioning">
-            Websites, web apps, AI workflows, automation, and digital systems built for clearer
-            visibility, stronger performance, and measurable growth.
-          </p> */}
         </div>
 
         <div className="footer-top">
@@ -76,7 +74,10 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 Armedia. Auckland digital studio for web, AI, and growth systems.</span>
+          <span>
+            &copy; 2026 Armedia. Marketing media agency for AI, BI, advertising, digital media, OOH,
+            offline marketing, media buying, content, PR, events, CRM, and growth strategy.
+          </span>
         </div>
       </div>
     </footer>
@@ -84,5 +85,3 @@ function Footer() {
 }
 
 export default Footer
-
-

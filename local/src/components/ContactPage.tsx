@@ -40,7 +40,7 @@ function ContactPage() {
       const data = await response.json()
 
       if (!response.ok) {
-        setStatusMessage(data.message ?? 'Something went wrong. Please email hello@armedia.co.nz.')
+        setStatusMessage(data.message ?? 'Something went wrong. Please email contact.armedianz@gmail.com.')
         return
       }
 
@@ -53,7 +53,7 @@ function ContactPage() {
         message: '',
       })
     } catch {
-      setStatusMessage('Something went wrong. Please email hello@armedia.co.nz.')
+      setStatusMessage('Something went wrong. Please email contact.armedianz@gmail.com.')
     } finally {
       setLoading(false)
     }
@@ -62,47 +62,37 @@ function ContactPage() {
   return (
     <PageShell
       kicker="Contact"
-      title="Share your vision. We will help shape the next step."
-      description="Tell us what you want to build or improve, and Armedia will help you turn it into a clear digital plan for websites, apps, AI, automation, SEO, or technical systems."
+      title="Let us shape your next growth campaign."
+      description="Share your brand goal, audience, campaign idea, timeline, and preferred channels. Armedia will help you turn it into a clear plan for AI, BI, advertising, media, offline marketing, and technology support."
     >
-      <div className="contact-showcase">
-        
-        {/* LEFT INFO PANEL */}
-        <div className="contact-aside">
-          <p className="eyebrow">Let's build with clarity</p>
-
-          <h2>
-            Get practical guidance for your next website, app, AI workflow, or digital growth project.
-          </h2>
-
-          <ul className="contact-points">
-            <li>Clear recommendations based on your business goal</li>
-            <li>Premium website, web app, AI, and automation project support</li>
-            <li>Focused next steps for visibility, performance, and conversions</li>
-          </ul>
-
-          <div className="contact-details">
-            <a href="mailto:contact.armedianz@gmail.com" className="text-link">
-              contact.armedianz@gmail.com
-            </a>
-
-            <p>Auckland, New Zealand</p>
-
-            <Link className="text-link" href="/services">
-              Explore our services
-            </Link>
+      <div className="contact-pro-layout">
+        <section className="contact-pro-main">
+          <div className="contact-method-grid">
+            <article>
+              <span>Email</span>
+              <strong>Drop us a line</strong>
+              <a href="mailto:contact.armedianz@gmail.com">contact.armedianz@gmail.com</a>
+            </article>
+            <article>
+              <span>Brief</span>
+              <strong>Send a project idea</strong>
+              <p>Share your goal, channels, audience, and desired outcome.</p>
+            </article>
+            <article>
+              <span>Plan</span>
+              <strong>Get a clear next step</strong>
+              <p>We help shape strategy, media, creative, AI, BI, and execution.</p>
+            </article>
           </div>
-        </div>
 
+          <form className="contact-pro-form" onSubmit={handleSubmit}>
+            <div className="contact-form-heading">
+              <p className="eyebrow">Project Inquiry</p>
+              <h2>Share your vision with us</h2>
+              <p>Tell us your current challenge and we will help turn it into a sharper growth strategy.</p>
+            </div>
 
-        {/* CONTACT FORM */}
-        <div className="contact-card">
-          <form
-            className="contact-form"
-            onSubmit={handleSubmit}
-          >
             <div className="contact-grid">
-
               <label>
                 <span>Full name</span>
                 <input
@@ -114,7 +104,6 @@ function ContactPage() {
                   required
                 />
               </label>
-
 
               <label>
                 <span>Email</span>
@@ -128,42 +117,37 @@ function ContactPage() {
                 />
               </label>
 
-
               <label>
                 <span>Phone number</span>
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="+64 21 123 4567"
+                  placeholder="Your phone number"
                   value={formData.phone}
                   onChange={handleChange}
                   required
                 />
               </label>
-
             </div>
-
 
             <label>
               <span>Project details</span>
-
               <textarea
                 name="message"
                 rows={6}
-                placeholder="Tell us your goal, what you need, timeline, current website or tools, and the result you want to achieve."
+                placeholder="Tell us your brand, campaign goal, audience, timeline, channels you want to use, and the result you want to achieve."
                 value={formData.message}
                 onChange={handleChange}
                 required
               />
             </label>
 
-
             <button
               type="submit"
               className="button button-primary contact-submit"
               disabled={loading}
             >
-              {loading ? 'Sending...' : 'Start the conversation'}
+              {loading ? 'Sending...' : 'Launch message'}
             </button>
 
             {statusMessage ? (
@@ -171,10 +155,27 @@ function ContactPage() {
                 {statusMessage}
               </p>
             ) : null}
-
           </form>
-        </div>
+        </section>
 
+        <aside className="contact-growth-panel">
+          <p className="eyebrow">Why choose us</p>
+          <h2>Your growth plan starts with clarity.</h2>
+          <div className="contact-growth-stats">
+            <span><strong>&lt; 1h</strong>Response focus</span>
+            <span><strong>18</strong>Service capabilities</span>
+            <span><strong>AI</strong>Workflow-ready</span>
+            <span><strong>BI</strong>Reporting-led</span>
+          </div>
+          <p>
+            We connect media planning, creative direction, advertising, OOH, offline marketing,
+            AI workflows, dashboards, and campaign-supporting technology into one practical growth system.
+          </p>
+          <div className="contact-panel-links">
+            <Link className="text-link" href="/services">Explore services</Link>
+            <Link className="text-link" href="/start-project">Build a brief</Link>
+          </div>
+        </aside>
       </div>
     </PageShell>
   )

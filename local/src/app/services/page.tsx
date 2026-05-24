@@ -1,0 +1,61 @@
+import type { Metadata } from 'next'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import ServicesPage from '../../components/ServicesPage'
+
+export const metadata: Metadata = {
+  title: 'Services | AI, BI, Advertising & Marketing Media',
+  description:
+    'Explore Armedia services for AI marketing tools, business intelligence, advertising, digital media, OOH media, offline marketing, media buying, content production, influencer marketing, PR, events, CRM, web development, mobile apps, SEO, e-commerce, software, and automation.',
+  keywords: [
+    'Armedia services',
+    'marketing media services',
+    'AI marketing tools',
+    'AI advertising tools',
+    'business intelligence dashboards',
+    'advertising agency services',
+    'Meta Ads management',
+    'Google Ads management',
+    'digital media planning',
+    'OOH media planning',
+    'offline marketing campaigns',
+    'media buying',
+    'content production',
+    'influencer marketing',
+    'brand activation',
+    'PR campaign planning',
+    'event marketing',
+    'retail marketing',
+    'CRM marketing',
+    'web development',
+    'Android iOS development',
+    'SEO landing pages',
+    'ecommerce growth',
+    'software engineering',
+    'API integration',
+    'brand strategy',
+    'growth strategy',
+    'campaign analytics',
+  ],
+  alternates: {
+    canonical: '/services',
+  },
+  openGraph: {
+    title: 'Armedia Services | AI, BI, Advertising & Marketing Media',
+    description:
+      'Outcome-focused services for AI marketing, BI dashboards, advertising, digital media, OOH, offline marketing, media buying, creative content, PR, events, CRM, web development, apps, SEO, e-commerce, software, and automation.',
+    url: '/services',
+  },
+}
+
+export default function Page() {
+  return (
+    <div className="site-shell page-services">
+      <Header />
+      <main>
+        <ServicesPage />
+      </main>
+      <Footer />
+    </div>
+  )
+}

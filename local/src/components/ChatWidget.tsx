@@ -5,9 +5,9 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 type Message = { role: 'user' | 'assistant'; content: string }
 
 const SUGGESTED = [
-  'How can my website generate better leads?',
-  'Suggest a high-converting website plan',
-  'How can AI improve my business workflow?',
+  'Suggest a marketing media plan',
+  'How can AI improve my campaigns?',
+  'Plan digital, OOH, and offline marketing',
 ]
 
 export default function ChatWidget() {
@@ -57,7 +57,7 @@ export default function ChatWidget() {
     } catch {
       setMessages(prev => [
         ...prev,
-        { role: 'assistant', content: 'Something went wrong. Please try again or email hello@armedia.co.nz for website, SEO, AI, or digital growth support.' },
+        { role: 'assistant', content: 'Something went wrong. Please try again or email contact.armedianz@gmail.com for AI, BI, advertising, media planning, or growth strategy support.' },
       ])
     } finally {
       setLoading(false)
@@ -99,7 +99,7 @@ export default function ChatWidget() {
           {messages.length === 0 && (
             <div className="cw-empty">
               <p className="cw-welcome">
-                Hi! Tell me your business goal and I will suggest practical website, SEO, AI, automation, and digital product ideas to improve visibility, leads, and conversions.
+                Hi! Tell me your campaign goal and I will suggest practical AI, BI, advertising, digital media, OOH, offline marketing, and growth strategy ideas.
               </p>
               <div className="cw-suggestions">
                 {SUGGESTED.map(s => (

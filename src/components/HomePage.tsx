@@ -7,41 +7,41 @@ const philosophyCards = [
   {
     title: 'Clarity',
     icon: '◈',
-    points: ['Transparent communication', 'Clear deliverables', 'Jargon-free process'],
+    points: ['Clear project direction', 'Simple deliverables', 'No confusing tech talk'],
   },
   {
     title: 'Quality',
     icon: '✦',
-    points: ['Rigorous testing', 'Detailed craft', 'Uncompromising standards'],
+    points: ['Polished design', 'Reliable engineering', 'Performance-first delivery'],
   },
   {
     title: 'Speed',
     icon: '➜',
-    points: ['Agile methodology', 'Rapid prototyping', 'Efficient workflows'],
+    points: ['Fast decisions', 'Focused builds', 'Smooth launch process'],
   },
   {
     title: 'Growth',
     icon: '⬢',
-    points: ['Built to scale', 'Future-proof tech', 'Continuous improvement'],
+    points: ['Built for enquiries', 'Ready to scale', 'Easy to improve'],
   },
 ]
 
 const insights = [
   {
-    title: 'The Future of Web UX in 2026',
+    title: 'How Better UX Turns Traffic Into Enquiries',
     category: 'UX Design',
     date: 'May 2026',
-    desc: 'How emerging interaction patterns, AI-assisted interfaces, and edge performance are reshaping expectations.',
+    desc: 'A practical look at clarity, trust, page speed, and user flow for service businesses that want more qualified leads.',
     thumbClass: 'it1',
-    thumbLabel: 'UX RESEARCH',
+    thumbLabel: 'CONVERSION',
   },
   {
-    title: 'Scaling Your E-Commerce Platform',
+    title: 'Building E-Commerce Pages That Sell Cleaner',
     category: 'E-commerce',
     date: 'Apr 2026',
-    desc: 'The architecture decisions and conversion strategies that separate mid-market stores from category leaders.',
+    desc: 'Product pages, checkout journeys, tracking, and technical foundations that help online stores scale with less friction.',
     thumbClass: 'it2',
-    thumbLabel: 'GROWTH',
+    thumbLabel: 'COMMERCE',
   },
 ]
 
@@ -57,10 +57,10 @@ const tickerItems = [
 ]
 
 const stats = [
-  { num: 120, suffix: '+', label: 'Project conversations' },
-  { num: 8, suffix: '+', label: 'Years of digital craft' },
-  { num: 40, suffix: '+', label: 'Launch and growth systems' },
-  { num: 99, suffix: '%', label: 'Responsive build focus' },
+  { num: 120, suffix: '+', label: 'Growth conversations' },
+  { num: 8, suffix: '+', label: 'Years of digital experience' },
+  { num: 40, suffix: '+', label: 'Web and workflow systems' },
+  { num: 99, suffix: '%', label: 'Mobile-first build focus' },
 ]
 
 const bentoServices = [
@@ -68,104 +68,59 @@ const bentoServices = [
     icon: '◈',
     iconClass: 'lime',
     title: 'Web Design Auckland',
-    sub: 'Premium landing pages and business websites shaped around trust, clarity, conversion, and mobile performance.',
-    tags: ['Figma', 'Responsive UI', 'Brand systems', 'Result: stronger enquiries'],
+    sub: 'Result-focused business websites and landing pages built to create trust, explain your offer clearly, and turn visitors into enquiries.',
+    tags: ['Figma', 'Responsive UI', 'Brand systems', 'Outcome: stronger enquiries'],
     cardClass: 'bc1 bc-accent',
   },
   {
     icon: '⚛',
     iconClass: 'cyan',
     title: 'React Development',
-    sub: 'Fast React and TypeScript interfaces for dashboards, portals, content platforms, and customer-facing web apps.',
-    tags: ['React', 'TypeScript', 'Component systems', 'Result: scalable frontends'],
+    sub: 'Fast React and TypeScript interfaces for dashboards, portals, content platforms, and web apps that need to feel smooth and reliable.',
+    tags: ['React', 'TypeScript', 'Component systems', 'Outcome: scalable frontends'],
     cardClass: 'bc2',
   },
   {
     icon: '⌕',
     iconClass: 'orange',
     title: 'SEO',
-    sub: 'Technical SEO, content structure, metadata, schema, and Core Web Vitals improvements for New Zealand search visibility.',
-    tags: ['Metadata', 'Schema', 'Core Web Vitals', 'Result: better discoverability'],
+    sub: 'SEO-ready structure, metadata, schema, content planning, and Core Web Vitals improvements to help the right people find you.',
+    tags: ['Metadata', 'Schema', 'Core Web Vitals', 'Outcome: better visibility'],
     cardClass: 'bc3',
   },
   {
     icon: '◉',
     iconClass: 'lime',
     title: 'E-commerce',
-    sub: 'Conversion-focused storefronts, product journeys, checkout improvements, and analytics for growing online stores.',
-    tags: ['Shopify', 'Next.js', 'Payments', 'Result: cleaner buying paths'],
+    sub: 'Conversion-focused storefronts, product journeys, checkout improvements, and analytics for stores that want cleaner sales paths.',
+    tags: ['Shopify', 'Next.js', 'Payments', 'Outcome: cleaner buying paths'],
     cardClass: 'bc4',
   },
   {
     icon: '⇄',
     iconClass: 'white',
     title: 'API Integration',
-    sub: 'CRM, booking, analytics, payment, email, and internal tools connected with reliable API workflows.',
-    tags: ['REST APIs', 'Webhooks', 'CRM', 'Result: less manual admin'],
+    sub: 'CRM, booking, analytics, payment, email, and internal tools connected so your team spends less time on manual admin.',
+    tags: ['REST APIs', 'Webhooks', 'CRM', 'Outcome: smoother operations'],
     cardClass: 'bc5 bc-orange',
   },
   {
     icon: '✦',
     iconClass: 'cyan',
     title: 'AI Solutions',
-    sub: 'AI agents, content workflows, support assistants, and automation systems for practical business operations.',
-    tags: ['AI agents', 'Automation', 'Knowledge bases', 'Result: faster operations'],
+    sub: 'AI agents, support assistants, content workflows, and automation systems that help teams respond faster and work smarter.',
+    tags: ['AI agents', 'Automation', 'Knowledge bases', 'Outcome: faster operations'],
     cardClass: 'bc7',
     inline: true,
   },
 ]
 
 const processSteps = [
-  { num: '01', title: 'We listen', desc: 'Understand your business, audience, constraints, and goals.' },
-  { num: '02', title: 'We research', desc: 'Map the opportunity and find the clearest path forward.' },
-  { num: '03', title: 'We design', desc: 'Premium, credible, and effortless to use.' },
-  { num: '04', title: 'We build', desc: 'Fast, responsive code with careful attention to detail.' },
-  { num: '05', title: 'We deliver', desc: 'Launch, test, refine, and support so it keeps performing.' },
-]
-
-const portfolioProjects = [
-  {
-    title: 'Healthcare Website System',
-    description: 'A trust-led website structure for a healthcare team with clear service paths, speed-focused pages, and accessible content patterns.',
-    badge: 'Live link on request',
-    thumb: 'wt1',
-    metric: 'Mobile-first UX',
-    feedback: 'Verified feedback pending publication',
-    tags: ['Next.js', 'Accessibility', 'SEO'],
-  },
-  {
-    title: 'E-commerce Growth Storefront',
-    description: 'A product-led storefront concept with refined collection pages, checkout guidance, tracking events, and a maintainable design system.',
-    badge: 'Case study',
-    thumb: 'wt2',
-    metric: 'Conversion-ready flow',
-    feedback: 'Client review approval in progress',
-    tags: ['React', 'Payments', 'Analytics'],
-  },
-  {
-    title: 'Service Business Lead Funnel',
-    description: 'A local Auckland lead-generation site with offer pages, contact flows, structured data, and landing-page copy for intent keywords.',
-    badge: 'Auckland SEO',
-    thumb: 'wt3',
-    metric: 'Enquiry-focused CTA',
-    feedback: 'Internal QA notes available',
-    tags: ['Web Design', 'Schema', 'Forms'],
-  },
-]
-
-const proofNotes = [
-  {
-    quote:
-      'Verified client reviews are not shown until they are approved by the client or connected from a public review source.',
-    name: 'Armedia review policy',
-    role: 'No placeholder testimonials',
-  },
-  {
-    quote:
-      'Google reviews can be embedded here once the live Business Profile review feed is connected.',
-    name: 'Google reviews',
-    role: 'Ready for verified source',
-  },
+  { num: '01', title: 'We understand', desc: 'We learn your business, audience, goals, and the result your website or system needs to create.' },
+  { num: '02', title: 'We plan', desc: 'We map the clearest strategy for pages, user flow, technology, SEO, and conversion points.' },
+  { num: '03', title: 'We design', desc: 'We create a premium digital experience that builds trust and guides visitors toward action.' },
+  { num: '04', title: 'We build', desc: 'We develop fast, responsive, scalable pages and workflows with careful technical detail.' },
+  { num: '05', title: 'We improve', desc: 'We launch, test, refine, and support the work so it keeps performing after go-live.' },
 ]
 
 function useScrollReveal() {
@@ -247,29 +202,29 @@ function HomePage() {
           </div>
 
           <h1 className="hero-h1 fade-up fade-up-2">
-            Premium web design &amp; <em className="hero-em">React development</em>
+            Build a sharper digital presence with <em className="hero-em">web design</em>
             <br />
-            studio in Auckland.
+            React, SEO &amp; AI solutions.
           </h1>
 
           <p className="hero-sub fade-up fade-up-3">
-            Armedia builds Next.js websites, React web apps, SEO-ready landing pages, and
-            AI-enabled workflows for Auckland and New Zealand businesses that need a sharper
-            digital first impression.
+            Armedia helps Auckland and New Zealand businesses turn ideas into fast websites,
+            scalable web apps, SEO-ready landing pages, e-commerce experiences, API workflows,
+            and AI-enabled systems built for visibility, trust, and measurable growth.
           </p>
 
           <div className="hero-actions fade-up fade-up-4">
             <Link className="btn-primary" href="/contact">
-              Book a free strategy call <span className="btn-arrow">-&gt;</span>
+              Start your growth project <span className="btn-arrow">-&gt;</span>
             </Link>
             <Link className="btn-ghost" href="/services">
-              View Auckland web services
+              Discover services
             </Link>
           </div>
 
           <p className="hero-sub fade-up fade-up-4">
-            Auckland-based, performance-focused, and built around clear communication from first
-            scope to launch.
+            Strategy, design, development, SEO, integrations, and automation delivered with clear
+            communication from first scope to launch.
           </p>
 
           <div className="stats-strip reveal">
@@ -302,14 +257,14 @@ function HomePage() {
           <div>
             <p className="section-tag">Capabilities</p>
             <h2 className="section-h2" id="cap-heading">
-              Everything needed
+              Digital services built
               <br />
-              to launch, refine &amp; scale.
+              to attract, convert &amp; scale.
             </h2>
           </div>
           <p className="section-desc">
-            Six practical service lanes covering strategy, design, engineering, search, commerce,
-            integrations, and AI-enabled operations.
+            From premium websites to AI-enabled workflows, every service is shaped around clearer
+            messaging, stronger performance, better search visibility, and measurable business outcomes.
           </p>
         </div>
 
@@ -350,7 +305,7 @@ function HomePage() {
 
       <section className="hp-section hp-section-tight reveal" aria-labelledby="proc-heading">
         <p className="section-tag">Process</p>
-        <h2 className="section-h2" id="proc-heading">How we work</h2>
+        <h2 className="section-h2" id="proc-heading">How we turn goals into results</h2>
         <div className="process-grid">
           {processSteps.map((step) => (
             <div className="process-step" key={step.num}>
@@ -402,7 +357,7 @@ function HomePage() {
 
       <section className="hp-section hp-section-tight reveal" aria-labelledby="phil-heading">
         <p className="section-tag">Philosophy</p>
-        <h2 className="section-h2" id="phil-heading">Our core principles</h2>
+        <h2 className="section-h2" id="phil-heading">What guides every build</h2>
         <div className="philosophy-grid">
           {philosophyCards.map((card) => (
             <article className="phil-card" key={card.title}>

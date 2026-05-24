@@ -432,6 +432,245 @@ const serviceCards = [
   },
 ]
 
+const marketingMediaServiceCards = [
+  {
+    id: 'ai-marketing-studio',
+    title: 'AI Marketing Studio',
+    desc: 'Create faster content workflows, campaign summaries, lead qualification, customer support assistants, and automated reporting for your marketing team.',
+    items: [
+      'AI content and ad-copy workflows',
+      'Campaign summary generation',
+      'Lead scoring and qualification',
+      'AI chatbots and assistants',
+      'Automated weekly reports',
+    ],
+    icon: 'ai',
+  },
+  {
+    id: 'business-intelligence',
+    title: 'Business Intelligence & Strategy',
+    desc: 'Turn marketing, sales, and market data into dashboards and decisions your team can act on with confidence.',
+    items: [
+      'BI dashboards',
+      'Campaign performance reporting',
+      'Market and competitor analysis',
+      'Customer and lead insights',
+      'Growth strategy roadmaps',
+    ],
+    icon: 'data',
+  },
+  {
+    id: 'advertising',
+    title: 'Advertising & Performance Marketing',
+    desc: 'Plan, launch, and optimise paid campaigns across search, social, retargeting, and lead generation funnels.',
+    items: [
+      'Meta Ads campaign management',
+      'Google Ads and search campaigns',
+      'Creative testing',
+      'Retargeting funnels',
+      'Conversion tracking',
+    ],
+    icon: 'leads',
+  },
+  {
+    id: 'digital-media',
+    title: 'Digital Media',
+    desc: 'Build digital visibility with social campaigns, landing pages, SEO foundations, content direction, and campaign-ready web experiences.',
+    items: [
+      'Social media campaign planning',
+      'Landing page creation',
+      'SEO and content structure',
+      'Video and creative direction',
+      'Digital customer journeys',
+    ],
+    icon: 'web',
+  },
+  {
+    id: 'ooh-offline-media',
+    title: 'OOH Media & Offline Marketing',
+    desc: 'Connect outdoor visibility and offline brand activation with digital campaign goals, tracking, and recall.',
+    items: [
+      'Billboard and outdoor media planning',
+      'Print media campaigns',
+      'BTL and local activations',
+      'Offline promotional strategy',
+      'Digital-to-offline campaign flow',
+    ],
+    icon: 'design',
+  },
+  {
+    id: 'brand-growth-strategy',
+    title: 'Brand, Media & Growth Strategy',
+    desc: 'Shape the message, offer, audience, media mix, and execution plan before budget is spent.',
+    items: [
+      'Brand positioning',
+      'Go-to-market planning',
+      'Media mix strategy',
+      'Funnel and customer journey planning',
+      'Monthly performance review',
+    ],
+    icon: 'strategy',
+  },
+  {
+    id: 'media-buying-planning',
+    title: 'Media Planning & Buying',
+    desc: 'Plan where your brand should appear, how budget should be split, and which placements can create the strongest reach and recall.',
+    items: [
+      'Media mix planning',
+      'Budget allocation',
+      'Placement strategy',
+      'Vendor coordination',
+      'Reach and frequency planning',
+    ],
+    icon: 'framework',
+  },
+  {
+    id: 'content-creative-production',
+    title: 'Content & Creative Production',
+    desc: 'Create campaign-ready ideas, ad creatives, social posts, landing page copy, video concepts, and brand assets for each channel.',
+    items: [
+      'Ad creative direction',
+      'Social media content',
+      'Short-form video concepts',
+      'Landing page copy',
+      'Campaign asset planning',
+    ],
+    icon: 'design',
+  },
+  {
+    id: 'social-influencer-marketing',
+    title: 'Social & Influencer Marketing',
+    desc: 'Build awareness and trust through social media planning, creator collaborations, community campaigns, and content calendars.',
+    items: [
+      'Social media strategy',
+      'Influencer campaign planning',
+      'Creator brief development',
+      'Content calendars',
+      'Community engagement ideas',
+    ],
+    icon: 'agents',
+  },
+  {
+    id: 'brand-activation-pr',
+    title: 'Brand Activation & PR',
+    desc: 'Support launches, local promotions, public-facing campaigns, and reputation-building moments with clear messaging and media direction.',
+    items: [
+      'Launch campaign planning',
+      'Press and PR messaging',
+      'Local brand activations',
+      'Partnership campaign ideas',
+      'Reputation and trust messaging',
+    ],
+    icon: 'aistrategy',
+  },
+  {
+    id: 'event-retail-marketing',
+    title: 'Event & Retail Marketing',
+    desc: 'Design practical campaign plans for exhibitions, retail promotions, local events, in-store visibility, and footfall generation.',
+    items: [
+      'Event promotion plans',
+      'Retail campaign strategy',
+      'In-store visibility ideas',
+      'Footfall campaign planning',
+      'Offer and promotion structure',
+    ],
+    icon: 'mobile',
+  },
+  {
+    id: 'crm-retention-marketing',
+    title: 'CRM & Retention Marketing',
+    desc: 'Improve repeat business with email campaigns, WhatsApp flows, customer segmentation, offers, and retention reporting.',
+    items: [
+      'Email marketing campaigns',
+      'WhatsApp campaign planning',
+      'Customer segmentation',
+      'Retention offers',
+      'CRM reporting structure',
+    ],
+    icon: 'workflow',
+  },
+  {
+    id: 'web-development',
+    title: 'Web Development',
+    desc: 'Build fast, responsive websites and landing pages that support campaigns, create trust, and turn visitors into enquiries.',
+    items: [
+      'Business websites',
+      'Campaign landing pages',
+      'Responsive development',
+      'Performance optimisation',
+      'Lead capture forms',
+    ],
+    icon: 'web',
+  },
+  {
+    id: 'android-ios-development',
+    title: 'Android & iOS Development',
+    desc: 'Create mobile app experiences for customer engagement, internal operations, campaign utilities, and digital products.',
+    items: [
+      'Android app planning',
+      'iOS app planning',
+      'App store readiness',
+      'API and Firebase integration',
+      'Mobile UX improvement',
+    ],
+    icon: 'mobile',
+  },
+  {
+    id: 'seo-landing-pages',
+    title: 'SEO & Landing Pages',
+    desc: 'Improve search visibility and campaign conversion with focused landing pages, SEO structure, and clearer content paths.',
+    items: [
+      'SEO content structure',
+      'Keyword landing pages',
+      'Metadata and schema',
+      'Conversion copy',
+      'Page speed basics',
+    ],
+    icon: 'web',
+  },
+  {
+    id: 'ecommerce-growth',
+    title: 'E-commerce Growth',
+    desc: 'Improve product journeys, offer presentation, checkout clarity, remarketing foundations, and retention for online stores.',
+    items: [
+      'Product page strategy',
+      'Checkout journey review',
+      'Offer and bundle planning',
+      'Remarketing setup',
+      'Store analytics',
+    ],
+    icon: 'procurement',
+  },
+  {
+    id: 'software-engineering',
+    title: 'Software Engineering',
+    desc: 'Build custom digital systems, dashboards, portals, and tools that support marketing, reporting, and business operations.',
+    items: [
+      'Custom dashboards',
+      'Internal portals',
+      'Full-stack development',
+      'Scalable architecture',
+      'QA and deployment',
+    ],
+    icon: 'code',
+  },
+  {
+    id: 'api-automation',
+    title: 'API Integration & Automation',
+    desc: 'Connect marketing tools, CRM, forms, analytics, email, dashboards, and reporting systems into a smoother workflow.',
+    items: [
+      'CRM integrations',
+      'Analytics connections',
+      'Webhook workflows',
+      'Email and form automation',
+      'Reporting pipelines',
+    ],
+    icon: 'aiapi',
+  },
+]
+
+const activeServiceCards = marketingMediaServiceCards.length ? marketingMediaServiceCards : serviceCards
+
 function ServicesPage() {
   useEffect(() => {
     const cards = document.querySelectorAll<HTMLElement>('.reveal-card')
@@ -462,12 +701,12 @@ function ServicesPage() {
     <section className="services-cinematic" aria-labelledby="services-title">
       <div className="services-cinematic-inner">
         <div className="services-copy">
-          <p className="services-kicker">Armedia IT & Creative Services</p>
-          <h1 id="services-title">Services built to improve visibility, workflow, and growth.</h1>
+          <p className="services-kicker">Armedia Marketing Media Services</p>
+          <h1 id="services-title">AI, BI, advertising, media, and strategy for brand growth.</h1>
           <p>
-            From premium websites and mobile apps to AI automation, cybersecurity, integrations,
-            and strategic consulting, Armedia helps businesses build digital systems that work
-            clearly, perform reliably, and support measurable outcomes.
+            From AI-powered marketing tools and business intelligence to performance advertising,
+            digital media, OOH media, offline marketing, growth strategy, and campaign-supporting
+            IT services, Armedia helps brands plan smarter campaigns and execute with clarity.
           </p>
 
           <Link className="services-cta" href="/contact">
@@ -476,7 +715,7 @@ function ServicesPage() {
         </div>
 
         <div className="cinematic-services-grid">
-          {serviceCards.map((service) => (
+          {activeServiceCards.map((service) => (
             <article
               className="cinematic-service-card reveal-card"
               key={service.title}
