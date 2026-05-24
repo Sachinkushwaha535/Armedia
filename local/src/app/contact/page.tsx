@@ -4,24 +4,25 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 
 export const metadata: Metadata = {
-  title: 'Contact | Start a Web, AI, Data or IT Project',
+  title: 'Contact | Start a Marketing Media Project',
   description:
-    'Contact Armedia in Auckland to discuss web development, AI solutions, data analytics, cybersecurity, mobile app development, UX/UI design, or IT consulting projects.',
+    'Contact Armedia to discuss AI marketing tools, business intelligence, advertising, digital media, OOH media, offline marketing, or growth strategy.',
   keywords: [
     'contact Armedia',
-    'hire web developer Auckland',
-    'AI development company',
-    'IT consulting contact',
-    'website project inquiry',
-    'digital agency Auckland',
+    'marketing media agency contact',
+    'advertising agency inquiry',
+    'AI marketing project',
+    'business intelligence project',
+    'OOH media planning',
+    'offline marketing campaign',
   ],
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
-    title: 'Contact Armedia | Start a Digital Project',
+    title: 'Contact Armedia | Start a Marketing Media Project',
     description:
-      'Tell Armedia about your website, AI, data, cybersecurity, mobile app, UX/UI, or IT consulting project.',
+      'Share your campaign goal and get practical next steps for AI, BI, advertising, digital media, OOH, offline marketing, or strategy.',
     url: '/contact',
   },
 }

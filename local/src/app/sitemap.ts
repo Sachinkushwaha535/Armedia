@@ -2,7 +2,14 @@ import type { MetadataRoute } from 'next'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
-const routes = ['', '/services', '/about', '/contact', '/privacy', '/terms']
+const routes = [
+  '',
+  '/services',
+  '/about',
+  '/contact',
+  '/privacy',
+  '/terms',
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({

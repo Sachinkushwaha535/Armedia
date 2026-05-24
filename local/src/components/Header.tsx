@@ -19,7 +19,7 @@ function Header() {
           </span>
           <span className="brand-copy">
             <strong>ARMEDIA</strong>
-            <span>Digital Studio</span>
+            <span>Marketing Media</span>
           </span>
         </Link>
 
@@ -28,7 +28,7 @@ function Header() {
           <span className="header-meta-sep" />
           <span>Auckland, NZ</span>
           <span className="header-meta-sep" />
-          <a href="mailto:hello@armedia.co.nz">hello@armedia.co.nz</a>
+          <a href="mailto:contact.armedianz@gmail.com">contact.armedianz@gmail.com</a>
         </div> */}
       </div>
 
@@ -63,7 +63,7 @@ function Header() {
           ))}
         </nav>
 
-        <Link className="topbar-cta" href="/contact" onClick={() => setIsMenuOpen(false)}>
+        <Link className="topbar-cta" href="/start-project" onClick={() => setIsMenuOpen(false)}>
           Start a project
         </Link>
       </div>

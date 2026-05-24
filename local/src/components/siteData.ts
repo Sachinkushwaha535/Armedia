@@ -1,4 +1,4 @@
-export type PageKey = 'home' | 'services' | 'about' | 'contact'
+export type PageKey = 'home' | 'services' | 'about' | 'blog' | 'contact'
 
 export type NavItem = {
   key: PageKey
@@ -10,6 +10,7 @@ export const navItems: NavItem[] = [
   { key: 'home', label: 'Home', path: '/' },
   { key: 'services', label: 'Services', path: '/services' },
   { key: 'about', label: 'About', path: '/about' },
+  { key: 'blog', label: 'Blog', path: '/blog' },
   { key: 'contact', label: 'Contact', path: '/contact' },
 ]
 
@@ -51,19 +52,19 @@ export const featuredWork = [
 export const serviceGroups = [
   {
     title: 'Strategy',
-    items: ['Digital strategy', 'Brand positioning', 'Site architecture', 'Campaign planning'],
+    items: ['Growth strategy', 'Brand positioning', 'Go-to-market planning', 'Media mix planning'],
   },
   {
-    title: 'Design',
-    items: ['UX/UI design', 'Design systems', 'Editorial layouts', 'Content direction'],
+    title: 'Advertising',
+    items: ['Meta Ads', 'Google Ads', 'Creative testing', 'Retargeting campaigns'],
   },
   {
-    title: 'Development',
-    items: ['Responsive web builds', 'E-commerce platforms', 'Web apps', 'API integration'],
+    title: 'Media',
+    items: ['Digital media', 'OOH media', 'Print media', 'Offline marketing'],
   },
   {
-    title: 'Growth',
-    items: ['Performance optimisation', 'SEO', 'Analytics', 'QA and iteration'],
+    title: 'Intelligence',
+    items: ['AI tools', 'BI dashboards', 'Campaign analytics', 'Market insights'],
   },
 ]
 
@@ -98,23 +99,23 @@ export const processSteps = [
 export const testimonials = [
   {
     quote:
-      'Northstar Studio made the whole process feel calm and clear, and the final site lifted our brand immediately.',
-    name: 'Michael Pearce',
-    role: 'Managing Director',
+      'Verified client reviews are shown only after client approval or after connecting a public review source.',
+    name: 'Armedia review policy',
+    role: 'No placeholder testimonials',
   },
   {
     quote:
-      'The team cared about the details, but they also kept the bigger picture in focus. That balance is rare.',
-    name: 'Emma Bell-Norris',
-    role: 'Marketing Manager',
+      'Google reviews can be connected here once the live Business Profile review feed is available.',
+    name: 'Google reviews',
+    role: 'Ready for verified reviews',
   },
 ]
 
 export const clients = [
-  'Breast Cancer Foundation NZ',
-  'IWG Insight Hub',
-  'SPCA',
-  'Cure Kids',
-  'Stuff',
-  'Auckland Arts Festival',
+  'Growth-focused brands',
+  'Local businesses',
+  'Retail and service companies',
+  'Startup teams',
+  'Campaign-led operators',
+  'Brands needing media visibility',
 ]

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import ChatWidget from '../components/ChatWidget'
 import '../index.css'
 import '../App.css'
 
@@ -8,32 +9,34 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Armedia | IT Services, Web Development & AI Solutions in Auckland',
+    default: 'Armedia | AI, BI, Advertising & Marketing Media Agency',
     template: '%s | Armedia',
   },
   description:
-    'Armedia is an Auckland digital studio offering web development, AI solutions, data analytics, cybersecurity, mobile apps, UX/UI design, lead generation, and IT consulting.',
+    'Armedia is a marketing media agency for AI tools, business intelligence, advertising, digital media, OOH media, offline marketing, and growth strategy.',
   applicationName: 'Armedia',
   authors: [{ name: 'Armedia' }],
   creator: 'Armedia',
   publisher: 'Armedia',
-  category: 'Technology',
+  category: 'Advertising',
   keywords: [
     'Armedia',
-    'Armedia Auckland',
-    'IT services Auckland',
-    'web development Auckland',
-    'website design Auckland',
-    'AI solutions New Zealand',
-    'data analytics services',
-    'cybersecurity services',
-    'mobile app development',
-    'UX UI design',
-    'software engineering',
+    'marketing media agency',
+    'AI marketing tools',
+    'business intelligence agency',
+    'advertising agency',
+    'digital media agency',
+    'OOH media agency',
+    'offline marketing',
+    'performance marketing',
+    'Meta Ads management',
+    'Google Ads management',
+    'campaign analytics',
+    'brand strategy',
+    'growth strategy',
+    'media planning',
     'lead generation services',
-    'digital transformation consulting',
-    'business automation',
-    'ecommerce website development',
+    'campaign reporting',
   ],
   alternates: {
     canonical: '/',
@@ -43,15 +46,15 @@ export const metadata: Metadata = {
     locale: 'en_NZ',
     url: '/',
     siteName: 'Armedia',
-    title: 'Armedia | IT Services, Web Development & AI Solutions in Auckland',
+    title: 'Armedia | AI, BI, Advertising & Marketing Media Agency',
     description:
-      'Auckland digital studio for web development, AI solutions, data analytics, cybersecurity, mobile apps, UX/UI design, and business growth systems.',
+      'Marketing media agency for AI tools, business intelligence, advertising, digital media, OOH media, offline marketing, and growth strategy.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Armedia | IT Services, Web Development & AI Solutions in Auckland',
+    title: 'Armedia | AI, BI, Advertising & Marketing Media Agency',
     description:
-      'Web development, AI, data, cybersecurity, mobile apps, UX/UI design, and IT consulting for growing businesses.',
+      'AI tools, BI dashboards, advertising, digital media, OOH media, offline marketing, and growth strategy for growing brands.',
   },
   robots: {
     index: true,
@@ -66,10 +69,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/logo-icon.png', type: 'image/png' },
     ],
-    shortcut: '/favicon.svg',
+    shortcut: '/logo-icon.png',
+    apple: '/logo-icon.png',
   },
 }
 
@@ -83,7 +86,7 @@ export default function RootLayout({
     '@type': 'LocalBusiness',
     name: 'Armedia',
     url: siteUrl,
-    email: 'hello@armedia.co.nz',
+    email: 'contact.armedianz@gmail.com',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Auckland',
@@ -91,19 +94,19 @@ export default function RootLayout({
     },
     areaServed: ['Auckland', 'New Zealand', 'Australia'],
     description:
-      'Armedia provides web development, AI solutions, data analytics, cybersecurity, mobile app development, UX/UI design, lead generation, workflow automation, and IT consulting.',
+      'Armedia provides AI marketing tools, business intelligence, advertising, digital media, OOH media, offline marketing, campaign analytics, and growth strategy.',
     serviceType: [
-      'Web Development',
-      'AI Solutions',
-      'Data Solutions',
-      'Cybersecurity',
-      'Mobile App Development',
-      'UX/UI Design',
-      'Software Engineering',
-      'IT Consulting',
-      'Lead Generation',
-      'Workflow Automation',
-      'Procurement Services',
+      'AI Marketing Tools',
+      'Business Intelligence',
+      'Advertising',
+      'Digital Media',
+      'OOH Media',
+      'Offline Marketing',
+      'Performance Marketing',
+      'Media Planning',
+      'Campaign Analytics',
+      'Brand Strategy',
+      'Growth Strategy',
     ],
   }
 
@@ -115,6 +118,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         {children}
+        <ChatWidget /> 
       </body>
     </html>
   )

@@ -5,34 +5,41 @@ import ArmediaLogo from './ArmediaLogo'
 
 const footerGroups = [
   {
-    title: 'Company',
+    title: 'Studio',
     links: [
+      { label: 'Home', href: '/' },
       { label: 'About', href: '/about' },
+      { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/contact' },
     ],
   },
   {
-  title: 'Services',
-  links: [
-    { label: 'Web development', href: '/services#web' },
-    { label: 'AI and data', href: '/services#ai' },
-    { label: 'Cybersecurity', href: '/services#cybersecurity' },
-    { label: 'UX/UI design', href: '/services#design' },
-  ],
-},
-  {
-    title: 'Start',
+    title: 'Services',
     links: [
-      { label: 'Book a call', href: '/contact' },
-      { label: 'Email us', href: 'mailto:hello@armedia.co.nz' },
+      { label: 'AI Marketing Studio', href: '/services#ai-marketing-studio' },
+      { label: 'Business Intelligence', href: '/services#business-intelligence' },
+      { label: 'Advertising', href: '/services#advertising' },
+      { label: 'Digital Media', href: '/services#digital-media' },
     ],
   },
   {
-    title: 'Legal',
+    title: 'Media',
     links: [
+      { label: 'OOH media', href: '/services#ooh-offline-media' },
+      { label: 'Media buying', href: '/services#media-buying-planning' },
+      { label: 'Content production', href: '/services#content-creative-production' },
+      { label: 'Influencer marketing', href: '/services#social-influencer-marketing' },
+    ],
+  },
+  {
+    title: 'Start',
+    links: [
+      { label: 'Start a project', href: '/start-project' },
+      { label: 'Email us', href: 'mailto:contact.armedianz@gmail.com' },
+      { label: 'Web development', href: '/services#web-development' },
+      { label: 'Android & iOS', href: '/services#android-ios-development' },
       { label: 'Privacy', href: '/privacy' },
       { label: 'Terms', href: '/terms' },
-    
     ],
   },
 ]
@@ -67,7 +74,10 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 Armedia. All rights reserved.</span>
+          <span>
+            &copy; 2026 Armedia. Marketing media agency for AI, BI, advertising, digital media, OOH,
+            offline marketing, media buying, content, PR, events, CRM, and growth strategy.
+          </span>
         </div>
       </div>
     </footer>

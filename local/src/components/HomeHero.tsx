@@ -9,28 +9,29 @@ function HomeHero() {
       <div className="hero-grid">
         <div className="hero-copy">
           <p className="eyebrow">Armedia.co.nz</p>
-          <h1>We build websites that feel premium, customer friendly and result driven.</h1>
+          <h1>Premium Web Design &amp; React Development Studio in Auckland.</h1>
           <p className="lede">
-            Premium agency-style websites, web apps, and brand systems for ambitious businesses that want a stronger digital first impression.
+            Next.js websites, React web apps, SEO-ready pages, and AI-enabled workflows for
+            Auckland and New Zealand businesses that need a stronger digital first impression.
           </p>
 
           <div className="hero-actions">
             <Link className="button button-primary" href="/contact">
-              Start a project
+              Book a free strategy call
             </Link>
             <Link className="button button-secondary" href="/services">
-              Explore services
+              View Auckland web services
             </Link>
           </div>
 
           <div className="hero-trust">
-            <span>Trusted by growing brands</span>
+            <span>Auckland-based digital studio</span>
             <div className="avatar-stack" aria-hidden="true">
               <span />
               <span />
               <span />
             </div>
-            <strong>120+ satisfied clients</strong>
+            <strong>Performance-focused builds</strong>
           </div>
 
           <div className="hero-meta" aria-label="Studio highlights">

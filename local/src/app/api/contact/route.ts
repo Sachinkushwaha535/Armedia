@@ -34,7 +34,7 @@ export async function POST(req: Request) {
       return Response.json(
         {
           message:
-            'The contact form is not configured yet. Please email hello@armedia.co.nz.',
+            'The contact form is not configured yet. Please email contact.armedianz@gmail.com.',
         },
         { status: 500 }
       )
@@ -91,7 +91,7 @@ export async function POST(req: Request) {
     console.error('❌ EMAIL ERROR FULL:', error)
 
     return Response.json(
-      { message: 'Email failed to send. Please email hello@armedia.co.nz.' },
+      { message: 'Email failed to send. Please email contact.armedianz@gmail.com.' },
       { status: 500 }
     )
   }

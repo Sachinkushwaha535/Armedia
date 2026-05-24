@@ -5,7 +5,7 @@ import PageShell from '../../components/PageShell'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'General website and project inquiry terms for Armedia.',
+  description: 'General website, campaign inquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
   alternates: {
     canonical: '/terms',
   },
@@ -19,7 +19,7 @@ export default function Page() {
         <PageShell
           kicker="Terms"
           title="Terms of Service"
-          description="These terms cover use of the Armedia website and initial project inquiries."
+          description="These terms cover use of the Armedia website, campaign inquiries, and initial discussions for marketing media, advertising, AI, BI, and strategy work."
         >
           <div className="legal-content">
 
@@ -42,6 +42,35 @@ export default function Page() {
             </section>
 
             <section>
+              <h2>Marketing and media services</h2>
+              <p>
+                Armedia may provide services such as AI marketing tools, business intelligence,
+                advertising, media planning, digital media, OOH media, offline marketing, content
+                direction, influencer planning, PR support, event marketing, CRM campaigns, and
+                growth strategy. Exact deliverables depend on the written scope agreed for each project.
+              </p>
+            </section>
+
+            <section>
+              <h2>Campaign performance</h2>
+              <p>
+                Marketing results can vary based on budget, audience, creative quality, market
+                conditions, media availability, platform changes, and client inputs. We work toward
+                measurable improvement, but we do not guarantee specific sales, leads, rankings,
+                reach, impressions, or revenue unless a separate written agreement clearly states otherwise.
+              </p>
+            </section>
+
+            <section>
+              <h2>Client responsibilities</h2>
+              <p>
+                Clients are responsible for providing accurate business information, timely feedback,
+                approved brand assets, access to required tools or accounts, legal permissions for
+                content, and final approval for campaigns before launch where approval is required.
+              </p>
+            </section>
+
+            <section>
               <h2>Intellectual property</h2>
               <p>
                 All website content, including text, design, graphics, and code, is owned by Armedia
@@ -54,7 +83,9 @@ export default function Page() {
               <h2>Limitation of liability</h2>
               <p>
                 Armedia is not liable for any direct or indirect damages arising from the use or
-                inability to use this website. We do not guarantee uninterrupted access or error-free operation.
+                inability to use this website. We do not guarantee uninterrupted access or error-free
+                operation. For campaign work, liability is limited to the terms agreed in the relevant
+                project agreement.
               </p>
             </section>
 
@@ -67,10 +98,10 @@ export default function Page() {
             </section>
 
             <section>
-              <h2>Contact</h2>
+              <h2>Email contact</h2>
               <p>
                 For any questions regarding these terms, please contact us at{' '}
-                <a href="mailto:hello@armedia.co.nz">hello@armedia.co.nz</a>.
+                <a href="mailto:contact.armedianz@gmail.com">contact.armedianz@gmail.com</a>.
               </p>
             </section>
 
