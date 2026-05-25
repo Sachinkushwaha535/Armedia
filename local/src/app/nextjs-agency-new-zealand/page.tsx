@@ -1,0 +1,78 @@
+import type { Metadata } from 'next'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import ServiceLandingPage from '../../components/ServiceLandingPage'
+
+export const metadata: Metadata = {
+  title: 'Next.js Agency New Zealand',
+  description:
+    'Next.js agency in New Zealand building fast marketing sites, web apps, SEO pages, and conversion-focused digital systems.',
+  alternates: { canonical: '/nextjs-agency-new-zealand' },
+}
+
+export default function Page() {
+  return (
+    <div className="site-shell">
+      <Header />
+      <main>
+        <ServiceLandingPage
+          kicker="Next.js agency New Zealand"
+          title="Next.js websites and web apps for New Zealand teams."
+          description="Armedia uses Next.js for fast page loads, strong SEO foundations, scalable routing, and modern delivery workflows."
+          points={[
+            'Next.js app architecture',
+            'SEO metadata and schema',
+            'Server routes and integrations',
+            'Production build and launch QA',
+          ]}
+          outcomes={[
+            'Better technical SEO',
+            'Faster page experience',
+            'Cleaner routing and content growth',
+            'A stronger foundation for 2026 digital work',
+          ]}
+          benefits={[
+            'Modern routing for content and service page growth',
+            'SEO-friendly rendering and metadata control',
+            'Strong foundations for forms, APIs, and integrations',
+            'Cleaner long-term maintenance than one-off page builds',
+          ]}
+          pricing="Next.js projects usually start from NZD 4,500. Larger web apps, content systems, and integrations are scoped after technical discovery."
+          timeline={[
+            'Architecture and route plan: 2-4 days',
+            'Component system and page build: 1-3 weeks',
+            'Integrations, metadata, and schema: 3-7 days',
+            'Build QA, launch, and handover: 2-5 days',
+          ]}
+          technologies={[
+            'Next.js',
+            'React',
+            'TypeScript',
+            'Metadata API',
+            'JSON-LD schema',
+            'API routes',
+          ]}
+          portfolio={[
+            'SEO landing page systems',
+            'Marketing websites with service routes',
+            'Web apps with forms and integrations',
+            'Client-approved live links can be added when available',
+          ]}
+          faq={[
+            {
+              question: 'Why use Next.js instead of a basic website builder?',
+              answer:
+                'Next.js gives stronger control over performance, routing, metadata, integrations, and custom frontend behaviour.',
+            },
+            {
+              question: 'Can Next.js support SEO pages?',
+              answer:
+                'Yes. It is a strong fit for structured service pages, metadata, schema, sitemaps, and content growth.',
+            },
+          ]}
+        />
+      </main>
+      <Footer />
+    </div>
+  )
+}
