@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     'A practical guide for Auckland service businesses improving website trust, speed, contact clarity, proof, and conversion paths in 2026.',
   alternates: { canonical: '/blog/website-trust-auckland-2026' },
+  openGraph: {
+    title: 'How Auckland Businesses Can Improve Website Trust in 2026',
+    description:
+      'A practical guide for Auckland service businesses improving website trust, speed, contact clarity, proof, and conversion paths in 2026.',
+    url: '/blog/website-trust-auckland-2026',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How Auckland Businesses Can Improve Website Trust in 2026',
+    description:
+      'Improve website trust with clearer offers, proof, speed, contact clarity, and conversion paths.',
+  },
 }
 
 export default function Page() {
@@ -16,15 +29,17 @@ export default function Page() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'How Auckland businesses can improve website trust in 2026',
+    description: metadata.description,
     author: { '@type': 'Organization', name: 'Armedia' },
-    publisher: { '@type': 'Organization', name: 'Armedia' },
+    publisher: { '@type': 'Organization', name: 'Armedia', logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
     mainEntityOfPage: `${siteUrl}/blog/website-trust-auckland-2026`,
+    image: `${siteUrl}/logo.png`,
   }
 
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <article className="page-shell section legal-content">
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
           <p className="eyebrow">Article</p>

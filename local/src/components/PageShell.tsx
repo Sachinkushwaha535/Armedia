@@ -1,5 +1,3 @@
-'use client'
-
 import type { ReactNode } from 'react'
 
 type PageShellProps = {
@@ -12,10 +10,10 @@ type PageShellProps = {
 
 function PageShell({ kicker, title, description, actions, children }: PageShellProps) {
   return (
-    <section className="page-shell section">
+    <section className="page-shell section" aria-labelledby="page-title">
       <div className="section-heading">
         <p className="eyebrow">{kicker}</p>
-        <h1 className="page-title">{title}</h1>
+        <h1 className="page-title" id="page-title">{title}</h1>
         <p>{description}</p>
         {actions ? <div className="hero-actions">{actions}</div> : null}
       </div>
@@ -25,4 +23,3 @@ function PageShell({ kicker, title, description, actions, children }: PageShellP
 }
 
 export default PageShell
-

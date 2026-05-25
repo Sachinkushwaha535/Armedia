@@ -3,19 +3,46 @@ import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
+
 export const metadata: Metadata = {
   title: 'Why Brand Recall Needs Offline and OOH Media',
   description:
     'Why outdoor advertising, print media, local activations, and retail visibility can strengthen digital campaigns and brand recall.',
   alternates: { canonical: '/blog/offline-ooh-brand-recall' },
+  openGraph: {
+    title: 'Why Brand Recall Needs Offline and OOH Media',
+    description:
+      'Why outdoor advertising, print media, local activations, and retail visibility can strengthen digital campaigns and brand recall.',
+    url: '/blog/offline-ooh-brand-recall',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Why Brand Recall Needs Offline and OOH Media',
+    description:
+      'How outdoor media, print, retail visibility, and local activations strengthen digital campaigns and brand recall.',
+  },
 }
 
 export default function Page() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Why Brand Recall Needs Offline and OOH Media',
+    description: metadata.description,
+    author: { '@type': 'Organization', name: 'Armedia' },
+    publisher: { '@type': 'Organization', name: 'Armedia', logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
+    mainEntityOfPage: `${siteUrl}/blog/offline-ooh-brand-recall`,
+    image: `${siteUrl}/logo.png`,
+  }
+
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <article className="page-shell section legal-content">
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
           <p className="eyebrow">OOH + Offline</p>
           <h1 className="page-title">Why Brand Recall Needs Offline and OOH Media</h1>
           <p>

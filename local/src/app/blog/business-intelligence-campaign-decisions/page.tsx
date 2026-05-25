@@ -3,19 +3,46 @@ import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
+
 export const metadata: Metadata = {
   title: 'Business Intelligence for Campaign Decisions',
   description:
     'How BI dashboards, customer data, campaign analytics, and competitor signals help marketing teams decide what to improve next.',
   alternates: { canonical: '/blog/business-intelligence-campaign-decisions' },
+  openGraph: {
+    title: 'Business Intelligence for Campaign Decisions',
+    description:
+      'How BI dashboards, customer data, campaign analytics, and competitor signals help marketing teams decide what to improve next.',
+    url: '/blog/business-intelligence-campaign-decisions',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Business Intelligence for Campaign Decisions',
+    description:
+      'How dashboards, customer data, campaign analytics, and competitor signals help teams decide what to scale next.',
+  },
 }
 
 export default function Page() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Business Intelligence for Campaign Decisions',
+    description: metadata.description,
+    author: { '@type': 'Organization', name: 'Armedia' },
+    publisher: { '@type': 'Organization', name: 'Armedia', logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
+    mainEntityOfPage: `${siteUrl}/blog/business-intelligence-campaign-decisions`,
+    image: `${siteUrl}/logo.png`,
+  }
+
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <article className="page-shell section legal-content">
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
           <p className="eyebrow">Business Intelligence</p>
           <h1 className="page-title">Business Intelligence for Campaign Decisions</h1>
           <p>

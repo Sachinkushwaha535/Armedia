@@ -5,66 +5,66 @@ import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 
 const philosophyCards = [
   {
-    title: 'Strategy first',
+    title: 'Commercial clarity first',
     icon: '01',
-    points: ['Clear market direction', 'Audience and offer mapping', 'Campaign goals before execution'],
+    points: ['Sharper market position', 'Audience and offer mapping', 'Campaign goals before execution'],
   },
   {
-    title: 'Media thinking',
+    title: 'Channel strategy',
     icon: '02',
-    points: ['Digital, OOH, and offline planning', 'Creative matched to placement', 'Channel-ready campaign structure'],
+    points: ['Digital, OOH, and offline planning', 'Creative matched to each placement', 'Budget directed by channel role'],
   },
   {
-    title: 'AI advantage',
+    title: 'Intelligence layer',
     icon: '03',
-    points: ['Faster content workflows', 'Smarter reporting', 'Automation where it saves real time'],
+    points: ['AI-assisted workflows', 'BI dashboards and reporting', 'Automation where it improves speed'],
   },
   {
-    title: 'Measured growth',
+    title: 'Measured improvement',
     icon: '04',
-    points: ['Campaign tracking', 'Business intelligence dashboards', 'Optimisation after launch'],
+    points: ['Campaign tracking', 'Lead quality review', 'Optimisation after launch'],
   },
 ]
 
 const whyUsCards = [
   {
-    title: 'Performance Marketing',
+    title: 'Strategy before spend',
     tag: 'Strategy',
-    desc: 'Campaigns planned around reach, lead quality, conversion, and measurable growth instead of random posting.',
+    desc: 'We define the audience, offer, message, media mix, and measurement plan before budget goes live.',
   },
   {
-    title: 'Fast & Scalable Execution',
+    title: 'Premium execution system',
     tag: 'Execution',
-    desc: 'From first idea to live campaign, we structure creative, media, tracking, and reporting so work can scale cleanly.',
+    desc: 'Creative, landing pages, media, tracking, and reporting are built as one connected campaign system.',
   },
   {
-    title: 'Trusted & Result-Oriented',
+    title: 'Clear performance thinking',
     tag: 'Growth',
-    desc: 'Every campaign direction is tied to a business outcome: awareness, enquiries, footfall, sales, or reporting clarity.',
+    desc: 'Every recommendation is tied to a business outcome: awareness, enquiries, footfall, sales, or reporting clarity.',
   },
   {
-    title: 'Dedicated Support',
+    title: 'Calm client communication',
     tag: 'Support',
-    desc: 'Clear communication, practical recommendations, and campaign reviews help you know what is happening and why.',
+    desc: 'You get practical next steps, concise reviews, and a clear view of what is happening and why.',
   },
 ]
 
 const growthCards = [
   {
-    title: 'Creative Excellence',
+    title: 'Sharper creative direction',
     label: 'Design',
-    desc: 'Ad creatives, campaign messages, content direction, and media assets designed to make your brand easier to remember.',
+    desc: 'Campaign messages, ad concepts, content direction, and media assets shaped to make your offer easier to understand and remember.',
   },
   {
-    title: 'Measurable Results',
+    title: 'Cleaner measurement',
     label: 'Analytics',
-    desc: 'Dashboards, tracking, campaign summaries, and optimisation reviews help connect media spend to business outcomes.',
+    desc: 'Dashboards, tracking, campaign summaries, and review rhythms connect media activity to practical business decisions.',
     featured: true,
   },
   {
-    title: 'Skilled Professionals',
+    title: 'One connected team',
     label: 'Team',
-    desc: 'Strategy, media, creative, AI, BI, and technology capabilities combined into one growth-focused agency workflow.',
+    desc: 'Strategy, media, creative, AI, BI, and technology capabilities work together instead of sitting in separate silos.',
   },
 ]
 
@@ -72,25 +72,25 @@ const faqItems = [
   {
     question: 'What services do you offer?',
     answer:
-      'We provide AI marketing tools, business intelligence, advertising, digital media, OOH media, offline marketing, content, PR, CRM, web development, app development, SEO, and campaign automation.',
+      'Armedia provides AI marketing workflows, business intelligence dashboards, advertising, digital media, OOH and offline media, SEO, landing pages, web development, CRM, content, and growth strategy.',
   },
   {
-    question: 'How can digital marketing grow my business?',
+    question: 'How does Armedia improve marketing performance?',
     answer:
-      'A clear campaign system can improve visibility, generate better leads, increase brand recall, and help your team understand which channels deserve more budget.',
+      'We improve performance by clarifying the offer, choosing the right channel mix, tightening creative, setting up measurement, and optimising campaigns around lead quality and commercial outcomes.',
   },
   {
-    question: 'How long does it take to see results?',
+    question: 'How quickly can we start?',
     answer:
-      'Some improvements can appear quickly after launch, while stronger growth usually needs consistent testing, reporting, and optimisation across several weeks.',
+      'Most projects begin with a focused discovery conversation, then a clear action plan covering priority channels, timeline, budget range, and the assets needed to launch.',
   },
   {
-    question: 'Do you work with small businesses?',
+    question: 'Do you work with growing businesses?',
     answer:
-      'Yes. We can create practical plans for local businesses, startups, retail brands, service companies, and growing teams.',
+      'Yes. Armedia works with local businesses, startups, retail brands, service companies, and growth-focused teams across New Zealand and nearby markets.',
   },
   {
-    question: 'What makes your agency different?',
+    question: 'What makes Armedia different?',
     answer:
       'We connect media planning, creative, AI workflows, BI dashboards, performance advertising, offline visibility, and technology support in one growth system.',
   },
@@ -108,10 +108,10 @@ const tickerItems = [
 ]
 
 const stats = [
-  { num: 6, suffix: '+', label: 'Core growth channels' },
-  { num: 24, suffix: '/7', label: 'AI-ready support thinking' },
-  { num: 5, suffix: '', label: 'Step campaign process' },
-  { num: 100, suffix: '%', label: 'Strategy-led execution' },
+  { num: 6, suffix: '', label: 'Integrated service pillars' },
+  { num: 5, suffix: '', label: 'Stage campaign process' },
+  { num: 1, suffix: '', label: 'Connected growth system' },
+  { num: 2, suffix: '', label: 'NZ and AU market focus' },
 ]
 
 const bentoServices = [
@@ -119,76 +119,76 @@ const bentoServices = [
     icon: 'AI',
     iconClass: 'lime',
     title: 'AI Marketing Studio',
-    sub: 'AI tools and workflows for content ideas, campaign summaries, lead qualification, automated reports, and faster marketing operations.',
-    tags: ['AI content', 'Campaign reports', 'Lead scoring', 'Outcome: faster execution'],
+    sub: 'AI-assisted workflows for content planning, campaign summaries, lead qualification, customer support, and faster marketing operations.',
+    tags: ['AI workflows', 'Campaign summaries', 'Lead qualification', 'Outcome: faster execution'],
     cardClass: 'bc1 bc-accent',
   },
   {
     icon: 'BI',
     iconClass: 'cyan',
     title: 'Business Intelligence',
-    sub: 'Dashboards, market insights, competitor analysis, campaign analytics, and reporting systems that make growth decisions clearer.',
-    tags: ['Dashboards', 'Market insights', 'Competitor data', 'Outcome: smarter decisions'],
+    sub: 'Dashboards, campaign analytics, market insight, and reporting systems that turn scattered data into confident decisions.',
+    tags: ['Dashboards', 'Campaign analytics', 'Market insight', 'Outcome: smarter decisions'],
     cardClass: 'bc2',
   },
   {
     icon: 'AD',
     iconClass: 'orange',
     title: 'Advertising',
-    sub: 'Meta Ads, Google Ads, creative testing, media buying, retargeting, and campaign management built around measurable outcomes.',
-    tags: ['Meta Ads', 'Google Ads', 'Retargeting', 'Outcome: stronger leads'],
+    sub: 'Paid search, paid social, retargeting, creative testing, media buying, and conversion tracking built around lead quality.',
+    tags: ['Google Ads', 'Meta Ads', 'Retargeting', 'Outcome: stronger leads'],
     cardClass: 'bc3',
   },
   {
     icon: 'DM',
     iconClass: 'lime',
     title: 'Digital Media',
-    sub: 'Social campaigns, content systems, landing pages, SEO, video-first assets, and digital journeys that create awareness and enquiries.',
-    tags: ['Social media', 'SEO', 'Landing pages', 'Outcome: digital reach'],
+    sub: 'SEO, landing pages, social campaigns, content systems, and digital journeys that make your brand easier to find and choose.',
+    tags: ['SEO', 'Landing pages', 'Social media', 'Outcome: qualified reach'],
     cardClass: 'bc4',
   },
   {
     icon: 'OOH',
     iconClass: 'white',
     title: 'OOH & Offline Media',
-    sub: 'Outdoor advertising, print, local promotions, activations, and offline campaign planning connected with digital tracking.',
-    tags: ['Billboards', 'Print media', 'BTL campaigns', 'Outcome: brand recall'],
+    sub: 'Outdoor advertising, print, activations, retail visibility, and local media planned with digital follow-through and recall.',
+    tags: ['Billboards', 'Print media', 'Activations', 'Outcome: brand recall'],
     cardClass: 'bc5 bc-orange',
   },
   {
     icon: 'GO',
     iconClass: 'cyan',
     title: 'Strategy & Growth',
-    sub: 'Go-to-market planning, brand positioning, funnel strategy, campaign roadmaps, and performance reviews for sustainable growth.',
-    tags: ['GTM strategy', 'Brand positioning', 'Funnels', 'Outcome: clear growth plan'],
+    sub: 'Positioning, go-to-market planning, funnel strategy, campaign roadmaps, and performance reviews for more deliberate growth.',
+    tags: ['Positioning', 'GTM strategy', 'Funnel strategy', 'Outcome: clear growth plan'],
     cardClass: 'bc7',
     inline: true,
   },
 ]
 
 const processSteps = [
-  { num: '01', title: 'Discovery', desc: 'We understand your brand, audience, offer, market position, and the result your campaign needs to create.' },
-  { num: '02', title: 'Strategy', desc: 'We choose the right mix of AI, BI, advertising, digital media, OOH, offline marketing, and content.' },
-  { num: '03', title: 'Creative', desc: 'We shape campaign messages, visual direction, landing pages, and media assets for each channel.' },
-  { num: '04', title: 'Execution', desc: 'We launch campaigns, set up tracking, connect tools, and keep communication clear from start to finish.' },
-  { num: '05', title: 'Optimisation', desc: 'We review performance, improve weak points, and use insights to scale what is working.' },
+  { num: '01', title: 'Diagnose', desc: 'We clarify your offer, audience, competition, current channels, constraints, and the commercial result the campaign must support.' },
+  { num: '02', title: 'Position', desc: 'We sharpen the message, channel role, funnel path, campaign structure, and measurement plan before execution begins.' },
+  { num: '03', title: 'Build', desc: 'We create the campaign assets, landing pages, media plan, AI workflows, dashboards, and tracking foundations needed to launch.' },
+  { num: '04', title: 'Launch', desc: 'We activate campaigns across the selected channels with clean handover, live checks, and practical communication.' },
+  { num: '05', title: 'Improve', desc: 'We review performance, identify friction, refine the strongest ideas, and help your team decide what to scale next.' },
 ]
 
 const portfolioProjects = [
   {
     title: 'AI campaign command centre',
-    description: 'A dashboard concept for campaign summaries, lead quality, content planning, and weekly marketing actions.',
-    metric: 'Designed to reduce manual reporting and make next steps easier to see.',
-    feedback: 'Ready to connect with CRM, ad platforms, and reporting data when integrations are approved.',
+    description: 'A premium workflow for campaign summaries, lead quality, content planning, and weekly marketing actions.',
+    metric: 'Designed to reduce manual reporting and make the next best action easier to see.',
+    feedback: 'Built to connect with CRM, ad platforms, analytics, and reporting data once integrations are approved.',
     tags: ['AI tool', 'BI dashboard', 'Campaign analytics'],
     thumb: 'work-thumb-a',
     badge: 'AI + BI',
   },
   {
     title: 'Digital and OOH launch plan',
-    description: 'A media plan structure combining paid social, Google search, outdoor visibility, print, and local activations.',
-    metric: 'Built around awareness, enquiries, retargeting, and offline recall.',
-    feedback: 'Useful for brands that need one connected campaign instead of disconnected channel activity.',
+    description: 'A connected launch plan combining paid social, Google search, outdoor visibility, print, and local activation.',
+    metric: 'Built around awareness, enquiries, retargeting, and stronger offline recall.',
+    feedback: 'Useful for brands that need one coordinated campaign instead of disconnected channel activity.',
     tags: ['OOH media', 'Paid ads', 'Offline marketing'],
     thumb: 'work-thumb-b',
     badge: 'MEDIA',
@@ -309,37 +309,37 @@ function HomePage() {
       <div className="blob blob-b" aria-hidden="true" />
       <div className="blob blob-c" aria-hidden="true" />
 
-      <section className="hp-hero">
+      <section className="hp-hero" aria-labelledby="home-hero-title">
         <div className="hp-hero-inner">
           <div className="hero-eyebrow fade-up fade-up-1">
             <span className="eyebrow-dot" />
-            AI, BI, Advertising & Media Agency
+            Premium marketing media agency for modern growth
           </div>
 
-          <h1 className="hero-h1 fade-up fade-up-2">
-            Grow your brand with <em className="hero-em">AI-powered media</em>
+          <h1 className="hero-h1 fade-up fade-up-2" id="home-hero-title">
+            Plan smarter campaigns with <em className="hero-em">AI, BI & media strategy</em>
             <br />
-            advertising and strategy.
+            built for measurable growth.
           </h1>
 
           <p className="hero-sub fade-up fade-up-3">
-            Armedia helps brands plan and execute smarter campaigns across AI tools, business
-            intelligence, performance advertising, digital media, OOH media, offline marketing,
-            and growth strategy.
+            Armedia helps ambitious brands turn marketing activity into a connected growth system:
+            sharper positioning, better media planning, stronger creative, cleaner data, and
+            campaigns that are easier to measure and improve.
           </p>
 
           <div className="hero-actions fade-up fade-up-4">
             <Link className="btn-primary" href="/contact">
-              Book a strategy call <span className="btn-arrow">-&gt;</span>
+              Book a growth consultation <span className="btn-arrow" aria-hidden="true">-&gt;</span>
             </Link>
             <Link className="btn-ghost" href="/services">
-              View services
+              Explore services
             </Link>
           </div>
 
           <p className="hero-sub fade-up fade-up-4">
-            Strategy, creative direction, media planning, AI automation, dashboards, campaign
-            execution, and optimisation in one connected growth system.
+            Built for service businesses, retail brands, startups, and growth teams that need
+            premium execution across digital, offline, and intelligence-led marketing.
           </p>
 
           <div className="stats-strip reveal">
@@ -370,16 +370,17 @@ function HomePage() {
       <section className="hp-section reveal" aria-labelledby="cap-heading">
         <div className="section-top">
           <div>
-            <p className="section-tag">Capabilities</p>
+            <p className="section-tag">Services</p>
             <h2 className="section-h2" id="cap-heading">
-              Marketing media services built
+              One premium partner to plan
               <br />
-              to plan, launch &amp; scale.
+              campaigns, media &amp; measurement.
             </h2>
           </div>
           <p className="section-desc">
-            Every service is shaped around one goal: clearer brand visibility, better campaign
-            decisions, stronger lead generation, and measurable growth across online and offline media.
+            From AI workflows and BI dashboards to advertising, SEO, OOH, offline media, landing
+            pages, and growth strategy, every service is designed to make your brand easier to
+            discover, trust, and choose.
           </p>
         </div>
 
@@ -398,7 +399,7 @@ function HomePage() {
                       <span className="bento-tag" key={tag}>{tag}</span>
                     ))}
                   </div>
-                  <Link className="text-link" href="/contact">Request quote</Link>
+                  <Link className="text-link" href="/contact">Discuss this service</Link>
                 </>
               ) : (
                 <>
@@ -410,7 +411,7 @@ function HomePage() {
                       <span className="bento-tag" key={tag}>{tag}</span>
                     ))}
                   </div>
-                  <Link className="text-link" href="/contact">Request quote</Link>
+                  <Link className="text-link" href="/contact">Discuss this service</Link>
                 </>
               )}
             </article>
@@ -420,7 +421,7 @@ function HomePage() {
 
       <section className="hp-section hp-section-tight reveal" aria-labelledby="proc-heading">
         <p className="section-tag">Process</p>
-        <h2 className="section-h2" id="proc-heading">How we turn campaigns into growth</h2>
+        <h2 className="section-h2" id="proc-heading">A clear path from idea to measurable campaign</h2>
         <div className="process-grid">
           {processSteps.map((step) => (
             <div className="process-step" key={step.num}>
@@ -435,12 +436,13 @@ function HomePage() {
       <section className="hp-section hp-section-tight reveal" aria-labelledby="work-heading">
         <div className="section-top">
           <div>
-            <p className="section-tag">Portfolio</p>
-            <h2 className="section-h2" id="work-heading">Campaign formats we can build</h2>
+            <p className="section-tag">Campaign Systems</p>
+            <h2 className="section-h2" id="work-heading">What premium execution looks like</h2>
           </div>
           <p className="section-desc">
-            These are proof-ready campaign formats. Replace them with live client work, billboard
-            mockups, ad creatives, dashboards, and case studies as soon as they are approved.
+            These formats show how we connect creative, media, technology, and reporting. Live
+            case studies, approved client examples, and performance proof can be added as projects
+            become public.
           </p>
         </div>
 
@@ -471,8 +473,8 @@ function HomePage() {
       </section>
 
       <section className="hp-section hp-section-tight reveal" aria-labelledby="phil-heading">
-        <p className="section-tag">Philosophy</p>
-        <h2 className="section-h2" id="phil-heading">What guides every campaign</h2>
+        <p className="section-tag">Operating Principles</p>
+        <h2 className="section-h2" id="phil-heading">What makes the work feel sharper</h2>
         <div className="philosophy-grid">
           {philosophyCards.map((card) => (
             <article className="phil-card" key={card.title}>
@@ -491,27 +493,28 @@ function HomePage() {
       <section className="hp-section hp-section-tight reveal" aria-labelledby="why-heading">
         <div className="section-top">
           <div>
-            <p className="section-tag">Why Us</p>
-            <h2 className="section-h2" id="why-heading">Built for campaigns that need clarity and momentum</h2>
+            <p className="section-tag">Why Armedia</p>
+            <h2 className="section-h2" id="why-heading">Built for brands that need clarity, trust, and momentum</h2>
           </div>
           <p className="section-desc">
-            We combine media planning, creative direction, AI workflows, business intelligence,
-            advertising, OOH, offline marketing, and technology support into one execution system.
+            Instead of scattered tasks and disconnected vendors, Armedia gives you a strategic
+            partner that can shape the plan, build the assets, launch the campaign, and make the
+            results easier to understand.
           </p>
         </div>
 
         <div className="why-agency-layout">
           <article className="why-agency-feature">
-            <p className="section-tag">Discover what sets us apart</p>
-            <h3>Data-informed marketing built for real business growth.</h3>
+            <p className="section-tag">Positioning</p>
+            <h3>A modern growth studio for marketing that needs more than isolated ads.</h3>
             <p>
-              Armedia is shaped for brands that want more than isolated ads. We connect strategy,
-              media, creative, reporting, and campaign-supporting technology so every activity has
-              a clearer role in the growth plan.
+              We bring together strategy, creative direction, media execution, AI workflows,
+              reporting, and campaign-supporting technology so each activity has a clear role in
+              the growth plan.
             </p>
             <div className="why-agency-metrics">
-              <span><strong>98%</strong>Success focus</span>
-              <span><strong>200+</strong>Campaign ideas ready</span>
+              <span><strong>0</strong>Placeholder testimonials</span>
+              <span><strong>1</strong>Connected campaign plan</span>
             </div>
           </article>
 
@@ -539,11 +542,11 @@ function HomePage() {
 
         <div className="home-cta-panel">
           <div>
-            <p className="section-tag">Transform your business vision</p>
-            <h2>Partner with our specialists for campaign results.</h2>
+            <p className="section-tag">Ready for a clearer plan?</p>
+            <h3>Turn your next campaign into a premium growth system.</h3>
           </div>
           <Link className="btn-primary" href="/start-project">
-            Launch your project <span className="btn-arrow">-&gt;</span>
+            Start your project brief <span className="btn-arrow" aria-hidden="true">-&gt;</span>
           </Link>
         </div>
       </section>
@@ -555,8 +558,8 @@ function HomePage() {
             <h2 className="section-h2" id="faq-heading">Frequently Asked Questions</h2>
           </div>
           <p className="section-desc">
-            Find clear answers about our marketing media services, pricing conversations, timelines,
-            and performance-focused strategy.
+            Clear answers about services, timelines, collaboration, campaign planning, and what
+            makes Armedia different from a conventional marketing supplier.
           </p>
         </div>
 
@@ -578,9 +581,9 @@ function HomePage() {
               <small>6 questions</small>
             </div>
             <div className="faq-help-card">
-              <strong>Still need help?</strong>
-              <p>Tell us your question or project idea and our team will help you with a practical next step.</p>
-              <Link className="text-link" href="/contact">Get in touch</Link>
+              <strong>Need a sharper answer?</strong>
+              <p>Send your project context and we will help you identify the most practical next step.</p>
+              <Link className="text-link" href="/contact">Talk to Armedia</Link>
             </div>
           </aside>
 
@@ -606,11 +609,12 @@ function HomePage() {
         <div className="section-top section-top-centered">
           <div>
             <p className="section-tag">Contact</p>
-            <h2 className="section-h2" id="home-contact-heading">Share your vision with us</h2>
+            <h2 className="section-h2" id="home-contact-heading">Let us shape your next growth campaign</h2>
           </div>
           <p className="section-desc">
-            Get in touch to start growing your business with high-performance marketing media,
-            AI, BI, advertising, and campaign strategy.
+            Share your business goal, target audience, budget range, and preferred channels. We
+            will help translate it into a practical plan for strategy, media, creative, AI, BI,
+            and measurable execution.
           </p>
         </div>
 
@@ -619,57 +623,68 @@ function HomePage() {
             <div className="home-contact-methods">
               <article>
                 <span>Email</span>
-                <strong>Drop us a line</strong>
+                <strong>Email the studio</strong>
                 <a href="mailto:contact.armedianz@gmail.com">contact.armedianz@gmail.com</a>
               </article>
               <article>
                 <span>Call</span>
-                <strong>Give us a ring</strong>
-                <p>Share your number and we will call back.</p>
+                <strong>Request a call back</strong>
+                <p>Share your number and we will respond with the right next step.</p>
               </article>
               <article>
                 <span>Plan</span>
-                <strong>Step by step</strong>
-                <p>Strategy, campaign, creative, media, and reporting.</p>
+                <strong>Get a campaign plan</strong>
+                <p>Strategy, creative, media, tracking, reporting, and improvement.</p>
               </article>
             </div>
 
             <form className="home-contact-form" onSubmit={handleSubmit}>
-              <h3>Tell us your goal</h3>
+              <h3>Tell us what you want to grow</h3>
               <div className="home-contact-fields">
-                <input name="name" value={formData.name} onChange={handleChange} placeholder="Full name" required />
-                <input name="phone" value={formData.phone} onChange={handleChange} placeholder="Mobile no" required />
-                <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Email address" required />
+                <label>
+                  <span className="sr-only">Full name</span>
+                  <input name="name" value={formData.name} onChange={handleChange} placeholder="Full name" autoComplete="name" required />
+                </label>
+                <label>
+                  <span className="sr-only">Mobile number</span>
+                  <input name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="Mobile no" autoComplete="tel" required />
+                </label>
+                <label>
+                  <span className="sr-only">Email address</span>
+                  <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Email address" autoComplete="email" required />
+                </label>
               </div>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Describe your project or inquiry in detail..."
-                rows={5}
-                required
-              />
+              <label>
+                <span className="sr-only">Project or inquiry details</span>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Describe your brand, audience, goal, timeline, budget range, and the channels you want to explore..."
+                  rows={5}
+                  required
+                />
+              </label>
               <button className="btn-primary" type="submit" disabled={loading}>
-                {loading ? 'Sending...' : 'Launch message'}
+                {loading ? 'Sending...' : 'Request a growth plan'}
               </button>
               {statusMessage ? <p className="contact-status" role="status">{statusMessage}</p> : null}
             </form>
           </div>
 
           <aside className="home-contact-panel">
-            <p className="section-tag">Why choose us for your growth</p>
+            <p className="section-tag">What you can expect</p>
             <div className="home-contact-stats">
-              <span><strong>&lt; 1h</strong>Fast response time</span>
-              <span><strong>99%</strong>Client retention focus</span>
-              <span><strong>5k+</strong>High-impact campaign ideas</span>
-              <span><strong>7+</strong>Years of excellence</span>
+              <span><strong>1</strong>Focused discovery response</span>
+              <span><strong>6</strong>Integrated growth pillars</span>
+              <span><strong>5</strong>Step campaign process</span>
+              <span><strong>0</strong>Unverified proof claims</span>
             </div>
             <p>
-              We explore performance-driven strategies focused on maximising ROI and elevating ROAS
-              at scale. Every campaign is shaped to deliver measurable growth, premium leads, and
-              sustainable revenue.
+              We keep the conversation clear: what should be prioritised, which channels make
+              sense, what assets are needed, and how performance will be reviewed after launch.
             </p>
-            <strong>Growth Strategy Director</strong>
+            <strong>Armedia Growth Strategy Team</strong>
           </aside>
         </div>
       </section>

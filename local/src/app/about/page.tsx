@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     description:
       'Strategy, creative, AI, BI, advertising, media planning, offline marketing, and technology support for brand growth.',
     url: '/about',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
@@ -43,7 +44,7 @@ export default function Page() {
   return (
     <div className="site-shell page-about">
       <Header />
-      <main>
+      <main id="main-content">
         <AboutPage />
       </main>
       <Footer />

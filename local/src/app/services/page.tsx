@@ -45,6 +45,13 @@ export const metadata: Metadata = {
     description:
       'Outcome-focused services for AI marketing, BI dashboards, advertising, digital media, OOH, offline marketing, media buying, creative content, PR, events, CRM, web development, apps, SEO, e-commerce, software, and automation.',
     url: '/services',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Armedia Services | AI, BI, Advertising & Marketing Media',
+    description:
+      'Explore AI marketing, BI dashboards, advertising, digital media, OOH, offline media, SEO, web, apps, e-commerce, and automation services.',
   },
 }
 
@@ -52,7 +59,7 @@ export default function Page() {
   return (
     <div className="site-shell page-services">
       <Header />
-      <main>
+      <main id="main-content">
         <ServicesPage />
       </main>
       <Footer />

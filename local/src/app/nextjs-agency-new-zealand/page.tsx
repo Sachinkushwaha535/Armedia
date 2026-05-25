@@ -8,15 +8,29 @@ export const metadata: Metadata = {
   description:
     'Next.js agency in New Zealand building fast marketing sites, web apps, SEO pages, and conversion-focused digital systems.',
   alternates: { canonical: '/nextjs-agency-new-zealand' },
+  openGraph: {
+    title: 'Next.js Agency New Zealand',
+    description:
+      'Fast Next.js websites, web apps, SEO pages, schema, metadata, and conversion-focused digital systems for New Zealand teams.',
+    url: '/nextjs-agency-new-zealand',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Next.js Agency New Zealand',
+    description:
+      'Next.js websites and web apps with fast performance, SEO foundations, metadata, schema, and scalable routing.',
+  },
 }
 
 export default function Page() {
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <ServiceLandingPage
           kicker="Next.js agency New Zealand"
+          path="/nextjs-agency-new-zealand"
           title="Next.js websites and web apps for New Zealand teams."
           description="Armedia uses Next.js for fast page loads, strong SEO foundations, scalable routing, and modern delivery workflows."
           points={[

@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     description:
       'React and TypeScript development for New Zealand teams that need fast, maintainable websites, web apps, and integrations.',
     url: '/react-development-nz',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'React Developers NZ | React Development by Armedia',
+    description:
+      'React and TypeScript development for fast, maintainable websites, web apps, components, and integrations.',
   },
 }
 
@@ -20,9 +27,10 @@ export default function Page() {
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <ServiceLandingPage
           kicker="React development NZ"
+          path="/react-development-nz"
           title="React development for fast, maintainable digital products."
           description="Armedia builds React interfaces and web apps with clean component structure, responsive behaviour, and practical integrations."
           points={[

@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   description:
     'A practical guide to AI workflows for service teams, including lead qualification, intake summaries, follow-up, and reporting.',
   alternates: { canonical: '/blog/ai-workflows-service-teams' },
+  openGraph: {
+    title: 'Where AI Workflows Help Small Service Teams First',
+    description:
+      'A practical guide to AI workflows for service teams, including lead qualification, intake summaries, follow-up, and reporting.',
+    url: '/blog/ai-workflows-service-teams',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Where AI Workflows Help Small Service Teams First',
+    description:
+      'Where service teams can use AI first: lead qualification, intake summaries, follow-up, admin, and reporting.',
+  },
 }
 
 export default function Page() {
@@ -16,15 +29,17 @@ export default function Page() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'Where AI workflows help small service teams first',
+    description: metadata.description,
     author: { '@type': 'Organization', name: 'Armedia' },
-    publisher: { '@type': 'Organization', name: 'Armedia' },
+    publisher: { '@type': 'Organization', name: 'Armedia', logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
     mainEntityOfPage: `${siteUrl}/blog/ai-workflows-service-teams`,
+    image: `${siteUrl}/logo.png`,
   }
 
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <article className="page-shell section legal-content">
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
           <p className="eyebrow">Article</p>

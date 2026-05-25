@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     description:
       'Auckland website design for stronger trust, clearer service pages, better inquiry paths, and launch-ready frontend systems.',
     url: '/web-design-auckland',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Web Design Auckland | Premium Website Design by Armedia',
+    description:
+      'Mobile-first Auckland website design for trust, clarity, inquiry paths, SEO foundations, and launch-ready frontend systems.',
   },
 }
 
@@ -20,9 +27,10 @@ export default function Page() {
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <ServiceLandingPage
           kicker="Web design Auckland"
+          path="/web-design-auckland"
           title="Premium web design for Auckland businesses."
           description="Armedia designs clear, credible, mobile-first websites that help visitors understand your offer and take the next step."
           points={[

@@ -3,19 +3,46 @@ import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
+
 export const metadata: Metadata = {
   title: 'Performance Advertising Without Wasting Budget',
   description:
     'How to reduce wasted ad spend with clearer offers, better creative testing, retargeting, conversion tracking, and campaign reviews.',
   alternates: { canonical: '/blog/performance-advertising-budget' },
+  openGraph: {
+    title: 'Performance Advertising Without Wasting Budget',
+    description:
+      'How to reduce wasted ad spend with clearer offers, better creative testing, retargeting, conversion tracking, and campaign reviews.',
+    url: '/blog/performance-advertising-budget',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Performance Advertising Without Wasting Budget',
+    description:
+      'A practical way to reduce wasted ad spend through offer clarity, testing, retargeting, conversion tracking, and reviews.',
+  },
 }
 
 export default function Page() {
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Performance Advertising Without Wasting Budget',
+    description: metadata.description,
+    author: { '@type': 'Organization', name: 'Armedia' },
+    publisher: { '@type': 'Organization', name: 'Armedia', logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` } },
+    mainEntityOfPage: `${siteUrl}/blog/performance-advertising-budget`,
+    image: `${siteUrl}/logo.png`,
+  }
+
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <article className="page-shell section legal-content">
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
           <p className="eyebrow">Advertising</p>
           <h1 className="page-title">Performance Advertising Without Wasting Budget</h1>
           <p>

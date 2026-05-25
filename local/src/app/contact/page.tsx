@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     description:
       'Share your campaign goal and get practical next steps for AI, BI, advertising, digital media, OOH, offline marketing, or strategy.',
     url: '/contact',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Armedia | Start a Marketing Media Project',
+    description:
+      'Contact Armedia for AI, BI, advertising, digital media, OOH, offline marketing, SEO, and growth strategy projects.',
   },
 }
 
@@ -31,7 +38,7 @@ export default function Page() {
   return (
     <div className="site-shell page-contact">
       <Header />
-      <main>
+      <main id="main-content">
         <ContactPage />
       </main>
       <Footer />

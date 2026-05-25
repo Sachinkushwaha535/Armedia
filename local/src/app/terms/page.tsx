@@ -9,13 +9,30 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/terms',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'Terms of Service | Armedia',
+    description:
+      'General website, campaign inquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
+    url: '/terms',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Terms of Service | Armedia',
+    description:
+      'General website, campaign inquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
+  },
 }
 
 export default function Page() {
   return (
     <div className="site-shell page-terms">
       <Header />
-      <main>
+      <main id="main-content">
         <PageShell
           kicker="Terms"
           title="Terms of Service"

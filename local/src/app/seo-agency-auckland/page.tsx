@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     description:
       'Technical SEO, content structure, schema, and search-ready website improvements for Auckland and New Zealand businesses.',
     url: '/seo-agency-auckland',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SEO Agency Auckland | Technical SEO & Search Strategy',
+    description:
+      'Technical SEO, metadata, content structure, schema, Core Web Vitals, and search-ready website improvements.',
   },
 }
 
@@ -20,9 +27,10 @@ export default function Page() {
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <ServiceLandingPage
           kicker="SEO agency Auckland"
+          path="/seo-agency-auckland"
           title="SEO services for cleaner search visibility and stronger pages."
           description="Armedia improves technical SEO, page structure, metadata, schema, performance basics, and keyword-focused content foundations for Auckland businesses."
           points={[

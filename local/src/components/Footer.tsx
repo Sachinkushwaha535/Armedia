@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import ArmediaLogo from './ArmediaLogo'
 
@@ -19,7 +17,7 @@ const footerGroups = [
       { label: 'AI Marketing Studio', href: '/services#ai-marketing-studio' },
       { label: 'Business Intelligence', href: '/services#business-intelligence' },
       { label: 'Advertising', href: '/services#advertising' },
-      { label: 'Digital Media', href: '/services#digital-media' },
+      { label: 'SEO Auckland', href: '/seo-agency-auckland' },
     ],
   },
   {
@@ -27,8 +25,8 @@ const footerGroups = [
     links: [
       { label: 'OOH media', href: '/services#ooh-offline-media' },
       { label: 'Media buying', href: '/services#media-buying-planning' },
-      { label: 'Content production', href: '/services#content-creative-production' },
-      { label: 'Influencer marketing', href: '/services#social-influencer-marketing' },
+      { label: 'Web design Auckland', href: '/web-design-auckland' },
+      { label: 'E-commerce Auckland', href: '/ecommerce-website-auckland' },
     ],
   },
   {
@@ -36,8 +34,8 @@ const footerGroups = [
     links: [
       { label: 'Start a project', href: '/start-project' },
       { label: 'Email us', href: 'mailto:contact.armedianz@gmail.com' },
-      { label: 'Web development', href: '/services#web-development' },
-      { label: 'Android & iOS', href: '/services#android-ios-development' },
+      { label: 'React development NZ', href: '/react-development-nz' },
+      { label: 'Next.js agency NZ', href: '/nextjs-agency-new-zealand' },
       { label: 'Privacy', href: '/privacy' },
       { label: 'Terms', href: '/terms' },
     ],

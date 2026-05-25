@@ -101,6 +101,7 @@ function ContactPage() {
                   placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange}
+                  autoComplete="name"
                   required
                 />
               </label>
@@ -113,6 +114,7 @@ function ContactPage() {
                   placeholder="you@example.com"
                   value={formData.email}
                   onChange={handleChange}
+                  autoComplete="email"
                   required
                 />
               </label>
@@ -125,6 +127,7 @@ function ContactPage() {
                   placeholder="Your phone number"
                   value={formData.phone}
                   onChange={handleChange}
+                  autoComplete="tel"
                   required
                 />
               </label>

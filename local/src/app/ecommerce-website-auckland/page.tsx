@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     description:
       'E-commerce website planning and development for Auckland brands that need clearer product pages, better checkout journeys, and tracking foundations.',
     url: '/ecommerce-website-auckland',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ecommerce Website Auckland | Online Store Design & Development',
+    description:
+      'E-commerce website planning and development for clearer product pages, smoother checkout journeys, and tracking foundations.',
   },
 }
 
@@ -20,9 +27,10 @@ export default function Page() {
   return (
     <div className="site-shell">
       <Header />
-      <main>
+      <main id="main-content">
         <ServiceLandingPage
           kicker="Ecommerce website Auckland"
+          path="/ecommerce-website-auckland"
           title="Ecommerce websites built around product clarity and conversion."
           description="Armedia helps Auckland businesses plan storefronts, product pages, checkout journeys, and tracking foundations."
           points={[

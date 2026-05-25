@@ -2674,7 +2674,6 @@
    No legacy code. No commented blocks. No conflicts.
 ═══════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 html, body {
   overflow-x: hidden;
 }
@@ -2693,11 +2692,44 @@ html, body {
   --r3: 32px;
   --pad: 48px;        /* page side padding */
   --max: 1280px;      /* page max-width */
-  --hf: 'Syne', sans-serif;
-  --bf: 'DM Sans', sans-serif;
+  --hf: var(--font-syne), system-ui, sans-serif;
+  --bf: var(--font-dm-sans), system-ui, sans-serif;
 }
 @media (max-width: 768px) {
   :root { --pad: 20px; --r2: 16px; --r3: 20px; }
+}
+
+.hp-section,
+.page-shell,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
+}
+
+.hp-hero,
+.services-cinematic {
+  content-visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .ticker-inner {
+    animation: none !important;
+  }
+
+  .reveal,
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* ── BASE ── */
@@ -4803,7 +4835,8 @@ img, video {
 }
 
 .why-agency-feature h3,
-.home-cta-panel h2 {
+.home-cta-panel h2,
+.home-cta-panel h3 {
   margin: .5rem 0 .8rem;
   color: #fff;
   font-family: var(--hf);
@@ -5040,6 +5073,11 @@ img, video {
   border-radius: .75rem;
   padding: .85rem 1rem;
   outline: none;
+}
+
+.home-contact-form label {
+  display: block;
+  min-width: 0;
 }
 
 .faq-toolbar input {
@@ -5975,8 +6013,8 @@ img, video {
           --cw-muted:    rgba(232,232,240,0.55);
           --cw-faint:    rgba(232,232,240,0.28);
           --cw-radius:   18px;
-          --cw-hf:       'Syne', sans-serif;
-          --cw-bf:       'DM Sans', sans-serif;
+          --cw-hf:       var(--font-syne), system-ui, sans-serif;
+          --cw-bf:       var(--font-dm-sans), system-ui, sans-serif;
         }
 
         /* ── Panel ── */

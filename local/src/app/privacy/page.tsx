@@ -9,13 +9,30 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/privacy',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'Privacy Policy | Armedia',
+    description:
+      'How Armedia handles contact details, campaign inquiries, analytics information, and project communication.',
+    url: '/privacy',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Privacy Policy | Armedia',
+    description:
+      'How Armedia handles contact details, campaign inquiries, analytics information, and project communication.',
+  },
 }
 
 export default function Page() {
   return (
     <div className="site-shell page-privacy">
       <Header />
-      <main>
+      <main id="main-content">
         <PageShell
           kicker="Privacy"
           title="Privacy Policy"

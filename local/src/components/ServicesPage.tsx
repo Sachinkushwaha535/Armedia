@@ -1,7 +1,4 @@
-'use client'
-
 import Link from 'next/link'
-import { useEffect } from 'react'
 
 const serviceIcons = {
   web: (
@@ -592,6 +589,7 @@ const marketingMediaServiceCards = [
   {
     id: 'web-development',
     title: 'Web Development',
+    href: '/web-design-auckland',
     desc: 'Build fast, responsive websites and landing pages that support campaigns, create trust, and turn visitors into enquiries.',
     items: [
       'Business websites',
@@ -618,6 +616,7 @@ const marketingMediaServiceCards = [
   {
     id: 'seo-landing-pages',
     title: 'SEO & Landing Pages',
+    href: '/seo-agency-auckland',
     desc: 'Improve search visibility and campaign conversion with focused landing pages, SEO structure, and clearer content paths.',
     items: [
       'SEO content structure',
@@ -631,6 +630,7 @@ const marketingMediaServiceCards = [
   {
     id: 'ecommerce-growth',
     title: 'E-commerce Growth',
+    href: '/ecommerce-website-auckland',
     desc: 'Improve product journeys, offer presentation, checkout clarity, remarketing foundations, and retention for online stores.',
     items: [
       'Product page strategy',
@@ -644,6 +644,7 @@ const marketingMediaServiceCards = [
   {
     id: 'software-engineering',
     title: 'Software Engineering',
+    href: '/react-development-nz',
     desc: 'Build custom digital systems, dashboards, portals, and tools that support marketing, reporting, and business operations.',
     items: [
       'Custom dashboards',
@@ -672,31 +673,6 @@ const marketingMediaServiceCards = [
 const activeServiceCards = marketingMediaServiceCards.length ? marketingMediaServiceCards : serviceCards
 
 function ServicesPage() {
-  useEffect(() => {
-    const cards = document.querySelectorAll<HTMLElement>('.reveal-card')
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('visible')
-            }, index * 120)
-
-            io.unobserve(entry.target)
-          }
-        })
-      },
-      {
-        threshold: 0.12,
-      }
-    )
-
-    cards.forEach((card) => io.observe(card))
-
-    return () => io.disconnect()
-  }, [])
-
   return (
     <section className="services-cinematic" aria-labelledby="services-title">
       <div className="services-cinematic-inner">
@@ -740,6 +716,12 @@ function ServicesPage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+
+              {'href' in service && service.href ? (
+                <Link className="text-link" href={service.href}>
+                  View service details
+                </Link>
+              ) : null}
             </article>
           ))}
         </div>

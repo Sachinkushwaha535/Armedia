@@ -41,9 +41,9 @@ function Header() {
           aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           onClick={() => setIsMenuOpen((current) => !current)}
         >
-          <span />
-          <span />
-          <span />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
         </button>
 
         <nav
@@ -56,6 +56,7 @@ function Header() {
               key={item.key}
               href={item.path}
               className={pathname === item.path ? 'active' : undefined}
+              aria-current={pathname === item.path ? 'page' : undefined}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
