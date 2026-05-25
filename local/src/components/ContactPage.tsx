@@ -61,35 +61,36 @@ function ContactPage() {
 
   return (
     <PageShell
-      kicker="Contact"
+      kicker="Contact Us"
       title="Let us shape your next growth campaign."
-      description="Share your brand goal, audience, campaign idea, timeline, and preferred channels. Armedia will help you turn it into a clear plan for AI, BI, advertising, media, offline marketing, and technology support."
+      description="Connect with our performance marketing agency to design an integrated media strategy. We specialize in cross-channel advertising, data-driven BI dashboards, and automated AI workflows built to scale commercial conversions."
     >
       <div className="contact-pro-layout">
         <section className="contact-pro-main">
+          {/* Informational grid enriched with targeted agency keywords */}
           <div className="contact-method-grid">
             <article>
-              <span>Email</span>
-              <strong>Drop us a line</strong>
-              <a href="mailto:contact.armedianz@gmail.com">contact.armedianz@gmail.com</a>
+              <span className="text-xs uppercase tracking-wider font-semibold text-gray-400">Email</span>
+              <strong>Direct consultation</strong>
+              <a href="mailto:contact.armedianz@gmail.com" className="hover:underline">contact.armedianz@gmail.com</a>
             </article>
             <article>
-              <span>Brief</span>
-              <strong>Send a project idea</strong>
-              <p>Share your goal, channels, audience, and desired outcome.</p>
+              <span className="text-xs uppercase tracking-wider font-semibold text-gray-400">Briefing</span>
+              <strong>Submit project scopes</strong>
+              <p>Outline your operational targets, core channels, and conversion timelines.</p>
             </article>
             <article>
-              <span>Plan</span>
-              <strong>Get a clear next step</strong>
-              <p>We help shape strategy, media, creative, AI, BI, and execution.</p>
+              <span className="text-xs uppercase tracking-wider font-semibold text-gray-400">Strategy</span>
+              <strong>Receive clear allocation maps</strong>
+              <p>We build structured media blueprints bridging digital ads, OOH layouts, and CRM data structures.</p>
             </article>
           </div>
 
           <form className="contact-pro-form" onSubmit={handleSubmit}>
             <div className="contact-form-heading">
               <p className="eyebrow">Project Inquiry</p>
-              <h2>Share your vision with us</h2>
-              <p>Tell us your current challenge and we will help turn it into a sharper growth strategy.</p>
+              <h2>Share your campaign vision</h2>
+              <p>Detail your current customer acquisition roadblocks, and we will formulate a unified marketing roadmap.</p>
             </div>
 
             <div className="contact-grid">
@@ -106,7 +107,7 @@ function ContactPage() {
               </label>
 
               <label>
-                <span>Email</span>
+                <span>Email address</span>
                 <input
                   type="email"
                   name="email"
@@ -131,11 +132,11 @@ function ContactPage() {
             </div>
 
             <label>
-              <span>Project details</span>
+              <span>Project metrics and goals</span>
               <textarea
                 name="message"
                 rows={6}
-                placeholder="Tell us your brand, campaign goal, audience, timeline, channels you want to use, and the result you want to achieve."
+                placeholder="Briefly state your brand, target channels (Digital, OOH, Offline), baseline budget parameters, operational timeline, and your primary target conversion goal."
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -147,33 +148,41 @@ function ContactPage() {
               className="button button-primary contact-submit"
               disabled={loading}
             >
-              {loading ? 'Sending...' : 'Launch message'}
+              {loading ? 'Processing...' : 'Submit project brief'}
             </button>
 
             {statusMessage ? (
-              <p className="contact-status" role="status">
+              <p className="contact-status mt-4 text-sm font-medium" role="status">
                 {statusMessage}
               </p>
             ) : null}
           </form>
         </section>
 
+        {/* Side panel optimized for scannable trust signals using typography layout elements */}
         <aside className="contact-growth-panel">
-          <p className="eyebrow">Why choose us</p>
-          <h2>Your growth plan starts with clarity.</h2>
-          <div className="contact-growth-stats">
-            <span><strong>&lt; 1h</strong>Response focus</span>
-            <span><strong>18</strong>Service capabilities</span>
-            <span><strong>AI</strong>Workflow-ready</span>
-            <span><strong>BI</strong>Reporting-led</span>
+          <p className="eyebrow">Why partners choose us</p>
+          <h2>Your marketing strategy starts with metric clarity.</h2>
+          <div className="contact-growth-stats border-y border-gray-100 py-4 my-4 space-y-3">
+            <div className="flex justify-between text-sm">
+              <span><strong>&lt; 1h</strong> Response time focus</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span><strong>18</strong> Core service capabilities</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span><strong>AI</strong> Workflow automations</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span><strong>BI</strong> Performance metrics dashboards</span>
+            </div>
           </div>
-          <p>
-            We connect media planning, creative direction, advertising, OOH, offline marketing,
-            AI workflows, dashboards, and campaign-supporting technology into one practical growth system.
+          <p className="text-gray-600 text-sm leading-relaxed">
+            We systematically integrate omnichannel media buying, focused creative directions, target conversion rate optimization, and custom technical reporting architectures into an execution-ready marketing model.
           </p>
-          <div className="contact-panel-links">
-            <Link className="text-link" href="/services">Explore services</Link>
-            <Link className="text-link" href="/start-project">Build a brief</Link>
+          <div className="contact-panel-links pt-4 flex space-x-4 text-sm">
+            <Link className="text-link text-blue-600 hover:underline" href="/services">Explore solutions</Link>
+            <Link className="text-link text-blue-600 hover:underline" href="/start-project">Build structured brief</Link>
           </div>
         </aside>
       </div>

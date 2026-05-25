@@ -5,174 +5,202 @@ import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 
 const philosophyCards = [
   {
-    title: 'Strategy first',
+    title: 'Strategy Before Spend',
     icon: '01',
-    points: ['Clear market direction', 'Audience and offer mapping', 'Campaign goals before execution'],
+    points: ['Clear market positioning', 'Audience and conversion mapping', 'Campaign KPIs defined early'],
   },
   {
-    title: 'Media thinking',
+    title: 'Omnichannel Media Planning',
     icon: '02',
-    points: ['Digital, OOH, and offline planning', 'Creative matched to placement', 'Channel-ready campaign structure'],
+    points: ['Digital, OOH, and offline coordination', 'Creative customized for placements', 'Channel-ready media structures'],
   },
   {
-    title: 'AI advantage',
+    title: 'AI Operational Advantage',
     icon: '03',
-    points: ['Faster content workflows', 'Smarter reporting', 'Automation where it saves real time'],
+    points: ['Accelerated content workflows', 'Automated campaign ingestion', 'Time-saving system automations'],
   },
   {
-    title: 'Measured growth',
+    title: 'Data-Driven Growth',
     icon: '04',
-    points: ['Campaign tracking', 'Business intelligence dashboards', 'Optimisation after launch'],
+    points: ['Advanced conversion tracking', 'Unified business intelligence dashboards', 'Rigorous post-launch optimization'],
   },
 ]
+
 
 const whyUsCards = [
   {
     title: 'Performance Marketing',
     tag: 'Strategy',
-    desc: 'Campaigns planned around reach, lead quality, conversion, and measurable growth instead of random posting.',
+    desc: 'Campaigns planned around target reach, lead quality, customer acquisition cost (CPA), and measurable return on ad spend (ROAS).',
   },
   {
-    title: 'Fast & Scalable Execution',
+    title: 'Scalable Execution Maps',
     tag: 'Execution',
-    desc: 'From first idea to live campaign, we structure creative, media, tracking, and reporting so work can scale cleanly.',
+    desc: 'From initial design brief to live deployment, we align creative assets and multi-channel media buys for clean scaling.',
   },
   {
-    title: 'Trusted & Result-Oriented',
+    title: 'Result-Oriented Frameworks',
     tag: 'Growth',
-    desc: 'Every campaign direction is tied to a business outcome: awareness, enquiries, footfall, sales, or reporting clarity.',
+    desc: 'Every campaign track maps to a commercial outcome: validated leads, pipeline velocity, or clear conversion rate optimization (CRO).',
   },
   {
-    title: 'Dedicated Support',
+    title: 'Accountable Data Reviews',
     tag: 'Support',
-    desc: 'Clear communication, practical recommendations, and campaign reviews help you know what is happening and why.',
+    desc: 'Transparent reporting matrices, deep analytics insights, and scheduled campaign reviews keep your business growth on track.',
   },
 ]
 
 const growthCards = [
   {
-    title: 'Creative Excellence',
+    title: 'Creative Asset Excellence',
     label: 'Design',
-    desc: 'Ad creatives, campaign messages, content direction, and media assets designed to make your brand easier to remember.',
+    desc: 'High-converting ad creative, tactical campaign messaging, and premium media assets engineered to build high mental recall.',
   },
   {
-    title: 'Measurable Results',
+    title: 'Measurable Data Pipelines',
     label: 'Analytics',
-    desc: 'Dashboards, tracking, campaign summaries, and optimisation reviews help connect media spend to business outcomes.',
+    desc: 'Custom data analytics dashboards and tracking infrastructures connecting cross-channel media spend straight to pipeline outcomes.',
     featured: true,
   },
   {
-    title: 'Skilled Professionals',
+    title: 'Skilled Growth Professionals',
     label: 'Team',
-    desc: 'Strategy, media, creative, AI, BI, and technology capabilities combined into one growth-focused agency workflow.',
+    desc: 'Integrated agency workflows uniting omnichannel media strategy, conversion tracking engineering, and custom automation systems.',
   },
 ]
+
 
 const faqItems = [
   {
-    question: 'What services do you offer?',
+    question: 'What core capabilities does your agency provide?',
     answer:
-      'We provide AI marketing tools, business intelligence, advertising, digital media, OOH media, offline marketing, content, PR, CRM, web development, app development, SEO, and campaign automation.',
+      'We deliver custom AI workflows, business intelligence dashboards, performance advertising, digital media buying, OOH media planning, offline marketing, PR, and technical SEO layout solutions.',
   },
   {
-    question: 'How can digital marketing grow my business?',
+    question: 'How does performance marketing optimize customer acquisition?',
     answer:
-      'A clear campaign system can improve visibility, generate better leads, increase brand recall, and help your team understand which channels deserve more budget.',
+      'Implementing a clear omnichannel media strategy improves brand recall, generates higher-quality leads, and helps your team trace exact return on ad spend (ROAS) across all channels.',
   },
   {
-    question: 'How long does it take to see results?',
+    question: 'What is your standard production timeline for seeing campaign results?',
     answer:
-      'Some improvements can appear quickly after launch, while stronger growth usually needs consistent testing, reporting, and optimisation across several weeks.',
+      'Initial tracking data and conversion optimization metrics are visible immediately following launch, while sustainable market scaling develops through systematic testing over several weeks.',
   },
   {
-    question: 'Do you work with small businesses?',
+    question: 'Do you design custom solutions for growing local service companies?',
     answer:
-      'Yes. We can create practical plans for local businesses, startups, retail brands, service companies, and growing teams.',
+      'Yes. We build practical campaign systems and automated lead workflows tailored explicitly for regional service businesses, retail operators, startups, and expanding corporate teams.',
   },
   {
-    question: 'What makes your agency different?',
+    question: 'What makes your marketing media agency model different?',
     answer:
-      'We connect media planning, creative, AI workflows, BI dashboards, performance advertising, offline visibility, and technology support in one growth system.',
+      'We integrate cross-channel media buying, technical web application engineering, AI automation pipelines, and custom data dashboards into a single, unified execution framework.',
   },
 ]
+
 
 const tickerItems = [
-  'AI Marketing Tools',
-  'Business Intelligence',
+  'AI Marketing Automation',
+  'Business Intelligence Dashboards',
   'Performance Advertising',
-  'Digital Media',
-  'OOH Media',
-  'Offline Marketing',
-  'Brand Strategy',
-  'Campaign Analytics',
+  'Technical SEO Services',
+  'OOH Media Planning',
+  'Offline Media Marketing',
+  'Brand Growth Strategy',
+  'Campaign Data Analytics',
 ]
 
+
 const stats = [
-  { num: 6, suffix: '+', label: 'Core growth channels' },
-  { num: 24, suffix: '/7', label: 'AI-ready support thinking' },
-  { num: 5, suffix: '', label: 'Step campaign process' },
-  { num: 100, suffix: '%', label: 'Strategy-led execution' },
+  { num: 6, suffix: '+', label: 'Media planning channels' },
+  { num: 24, suffix: '/7', label: 'AI automation workflows' },
+  { num: 5, suffix: '', label: 'Step execution process' },
+  { num: 100, suffix: '%', label: 'Performance-led campaigns' },
 ]
+
 
 const bentoServices = [
   {
     icon: 'AI',
     iconClass: 'lime',
     title: 'AI Marketing Studio',
-    sub: 'AI tools and workflows for content ideas, campaign summaries, lead qualification, automated reports, and faster marketing operations.',
-    tags: ['AI content', 'Campaign reports', 'Lead scoring', 'Outcome: faster execution'],
+    sub: 'AI workflows and tools for quick content ideas, intake summaries, automated lead qualification, reporting, and faster marketing operations.',
+    tags: ['AI content', 'Automation metrics', 'Lead qualification', 'Outcome: faster execution'],
     cardClass: 'bc1 bc-accent',
   },
   {
     icon: 'BI',
     iconClass: 'cyan',
     title: 'Business Intelligence',
-    sub: 'Dashboards, market insights, competitor analysis, campaign analytics, and reporting systems that make growth decisions clearer.',
-    tags: ['Dashboards', 'Market insights', 'Competitor data', 'Outcome: smarter decisions'],
+    sub: 'Custom dashboards, tracking systems, customer data platforms, and performance analytics that make campaign growth decisions clearer.',
+    tags: ['BI dashboards', 'Campaign analytics', 'Customer data', 'Outcome: smarter decisions'],
     cardClass: 'bc2',
   },
   {
     icon: 'AD',
     iconClass: 'orange',
     title: 'Advertising',
-    sub: 'Meta Ads, Google Ads, creative testing, media buying, retargeting, and campaign management built around measurable outcomes.',
-    tags: ['Meta Ads', 'Google Ads', 'Retargeting', 'Outcome: stronger leads'],
+    sub: 'Meta Ads management, Google Ads, creative testing, data-driven media buying, retargeting, and performance marketing built around real outcomes.',
+    tags: ['Meta Ads', 'Google Ads', 'Performance marketing', 'Outcome: stronger leads'],
     cardClass: 'bc3',
   },
   {
     icon: 'DM',
     iconClass: 'lime',
     title: 'Digital Media',
-    sub: 'Social campaigns, content systems, landing pages, SEO, video-first assets, and digital journeys that create awareness and enquiries.',
-    tags: ['Social media', 'SEO', 'Landing pages', 'Outcome: digital reach'],
+    sub: 'Social media campaigns, content systems, landing pages, technical SEO, web development, and digital journeys that build website traffic.',
+    tags: ['Social media', 'Technical SEO', 'Web design', 'Outcome: digital reach'],
     cardClass: 'bc4',
   },
   {
     icon: 'OOH',
     iconClass: 'white',
     title: 'OOH & Offline Media',
-    sub: 'Outdoor advertising, print, local promotions, activations, and offline campaign planning connected with digital tracking.',
-    tags: ['Billboards', 'Print media', 'BTL campaigns', 'Outcome: brand recall'],
+    sub: 'Outdoor advertising, billboard allocation, print, local promotions, activations, and offline media planning connected with digital tracking.',
+    tags: ['Billboards', 'OOH advertising', 'Offline media', 'Outcome: brand recall'],
     cardClass: 'bc5 bc-orange',
   },
   {
     icon: 'GO',
     iconClass: 'cyan',
     title: 'Strategy & Growth',
-    sub: 'Go-to-market planning, brand positioning, funnel strategy, campaign roadmaps, and performance reviews for sustainable growth.',
-    tags: ['GTM strategy', 'Brand positioning', 'Funnels', 'Outcome: clear growth plan'],
+    sub: 'Go-to-market planning, brand positioning, conversion funnel strategy, media plan roadmaps, and campaign reviews for business growth.',
+    tags: ['GTM strategy', 'Brand positioning', 'Conversion funnels', 'Outcome: clear growth plan'],
     cardClass: 'bc7',
     inline: true,
   },
 ]
 
+
+
 const processSteps = [
-  { num: '01', title: 'Discovery', desc: 'We understand your brand, audience, offer, market position, and the result your campaign needs to create.' },
-  { num: '02', title: 'Strategy', desc: 'We choose the right mix of AI, BI, advertising, digital media, OOH, offline marketing, and content.' },
-  { num: '03', title: 'Creative', desc: 'We shape campaign messages, visual direction, landing pages, and media assets for each channel.' },
-  { num: '04', title: 'Execution', desc: 'We launch campaigns, set up tracking, connect tools, and keep communication clear from start to finish.' },
-  { num: '05', title: 'Optimisation', desc: 'We review performance, improve weak points, and use insights to scale what is working.' },
+  { 
+    num: '01', 
+    title: 'Discovery', 
+    desc: 'We understand your brand position, target audience, core offer, and the exact conversion metrics your campaign needs to achieve.' 
+  },
+  { 
+    num: '02', 
+    title: 'Strategy', 
+    desc: 'We design your media planning blueprint using the right mix of AI, BI dashboards, performance marketing, OOH, and offline channels.' 
+  },
+  { 
+    num: '03', 
+    title: 'Creative', 
+    desc: 'We build your campaign messages, visual layout direction, high-converting landing pages, and responsive media assets.' 
+  },
+  { 
+    num: '04', 
+    title: 'Execution', 
+    desc: 'We launch campaigns, hardcode analytics tracking, connect attribution tools, and maintain clear communication from start to finish.' 
+  },
+  { 
+    num: '05', 
+    title: 'Optimisation', 
+    desc: 'We review data performance, eliminate campaign weak points, and use reporting insights to confidently scale what is working.' 
+  },
 ]
+
 
 const portfolioProjects = [
   {

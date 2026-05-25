@@ -37,37 +37,44 @@ function HomeHero() {
           <div className="hero-meta" aria-label="Studio highlights">
             <div>
               <strong>Strategy</strong>
-              <span>Clear plans, stronger direction</span>
+              <span>Conversion paths, technical roadmaps</span>
             </div>
             <div>
               <strong>Design</strong>
-              <span>Editorial, modern, premium</span>
+              <span>Premium UI, optimized user journeys</span>
             </div>
             <div>
               <strong>Build</strong>
-              <span>Fast, responsive, reliable</span>
+              <span>Fast headless React architectures</span>
             </div>
           </div>
         </div>
 
+        {/* Aside layout optimized for semantic text crawlers */}
         <aside className="hero-panel" aria-label="Selected clients and capabilities">
           <div className="hero-visual">
             <div className="hero-orb hero-orb-left" aria-hidden="true" />
             <div className="hero-orb hero-orb-right" aria-hidden="true" />
             <div className="hero-portrait" aria-hidden="true">
               <div className="portrait-card" />
+              
+              {/* Card 1: Repositioned to show real agency audits instead of retail numbers */}
               <div className="floating-card floating-card-top">
                 <span className="floating-label">UI Audit</span>
-                <strong>Monthly $100</strong>
+                <strong>Conversion focused</strong>
                 <div className="floating-bar" />
               </div>
+              
+              {/* Card 2: Repositioned to highlight technical performance search intent */}
               <div className="floating-card floating-card-right">
-                <span className="floating-label">Premium rate</span>
-                <strong>$72.5 / month</strong>
+                <span className="floating-label">Core Web Vitals</span>
+                <strong>99+ Performance score</strong>
               </div>
+              
+              {/* Card 3: Repositioned to highlight search engine architecture optimization */}
               <div className="floating-card floating-card-bottom">
-                <span className="floating-label">Get Discount</span>
-                <strong>18% / First Pay</strong>
+                <span className="floating-label">Technical SEO</span>
+                <strong>Schema and metadata map</strong>
               </div>
             </div>
           </div>

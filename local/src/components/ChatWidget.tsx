@@ -4,10 +4,15 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 
 type Message = { role: 'user' | 'assistant'; content: string }
 
+/**
+ * 1. ENRICHED INTENT SUGGESTIONS
+ * - Swapped vague generic strings for core keyword clusters.
+ * - Kept titles brief and matching your design patterns perfectly.
+ */
 const SUGGESTED = [
-  'Suggest a marketing media plan',
-  'How can AI improve my campaigns?',
-  'Plan digital, OOH, and offline marketing',
+  'Request an omnichannel media strategy plan',
+  'How do automated AI workflows optimize conversion?',
+  'Build a performance advertising campaign mix',
 ]
 
 export default function ChatWidget() {
@@ -57,7 +62,7 @@ export default function ChatWidget() {
     } catch {
       setMessages(prev => [
         ...prev,
-        { role: 'assistant', content: 'Something went wrong. Please try again or email contact.armedianz@gmail.com for AI, BI, advertising, media planning, or growth strategy support.' },
+        { role: 'assistant', content: 'The connection timed out. Please refresh or contact us directly at contact.armedianz@gmail.com for performance advertising, AI workflows, BI dashboards, or media planning support.' },
       ])
     } finally {
       setLoading(false)
@@ -69,10 +74,11 @@ export default function ChatWidget() {
       {/* ── Floating panel ── */}
       <div
         ref={panelRef}
+        id="cw-panel"
         className={`cw-panel ${open ? 'cw-panel--open' : ''}`}
         role="dialog"
         aria-modal="true"
-        aria-label="Armedia growth assistant"
+        aria-label="Armedia conversion assistant"
       >
         {/* Header */}
         <div className="cw-header">
@@ -91,21 +97,30 @@ export default function ChatWidget() {
               </span>
             </div>
           </div>
-        
+          
+          {/* Header Close button added for optimal mobile accessibility map */}
+          <button 
+            className="cw-header-close md:hidden"
+            onClick={() => setOpen(false)}
+            aria-label="Close chat assistant panel"
+          >
+            ✕
+          </button>
         </div>
 
-        {/* Messages */}
+        {/* Messages Container */}
         <div className="cw-messages" role="log" aria-live="polite">
           {messages.length === 0 && (
             <div className="cw-empty">
-              <p className="cw-welcome">
-                Hi! Tell me your campaign goal and I will suggest practical AI, BI, advertising, digital media, OOH, offline marketing, and growth strategy ideas.
+              {/* Refined greeting strings targeting key conversion optimization phrases */}
+              <p className="cw-welcome text-sm text-gray-700 leading-relaxed">
+                Welcome to Armedia. Define your pipeline or revenue milestone goals, and our assistant will map practical AI automation, conversion rate optimization, OOH buying, and cross-channel marketing media insights.
               </p>
-              <div className="cw-suggestions">
+              <div className="cw-suggestions space-y-2 mt-4">
                 {SUGGESTED.map(s => (
                   <button
                     key={s}
-                    className="cw-chip"
+                    className="cw-chip block w-full text-left border border-gray-100 hover:bg-gray-50 p-2 rounded text-xs text-gray-600 transition"
                     onClick={() => send(s)}
                   >
                     {s}
@@ -120,14 +135,14 @@ export default function ChatWidget() {
               {m.role === 'assistant' && (
                 <span className="cw-bubble-avatar" aria-hidden="true">A</span>
               )}
-              <p>{m.content}</p>
+              <p className="text-sm">{m.content}</p>
             </div>
           ))}
 
           {loading && (
             <div className="cw-bubble cw-bubble--assistant cw-bubble--typing">
               <span className="cw-bubble-avatar" aria-hidden="true">A</span>
-              <span className="cw-typing" aria-label="Assistant is typing">
+              <span className="cw-typing" aria-label="Assistant is analyzing query data">
                 <span /><span /><span />
               </span>
             </div>
@@ -135,7 +150,7 @@ export default function ChatWidget() {
           <div ref={bottomRef} />
         </div>
 
-        {/* Input */}
+        {/* Input Footer */}
         <div className="cw-footer">
           <div className="cw-input-row">
             <input
@@ -144,8 +159,8 @@ export default function ChatWidget() {
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() } }}
-              placeholder="Ask for a growth idea..."
-              aria-label="Chat message"
+              placeholder="Inquire about campaign allocation..."
+              aria-label="Inquiry message entry"
               disabled={loading}
               maxLength={500}
             />
@@ -153,7 +168,7 @@ export default function ChatWidget() {
               className="cw-send"
               onClick={() => send()}
               disabled={!input.trim() || loading}
-              aria-label="Send message"
+              aria-label="Submit message"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                 <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"
@@ -161,7 +176,6 @@ export default function ChatWidget() {
               </svg>
             </button>
           </div>
-          {/* <p className="cw-footnote">Powered by Llama · <a href="/privacy">Privacy</a></p> */}
         </div>
       </div>
 
@@ -172,7 +186,7 @@ export default function ChatWidget() {
           setPulse(false)
           setOpen(o => !o)
         }}
-        aria-label={open ? 'Close chat' : 'Open chat with Armedia growth assistant'}
+        aria-label={open ? 'Close growth assistant panel' : 'Open live session with our marketing media assistant'}
         aria-expanded={open}
         aria-controls="cw-panel"
       >
@@ -187,10 +201,8 @@ export default function ChatWidget() {
             <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
           </svg>
         </span>
-        {!open && <span className="cw-fab-label">Get growth ideas</span>}
+        {!open && <span className="cw-fab-label font-medium tracking-wide">Get growth insights</span>}
       </button>
-
-      
     </>
   )
 }
