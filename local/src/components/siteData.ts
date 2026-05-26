@@ -101,7 +101,7 @@ export const testimonials = [
     quote:
       'Verified client reviews are shown only after client approval or after connecting a public review source.',
     name: 'Armedia review policy',
-    role: 'No placeholder testimonials',
+    role: 'Verified-review policy',
   },
   {
     quote:

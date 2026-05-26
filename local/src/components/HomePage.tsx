@@ -1,7 +1,5 @@
-'use client'
-
 import Link from 'next/link'
-import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
+import HomeContactSection from './HomeContactSection'
 
 const philosophyCards = [
   {
@@ -195,140 +193,31 @@ const portfolioProjects = [
   },
 ]
 
-function useScrollReveal() {
-  useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>('.reveal')
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            io.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.08 }
-    )
-
-    els.forEach((el) => io.observe(el))
-    return () => io.disconnect()
-  }, [])
-}
-
-function useCounterAnimation() {
-  useEffect(() => {
-    const counters = document.querySelectorAll<HTMLElement>('.count')
-
-    if (!('IntersectionObserver' in window)) return
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement
-            const target = parseInt(el.dataset.target ?? '0', 10)
-            const duration = 1800
-            const start = performance.now()
-
-            el.textContent = '0'
-
-            const tick = (now: number) => {
-              const progress = Math.min((now - start) / duration, 1)
-              const ease = 1 - Math.pow(1 - progress, 3)
-              el.textContent =
-                progress === 1 ? String(target) : String(Math.round(ease * target))
-
-              if (progress < 1) requestAnimationFrame(tick)
-            }
-
-            requestAnimationFrame(tick)
-            io.unobserve(el)
-          }
-        })
-      },
-      { threshold: 0.3 }
-    )
-
-    counters.forEach((el) => io.observe(el))
-    return () => io.disconnect()
-  }, [])
-}
-
 function HomePage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: '',
-  })
-  const [loading, setLoading] = useState(false)
-  const [statusMessage, setStatusMessage] = useState('')
-
-  useScrollReveal()
-  useCounterAnimation()
-
   const doubledTicker = [...tickerItems, ...tickerItems]
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    })
-  }
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setLoading(true)
-    setStatusMessage('')
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-      const data = await response.json()
-
-      if (!response.ok) {
-        setStatusMessage(data.message ?? 'Something went wrong. Please email contact.armedianz@gmail.com.')
-        return
-      }
-
-      setStatusMessage(data.message ?? 'Message sent successfully.')
-      setFormData({ name: '', phone: '', email: '', message: '' })
-    } catch {
-      setStatusMessage('Something went wrong. Please email contact.armedianz@gmail.com.')
-    } finally {
-      setLoading(false)
-    }
-  }
 
   return (
     <div className="hp-root">
-      <div className="blob blob-a" aria-hidden="true" />
-      <div className="blob blob-b" aria-hidden="true" />
-      <div className="blob blob-c" aria-hidden="true" />
-
       <section className="hp-hero" aria-labelledby="home-hero-title">
         <div className="hp-hero-inner">
-          <div className="hero-eyebrow fade-up fade-up-1">
+          <div className="hero-eyebrow">
             <span className="eyebrow-dot" />
             Premium marketing media agency for modern growth
           </div>
 
-          <h1 className="hero-h1 fade-up fade-up-2" id="home-hero-title">
+          <h1 className="hero-h1" id="home-hero-title">
             Plan smarter campaigns with <em className="hero-em">AI, BI & media strategy</em>
             <br />
             built for measurable growth.
           </h1>
 
-          <p className="hero-sub fade-up fade-up-3">
+          <p className="hero-sub">
             Armedia helps ambitious brands turn marketing activity into a connected growth system:
             sharper positioning, better media planning, stronger creative, cleaner data, and
             campaigns that are easier to measure and improve.
           </p>
 
-          <div className="hero-actions fade-up fade-up-4">
+          <div className="hero-actions">
             <Link className="btn-primary" href="/contact">
               Book a growth consultation <span className="btn-arrow" aria-hidden="true">-&gt;</span>
             </Link>
@@ -337,7 +226,7 @@ function HomePage() {
             </Link>
           </div>
 
-          <p className="hero-sub fade-up fade-up-4">
+          <p className="hero-sub">
             Built for service businesses, retail brands, startups, and growth teams that need
             premium execution across digital, offline, and intelligence-led marketing.
           </p>
@@ -513,7 +402,7 @@ function HomePage() {
               the growth plan.
             </p>
             <div className="why-agency-metrics">
-              <span><strong>0</strong>Placeholder testimonials</span>
+              <span><strong>1</strong>Strategic campaign partner</span>
               <span><strong>1</strong>Connected campaign plan</span>
             </div>
           </article>
@@ -638,38 +527,7 @@ function HomePage() {
               </article>
             </div>
 
-            <form className="home-contact-form" onSubmit={handleSubmit}>
-              <h3>Tell us what you want to grow</h3>
-              <div className="home-contact-fields">
-                <label>
-                  <span className="sr-only">Full name</span>
-                  <input name="name" value={formData.name} onChange={handleChange} placeholder="Full name" autoComplete="name" required />
-                </label>
-                <label>
-                  <span className="sr-only">Mobile number</span>
-                  <input name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="Mobile no" autoComplete="tel" required />
-                </label>
-                <label>
-                  <span className="sr-only">Email address</span>
-                  <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Email address" autoComplete="email" required />
-                </label>
-              </div>
-              <label>
-                <span className="sr-only">Project or inquiry details</span>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Describe your brand, audience, goal, timeline, budget range, and the channels you want to explore..."
-                  rows={5}
-                  required
-                />
-              </label>
-              <button className="btn-primary" type="submit" disabled={loading}>
-                {loading ? 'Sending...' : 'Request a growth plan'}
-              </button>
-              {statusMessage ? <p className="contact-status" role="status">{statusMessage}</p> : null}
-            </form>
+            <HomeContactSection />
           </div>
 
           <aside className="home-contact-panel">
@@ -678,7 +536,7 @@ function HomePage() {
               <span><strong>1</strong>Focused discovery response</span>
               <span><strong>6</strong>Integrated growth pillars</span>
               <span><strong>5</strong>Step campaign process</span>
-              <span><strong>0</strong>Unverified proof claims</span>
+              <span><strong>1</strong>Clear response process</span>
             </div>
             <p>
               We keep the conversation clear: what should be prioritised, which channels make

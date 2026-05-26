@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import DeferredChatWidget from '../components/DeferredChatWidget'
 import '../index.css'
 import '../App.css'
 
@@ -159,7 +158,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         {children}
-        <DeferredChatWidget /> 
       </body>
     </html>
   )

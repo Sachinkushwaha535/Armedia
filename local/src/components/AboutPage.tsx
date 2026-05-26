@@ -51,11 +51,11 @@ const team = [
 const proofAreas = [
   {
     title: 'Campaign portfolio',
-    body: 'Ready for billboard mockups, ad creatives, social media campaigns, landing pages, dashboards, and launch plans.',
+    body: 'Campaign examples include media plans, ad creative, landing page concepts, dashboards, and launch structures.',
   },
   {
     title: 'Client proof',
-    body: 'Client logos, testimonials, Google reviews, and case studies should be added only after approval or public verification.',
+    body: 'Client logos, testimonials, and reviews are published only after approval or public verification.',
   },
   {
     title: 'Performance reviews',
@@ -162,15 +162,15 @@ function AboutPage() {
           <p className="eyebrow">Team Model</p>
           <h2>Senior roles around strategy, creative, and intelligence.</h2>
           <p>
-            This section is structured for real team photos and verified bios. The current cards
-            explain the professional roles clients expect from a marketing media agency.
+            The team structure reflects the core roles clients engage for campaign planning,
+            creative execution, and performance analysis.
           </p>
         </div>
 
         <div className="team-grid">
           {team.map((member) => (
             <article className="team-card" key={member.name}>
-              <div className={`team-avatar ${member.avatarClass}`} aria-label={`${member.name} photo placeholder`}>
+              <div className={`team-avatar ${member.avatarClass}`} aria-label={`${member.name} profile mark`}>
                 {member.initials}
               </div>
               <h3 className="team-name">{member.name}</h3>
@@ -188,10 +188,10 @@ function AboutPage() {
       <section className="about-section-stack">
         <div className="section-heading">
           <p className="eyebrow">Proof System</p>
-          <h2>Professional trust areas, ready for real evidence.</h2>
+          <h2>Professional trust areas focused on evidence.</h2>
           <p>
-            A strong media agency website needs proof. These areas are prepared for real campaign
-            examples, approved testimonials, performance snapshots, and client logos.
+            Strong agency positioning depends on proof. These sections focus on campaign examples,
+            approved testimonials, performance snapshots, and client logos.
           </p>
         </div>
 
