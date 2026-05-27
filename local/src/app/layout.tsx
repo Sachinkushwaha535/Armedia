@@ -160,7 +160,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en-NZ" data-scroll-behavior="smooth">
+    <html lang="en-NZ" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body>
         <a className="skip-link" href="#main-content">
           Skip to content

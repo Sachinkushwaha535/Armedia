@@ -78,13 +78,6 @@ const tickerItems = [
   'Campaign Analytics',
 ]
 
-const stats = [
-  { num: 6, suffix: '', label: 'Integrated service pillars' },
-  { num: 5, suffix: '', label: 'Stage campaign process' },
-  { num: 1, suffix: '', label: 'Connected growth system' },
-  { num: 2, suffix: '', label: 'NZ and AU market focus' },
-]
-
 const bentoServices = [
   {
     icon: 'AI',
@@ -173,47 +166,42 @@ function HomePage() {
     <div className="hp-root">
       <section className="hp-hero" aria-labelledby="home-hero-title">
         <div className="hp-hero-inner">
-          <div className="hero-eyebrow">
-            <span className="eyebrow-dot" />
-            Premium marketing media agency for modern growth
-          </div>
-
-          <h1 className="hero-h1" id="home-hero-title">
-            Plan smarter campaigns with <em className="hero-em">AI, BI & media strategy</em>
-            <br />
-            built for measurable growth.
-          </h1>
-
-          <p className="hero-sub">
-            Armedia helps ambitious brands turn marketing activity into a connected growth system:
-            sharper positioning, better media planning, stronger creative, cleaner data, and
-            campaigns that are easier to measure and improve.
-          </p>
-
-          <div className="hero-actions">
-            <Link className="btn-primary" href="/contact">
-              Book a growth consultation <span className="btn-arrow" aria-hidden="true">-&gt;</span>
-            </Link>
-            <Link className="btn-ghost" href="/services">
-              Explore services
-            </Link>
-          </div>
-
-          <p className="hero-sub">
-            Built for service businesses, retail brands, startups, and growth teams that need
-            premium execution across digital, offline, and intelligence-led marketing.
-          </p>
-
-          <div className="stats-strip reveal">
-            {stats.map((stat) => (
-              <div className="stat-item" key={stat.label}>
-                <div className="stat-num">
-                  <span className="count" data-target={stat.num}>{stat.num}</span>
-                  <span>{stat.suffix}</span>
-                </div>
-                <div className="stat-label">{stat.label}</div>
+          <div className="hero-main-grid">
+            <div className="hero-copy">
+              <div className="hero-eyebrow">
+                <span className="eyebrow-dot" />
+                Premium marketing media agency for modern growth
               </div>
-            ))}
+
+              <h1 className="hero-h1" id="home-hero-title">
+                <span>Plan smarter</span>
+                <span>campaigns</span>
+                <span>with <em className="hero-em">AI, BI</em> &amp;</span>
+                <span>media strategy</span>
+                <span>measurable</span>
+              </h1>
+
+              <p className="hero-sub">
+                Armedia helps ambitious brands turn marketing activity into a connected growth system:
+                sharper positioning, better media planning, stronger creative, cleaner data, and
+                campaigns that are easier to measure and improve.
+              </p>
+
+              <div className="hero-actions">
+                <Link className="btn-primary" href="/contact">
+                  Book a growth consultation <span className="btn-arrow" aria-hidden="true">-&gt;</span>
+                </Link>
+                <Link className="btn-ghost" href="/services">
+                  Explore services
+                </Link>
+              </div>
+
+              <p className="hero-sub hero-sub-secondary">
+                Armedia helps ambitious brands turn marketing into a connected growth system:
+                sharper positioning, better planning, media buying, strategy, flexible creative,
+                data, cleaner campaigns that are easier to measure and improve.
+              </p>
+            </div>
           </div>
         </div>
       </section>
