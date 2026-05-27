@@ -5,7 +5,7 @@ import PageShell from '../../components/PageShell'
 import { contactEmail } from '../../components/siteConfig'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
+  title: 'Privacy Policy | Armedia Marketing Media Agency New Zealand',
   description: 'How Armedia handles contact details, campaign inquiries, analytics information, and project communication.',
   alternates: {
     canonical: '/privacy',

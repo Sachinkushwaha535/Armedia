@@ -5,7 +5,7 @@ import PageShell from '../../components/PageShell'
 import { contactEmail } from '../../components/siteConfig'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service',
+  title: 'Terms of Service | Armedia Marketing Media Agency New Zealand',
   description: 'General website, campaign inquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
   alternates: {
     canonical: '/terms',

@@ -6,7 +6,7 @@ import ServiceLandingPage from '../../components/ServiceLandingPage'
 export const metadata: Metadata = {
   title: 'Web Design Auckland | Premium Website Design by Armedia',
   description:
-    'Premium Web Design Auckland service for mobile-first websites with clear messaging, conversion-focused UX, SEO foundations, pricing, timeline, technologies, and FAQ.',
+    'Premium Web Design Auckland service for mobile-first websites with clear messaging, conversion-focused UX, and SEO foundations.',
   alternates: { canonical: '/web-design-auckland' },
   openGraph: {
     title: 'Web Design Auckland | Premium Website Design by Armedia',

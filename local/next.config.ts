@@ -28,6 +28,19 @@ const nextConfig: NextConfig = {
     // pick up the root-level package-lock.json at C:\Users\bk798\
     root: path.resolve(__dirname),
   },
+  async headers() {
+  return [
+    {
+      source: '/(.*)',
+      headers: [
+        {
+          key: 'X-Robots-Tag',
+          value: 'index, follow',
+        },
+      ],
+    },
+  ]
+},
 }
 
 export default nextConfig

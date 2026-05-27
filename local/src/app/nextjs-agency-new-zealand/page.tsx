@@ -4,7 +4,7 @@ import Header from '../../components/Header'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 
 export const metadata: Metadata = {
-  title: 'Next.js Agency New Zealand',
+  title: 'Next.js Agency New Zealand | Fast Web Apps & Marketing Sites | Armedia',
   description:
     'Next.js agency in New Zealand building fast marketing sites, web apps, SEO pages, and conversion-focused digital systems.',
   alternates: { canonical: '/nextjs-agency-new-zealand' },
