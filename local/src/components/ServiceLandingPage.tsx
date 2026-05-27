@@ -10,11 +10,11 @@ type ServiceLandingPageProps = {
   points: string[]
   outcomes: string[]
   benefits: string[]
-  pricing: string
+  pricing?: string
   timeline: string[]
   technologies: string[]
   portfolio: string[]
-  faq: {
+  faq?: {
     question: string
     answer: string
   }[]
@@ -58,14 +58,16 @@ function ServiceLandingPage({
         },
       })),
     },
-    mainEntity: faq.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
+    ...(faq && {
+      mainEntity: faq.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    }),
   }
 
   return (
@@ -109,10 +111,14 @@ function ServiceLandingPage({
             ))}
           </ul>
         </article>
-        <article className="studio-card">
-          <h2>Pricing</h2>
-          <p>{pricing}</p>
-        </article>
+
+        {pricing && (
+          <article className="studio-card">
+            <h2>Pricing</h2>
+            <p>{pricing}</p>
+          </article>
+        )}
+
         <article className="studio-card">
           <h2>Timeline</h2>
           <ul>
@@ -137,15 +143,18 @@ function ServiceLandingPage({
             ))}
           </ul>
         </article>
-        <article className="studio-card">
-          <h2>FAQ</h2>
-          {faq.map((item) => (
-            <div key={item.question}>
-              <h3>{item.question}</h3>
-              <p>{item.answer}</p>
-            </div>
-          ))}
-        </article>
+
+        {faq && faq.length > 0 && (
+          <article className="studio-card">
+            <h2>FAQ</h2>
+            {faq.map((item) => (
+              <div key={item.question}>
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
+              </div>
+            ))}
+          </article>
+        )}
       </div>
     </section>
   )

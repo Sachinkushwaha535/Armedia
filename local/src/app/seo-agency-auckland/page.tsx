@@ -52,7 +52,7 @@ export default function Page() {
             'Better internal linking and landing page hierarchy',
             'Improved trust signals through structured data and proof sections',
           ]}
-          pricing="SEO Agency Auckland work usually starts from NZD 900 for audits and priority fixes. Ongoing SEO retainers and landing page programs are scoped around content volume and competition."
+          // pricing="SEO Agency Auckland work usually starts from NZD 900 for audits and priority fixes. Ongoing SEO retainers and landing page programs are scoped around content volume and competition."
           timeline={[
             'SEO audit and keyword review: 3-5 days',
             'Priority fixes and metadata updates: 3-7 days',
@@ -73,18 +73,18 @@ export default function Page() {
             'Ecommerce Website Auckland landing page structure',
             'Search Console and analytics review roadmap',
           ]}
-          faq={[
-            {
-              question: 'Is SEO included with web design?',
-              answer:
-                'Basic SEO structure is included in web design projects. Dedicated SEO work goes deeper into audits, schema, landing pages, and search strategy.',
-            },
-            {
-              question: 'How long does SEO take to show results?',
-              answer:
-                'Technical fixes can improve foundations quickly, but ranking movement usually depends on competition, content quality, authority, and time.',
-            },
-          ]}
+          // faq={[
+          //   {
+          //     question: 'Is SEO included with web design?',
+          //     answer:
+          //       'Basic SEO structure is included in web design projects. Dedicated SEO work goes deeper into audits, schema, landing pages, and search strategy.',
+          //   },
+          //   {
+          //     question: 'How long does SEO take to show results?',
+          //     answer:
+          //       'Technical fixes can improve foundations quickly, but ranking movement usually depends on competition, content quality, authority, and time.',
+          //   },
+          // ]}
         />
       </main>
       <Footer />
