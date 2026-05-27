@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import HomeContactSection from './HomeContactSection'
+import { contactEmail, contactPhone, contactPhoneHref } from './siteConfig'
 
 const philosophyCards = [
   {
@@ -63,34 +64,6 @@ const growthCards = [
     title: 'One connected team',
     label: 'Team',
     desc: 'Strategy, media, creative, AI, BI, and technology capabilities work together instead of sitting in separate silos.',
-  },
-]
-
-const faqItems = [
-  {
-    question: 'What services do you offer?',
-    answer:
-      'Armedia provides AI marketing workflows, business intelligence dashboards, advertising, digital media, OOH and offline media, SEO, landing pages, web development, CRM, content, and growth strategy.',
-  },
-  {
-    question: 'How does Armedia improve marketing performance?',
-    answer:
-      'We improve performance by clarifying the offer, choosing the right channel mix, tightening creative, setting up measurement, and optimising campaigns around lead quality and commercial outcomes.',
-  },
-  {
-    question: 'How quickly can we start?',
-    answer:
-      'Most projects begin with a focused discovery conversation, then a clear action plan covering priority channels, timeline, budget range, and the assets needed to launch.',
-  },
-  {
-    question: 'Do you work with growing businesses?',
-    answer:
-      'Yes. Armedia works with local businesses, startups, retail brands, service companies, and growth-focused teams across New Zealand and nearby markets.',
-  },
-  {
-    question: 'What makes Armedia different?',
-    answer:
-      'We connect media planning, creative, AI workflows, BI dashboards, performance advertising, offline visibility, and technology support in one growth system.',
   },
 ]
 
@@ -176,8 +149,8 @@ const portfolioProjects = [
   {
     title: 'AI campaign command centre',
     description: 'A premium workflow for campaign summaries, lead quality, content planning, and weekly marketing actions.',
-    metric: 'Designed to reduce manual reporting and make the next best action easier to see.',
-    feedback: 'Built to connect with CRM, ad platforms, analytics, and reporting data once integrations are approved.',
+    metric: 'Focus: reduce manual reporting and make the next best action easier to see.',
+    feedback: 'Best fit: teams with CRM, ad platform, analytics, and reporting data ready to connect.',
     tags: ['AI tool', 'BI dashboard', 'Campaign analytics'],
     thumb: 'work-thumb-a',
     badge: 'AI + BI',
@@ -329,9 +302,9 @@ function HomePage() {
             <h2 className="section-h2" id="work-heading">What premium execution looks like</h2>
           </div>
           <p className="section-desc">
-            These formats show how we connect creative, media, technology, and reporting. Live
-            case studies, approved client examples, and performance proof can be added as projects
-            become public.
+            These example systems show how we connect creative, media, technology, and reporting.
+            Each one can be adapted into a scoped campaign plan with clear deliverables,
+            measurement points, and review rhythms.
           </p>
         </div>
 
@@ -513,12 +486,16 @@ function HomePage() {
               <article>
                 <span>Email</span>
                 <strong>Email the studio</strong>
-                <a href="mailto:contact.armedianz@gmail.com">contact.armedianz@gmail.com</a>
+                <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
               </article>
               <article>
                 <span>Call</span>
-                <strong>Request a call back</strong>
-                <p>Share your number and we will respond with the right next step.</p>
+                <strong>{contactPhone ? 'Call the studio' : 'Request a call back'}</strong>
+                {contactPhone && contactPhoneHref ? (
+                  <a href={contactPhoneHref}>{contactPhone}</a>
+                ) : (
+                  <p>Share your number and we will respond with the right next step.</p>
+                )}
               </article>
               <article>
                 <span>Plan</span>

@@ -34,9 +34,14 @@ const faqItems = [
 export const metadata: Metadata = {
   title: 'Premium AI, BI, Advertising & Marketing Media Agency',
   description:
-    'Armedia helps ambitious brands plan premium growth campaigns across AI marketing workflows, business intelligence, advertising, SEO, digital media, OOH, offline media, and strategy.',
+    'Armedia is a New Zealand marketing media agency helping ambitious brands plan growth campaigns across AI marketing workflows, business intelligence, advertising, SEO, digital media, OOH, offline media, and strategy.',
   keywords: [
     'marketing media agency',
+    'AI marketing agency New Zealand',
+    'business intelligence dashboard agency Auckland',
+    'OOH advertising New Zealand',
+    'integrated marketing agency NZ',
+    'advertising agency Auckland',
     'AI marketing tools',
     'business intelligence',
     'advertising agency',

@@ -70,7 +70,7 @@ export default function Page() {
             'SEO landing page systems',
             'Marketing websites with service routes',
             'Web apps with forms and integrations',
-            'Client-approved live links can be added when available',
+            'Production-ready launch and QA workflows',
           ]}
           faq={[
             {

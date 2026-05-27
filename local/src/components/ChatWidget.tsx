@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
+import { contactEmail } from './siteConfig'
 
 type Message = { role: 'user' | 'assistant'; content: string }
 
@@ -57,7 +58,7 @@ export default function ChatWidget() {
     } catch {
       setMessages(prev => [
         ...prev,
-        { role: 'assistant', content: 'Something went wrong. Please try again or email contact.armedianz@gmail.com for AI, BI, advertising, media planning, or growth strategy support.' },
+        { role: 'assistant', content: `Something went wrong. Please try again or email ${contactEmail} for AI, BI, advertising, media planning, or growth strategy support.` },
       ])
     } finally {
       setLoading(false)

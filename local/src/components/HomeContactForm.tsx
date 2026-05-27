@@ -1,6 +1,7 @@
 'use client'
 
 import { type ChangeEvent, type FormEvent, useState } from 'react'
+import { contactFallbackText } from './siteConfig'
 
 export default function HomeContactForm() {
   const [formData, setFormData] = useState({
@@ -33,14 +34,14 @@ export default function HomeContactForm() {
       const data = await response.json()
 
       if (!response.ok) {
-        setStatusMessage(data.message ?? 'Something went wrong. Please email contact.armedianz@gmail.com.')
+        setStatusMessage(data.message ?? `Something went wrong. ${contactFallbackText}`)
         return
       }
 
       setStatusMessage(data.message ?? 'Message sent successfully.')
       setFormData({ name: '', phone: '', email: '', message: '' })
     } catch {
-      setStatusMessage('Something went wrong. Please email contact.armedianz@gmail.com.')
+      setStatusMessage(`Something went wrong. ${contactFallbackText}`)
     } finally {
       setLoading(false)
     }

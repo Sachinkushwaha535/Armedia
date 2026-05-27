@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
+import { siteUrl } from '../components/siteConfig'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 const siteHost = new URL(siteUrl).host
 
 export default function robots(): MetadataRoute.Robots {

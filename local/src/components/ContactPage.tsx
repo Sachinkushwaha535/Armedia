@@ -3,6 +3,7 @@
 import { type ChangeEvent, type FormEvent, useState } from 'react'
 import Link from 'next/link'
 import PageShell from './PageShell'
+import { contactEmail, contactFallbackText, contactPhone, contactPhoneHref } from './siteConfig'
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -40,7 +41,7 @@ function ContactPage() {
       const data = await response.json()
 
       if (!response.ok) {
-        setStatusMessage(data.message ?? 'Something went wrong. Please email contact.armedianz@gmail.com.')
+        setStatusMessage(data.message ?? `Something went wrong. ${contactFallbackText}`)
         return
       }
 
@@ -53,7 +54,7 @@ function ContactPage() {
         message: '',
       })
     } catch {
-      setStatusMessage('Something went wrong. Please email contact.armedianz@gmail.com.')
+      setStatusMessage(`Something went wrong. ${contactFallbackText}`)
     } finally {
       setLoading(false)
     }
@@ -71,12 +72,16 @@ function ContactPage() {
             <article>
               <span>Email</span>
               <strong>Drop us a line</strong>
-              <a href="mailto:contact.armedianz@gmail.com">contact.armedianz@gmail.com</a>
+              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
             </article>
             <article>
-              <span>Brief</span>
-              <strong>Send a project idea</strong>
-              <p>Share your goal, channels, audience, and desired outcome.</p>
+              <span>Call</span>
+              <strong>{contactPhone ? 'Call the studio' : 'Request a call back'}</strong>
+              {contactPhone && contactPhoneHref ? (
+                <a href={contactPhoneHref}>{contactPhone}</a>
+              ) : (
+                <p>Share your number and we will respond with the right next step.</p>
+              )}
             </article>
             <article>
               <span>Plan</span>

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ArmediaLogo from './ArmediaLogo'
+import { contactEmail } from './siteConfig'
 
 const footerGroups = [
   {
@@ -33,7 +34,7 @@ const footerGroups = [
     title: 'Start',
     links: [
       { label: 'Start a project', href: '/start-project' },
-      { label: 'Email us', href: 'mailto:contact.armedianz@gmail.com' },
+      { label: 'Email us', href: `mailto:${contactEmail}` },
       { label: 'React development NZ', href: '/react-development-nz' },
       { label: 'Next.js agency NZ', href: '/nextjs-agency-new-zealand' },
       { label: 'Privacy', href: '/privacy' },

@@ -1,14 +1,13 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import { contactEmail, contactPhone, marketFocus, siteUrl } from '../components/siteConfig'
 import '../index.css'
 import '../App.css'
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Armedia | AI, BI, Advertising & Marketing Media Agency',
+    default: 'Armedia | AI, BI, Advertising & Marketing Media Agency NZ',
     template: '%s | Armedia',
   },
   description:
@@ -25,7 +24,14 @@ export const metadata: Metadata = {
   },
   keywords: [
     'Armedia',
-    'marketing media agency',
+    'marketing media agency New Zealand',
+    'AI marketing agency New Zealand',
+    'AI marketing agency Auckland',
+    'business intelligence dashboard agency Auckland',
+    'OOH advertising New Zealand',
+    'integrated marketing agency NZ',
+    'advertising agency Auckland',
+    'SEO agency Auckland',
     'AI marketing tools',
     'business intelligence agency',
     'advertising agency',
@@ -50,9 +56,9 @@ export const metadata: Metadata = {
     locale: 'en_NZ',
     url: '/',
     siteName: 'Armedia',
-    title: 'Armedia | AI, BI, Advertising & Marketing Media Agency',
+    title: 'Armedia | AI, BI, Advertising & Marketing Media Agency NZ',
     description:
-      'Marketing media agency for AI tools, business intelligence, advertising, digital media, OOH media, offline marketing, and growth strategy.',
+      'New Zealand marketing media agency for AI tools, business intelligence, advertising, digital media, OOH media, offline marketing, and growth strategy.',
     images: [
       {
         url: '/logo.png',
@@ -103,7 +109,11 @@ export default function RootLayout({
         name: 'Armedia',
         url: siteUrl,
         logo: `${siteUrl}/logo.png`,
-        email: 'contact.armedianz@gmail.com',
+        email: contactEmail,
+        ...(contactPhone ? { telephone: contactPhone } : {}),
+        sameAs: [
+          siteUrl,
+        ],
       },
       {
         '@type': 'LocalBusiness',
@@ -111,13 +121,15 @@ export default function RootLayout({
         name: 'Armedia',
         url: siteUrl,
         logo: `${siteUrl}/logo.png`,
-        email: 'contact.armedianz@gmail.com',
+        email: contactEmail,
+        ...(contactPhone ? { telephone: contactPhone } : {}),
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Auckland',
           addressCountry: 'NZ',
         },
-        areaServed: ['Auckland', 'New Zealand', 'Australia'],
+        priceRange: '$$',
+        areaServed: marketFocus,
         description:
           'Armedia provides AI marketing tools, business intelligence, advertising, digital media, OOH media, offline marketing, campaign analytics, and growth strategy.',
         serviceType: [

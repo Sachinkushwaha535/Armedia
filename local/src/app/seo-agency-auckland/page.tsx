@@ -71,7 +71,7 @@ export default function Page() {
             'Web Design Auckland landing page structure',
             'React Developers NZ landing page structure',
             'Ecommerce Website Auckland landing page structure',
-            'Search performance proof can be added after live data is available',
+            'Search Console and analytics review roadmap',
           ]}
           faq={[
             {

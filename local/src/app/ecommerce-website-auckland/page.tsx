@@ -70,7 +70,7 @@ export default function Page() {
             'Product-led storefronts',
             'Landing pages for product campaigns',
             'Checkout and enquiry flows',
-            'Client-approved store links can be added when available',
+            'Analytics-ready store launch checklists',
           ]}
           faq={[
             {

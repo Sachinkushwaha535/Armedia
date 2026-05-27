@@ -1,10 +1,11 @@
 import Groq from 'groq-sdk'
 import { NextRequest, NextResponse } from 'next/server'
+import { contactEmail } from '../../../components/siteConfig'
 
 export async function POST(req: NextRequest) {
   if (!process.env.GROQ_API_KEY) {
     return NextResponse.json(
-      { message: 'Chat is not configured yet. Please email contact.armedianz@gmail.com for campaign support.' },
+      { message: `Chat is not configured yet. Please email ${contactEmail} for campaign support.` },
       { status: 503 }
     )
   }
@@ -22,7 +23,7 @@ export async function POST(req: NextRequest) {
           'Write in a confident, client-facing style focused on brand visibility, quality leads, campaign performance, media planning, and measurable growth. ' +
           'Help visitors with Armedia services: AI marketing tools, business intelligence dashboards, advertising, Meta Ads, Google Ads, digital media, OOH media, offline marketing, campaign analytics, brand positioning, and growth strategy. ' +
           'Keep answers concise, action-oriented, and focused on outcomes such as awareness, enquiries, conversions, brand recall, smarter reporting, and scalable campaigns. ' +
-          'If asked about pricing, timelines, or a real project, encourage them to contact contact.armedianz@gmail.com.',
+          `If asked about pricing, timelines, or a real project, encourage them to contact ${contactEmail}.`,
       },
       ...messages,
     ],

@@ -17,11 +17,26 @@ const agencyPillars = [
 ]
 
 const capabilities = [
-  'AI marketing tools and automation',
-  'Business intelligence and campaign dashboards',
-  'Performance advertising and media buying',
-  'Digital, OOH, offline, PR, event, and retail marketing',
-  'Web development, mobile apps, SEO, e-commerce, and software support',
+  {
+    title: 'AI marketing tools and automation',
+    body: 'Practical workflows for campaign summaries, content planning, lead qualification, support prompts, and weekly reporting.',
+  },
+  {
+    title: 'Business intelligence and campaign dashboards',
+    body: 'Dashboards and review rhythms that help teams see channel performance, lead quality, spend, and next actions clearly.',
+  },
+  {
+    title: 'Performance advertising and media buying',
+    body: 'Paid search, paid social, retargeting, placement planning, creative testing, and conversion tracking shaped around business goals.',
+  },
+  {
+    title: 'Digital, OOH, offline, PR, event, and retail marketing',
+    body: 'Connected campaign planning across online reach, physical visibility, launch activity, retail moments, and local awareness.',
+  },
+  {
+    title: 'Web development, mobile apps, SEO, e-commerce, and software support',
+    body: 'Campaign-ready digital foundations: fast pages, forms, analytics, integrations, search structure, and customer journeys.',
+  },
 ]
 
 const team = [
@@ -51,11 +66,11 @@ const team = [
 const proofAreas = [
   {
     title: 'Campaign portfolio',
-    body: 'Campaign examples include media plans, ad creative, landing page concepts, dashboards, and launch structures.',
+    body: 'Prospects can review example systems for media plans, ad creative, landing page concepts, dashboards, and launch structures.',
   },
   {
-    title: 'Client proof',
-    body: 'Client logos, testimonials, and reviews are published only after approval or public verification.',
+    title: 'Verification policy',
+    body: 'Named logos, testimonials, screenshots, and performance numbers are used only when they are accurate and approved.',
   },
   {
     title: 'Performance reviews',
@@ -144,10 +159,10 @@ function AboutPage() {
             <h3>Built for brands that need planning, execution, and measurement.</h3>
             <div className="about-feature-list">
               {capabilities.map((item, index) => (
-                <div className="about-feature-row" key={item}>
+                <div className="about-feature-row" key={item.title}>
                   <div>
-                    <strong>{item}</strong>
-                    <p>Part of the full-service agency model for campaigns that need structure and follow-through.</p>
+                    <strong>{item.title}</strong>
+                    <p>{item.body}</p>
                   </div>
                   <span>{String(index + 1).padStart(2, '0')}</span>
                 </div>
@@ -190,8 +205,8 @@ function AboutPage() {
           <p className="eyebrow">Proof System</p>
           <h2>Professional trust areas focused on evidence.</h2>
           <p>
-            Strong agency positioning depends on proof. These sections focus on campaign examples,
-            approved testimonials, performance snapshots, and client logos.
+            Strong agency positioning depends on evidence. These sections focus on campaign
+            examples, verification standards, performance snapshots, and practical reporting.
           </p>
         </div>
 

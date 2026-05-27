@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import PageShell from '../../components/PageShell'
+import { contactEmail } from '../../components/siteConfig'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -97,7 +98,7 @@ export default function Page() {
               <h2>Email contact</h2>
               <p>
                 For privacy questions or access requests, email{' '}
-                <a href="mailto:contact.armedianz@gmail.com">contact.armedianz@gmail.com</a>.
+                <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
               </p>
             </section>
           </div>
