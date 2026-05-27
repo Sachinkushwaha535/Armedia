@@ -440,7 +440,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="hp-section hp-section-tight reveal" aria-labelledby="faq-heading">
+      {/* <section className="hp-section hp-section-tight reveal" aria-labelledby="faq-heading">
         <div className="section-top">
           <div>
             <p className="section-tag">FAQ</p>
@@ -492,7 +492,7 @@ function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="hp-section hp-section-tight reveal" aria-labelledby="home-contact-heading">
         <div className="section-top section-top-centered">

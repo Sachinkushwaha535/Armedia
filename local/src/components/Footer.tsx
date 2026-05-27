@@ -6,8 +6,8 @@ const footerGroups = [
     title: 'Studio',
     links: [
       { label: 'Home', href: '/' },
-      { label: 'About', href: '/about' },
-      { label: 'Blog', href: '/blog' },
+      // { label: 'About', href: '/about' },
+      // { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/contact' },
     ],
   },
