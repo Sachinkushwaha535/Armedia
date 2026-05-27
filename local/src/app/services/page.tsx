@@ -6,7 +6,7 @@ import ServicesPage from '../../components/ServicesPage'
 export const metadata: Metadata = {
   title: 'Services | AI, BI, Advertising & Marketing Media',
   description:
-    'Explore Armedia services for AI marketing tools, business intelligence, advertising, digital media, OOH media, offline marketing, media buying, content production, influencer marketing, PR, events, CRM, web development, mobile apps, SEO, e-commerce, software, and automation.',
+    'Armedia is a New Zealand marketing agency offering AI tools, BI dashboards, advertising, SEO, digital media, OOH, and growth strategy for ambitious brands.',
   keywords: [
     'Armedia services',
     'marketing media services',
