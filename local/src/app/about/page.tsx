@@ -4,39 +4,34 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 
 export const metadata: Metadata = {
-  title: 'About Armedia | Founder-Led Marketing Media Agency',
+  title: 'About Armedia | Founder-Led Strategy, Media & Growth Agency',
   description:
-    'Learn about Armedia, a marketing media agency for AI tools, business intelligence, advertising, media planning, digital media, OOH, offline marketing, creative, PR, events, CRM, and campaign-supporting technology.',
+    'Learn about Armedia, a founder-led New Zealand agency combining strategy, advertising, media planning, AI workflows, business intelligence, and campaign reporting for smarter growth.',
   keywords: [
     'about Armedia',
-    'founder led marketing media agency',
-    'AI marketing agency',
-    'business intelligence agency',
-    'advertising strategy',
-    'digital media planning',
-    'OOH media planning',
-    'offline marketing strategy',
-    'media buying agency',
-    'content production agency',
-    'campaign analytics',
-    'marketing technology',
+    'founder led agency New Zealand',
+    'marketing media agency Auckland',
+    'strategy and media agency NZ',
+    'advertising and growth agency',
+    'AI and business intelligence agency',
+    'campaign planning agency',
     'brand growth strategy',
   ],
   alternates: {
     canonical: '/about',
   },
   openGraph: {
-    title: 'About Armedia | Founder-Led Marketing Media Agency',
+    title: 'About Armedia | Founder-Led Strategy, Media & Growth Agency',
     description:
-      'Strategy, creative, AI, BI, advertising, media planning, offline marketing, and technology support for brand growth.',
+      'A founder-led New Zealand agency combining strategy, advertising, media planning, AI workflows, BI dashboards, and reporting for smarter growth.',
     url: '/about',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Armedia | Founder-Led Marketing Media Agency',
+    title: 'About Armedia | Founder-Led Strategy, Media & Growth Agency',
     description:
-      'AI tools, BI dashboards, advertising, digital media, OOH media, offline marketing, creative, PR, CRM, and technology support.',
+      'Strategy, advertising, media planning, AI workflows, business intelligence, and campaign reporting for growth-focused brands.',
   },
 }
 

@@ -7,16 +7,16 @@ import '../App.css'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Armedia | AI, BI, Advertising & Marketing Media Agency NZ',
+    default: 'Armedia | Marketing Media Agency for Strategy, AI, BI & Advertising',
     template: '%s | Armedia',
   },
   description:
-    'Armedia is a marketing media agency for AI tools, business intelligence, advertising, digital media, OOH media, offline marketing, and growth strategy.',
+    'Armedia is a New Zealand marketing media agency helping brands with strategy, advertising, AI workflows, business intelligence, digital media, and campaign reporting.',
   applicationName: 'Armedia',
   authors: [{ name: 'Armedia' }],
   creator: 'Armedia',
   publisher: 'Armedia',
-  category: 'Advertising',
+  category: 'Marketing',
   formatDetection: {
     email: false,
     address: false,
@@ -25,28 +25,16 @@ export const metadata: Metadata = {
   keywords: [
     'Armedia',
     'marketing media agency New Zealand',
-    'AI marketing agency New Zealand',
-    'AI marketing agency Auckland',
-    'business intelligence dashboard agency Auckland',
-    'OOH advertising New Zealand',
-    'integrated marketing agency NZ',
+    'marketing agency Auckland',
     'advertising agency Auckland',
+    'AI marketing agency New Zealand',
+    'business intelligence agency Auckland',
+    'digital media agency NZ',
+    'media planning agency Auckland',
+    'OOH advertising New Zealand',
+    'campaign reporting agency',
+    'growth strategy agency',
     'SEO agency Auckland',
-    'AI marketing tools',
-    'business intelligence agency',
-    'advertising agency',
-    'digital media agency',
-    'OOH media agency',
-    'offline marketing',
-    'performance marketing',
-    'Meta Ads management',
-    'Google Ads management',
-    'campaign analytics',
-    'brand strategy',
-    'growth strategy',
-    'media planning',
-    'lead generation services',
-    'campaign reporting',
   ],
   alternates: {
     canonical: '/',
@@ -56,9 +44,9 @@ export const metadata: Metadata = {
     locale: 'en_NZ',
     url: '/',
     siteName: 'Armedia',
-    title: 'Armedia | AI, BI, Advertising & Marketing Media Agency NZ',
+    title: 'Armedia | Marketing Media Agency for Strategy, AI, BI & Advertising',
     description:
-      'New Zealand marketing media agency for AI tools, business intelligence, advertising, digital media, OOH media, offline marketing, and growth strategy.',
+      'New Zealand marketing media agency for strategy, advertising, AI workflows, business intelligence, digital media, and campaign reporting.',
     images: [
       {
         url: '/logo.png',
@@ -70,9 +58,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Armedia | AI, BI, Advertising & Marketing Media Agency',
+    title: 'Armedia | Strategy, AI, BI & Advertising',
     description:
-      'AI tools, BI dashboards, advertising, digital media, OOH media, offline marketing, and growth strategy for growing brands.',
+      'Marketing media agency for strategy, advertising, AI workflows, BI dashboards, digital media, and growth planning.',
     images: ['/logo.png'],
   },
   robots: {
@@ -87,9 +75,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: '/logo-icon.png', type: 'image/png' },
-    ],
+    icon: [{ url: '/logo-icon.png', type: 'image/png' }],
     shortcut: '/logo-icon.png',
     apple: '/logo-icon.png',
   },
@@ -111,9 +97,9 @@ export default function RootLayout({
         logo: `${siteUrl}/logo.png`,
         email: contactEmail,
         ...(contactPhone ? { telephone: contactPhone } : {}),
-        sameAs: [
-          siteUrl,
-        ],
+        sameAs: [siteUrl],
+        description:
+          'Armedia is a New Zealand marketing media agency focused on strategy, advertising, AI workflows, business intelligence, digital media, and campaign reporting.',
       },
       {
         '@type': 'LocalBusiness',
@@ -131,18 +117,16 @@ export default function RootLayout({
         priceRange: '$$',
         areaServed: marketFocus,
         description:
-          'Armedia provides AI marketing tools, business intelligence, advertising, digital media, OOH media, offline marketing, campaign analytics, and growth strategy.',
+          'Armedia helps brands plan and improve campaigns through strategy, advertising, AI systems, BI dashboards, digital media, and reporting.',
         serviceType: [
-          'AI Marketing Tools',
-          'Business Intelligence',
+          'Marketing Strategy',
           'Advertising',
           'Digital Media',
-          'OOH Media',
-          'Offline Marketing',
-          'Performance Marketing',
+          'Business Intelligence',
+          'AI Workflows',
           'Media Planning',
-          'Campaign Analytics',
-          'Brand Strategy',
+          'Campaign Reporting',
+          'OOH Media',
           'Growth Strategy',
         ],
       },
@@ -151,10 +135,15 @@ export default function RootLayout({
         '@id': `${siteUrl}/#website`,
         name: 'Armedia',
         url: siteUrl,
+        inLanguage: 'en-NZ',
         publisher: {
           '@id': `${siteUrl}/#organization`,
         },
-        inLanguage: 'en-NZ',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${siteUrl}/search?q={search_term_string}`,
+          'query-input': 'required name=search_term_string',
+        },
       },
     ],
   }

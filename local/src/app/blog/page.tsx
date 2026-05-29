@@ -16,7 +16,7 @@ const posts = [
   {
     title: 'Where AI Helps Marketing Teams First',
     href: '/blog/ai-workflows-service-teams',
-    category: 'AI Marketing',
+    category: 'AI Workflows',
     description:
       'Use AI for content planning, campaign summaries, lead qualification, reporting, and faster marketing operations.',
   },
@@ -51,33 +51,31 @@ const posts = [
 ]
 
 const categories = [
-  'AI Marketing',
+  'Media Planning',
+  'AI Workflows',
   'Business Intelligence',
   'Advertising',
-  'Digital Media',
-  'OOH Media',
-  'Offline Marketing',
-  'Creative',
-  'Technology',
+  'OOH + Offline',
+  'Conversion',
 ]
 
 export const metadata: Metadata = {
-  title: 'Blog | Marketing Media, AI, BI & Advertising Insights',
+  title: 'Blog | Strategy, Media, AI & Campaign Insights',
   description:
-    'Armedia insights on marketing media strategy, AI marketing tools, business intelligence, advertising, digital media, OOH media, offline marketing, creative, and campaign technology.',
+    'Armedia shares practical insights on media planning, AI workflows, business intelligence, advertising, OOH, offline campaigns, and conversion strategy.',
   alternates: { canonical: '/blog' },
   openGraph: {
-    title: 'Blog | Marketing Media, AI, BI & Advertising Insights',
+    title: 'Blog | Strategy, Media, AI & Campaign Insights',
     description:
-      'Marketing media insights on AI workflows, BI dashboards, advertising, digital media, OOH, offline marketing, and campaign technology.',
+      'Practical insights on media planning, AI workflows, BI dashboards, advertising, OOH, offline campaigns, and conversion strategy.',
     url: '/blog',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog | Marketing Media, AI, BI & Advertising Insights',
+    title: 'Blog | Strategy, Media, AI & Campaign Insights',
     description:
-      'Practical insights for smarter campaigns across AI, BI, advertising, digital media, OOH, offline, creative, and technology.',
+      'Practical campaign insights across strategy, media planning, AI workflows, BI, advertising, OOH, offline, and conversion.',
   },
 }
 
@@ -85,8 +83,15 @@ export default function Page() {
   const blogSchema = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    name: 'Armedia Marketing Media Insights',
+    name: 'Armedia Insights',
     url: `${siteUrl}/blog`,
+    description:
+      'Practical insights on strategy, media planning, AI workflows, business intelligence, advertising, OOH, offline campaigns, and conversion.',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Armedia',
+      url: siteUrl,
+    },
     blogPost: posts.map((post) => ({
       '@type': 'BlogPosting',
       headline: post.title,
@@ -108,10 +113,10 @@ export default function Page() {
         <section className="page-shell section">
           <div className="section-heading">
             <p className="eyebrow">Insights</p>
-            <h1 className="page-title">Marketing media thinking for smarter campaigns.</h1>
+            <h1 className="page-title">Practical thinking for smarter campaigns.</h1>
             <p>
-              Practical notes on AI, business intelligence, advertising, digital media, OOH,
-              offline marketing, creative strategy, and campaign-supporting technology.
+              Clear insights on media planning, AI workflows, business intelligence,
+              advertising, OOH, offline campaigns, and conversion strategy.
             </p>
           </div>
 

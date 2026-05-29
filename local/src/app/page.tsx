@@ -5,66 +5,62 @@ import HomePage from '../components/HomePage'
 
 const faqItems = [
   {
-    question: 'What services does Armedia offer?',
+    question: 'What does Armedia do?',
     answer:
-      'Armedia provides AI marketing workflows, business intelligence dashboards, advertising, digital media, OOH and offline media, SEO, landing pages, web development, CRM, content, and growth strategy.',
+      'Armedia helps brands plan and improve campaigns through strategy, advertising, media planning, AI workflows, business intelligence, and performance reporting.',
+  },
+  {
+    question: 'Who is Armedia best suited for?',
+    answer:
+      'Armedia works best for businesses that want clearer positioning, better campaign structure, stronger measurement, and more joined-up execution across channels.',
   },
   {
     question: 'How does Armedia improve marketing performance?',
     answer:
-      'Armedia improves performance by clarifying the offer, choosing the right channel mix, tightening creative, setting up measurement, and optimising campaigns around lead quality and commercial outcomes.',
+      'Armedia improves performance by clarifying the offer, selecting the right channel mix, strengthening creative direction, improving measurement, and refining campaigns around business outcomes.',
   },
   {
-    question: 'Does Armedia work with growing businesses?',
+    question: 'Does Armedia only work on digital campaigns?',
     answer:
-      'Yes. Armedia works with local businesses, startups, retail brands, service companies, and growth-focused teams across New Zealand and nearby markets.',
+      'No. Armedia supports digital media, advertising, landing pages, reporting, and strategy, while also planning OOH, offline media, and broader campaign systems where needed.',
   },
   {
-    question: 'What makes Armedia different?',
+    question: 'How do projects usually begin?',
     answer:
-      'Armedia connects media planning, creative direction, AI workflows, BI dashboards, performance advertising, offline visibility, and technology support in one growth system.',
-  },
-  {
-    question: 'How quickly can we start?',
-    answer:
-      'Most projects begin with a focused discovery conversation, then a clear action plan covering priority channels, timeline, budget range, and the assets needed to launch.',
+      'Most projects start with a discovery conversation followed by a practical action plan covering goals, priorities, channels, timing, and the next steps to launch.',
   },
 ]
 
 export const metadata: Metadata = {
-  title: 'Premium AI, BI, Advertising & Marketing Media Agency',
+  title: 'Marketing Media Agency for Strategy, Advertising, AI & BI',
   description:
-    'Armedia is a New Zealand marketing media agency helping brands plan growth campaigns across AI, BI, advertising, SEO, digital media, OOH, and strategy.',
+    'Armedia is a New Zealand marketing media agency helping brands with strategy, advertising, AI workflows, business intelligence, media planning, and campaign reporting.',
   keywords: [
-    'marketing media agency',
-    'AI marketing agency New Zealand',
-    'business intelligence dashboard agency Auckland',
-    'OOH advertising New Zealand',
-    'integrated marketing agency NZ',
+    'marketing media agency New Zealand',
     'advertising agency Auckland',
-    'AI marketing tools',
-    'business intelligence',
-    'advertising agency',
-    'digital media',
-    'OOH media',
-    'offline marketing',
-    'growth strategy',
+    'AI marketing agency New Zealand',
+    'business intelligence agency Auckland',
+    'media planning agency NZ',
+    'growth strategy agency',
+    'campaign reporting agency',
+    'OOH advertising New Zealand',
+    'SEO agency Auckland',
   ],
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Premium AI, BI, Advertising & Marketing Media Agency',
+    title: 'Armedia | Marketing Media Agency for Strategy, Advertising, AI & BI',
     description:
-      'Strategy, media planning, creative direction, AI workflows, BI dashboards, advertising, SEO, OOH, and offline media in one connected growth system.',
+      'Strategy, media planning, AI workflows, BI dashboards, advertising, and campaign reporting for growth-focused brands in New Zealand.',
     url: '/',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Premium AI, BI, Advertising & Marketing Media Agency',
+    title: 'Armedia | Strategy, Advertising, AI & BI',
     description:
-      'Armedia plans modern growth campaigns across AI, BI, advertising, SEO, digital media, OOH, and offline channels.',
+      'New Zealand marketing media agency for strategy, media planning, AI workflows, BI dashboards, advertising, and campaign reporting.',
   },
 }
 
