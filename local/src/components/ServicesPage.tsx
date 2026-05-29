@@ -1,6 +1,19 @@
 import Link from 'next/link'
 
+type ServiceIconKey = keyof typeof serviceIcons
+
+interface ServiceCard {
+  id: string
+  title: string
+  desc: string
+  items: string[]
+  icon: ServiceIconKey
+  href: string
+}
+
 const serviceIcons = {
+
+
   web: (
     <svg viewBox="0 0 24 24" role="img" aria-label="Web development icon">
       <path d="M4 5.5h16v10.8H4z" />
@@ -119,7 +132,7 @@ const serviceIcons = {
   ),
 }
 
-const coreServiceCards = [
+const coreServiceCards: ServiceCard[] = [
   {
     id: 'ai-marketing-studio',
     title: 'AI Marketing Studio',
@@ -248,7 +261,7 @@ const coreServiceCards = [
   },
 ]
 
-const supportingServiceCards = [
+const supportingServiceCards: ServiceCard[] = [
   {
     id: 'web-development',
     title: 'Web Development',
