@@ -6,7 +6,7 @@ import StartProjectPage from '../../components/StartProjectPage'
 export const metadata: Metadata = {
   title: 'Start a Project | Marketing Media, AI, BI & Advertising Brief',
   description:
-    'Start a project with Armedia and prepare a focused brief for marketing media, AI, BI, advertising, OOH, offline marketing, content, web, app, or growth strategy work.',
+    'Start a project with Armedia and get a tailored brief for AI, BI, advertising, media planning, and growth strategy.',
   alternates: {
     canonical: '/start-project',
   },
