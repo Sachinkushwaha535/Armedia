@@ -6,7 +6,7 @@ import ServiceLandingPage from '../../components/ServiceLandingPage'
 export const metadata: Metadata = {
   title: 'SEO Agency Auckland | Technical SEO & Search Strategy',
   description:
-    'SEO Agency Auckland service for technical SEO, metadata, content structure, schema, Core Web Vitals, pricing, timeline, technologies, portfolio fit, and FAQ.',
+    'Auckland SEO agency helping businesses improve rankings with technical SEO, schema, Core Web Vitals and content optimization.',
   alternates: { canonical: '/seo-agency-auckland' },
   openGraph: {
     title: 'SEO Agency Auckland | Technical SEO & Search Strategy',

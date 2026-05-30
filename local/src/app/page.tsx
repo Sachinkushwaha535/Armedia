@@ -34,7 +34,7 @@ const faqItems = [
 export const metadata: Metadata = {
   title: 'Marketing Media Agency for Strategy, Advertising, AI & BI',
   description:
-    'Armedia is a New Zealand marketing media agency helping brands with strategy, advertising, AI workflows, business intelligence, media planning, and campaign reporting.',
+    'Armedia helps New Zealand brands grow through strategy, advertising, AI workflows, business intelligence, media planning and reporting.',
   keywords: [
     'marketing media agency New Zealand',
     'advertising agency Auckland',
