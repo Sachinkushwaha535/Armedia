@@ -4113,3 +4113,233 @@ img, video {
     line-height: 1.28;
   }
 }
+
+.site-footer {
+  background: #111;
+  color: #fff;
+  padding: 4rem 2rem 2rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.footer-brand-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo-svg {
+  width: 100px;
+  height: 100px;
+}
+
+/* ── 4-column nav grid ── */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-col-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links a,
+.footer-links a:visited {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #c8f000;
+}
+
+/* ── Contact row — full width below the grid ── */
+.footer-contact-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.footer-contact-row .footer-col-title {
+  margin-bottom: 0.5rem;
+}
+
+.footer-contact-row .footer-links {
+  align-items: flex-start;
+}
+
+/* ── Bottom copyright bar ── */
+.footer-bottom {
+  width: 100%;
+  border-top: 1px solid #333;
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Contact row — centered to match original design ── */
+.footer-contact-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* ← center karo, left nahi */
+  gap: 0.5rem;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.footer-contact-row .footer-col-title {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.footer-contact-row .footer-links {
+  align-items: center;        /* ← links bhi center */
+  text-align: center;
+}
+
+
+.site-footer {
+  background: #111;
+  color: #fff;
+  padding: 4rem 2rem 2rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.footer-brand-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo-svg {
+  width: 100px;
+  height: 100px;
+}
+
+/* ── 5-column grid — sab ek row mein ── */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-col-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links a,
+.footer-links a:visited {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #c8f000;
+}
+
+/* ── Bottom copyright bar ── */
+.footer-bottom {
+  width: 100%;
+  border-top: 1px solid #333;
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+}

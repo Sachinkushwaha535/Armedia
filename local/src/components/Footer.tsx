@@ -1,14 +1,11 @@
 import Link from 'next/link'
 import ArmediaLogo from './ArmediaLogo'
-import { contactEmail } from './siteConfig'
 
 const footerGroups = [
   {
     title: 'Studio',
     links: [
       { label: 'Home', href: '/' },
-      // { label: 'About', href: '/about' },
-      // { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/contact' },
     ],
   },
@@ -41,6 +38,14 @@ const footerGroups = [
       { label: 'Terms', href: '/terms' },
     ],
   },
+  {
+    title: 'Contact',
+    links: [
+      { label: 'hello@armedia.co.nz', href: 'mailto:hello@armedia.co.nz' },
+      { label: '+64 1234567', href: 'tel:+641234567' },
+      { label: 'Auckland, New Zealand', href: '/contact' },
+    ],
+  },
 ]
 
 function Footer() {
@@ -53,20 +58,21 @@ function Footer() {
           </Link>
         </div>
 
+        {/* 5-column grid: sabhi ek row mein */}
         <div className="footer-top">
           {footerGroups.map((group) => (
             <div className="footer-col" key={group.title}>
               <span className="footer-col-title">{group.title}</span>
               <div className="footer-links">
-                {group.links.map((link) => (
-                  link.href.startsWith('mailto:') ? (
+                {group.links.map((link) =>
+                  link.href.startsWith('mailto:') || link.href.startsWith('tel:') ? (
                     <a href={link.href} key={link.label}>{link.label}</a>
                   ) : (
                     <Link href={link.href} key={link.label}>
                       {link.label}
                     </Link>
                   )
-                ))}
+                )}
               </div>
             </div>
           ))}
