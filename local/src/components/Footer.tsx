@@ -32,7 +32,6 @@ const footerGroups = [
     title: 'Start',
     links: [
       { label: 'Start a project', href: '/start-project' },
-      { label: 'Email us', href: '/contact' },
       { label: 'React development NZ', href: '/react-development-nz' },
       { label: 'Next.js agency NZ', href: '/nextjs-agency-new-zealand' },
       { label: 'Privacy', href: '/privacy' },
@@ -51,10 +50,10 @@ const footerGroups = [
      },
       { label: (
         <>
-          <FaPhone /> +64 1234567
+          <FaPhone /> +64 0223040716
         </>
       ),
-      href: 'tel:+641234567' },
+      href: 'tel:+64 0223040716' },
       { label: (
         <>
           <FaMapMarkerAlt /> 7 Nordon Place Remuera, New Zealand
