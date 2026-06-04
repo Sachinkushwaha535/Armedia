@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ArmediaLogo from './ArmediaLogo'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaHome } from 'react-icons/fa'
 
 const footerGroups = [
   {
@@ -41,9 +42,25 @@ const footerGroups = [
   {
     title: 'Contact',
     links: [
-      { label: 'hello@armedia.co.nz', href: 'mailto:hello@armedia.co.nz' },
-      { label: '+64 1234567', href: 'tel:+641234567' },
-      { label: 'Auckland, New Zealand', href: '/contact' },
+      { label: (
+        <>
+          <FaEnvelope /> contact@armedia.co.nz
+        </>
+      ),
+      href: 'mailto:contact@armedia.co.nz',
+     },
+      { label: (
+        <>
+          <FaPhone /> +64 1234567
+        </>
+      ),
+      href: 'tel:+641234567' },
+      { label: (
+        <>
+          <FaMapMarkerAlt /> 7 Nordon Place Remuera, New Zealand
+        </>
+      ),
+      href: '/contact' },
     ],
   },
 ]
@@ -66,9 +83,11 @@ function Footer() {
               <div className="footer-links">
                 {group.links.map((link) =>
                   link.href.startsWith('mailto:') || link.href.startsWith('tel:') ? (
-                    <a href={link.href} key={link.label}>{link.label}</a>
+                    <a href={link.href} key={link.href}>
+                      {link.label}
+                    </a>
                   ) : (
-                    <Link href={link.href} key={link.label}>
+                    <Link href={link.href} key={link.href}>
                       {link.label}
                     </Link>
                   )
