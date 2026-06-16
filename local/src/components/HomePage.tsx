@@ -1,538 +1,483 @@
-import Link from 'next/link'
+'use client'
+
+import { motion, useReducedMotion } from 'framer-motion'
+import { useState } from 'react'
 import HomeContactSection from './HomeContactSection'
+import {
+  agencyStats,
+  featuredWork,
+  processSteps,
+  serviceShowcaseSlides,
+  testimonials,
+} from './siteData'
 import { contactEmail, contactPhone, contactPhoneHref } from './siteConfig'
+import AnimatedCounter from './ui/AnimatedCounter'
+import BackgroundGlow from './ui/BackgroundGlow'
+import Button from './ui/Button'
+import CTABanner from './ui/CTABanner'
+import Marquee from './ui/Marquee'
+import ProcessStrip from './ui/ProcessStrip'
+import ProjectCard from './ui/ProjectCard'
+import SectionHeading from './ui/SectionHeading'
+import ServicesShowcase from './ui/ServicesShowcase'
+import {
+  AnimatedBand,
+  AnimatedSection,
+  HeroSection,
+  RevealLine,
+  RevealText,
+  Stagger,
+  StaggerItem,
+} from './ui/motion'
 
-const philosophyCards = [
-  {
-    title: 'Commercial clarity first',
-    icon: '01',
-    points: ['Sharper market position', 'Audience and offer mapping', 'Campaign goals before execution'],
-  },
-  {
-    title: 'Channel strategy',
-    icon: '02',
-    points: ['Digital, OOH, and offline planning', 'Creative matched to each placement', 'Budget directed by channel role'],
-  },
-  {
-    title: 'Intelligence layer',
-    icon: '03',
-    points: ['AI-assisted workflows', 'BI dashboards and reporting', 'Automation where it improves speed'],
-  },
-  {
-    title: 'Measured improvement',
-    icon: '04',
-    points: ['Campaign tracking', 'Lead quality review', 'Optimisation after launch'],
-  },
-]
-
-const whyUsCards = [
-  {
-    title: 'Strategy before spend',
-    tag: 'Strategy',
-    desc: 'We define the audience, offer, message, media mix, and measurement plan before budget goes live.',
-  },
-  {
-    title: 'Connected execution',
-    tag: 'Execution',
-    desc: 'Creative, landing pages, media, tracking, and reporting are built as one connected campaign system.',
-  },
-  {
-    title: 'Performance with context',
-    tag: 'Growth',
-    desc: 'Every recommendation is tied to a business outcome: awareness, enquiries, footfall, sales, or reporting clarity.',
-  },
-  {
-    title: 'Clear communication',
-    tag: 'Support',
-    desc: 'You get practical next steps, concise reviews, and a clear view of what is happening and why.',
-  },
-]
-
-const growthCards = [
-  {
-    title: 'Sharper creative direction',
-    label: 'Design',
-    desc: 'Campaign messages, ad concepts, content direction, and media assets shaped to make your offer easier to understand and remember.',
-  },
-  {
-    title: 'Cleaner measurement',
-    label: 'Analytics',
-    desc: 'Dashboards, tracking, campaign summaries, and review rhythms connect media activity to practical business decisions.',
-    featured: true,
-  },
-  {
-    title: 'One connected team',
-    label: 'Team',
-    desc: 'Strategy, media, creative, AI, BI, and technology capabilities work together instead of sitting in separate silos.',
-  },
-]
-
-const tickerItems = [
-  'AI Marketing Tools',
+const marqueeItems = [
+  'Strategy',
+  'Advertising',
+  'AI Workflows',
   'Business Intelligence',
-  'Performance Advertising',
   'Digital Media',
   'OOH Media',
-  'Offline Marketing',
-  'Brand Strategy',
-  'Campaign Analytics',
+  'Performance Marketing',
+  'Growth Planning',
 ]
 
-const bentoServices = [
-  {
-    icon: 'AI',
-    iconClass: 'lime',
-    title: 'AI Marketing Studio',
-    sub: 'AI-assisted workflows for content planning, campaign summaries, lead qualification, customer support, and faster marketing operations.',
-    tags: ['AI workflows', 'Campaign summaries', 'Lead qualification', 'Outcome: faster execution'],
-    cardClass: 'bc1 bc-accent',
-  },
-  {
-    icon: 'BI',
-    iconClass: 'cyan',
-    title: 'Business Intelligence',
-    sub: 'Dashboards, campaign analytics, market insight, and reporting systems that turn scattered data into confident decisions.',
-    tags: ['Dashboards', 'Campaign analytics', 'Market insight', 'Outcome: smarter decisions'],
-    cardClass: 'bc2',
-  },
-  {
-    icon: 'AD',
-    iconClass: 'orange',
-    title: 'Advertising',
-    sub: 'Paid search, paid social, retargeting, creative testing, media buying, and conversion tracking built around lead quality.',
-    tags: ['Google Ads', 'Meta Ads', 'Retargeting', 'Outcome: stronger leads'],
-    cardClass: 'bc3',
-  },
-  {
-    icon: 'DM',
-    iconClass: 'lime',
-    title: 'Digital Media',
-    sub: 'SEO, landing pages, social campaigns, content systems, and digital journeys that make your brand easier to find and choose.',
-    tags: ['SEO', 'Landing pages', 'Social media', 'Outcome: qualified reach'],
-    cardClass: 'bc4',
-  },
-  {
-    icon: 'OOH',
-    iconClass: 'white',
-    title: 'OOH & Offline Media',
-    sub: 'Outdoor advertising, print, activations, retail visibility, and local media planned with digital follow-through and recall.',
-    tags: ['Billboards', 'Print media', 'Activations', 'Outcome: brand recall'],
-    cardClass: 'bc5 bc-orange',
-  },
-  {
-    icon: 'GO',
-    iconClass: 'cyan',
-    title: 'Strategy & Growth',
-    sub: 'Positioning, go-to-market planning, funnel strategy, campaign roadmaps, and performance reviews for more deliberate growth.',
-    tags: ['Positioning', 'GTM strategy', 'Funnel strategy', 'Outcome: clear growth plan'],
-    cardClass: 'bc7',
-    inline: true,
-  },
-]
-
-const processSteps = [
-  { num: '01', title: 'Diagnose', desc: 'We clarify your offer, audience, competition, current channels, constraints, and the commercial result the campaign must support.' },
-  { num: '02', title: 'Position', desc: 'We sharpen the message, channel role, funnel path, campaign structure, and measurement plan before execution begins.' },
-  { num: '03', title: 'Build', desc: 'We create the campaign assets, landing pages, media plan, AI workflows, dashboards, and tracking foundations needed to launch.' },
-  { num: '04', title: 'Launch', desc: 'We activate campaigns across the selected channels with clean handover, live checks, and practical communication.' },
-  { num: '05', title: 'Improve', desc: 'We review performance, identify friction, refine the strongest ideas, and help your team decide what to scale next.' },
-]
-
-const portfolioProjects = [
-  {
-    title: 'AI campaign command centre',
-    description: 'An example engagement model for campaign summaries, lead quality, content planning, and weekly marketing actions.',
-    metric: 'Reduces manual reporting and makes the next best action easier to identify.',
-    feedback: 'Best fit for teams with CRM, ad platform, analytics, and reporting data ready to connect.',
-    tags: ['AI tool', 'BI dashboard', 'Campaign analytics'],
-    thumb: 'work-thumb-a',
-    badge: 'AI + BI',
-  },
-  {
-    title: 'Digital and OOH launch plan',
-    description: 'An example engagement model combining paid social, Google search, outdoor visibility, print, and local activation.',
-    metric: 'Built around awareness, enquiries, retargeting, and stronger offline recall.',
-    feedback: 'Useful for brands that need one coordinated campaign instead of disconnected channel activity.',
-    tags: ['OOH media', 'Paid ads', 'Offline marketing'],
-    thumb: 'work-thumb-b',
-    badge: 'MEDIA',
-  },
-]
+const heroLines = ['Plan smarter campaigns', 'with AI, BI', 'and connected media strategy']
 
 const faqItems = [
   {
     question: 'What types of clients do you work with?',
-    answer: 'We work with ambitious brands, SMEs, and growth-focused teams that need clearer strategy, stronger execution, and better reporting across media and marketing.',
+    answer:
+      'We work with ambitious brands, SMEs, and growth-focused teams that need clearer strategy, stronger execution, and better reporting across media and marketing.',
   },
   {
     question: 'What happens after I enquire?',
-    answer: 'We review your goals, audience, timing, and preferred channels, then respond with the most practical next step, usually a discovery call or project scoping discussion.',
+    answer:
+      'We review your goals, audience, timing, and preferred channels, then respond with the most practical next step, usually a discovery call or project scoping discussion.',
   },
   {
     question: 'Do you offer one-off projects or ongoing support?',
-    answer: 'Both. We can help with a focused campaign, a launch plan, or ongoing strategy, media, reporting, and optimisation support.',
+    answer:
+      'Both. We can help with a focused campaign, a launch plan, or ongoing strategy, media, reporting, and optimisation support.',
   },
   {
     question: 'Can you help with both digital and offline media?',
-    answer: 'Yes. Armedia supports digital campaigns, landing pages, reporting, and advertising as well as OOH, print, and wider offline media planning.',
+    answer:
+      'Yes. Armedia supports digital campaigns, landing pages, reporting, and advertising as well as OOH, print, and wider offline media planning.',
   },
   {
     question: 'How do you measure success?',
-    answer: 'We align each campaign to commercial outcomes such as awareness, enquiries, lead quality, sales, recall, or clearer reporting for decision-making.',
+    answer:
+      'We align each campaign to commercial outcomes such as awareness, enquiries, lead quality, sales, recall, or clearer reporting for decision-making.',
   },
 ]
 
-function HomePage() {
-  const doubledTicker = [...tickerItems, ...tickerItems]
+function WordMarquee() {
+  const reducedMotion = useReducedMotion()
+  const words = ['ideas', 'around', 'growth', 'around']
+
+  if (reducedMotion) {
+    return (
+      <p className="text-center text-2xl font-semibold uppercase text-white/20">
+        Ideas around growth
+      </p>
+    )
+  }
 
   return (
-    <div className="hp-root">
-      <section className="hp-hero" aria-labelledby="home-hero-title">
-        <div className="hp-hero-inner">
-          <div className="hero-main-grid">
-            <div className="hero-copy">
-              <div className="hero-eyebrow">
-                <span className="eyebrow-dot" />
-                Integrated marketing, media, and intelligence for growth
-              </div>
+    <div className="overflow-hidden py-6">
+      <motion.div
+        className="flex w-max gap-16 whitespace-nowrap"
+        animate={{ x: ['0%', '-50%'] }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+      >
+        {[...words, ...words, ...words, ...words].map((word, i) => (
+          <span
+            key={`${word}-${i}`}
+            className={`text-5xl font-semibold uppercase tracking-tight sm:text-6xl lg:text-7xl ${
+              word === 'around' || word === 'growth' ? 'text-accent' : 'text-white/10'
+            }`}
+          >
+            {word}
+          </span>
+        ))}
+      </motion.div>
+    </div>
+  )
+}
 
-              <h1 className="hero-h1" id="home-hero-title">
-                <span>Plan smarter campaigns</span>
-                <span>with <em className="hero-em">AI, BI</em></span>
-                <span>and connected media strategy</span>
-              </h1>
+function HomePage() {
+  const reducedMotion = useReducedMotion()
+  const [openFaq, setOpenFaq] = useState(0)
 
-              <p className="hero-sub">
+  return (
+    <div className="relative overflow-hidden">
+      <BackgroundGlow />
+
+      {/* Hero — opens on page load, text reveals line by line */}
+      <HeroSection
+        className="relative px-5 pb-8 pt-32 sm:px-6 sm:pt-40 lg:px-8 lg:pb-12"
+        aria-labelledby="home-hero-title"
+      >
+        <div className="container-agency">
+          <div className="max-w-5xl">
+            <p className="mb-8 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+              <RevealLine delay={0.35} />
+              <RevealText delay={0.4}>Auckland &amp; New Zealand</RevealText>
+            </p>
+
+            <h1 id="home-hero-title" className="heading-display">
+              {heroLines.map((line, i) => (
+                <RevealText
+                  key={line}
+                  className={i === 1 ? 'text-gradient-accent' : 'text-gradient'}
+                  delay={0.45 + i * 0.14}
+                >
+                  {line}
+                </RevealText>
+              ))}
+            </h1>
+
+            <motion.div
+              initial={reducedMotion ? false : { opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-body mt-8 max-w-2xl overflow-hidden"
+            >
+              <RevealText as="p" delay={1.15}>
                 Armedia helps ambitious brands turn marketing activity into a connected growth system:
-                sharper positioning, better media planning, stronger creative, cleaner reporting,
-                and campaigns that are easier to measure and improve.
-              </p>
+                sharper positioning, better media planning, stronger creative, cleaner reporting, and
+                campaigns that are easier to measure and improve.
+              </RevealText>
+            </motion.div>
 
-              <div className="hero-actions">
-                <Link className="btn-primary" href="/contact">
-                  Book a growth consultation <span className="btn-arrow" aria-hidden="true">-&gt;</span>
-                </Link>
-                <Link className="btn-ghost" href="/services">
+            <motion.div
+              initial={reducedMotion ? false : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.35, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
+            >
+                <Button href="/contact">Book a growth consultation</Button>
+                <Button href="/services" variant="secondary">
                   Explore services
-                </Link>
+                </Button>
+            </motion.div>
+          </div>
+        </div>
+      </HeroSection>
+
+      <AnimatedBand>
+        <ProcessStrip steps={processSteps.map((s) => s.title)} />
+      </AnimatedBand>
+      <AnimatedBand>
+        <Marquee items={marqueeItems} />
+      </AnimatedBand>
+
+      {/* About */}
+      <AnimatedSection className="section-pad bg-surface" aria-labelledby="about-heading">
+        <div className="container-agency">
+          <Stagger className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <SectionHeading
+              embedded
+              tag="About Armedia"
+              title="A forward-thinking marketing media agency for growth-focused brands"
+              description="Instead of scattered tasks and disconnected vendors, Armedia gives you a strategic partner that can shape the plan, build the assets, launch the campaign, and make the results easier to understand."
+            />
+            <StaggerItem>
+              <Stagger className="grid gap-4 sm:grid-cols-2" fast>
+              {[
+                { label: 'Strategy', desc: 'Clear plans before budget goes live' },
+                { label: 'Media', desc: 'Digital, OOH, and offline in one system' },
+                { label: 'Intelligence', desc: 'AI workflows and BI dashboards' },
+                { label: 'Results', desc: 'Measured improvement after launch' },
+              ].map((item) => (
+                <StaggerItem key={item.label} variant="scaleUp">
+                  <article className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-accent/30 hover:bg-white/[0.05]">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-accent">
+                      {item.label}
+                    </span>
+                    <p className="mt-2 text-sm text-zinc-400">{item.desc}</p>
+                  </article>
+                </StaggerItem>
+              ))}
+              </Stagger>
+            </StaggerItem>
+          </Stagger>
+        </div>
+      </AnimatedSection>
+
+      {/* How we help */}
+      <AnimatedSection className="section-pad" aria-labelledby="help-heading">
+        <div className="container-agency">
+          <Stagger>
+            <SectionHeading
+              embedded
+              tag="How we help"
+              title="Marketing and media your business can count on"
+              description="From AI workflows and BI dashboards to advertising, SEO, OOH, and growth strategy — every service is designed to improve visibility, lead quality, and reporting clarity."
+              align="center"
+            />
+            <StaggerItem variant="scaleUp">
+              <ServicesShowcase services={serviceShowcaseSlides} />
+            </StaggerItem>
+            <StaggerItem>
+              <div className="mt-12 text-center">
+                <Button href="/services" variant="secondary">
+                  View all services
+                </Button>
               </div>
-            </div>
+            </StaggerItem>
+          </Stagger>
+        </div>
+      </AnimatedSection>
+
+      <AnimatedBand>
+        <div className="border-y border-white/[0.06] bg-elevated">
+          <div className="container-agency section-pad !py-12">
+            <WordMarquee />
           </div>
         </div>
-      </section>
+      </AnimatedBand>
 
-      <div className="ticker" aria-hidden="true">
-        <div className="ticker-inner">
-          {doubledTicker.map((item, index) => (
-            <span className="ticker-item" key={`${item}-${index}`}>
-              <span className="ticker-dot" />
-              {item}
-            </span>
-          ))}
+      {/* Featured work */}
+      <AnimatedSection className="section-pad" aria-labelledby="work-heading">
+        <div className="container-agency">
+          <Stagger>
+            <SectionHeading
+              embedded
+              tag="Featured engagements"
+              title="Example campaign systems built for clarity and performance"
+              description="These example engagement models show how creative, media, technology, and reporting can work together in one scoped campaign plan."
+            />
+            <StaggerItem>
+              <Stagger className="grid gap-6 lg:grid-cols-2">
+            {featuredWork.map((project, i) => (
+              <ProjectCard
+                key={project.title}
+                project={{
+                  title: project.title,
+                  description: project.description,
+                  tags: project.tags,
+                  index: i + 1,
+                  gradient: project.gradient,
+                  href: project.href,
+                }}
+              />
+            ))}
+              </Stagger>
+            </StaggerItem>
+          </Stagger>
         </div>
-      </div>
+      </AnimatedSection>
 
-      <section className="hp-section reveal" aria-labelledby="cap-heading">
-        <div className="section-top">
-          <div>
-            <p className="section-tag">Services</p>
-            <h2 className="section-h2" id="cap-heading">
-              One partner for strategy, media, and measurement
-            </h2>
-          </div>
-          <p className="section-desc">
-            From AI workflows and BI dashboards to advertising, SEO, OOH, offline media, landing
-            pages, and growth strategy, every service is designed to make your brand easier to
-            discover, trust, and choose.
-          </p>
+      {/* Process */}
+      <AnimatedSection className="section-pad bg-surface" aria-labelledby="proc-heading">
+        <div className="container-agency">
+          <Stagger>
+            <SectionHeading
+              embedded
+              tag="Our process"
+              title="A clear path from idea to measurable campaign"
+              description="Every step from diagnosis to improvement is transparent, practical, and tied to the commercial result your campaign must support."
+              align="center"
+            />
+            <StaggerItem>
+              <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {processSteps.map((step) => (
+              <StaggerItem key={step.step} variant="scaleUp">
+                <article className="group h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:border-accent/30 hover:bg-white/[0.04]">
+                  <span className="text-4xl font-light text-white/15">{step.step}</span>
+                  <h3 className="mt-4 text-base font-semibold capitalize text-white">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-500">{step.description}</p>
+                </article>
+              </StaggerItem>
+            ))}
+              </Stagger>
+            </StaggerItem>
+          </Stagger>
         </div>
+      </AnimatedSection>
 
-        <div className="bento">
-          {bentoServices.map((service) => (
-            <article className={`bento-card ${service.cardClass}`} key={service.title}>
-              {service.inline ? (
-                <>
-                  <div className="bento-inline-head">
-                    <span className={`bento-icon ${service.iconClass}`}>{service.icon}</span>
-                    <h3 className="bento-title">{service.title}</h3>
-                  </div>
-                  <p className="bento-sub">{service.sub}</p>
-                  <div className="bento-tag-list">
-                    {service.tags.map((tag) => (
-                      <span className="bento-tag" key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                  <Link className="text-link" href="/contact">Discuss this service</Link>
-                </>
-              ) : (
-                <>
-                  <span className={`bento-icon ${service.iconClass}`}>{service.icon}</span>
-                  <h3 className="bento-title">{service.title}</h3>
-                  <p className="bento-sub">{service.sub}</p>
-                  <div className="bento-tag-list">
-                    {service.tags.map((tag) => (
-                      <span className="bento-tag" key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                  <Link className="text-link" href="/contact">Discuss this service</Link>
-                </>
-              )}
-            </article>
-          ))}
+      {/* Stats */}
+      <AnimatedSection className="section-pad" aria-labelledby="stats-heading">
+        <div className="container-agency">
+          <Stagger>
+            <SectionHeading embedded tag="Why Armedia" title="Built for clarity, trust, and momentum" align="center" />
+            <StaggerItem>
+              <Stagger className="grid gap-8 md:grid-cols-3">
+            {agencyStats.map((stat) => (
+              <StaggerItem key={stat.label} variant="scaleUp">
+                <article className="text-center">
+                  <p className="text-6xl font-semibold tracking-tight text-white sm:text-7xl">
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                  </p>
+                  <p className="mx-auto mt-4 max-w-xs text-sm leading-relaxed text-zinc-500">{stat.label}</p>
+                </article>
+              </StaggerItem>
+            ))}
+              </Stagger>
+            </StaggerItem>
+          </Stagger>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className="hp-section hp-section-tight reveal" aria-labelledby="proc-heading">
-        <p className="section-tag">Process</p>
-        <h2 className="section-h2" id="proc-heading">A clear path from idea to measurable campaign</h2>
-        <div className="process-grid">
-          {processSteps.map((step) => (
-            <div className="process-step" key={step.num}>
-              <div className="step-num">{step.num}</div>
-              <div className="step-title">{step.title}</div>
-              <p className="step-desc">{step.desc}</p>
-            </div>
-          ))}
+      {/* Testimonials */}
+      <AnimatedSection className="section-pad bg-surface" aria-labelledby="testimonials-heading">
+        <div className="container-agency">
+          <Stagger>
+            <SectionHeading
+              embedded
+              tag="Client proof"
+              title="What partners can expect from working with Armedia"
+              align="center"
+            />
+            <StaggerItem>
+              <Stagger className="grid gap-6 md:grid-cols-2">
+            {testimonials.map((item) => (
+              <StaggerItem key={item.name} variant="scaleUp">
+                <blockquote className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-8 sm:p-10">
+                  <p className="text-lg leading-relaxed text-zinc-300">&ldquo;{item.quote}&rdquo;</p>
+                  <footer className="mt-6 border-t border-white/[0.06] pt-6">
+                    <strong className="block text-sm text-white">{item.name}</strong>
+                    <span className="text-xs text-zinc-500">{item.role}</span>
+                  </footer>
+                </blockquote>
+              </StaggerItem>
+            ))}
+              </Stagger>
+            </StaggerItem>
+          </Stagger>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section className="hp-section hp-section-tight reveal" aria-labelledby="results-heading">
-        <div className="section-top">
-          <div>
-            <p className="section-tag">Results Focus</p>
-            <h2 className="section-h2" id="results-heading">What brands gain from a connected campaign system</h2>
-          </div>
-          <p className="section-desc">
-            Armedia is built to improve visibility, simplify decision-making, reduce disconnected execution,
-            and make performance easier to understand across every stage of the campaign.
-          </p>
+      <CTABanner
+        tag="Ready to grow?"
+        title="Turn your next campaign into a connected growth system"
+        description="Share your goal and we will recommend the right mix of strategy, media, AI, BI, and execution support."
+        primaryLabel="Book a consultation"
+        secondaryLabel="Start your project brief"
+      />
+
+      {/* FAQ */}
+      <AnimatedSection className="section-pad bg-surface" aria-labelledby="faq-heading">
+        <div className="container-agency max-w-3xl">
+          <Stagger>
+            <SectionHeading embedded tag="FAQ" title="Frequently asked questions" align="center" />
+            <StaggerItem>
+              <Stagger className="space-y-3" fast>
+            {faqItems.map((item, index) => (
+              <StaggerItem key={item.question}>
+                <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-colors hover:border-white/15">
+                  <button
+                    className="flex w-full items-start gap-4 p-5 text-left"
+                    type="button"
+                    aria-expanded={openFaq === index}
+                    onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
+                  >
+                    <span className="text-sm font-light text-zinc-600">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="flex-1 text-sm font-medium text-white">{item.question}</span>
+                    <motion.span animate={{ rotate: openFaq === index ? 45 : 0 }} className="text-accent">
+                      +
+                    </motion.span>
+                  </button>
+                  <motion.div
+                    initial={false}
+                    animate={{ height: openFaq === index ? 'auto' : 0, opacity: openFaq === index ? 1 : 0 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <p className="px-5 pb-5 pl-14 text-sm leading-relaxed text-zinc-400">{item.answer}</p>
+                  </motion.div>
+                </div>
+              </StaggerItem>
+            ))}
+              </Stagger>
+            </StaggerItem>
+          </Stagger>
         </div>
+      </AnimatedSection>
 
-        <div className="growth-card-grid">
-          <article className="growth-card">
-            <span>Clarity</span>
-            <h3>Sharper decision-making</h3>
-            <p>Better planning, cleaner reporting, and clearer priorities across media, creative, and growth activity.</p>
-          </article>
-          <article className="growth-card featured">
-            <span>Performance</span>
-            <h3>Stronger campaign execution</h3>
-            <p>Integrated strategy, media, landing pages, tracking, and optimisation designed to improve outcomes over time.</p>
-          </article>
-          <article className="growth-card">
-            <span>Alignment</span>
-            <h3>One connected partner</h3>
-            <p>Strategy, creative, AI, BI, and campaign delivery working together instead of being split across multiple vendors.</p>
-          </article>
-        </div>
-      </section>
-
-      <section className="hp-section hp-section-tight reveal" aria-labelledby="work-heading">
-        <div className="section-top">
-          <div>
-            <p className="section-tag">Example Engagements</p>
-            <h2 className="section-h2" id="work-heading">How Armedia builds connected campaigns</h2>
-          </div>
-          <p className="section-desc">
-            These example engagement models show how creative, media, technology, and reporting can
-            work together in one scoped campaign plan with clear deliverables and review rhythms.
-          </p>
-        </div>
-
-        <div className="work-grid">
-          {portfolioProjects.map((project, index) => (
-            <article className="work-card" key={project.title}>
-              <div className={`work-thumb ${project.thumb}`}>
-                <span className="work-badge">{project.badge}</span>
-                <span className="work-thumb-inner">{String(index + 1).padStart(2, '0')}</span>
+      {/* Contact */}
+      <AnimatedSection className="section-pad" aria-labelledby="home-contact-heading">
+        <div className="container-agency">
+          <Stagger>
+            <SectionHeading
+              embedded
+              tag="Contact"
+              title="Let us shape your next growth campaign"
+              description="Share your business goal, target audience, budget range, and preferred channels."
+              align="center"
+            />
+            <StaggerItem>
+              <Stagger className="grid gap-6 lg:grid-cols-5">
+            <StaggerItem variant="scaleUp" className="lg:col-span-3">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                <Stagger className="mb-8 grid gap-4 sm:grid-cols-3" fast>
+                  {[
+                    { label: 'Email', title: 'Email the studio', content: contactEmail, href: `mailto:${contactEmail}` },
+                    {
+                      label: 'Call',
+                      title: contactPhone ? 'Call the studio' : 'Request a call back',
+                      content: contactPhone ?? 'Share your number and we will respond.',
+                      href: contactPhoneHref,
+                    },
+                    {
+                      label: 'Plan',
+                      title: 'Get a campaign plan',
+                      content: 'Strategy, creative, media, tracking, reporting, and improvement.',
+                    },
+                  ].map((method) => (
+                    <StaggerItem key={method.label}>
+                      <article className="h-full rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                        <span className="text-xs font-medium uppercase tracking-widest text-zinc-500">
+                          {method.label}
+                        </span>
+                        <strong className="mt-2 block text-sm text-white">{method.title}</strong>
+                        {method.href ? (
+                          <a className="link-underline mt-1 block text-sm text-accent" href={method.href}>
+                            {method.content}
+                          </a>
+                        ) : (
+                          <p className="mt-1 text-sm text-zinc-500">{method.content}</p>
+                        )}
+                      </article>
+                    </StaggerItem>
+                  ))}
+                </Stagger>
+                <HomeContactSection />
               </div>
-              <div className="work-info">
-                <h3 className="work-title">{project.title}</h3>
-                <p className="work-desc">{project.description}</p>
-                <p className="work-desc">
-                  <strong>Focus:</strong> {project.metric}
-                  <br />
-                  <strong>Best fit:</strong> {project.feedback}
-                </p>
-                <div className="work-tags">
-                  {project.tags.map((tag) => (
-                    <span className="work-tag" key={tag}>{tag}</span>
+            </StaggerItem>
+            <StaggerItem variant="scaleUp" className="lg:col-span-2">
+              <aside className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                  What you can expect
+                </span>
+                <div className="mt-6 space-y-4">
+                  {agencyStats.map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="flex items-center gap-4 border-b border-white/[0.06] pb-4 last:border-0"
+                    >
+                      <strong className="text-2xl font-light text-accent">
+                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                      </strong>
+                      <span className="text-sm text-zinc-400">{stat.label}</span>
+                    </div>
                   ))}
                 </div>
-              </div>
-            </article>
-          ))}
+                <p className="mt-6 text-sm leading-relaxed text-zinc-500">
+                  We keep the conversation clear: what should be prioritised, which channels make sense,
+                  what assets are needed, and how performance will be reviewed after launch.
+                </p>
+                <strong className="mt-6 block text-sm text-zinc-300">Armedia Growth Strategy Team</strong>
+              </aside>
+            </StaggerItem>
+          </Stagger>
+            </StaggerItem>
+          </Stagger>
         </div>
-
-        <p className="section-desc" style={{ marginTop: '1.5rem' }}>
-          These are example engagement models designed to show delivery structure. Final campaign scopes
-          are tailored to your goals, channels, assets, and reporting needs.
-        </p>
-      </section>
-
-      <section className="hp-section hp-section-tight reveal" aria-labelledby="phil-heading">
-        <p className="section-tag">Operating Principles</p>
-        <h2 className="section-h2" id="phil-heading">What keeps the work commercially focused</h2>
-        <div className="philosophy-grid">
-          {philosophyCards.map((card) => (
-            <article className="phil-card" key={card.title}>
-              <div className="phil-icon">{card.icon}</div>
-              <h3 className="phil-title">{card.title}</h3>
-              <ul className="phil-points">
-                {card.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="hp-section hp-section-tight reveal" aria-labelledby="why-heading">
-        <div className="section-top">
-          <div>
-            <p className="section-tag">Why Armedia</p>
-            <h2 className="section-h2" id="why-heading">Built for brands that need clarity, trust, and momentum</h2>
-          </div>
-          <p className="section-desc">
-            Instead of scattered tasks and disconnected vendors, Armedia gives you a strategic
-            partner that can shape the plan, build the assets, launch the campaign, and make the
-            results easier to understand.
-          </p>
-        </div>
-
-        <div className="why-agency-layout">
-          <article className="why-agency-feature">
-            <p className="section-tag">Positioning</p>
-            <h3>A strategic partner for brands that need more than disconnected campaigns.</h3>
-            <p>
-              We bring together strategy, creative direction, media execution, AI workflows,
-              reporting, and campaign-supporting technology so each activity has a clear role in
-              the wider growth plan.
-            </p>
-            <div className="why-agency-metrics">
-              <span><strong>1</strong>Strategic campaign partner</span>
-              <span><strong>1</strong>Connected campaign plan</span>
-            </div>
-          </article>
-
-          <div className="why-agency-grid">
-            {whyUsCards.map((card) => (
-              <article className="why-agency-card" key={card.title}>
-                <span>{card.tag}</span>
-                <h3>{card.title}</h3>
-                <p>{card.desc}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <div className="growth-card-grid">
-          {growthCards.map((card) => (
-            <article className={`growth-card ${card.featured ? 'featured' : ''}`} key={card.title}>
-              <span>{card.label}</span>
-              <h3>{card.title}</h3>
-              <p>{card.desc}</p>
-              <Link className="text-link" href="/services">Explore more</Link>
-            </article>
-          ))}
-        </div>
-
-        <div className="home-cta-panel">
-          <div>
-            <p className="section-tag">Ready for a clearer plan?</p>
-            <h3>Turn your next campaign into a connected growth system.</h3>
-          </div>
-          <Link className="btn-primary" href="/start-project">
-            Start your project brief <span className="btn-arrow" aria-hidden="true">-&gt;</span>
-          </Link>
-        </div>
-      </section>
-
-      <section className="hp-section hp-section-tight reveal" aria-labelledby="faq-heading">
-        <div className="section-top">
-          <div>
-            <p className="section-tag">FAQ</p>
-            <h2 className="section-h2" id="faq-heading">Frequently asked questions</h2>
-          </div>
-          <p className="section-desc">
-            Clear answers about services, timelines, collaboration, and how Armedia approaches campaign planning.
-          </p>
-        </div>
-
-        <div className="home-faq-list">
-          {faqItems.map((item, index) => (
-            <details className="home-faq-item" key={item.question} open={index === 0}>
-              <summary>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                {item.question}
-              </summary>
-              <p>{item.answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      <section className="hp-section hp-section-tight reveal" aria-labelledby="home-contact-heading">
-        <div className="section-top section-top-centered">
-          <div>
-            <p className="section-tag">Contact</p>
-            <h2 className="section-h2" id="home-contact-heading">Let us shape your next growth campaign</h2>
-          </div>
-          <p className="section-desc">
-            Share your business goal, target audience, budget range, and preferred channels. We
-            will help translate it into a practical plan for strategy, media, creative, AI, BI,
-            and measurable execution.
-          </p>
-        </div>
-
-        <div className="home-contact-layout">
-          <div className="home-contact-card">
-            <div className="home-contact-methods">
-              <article>
-                <span>Email</span>
-                <strong>Email the studio</strong>
-                <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-              </article>
-              <article>
-                <span>Call</span>
-                <strong>{contactPhone ? 'Call the studio' : 'Request a call back'}</strong>
-                {contactPhone && contactPhoneHref ? (
-                  <a href={contactPhoneHref}>{contactPhone}</a>
-                ) : (
-                  <p>Share your number and we will respond with the right next step.</p>
-                )}
-              </article>
-              <article>
-                <span>Plan</span>
-                <strong>Get a campaign plan</strong>
-                <p>Strategy, creative, media, tracking, reporting, and improvement.</p>
-              </article>
-            </div>
-
-            <HomeContactSection />
-          </div>
-
-          <aside className="home-contact-panel">
-            <p className="section-tag">What you can expect</p>
-            <div className="home-contact-stats">
-              <span><strong>1</strong>Focused discovery response</span>
-              <span><strong>6</strong>Integrated growth pillars</span>
-              <span><strong>5</strong>Step campaign process</span>
-              <span><strong>24h</strong>Business-day reply target</span>
-            </div>
-            <p>
-              We keep the conversation clear: what should be prioritised, which channels make
-              sense, what assets are needed, and how performance will be reviewed after launch.
-            </p>
-            <p>
-              Discovery conversations are designed to quickly identify the most practical next step
-              for your campaign, reporting, or growth plan.
-            </p>
-            <strong>Armedia Growth Strategy Team</strong>
-          </aside>
-        </div>
-      </section>
+      </AnimatedSection>
     </div>
   )
 }

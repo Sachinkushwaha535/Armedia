@@ -3,6 +3,9 @@
 import { type ChangeEvent, type FormEvent, useState } from 'react'
 import { contactFallbackText } from './siteConfig'
 
+const inputClass =
+  'w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-zinc-600 outline-none transition-colors focus:border-violet-500/50 focus:bg-white/[0.06]'
+
 export default function HomeContactForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -48,12 +51,13 @@ export default function HomeContactForm() {
   }
 
   return (
-    <form className="home-contact-form" onSubmit={handleSubmit}>
-      <h3>Tell us what you want to grow</h3>
-      <div className="home-contact-fields">
+    <form className="space-y-4" onSubmit={handleSubmit}>
+      <h3 className="text-base font-semibold text-white">Tell us what you want to grow</h3>
+      <div className="grid gap-3 sm:grid-cols-3">
         <label>
           <span className="sr-only">Full name</span>
           <input
+            className={inputClass}
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -65,6 +69,7 @@ export default function HomeContactForm() {
         <label>
           <span className="sr-only">Mobile number</span>
           <input
+            className={inputClass}
             name="phone"
             type="tel"
             value={formData.phone}
@@ -77,6 +82,7 @@ export default function HomeContactForm() {
         <label>
           <span className="sr-only">Email address</span>
           <input
+            className={inputClass}
             name="email"
             type="email"
             value={formData.email}
@@ -90,6 +96,7 @@ export default function HomeContactForm() {
       <label>
         <span className="sr-only">Project or inquiry details</span>
         <textarea
+          className={`${inputClass} resize-none`}
           name="message"
           value={formData.message}
           onChange={handleChange}
@@ -98,10 +105,18 @@ export default function HomeContactForm() {
           required
         />
       </label>
-      <button className="btn-primary" type="submit" disabled={loading}>
+      <button
+        className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-zinc-950 transition-colors hover:bg-accent-dim disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        type="submit"
+        disabled={loading}
+      >
         {loading ? 'Sending...' : 'Request a growth plan'}
       </button>
-      {statusMessage ? <p className="contact-status" role="status">{statusMessage}</p> : null}
+      {statusMessage ? (
+        <p className="text-sm text-zinc-400" role="status">
+          {statusMessage}
+        </p>
+      ) : null}
     </form>
   )
 }

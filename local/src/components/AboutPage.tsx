@@ -1,5 +1,7 @@
-import Link from 'next/link'
 import PageShell from './PageShell'
+import Button from './ui/Button'
+import SectionHeading from './ui/SectionHeading'
+import { FadeIn, Stagger, StaggerItem } from './ui/motion'
 
 const agencyPillars = [
   {
@@ -45,21 +47,18 @@ const team = [
     name: 'Strategy Lead',
     role: 'Brand direction, campaign planning, and media roadmap',
     skills: ['Positioning', 'Media mix', 'Funnel', 'Growth'],
-    avatarClass: 'ta1',
   },
   {
     initials: 'CR',
     name: 'Creative Lead',
     role: 'Campaign ideas, content direction, ad creative, and brand systems',
     skills: ['Creative', 'Content', 'Ads', 'Brand'],
-    avatarClass: 'ta2',
   },
   {
     initials: 'BI',
     name: 'Intelligence Lead',
     role: 'AI workflows, reporting, dashboards, tracking, and optimisation',
     skills: ['AI', 'BI', 'Analytics', 'Automation'],
-    avatarClass: 'ta3',
   },
 ]
 
@@ -84,141 +83,133 @@ function AboutPage() {
       kicker="About Armedia"
       title="A marketing media agency built for smarter growth."
       description="Armedia brings strategy, media planning, AI tools, business intelligence, advertising, creative direction, and campaign-supporting technology into one clear agency system."
-      actions={
-        <Link className="button button-primary" href="/contact">
-          Book a strategy call
-        </Link>
-      }
+      actions={<Button href="/contact">Book a strategy call</Button>}
     >
-      <section className="about-premium-layout">
-        <div className="about-premium-content">
-          <div className="about-intro-card">
-            <p className="eyebrow">Agency Positioning</p>
-            <div className="about-profile-row">
-              <div className="about-profile-photo" aria-label="Armedia agency mark">
+      <div className="grid gap-8 lg:grid-cols-2">
+        <FadeIn>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Agency positioning</p>
+            <div className="mt-6 flex gap-5">
+              <div
+                className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 text-lg font-bold text-accent"
+                aria-label="Armedia agency mark"
+              >
                 AR
               </div>
               <div>
-                <h2>Media, intelligence, creative, and technology working together.</h2>
-                <p>
-                  Armedia is shaped for brands that need more than isolated ads or one-off
-                  creatives. We help plan the right campaign system, choose the right media,
-                  create clearer messages, connect reporting, and improve execution over time.
+                <h2 className="text-xl font-semibold text-white">
+                  Media, intelligence, creative, and technology working together.
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                  Armedia is shaped for brands that need more than isolated ads or one-off creatives. We help plan
+                  the right campaign system, choose the right media, create clearer messages, connect reporting, and
+                  improve execution over time.
                 </p>
-                <div className="about-tech-grid">
-                  <span>AI</span>
-                  <span>BI</span>
-                  <span>Advertising</span>
-                  <span>OOH</span>
-                  <span>Offline</span>
-                  <span>Digital</span>
-                </div>
               </div>
             </div>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {['AI', 'BI', 'Advertising', 'OOH', 'Offline', 'Digital'].map((tag) => (
+                <span key={tag} className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
+        </FadeIn>
 
-          <div className="about-feature-card">
-            <p className="eyebrow">What We Believe</p>
-            <h3>Good media work starts with clarity, then becomes measurable.</h3>
-            <div className="about-feature-list">
+        <FadeIn delay={0.1}>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">What we believe</p>
+            <h3 className="mt-3 text-xl font-semibold text-white">
+              Good media work starts with clarity, then becomes measurable.
+            </h3>
+            <div className="mt-6 space-y-5">
               {agencyPillars.map((item, index) => (
-                <div className="about-feature-row" key={item.title}>
-                  <div>
-                    <strong>{item.title}</strong>
-                    <p>{item.body}</p>
+                <div key={item.title} className="flex gap-4 border-b border-white/[0.06] pb-5 last:border-0">
+                  <div className="flex-1">
+                    <strong className="text-sm text-white">{item.title}</strong>
+                    <p className="mt-1 text-sm text-zinc-500">{item.body}</p>
                   </div>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <span className="text-sm font-light text-zinc-600">{String(index + 1).padStart(2, '0')}</span>
                 </div>
               ))}
             </div>
           </div>
+        </FadeIn>
+      </div>
 
-          <div className="about-stats-grid">
-            <div className="about-stat-card">
-              <strong>18</strong>
-              <span>Service capabilities</span>
+      <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {[
+          { num: '18', label: 'Service capabilities' },
+          { num: '6', label: 'Core growth channels' },
+          { num: 'AI', label: 'Workflow-ready thinking' },
+          { num: 'BI', label: 'Reporting-led decisions' },
+        ].map((stat) => (
+          <FadeIn key={stat.label}>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-center">
+              <strong className="text-3xl font-semibold text-accent">{stat.num}</strong>
+              <span className="mt-2 block text-xs text-zinc-500">{stat.label}</span>
             </div>
-            <div className="about-stat-card">
-              <strong>6</strong>
-              <span>Core growth channels</span>
-            </div>
-            <div className="about-stat-card">
-              <strong>AI</strong>
-              <span>Workflow-ready thinking</span>
-            </div>
-            <div className="about-stat-card">
-              <strong>BI</strong>
-              <span>Reporting-led decisions</span>
-            </div>
-          </div>
-        </div>
+          </FadeIn>
+        ))}
+      </div>
 
-        <div className="about-premium-side">
-          <div className="about-feature-card">
-            <p className="eyebrow">Capabilities</p>
-            <h3>Built for brands that need planning, execution, and measurement.</h3>
-            <div className="about-feature-list">
-              {capabilities.map((item, index) => (
-                <div className="about-feature-row" key={item.title}>
-                  <div>
-                    <strong>{item.title}</strong>
-                    <p>{item.body}</p>
-                  </div>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="mt-20">
+        <SectionHeading tag="Capabilities" title="Built for brands that need planning, execution, and measurement" />
+        <Stagger className="grid gap-4 md:grid-cols-2">
+          {capabilities.map((item, index) => (
+            <StaggerItem key={item.title}>
+              <article className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-accent/30">
+                <span className="text-xs text-zinc-600">{String(index + 1).padStart(2, '0')}</span>
+                <h3 className="mt-2 text-base font-semibold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm text-zinc-500">{item.body}</p>
+              </article>
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </div>
 
-      <section className="about-section-stack">
-        <div className="section-heading">
-          <p className="eyebrow">Team Model</p>
-          <h2>Senior roles around strategy, creative, and intelligence.</h2>
-          <p>
-            The team structure reflects the core roles clients engage for campaign planning,
-            creative execution, and performance analysis.
-          </p>
-        </div>
-
-        <div className="team-grid">
+      <div className="mt-20">
+        <SectionHeading
+          tag="Team model"
+          title="Senior roles around strategy, creative, and intelligence"
+          description="The team structure reflects the core roles clients engage for campaign planning, creative execution, and performance analysis."
+        />
+        <Stagger className="grid gap-6 md:grid-cols-3">
           {team.map((member) => (
-            <article className="team-card" key={member.name}>
-              <div className={`team-avatar ${member.avatarClass}`} aria-label={`${member.name} profile mark`}>
-                {member.initials}
-              </div>
-              <h3 className="team-name">{member.name}</h3>
-              <p className="team-role">{member.role}</p>
-              <div className="team-skills">
-                {member.skills.map((skill) => (
-                  <span className="team-skill" key={skill}>{skill}</span>
-                ))}
-              </div>
-            </article>
+            <StaggerItem key={member.name}>
+              <article className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 text-sm font-bold text-accent">
+                  {member.initials}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-white">{member.name}</h3>
+                <p className="mt-1 text-sm text-zinc-500">{member.role}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {member.skills.map((skill) => (
+                    <span key={skill} className="rounded-full border border-white/10 px-2.5 py-0.5 text-xs text-zinc-500">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
-      </section>
+        </Stagger>
+      </div>
 
-      <section className="about-section-stack">
-        <div className="section-heading">
-          <p className="eyebrow">Proof System</p>
-          <h2>Professional trust areas focused on evidence.</h2>
-          <p>
-            Strong agency positioning depends on evidence. These sections focus on campaign
-            examples, verification standards, performance snapshots, and practical reporting.
-          </p>
-        </div>
-
-        <div className="studio-grid">
+      <div className="mt-20">
+        <SectionHeading tag="Proof system" title="Professional trust areas focused on evidence" />
+        <Stagger className="grid gap-4 md:grid-cols-3">
           {proofAreas.map((signal) => (
-            <article className="studio-card" key={signal.title}>
-              <h3>{signal.title}</h3>
-              <p>{signal.body}</p>
-            </article>
+            <StaggerItem key={signal.title}>
+              <article className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                <h3 className="text-base font-semibold text-white">{signal.title}</h3>
+                <p className="mt-2 text-sm text-zinc-500">{signal.body}</p>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
-      </section>
+        </Stagger>
+      </div>
     </PageShell>
   )
 }

@@ -1,4 +1,7 @@
-import Link from 'next/link'
+import PageShell from './PageShell'
+import CTABanner from './ui/CTABanner'
+import SectionHeading from './ui/SectionHeading'
+import { FadeIn, Stagger, StaggerItem } from './ui/motion'
 
 const projectTypes = [
   'AI Marketing Studio',
@@ -15,17 +18,20 @@ const intakeSteps = [
   {
     num: '01',
     title: 'Tell us the outcome',
-    description: 'Share what you want: leads, awareness, brand recall, launch support, campaign reporting, automation, or sales growth.',
+    description:
+      'Share what you want: leads, awareness, brand recall, launch support, campaign reporting, automation, or sales growth.',
   },
   {
     num: '02',
     title: 'Choose the right mix',
-    description: 'We map the best combination of AI, BI, advertising, digital media, OOH, offline, content, CRM, and technology.',
+    description:
+      'We map the best combination of AI, BI, advertising, digital media, OOH, offline, content, CRM, and technology.',
   },
   {
     num: '03',
     title: 'Get a clear next step',
-    description: 'You receive a focused recommendation for scope, timeline, starting priorities, and what information is needed next.',
+    description:
+      'You receive a focused recommendation for scope, timeline, starting priorities, and what information is needed next.',
   },
 ]
 
@@ -39,81 +45,77 @@ const briefPrompts = [
 
 function StartProjectPage() {
   return (
-    <section className="page-shell section start-project-pro" aria-labelledby="start-project-title">
-      <div className="section-heading">
-        <p className="eyebrow">Start a project</p>
-        <h1 className="page-title" id="start-project-title">
-          Build a sharper brief for your next campaign.
-        </h1>
-        <p>
-          Use this page to prepare a professional project inquiry for marketing media, AI, BI,
-          advertising, OOH, offline campaigns, content, web, app, or growth strategy work.
-        </p>
-      </div>
-
-      <div className="about-premium-layout">
-        <div className="about-premium-content">
-          <div className="about-intro-card">
-            <p className="eyebrow">Project Builder</p>
-            <h2>Pick your service direction.</h2>
-            <p>
-              You do not need a perfect brief. Select the areas that feel relevant, then send us
-              your goal and we will help shape the right scope.
-            </p>
-            <div className="about-tech-grid">
-              {projectTypes.map((type) => (
-                <span key={type}>{type}</span>
-              ))}
-            </div>
-          </div>
-
-          <div className="studio-grid project-start-grid">
-            {intakeSteps.map((step) => (
-              <article className="studio-card" key={step.title}>
-                <p className="eyebrow">{step.num}</p>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <aside className="about-premium-side">
-          <div className="about-feature-card">
-            <p className="eyebrow">Fast Brief Checklist</p>
-            <h3>Answer these before you contact us.</h3>
-            <div className="about-feature-list">
-              {briefPrompts.map((question, index) => (
-                <div className="about-feature-row" key={question}>
-                  <div>
-                    <strong>{question}</strong>
-                    <p>Short answers are enough. The first call can fill the gaps.</p>
-                  </div>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
+    <>
+      <PageShell
+        kicker="Start a project"
+        title="Build a sharper brief for your next campaign."
+        description="Use this page to prepare a professional project inquiry for marketing media, AI, BI, advertising, OOH, offline campaigns, content, web, app, or growth strategy work."
+      >
+        <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
+          <div>
+            <FadeIn>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Project builder</p>
+                <h2 className="mt-3 text-2xl font-semibold text-white">Pick your service direction.</h2>
+                <p className="mt-3 text-sm text-zinc-400">
+                  You do not need a perfect brief. Select the areas that feel relevant, then send us your goal and we
+                  will help shape the right scope.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {projectTypes.map((type) => (
+                    <span
+                      key={type}
+                      className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-zinc-400"
+                    >
+                      {type}
+                    </span>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        </aside>
-      </div>
+              </div>
+            </FadeIn>
 
-      <section className="services-card project-estimator" aria-labelledby="project-estimator-heading">
-        <p className="eyebrow">Ready to move?</p>
-        <h2 id="project-estimator-heading">Send your project details and get a clearer action plan.</h2>
-        <p>
-          Tell us your campaign goal, preferred channels, target audience, timeline, and budget
-          range. We will respond with practical next steps for strategy, execution, and measurement.
-        </p>
-        <div className="hero-actions">
-          <Link className="button button-primary" href="/contact">
-            Send project details
-          </Link>
-          <Link className="button button-secondary" href="/services">
-            Explore all services
-          </Link>
+            <Stagger className="mt-6 grid gap-4 sm:grid-cols-3">
+              {intakeSteps.map((step) => (
+                <StaggerItem key={step.title}>
+                  <article className="h-full rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                    <span className="text-xs font-semibold text-accent">{step.num}</span>
+                    <h3 className="mt-2 text-base font-semibold text-white">{step.title}</h3>
+                    <p className="mt-2 text-sm text-zinc-500">{step.description}</p>
+                  </article>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
+
+          <FadeIn delay={0.1}>
+            <aside className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8">
+              <SectionHeading tag="Brief checklist" title="Answer these before you contact us" />
+              <div className="space-y-5">
+                {briefPrompts.map((question, index) => (
+                  <div key={question} className="flex gap-4 border-b border-white/[0.06] pb-5">
+                    <div className="flex-1">
+                      <strong className="text-sm text-white">{question}</strong>
+                      <p className="mt-1 text-xs text-zinc-500">Short answers are enough. The first call can fill the gaps.</p>
+                    </div>
+                    <span className="text-sm text-zinc-600">{String(index + 1).padStart(2, '0')}</span>
+                  </div>
+                ))}
+              </div>
+            </aside>
+          </FadeIn>
         </div>
-      </section>
-    </section>
+      </PageShell>
+
+      <CTABanner
+        tag="Ready to move?"
+        title="Send your project details and get a clearer action plan"
+        description="Tell us your campaign goal, preferred channels, target audience, timeline, and budget range."
+        primaryLabel="Send project details"
+        primaryHref="/contact"
+        secondaryLabel="Explore all services"
+        secondaryHref="/services"
+      />
+    </>
   )
 }
 

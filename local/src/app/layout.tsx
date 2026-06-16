@@ -1,8 +1,16 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import { Inter } from 'next/font/google'
 import { contactEmail, contactPhone, marketFocus, siteUrl } from '../components/siteConfig'
+import './globals.css'
 import '../index.css'
 import '../App.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -149,9 +157,12 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en-NZ" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body>
-        <a className="skip-link" href="#main-content">
+    <html lang="en-NZ" data-scroll-behavior="smooth" suppressHydrationWarning className={inter.variable}>
+      <body className="min-h-screen bg-void font-sans text-zinc-100 antialiased">
+        <a
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-zinc-900"
+          href="#main-content"
+        >
           Skip to content
         </a>
         <script

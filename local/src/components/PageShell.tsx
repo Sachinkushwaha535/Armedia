@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import PageHero from './ui/PageHero'
 
 type PageShellProps = {
   kicker: string
@@ -6,19 +7,21 @@ type PageShellProps = {
   description: string
   actions?: ReactNode
   children: ReactNode
+  withGlow?: boolean
 }
 
-function PageShell({ kicker, title, description, actions, children }: PageShellProps) {
+function PageShell({ kicker, title, description, actions, children, withGlow = true }: PageShellProps) {
   return (
-    <section className="page-shell section" aria-labelledby="page-title">
-      <div className="section-heading">
-        <p className="eyebrow">{kicker}</p>
-        <h1 className="page-title" id="page-title">{title}</h1>
-        <p>{description}</p>
-        {actions ? <div className="hero-actions">{actions}</div> : null}
-      </div>
-      {children}
-    </section>
+    <>
+      <PageHero
+        tag={kicker}
+        title={title}
+        description={description}
+        actions={actions}
+        withGlow={withGlow}
+      />
+      <div className="container-agency px-5 pb-24 sm:px-6 lg:px-8">{children}</div>
+    </>
   )
 }
 

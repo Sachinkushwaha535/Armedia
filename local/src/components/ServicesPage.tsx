@@ -1,4 +1,11 @@
+'use client'
+
 import Link from 'next/link'
+import PageHero from './ui/PageHero'
+import Button from './ui/Button'
+import CTABanner from './ui/CTABanner'
+import SectionHeading from './ui/SectionHeading'
+import { Stagger, StaggerItem } from './ui/motion'
 
 type ServiceIconKey = keyof typeof serviceIcons
 
@@ -348,127 +355,85 @@ const supportingServiceCards: ServiceCard[] = [
   },
 ]
 
+function ServiceCardGrid({ services, linkLabel }: { services: ServiceCard[]; linkLabel: string }) {
+  return (
+    <Stagger className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {services.map((service) => (
+        <StaggerItem key={service.title}>
+          <article
+            id={service.id}
+            className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:border-accent/30 hover:bg-white/[0.04]"
+          >
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 [&_svg]:h-5 [&_svg]:w-5 [&_svg]:stroke-accent [&_svg]:fill-none">
+              {serviceIcons[service.icon]}
+            </div>
+            <h3 className="text-lg font-semibold text-white">{service.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-zinc-400">{service.desc}</p>
+            <ul className="mt-4 flex-1 space-y-2">
+              {service.items.map((item) => (
+                <li key={item} className="flex gap-2 text-sm text-zinc-500">
+                  <span className="text-accent" aria-hidden="true">
+                    —
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Link
+              className="link-underline mt-5 inline-flex text-sm font-medium text-accent"
+              href={service.href}
+            >
+              {linkLabel}
+            </Link>
+          </article>
+        </StaggerItem>
+      ))}
+    </Stagger>
+  )
+}
+
 function ServicesPage() {
   return (
-    <section className="services-cinematic" aria-labelledby="services-title">
-      <div className="services-cinematic-inner">
-        <div className="services-copy">
-          <p className="services-kicker">Armedia Services</p>
-          <h1 id="services-title">
-            Strategy, media, AI, and campaign systems built for growth
-          </h1>
-          <p>
-            Armedia helps brands plan smarter campaigns with integrated strategy, advertising,
-            digital media, business intelligence, AI workflows, and supporting delivery systems
-            designed to improve visibility, lead quality, and reporting clarity.
-          </p>
-
-          <div className="hero-actions">
-            <Link className="services-cta" href="/contact">
-              Start your project
-            </Link>
-            <Link className="btn-ghost" href="/contact">
+    <>
+      <PageHero
+        tag="Armedia Services"
+        title="Strategy, media, AI, and campaign systems built for growth"
+        description="Armedia helps brands plan smarter campaigns with integrated strategy, advertising, digital media, business intelligence, AI workflows, and supporting delivery systems designed to improve visibility, lead quality, and reporting clarity."
+        actions={
+          <>
+            <Button href="/contact">Start your project</Button>
+            <Button href="/contact" variant="secondary">
               Book a consultation
-            </Link>
-          </div>
-        </div>
+            </Button>
+          </>
+        }
+      />
 
-        <div className="services-section-head">
-          <p className="section-tag">Core services</p>
-          <h2>Growth, media, and intelligence services</h2>
-          <p>
-            These are the main services Armedia should lead with because they align most clearly
-            with the brand promise shown on the homepage.
-          </p>
-        </div>
+      <div className="container-agency px-5 pb-24 sm:px-6 lg:px-8">
+        <SectionHeading
+          tag="Core services"
+          title="Growth, media, and intelligence services"
+          description="These are the main services Armedia leads with because they align most clearly with the brand promise shown on the homepage."
+        />
+        <ServiceCardGrid services={coreServiceCards} linkLabel="Discuss this service" />
 
-        <div className="cinematic-services-grid">
-          {coreServiceCards.map((service) => (
-            <article
-              className="cinematic-service-card reveal-card"
-              key={service.title}
-              id={service.id}
-            >
-              <span className="card-glow" />
-              <span className="card-line" />
-              <span className="card-shine" />
-
-              <div
-                className={`service-icon service-icon-${service.icon}`}
-                aria-hidden="true"
-              >
-                {serviceIcons[service.icon]}
-              </div>
-
-              <h3>{service.title}</h3>
-              <p className="service-card-desc">{service.desc}</p>
-
-              <ul>
-                {service.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-
-              <Link className="text-link" href={service.href}>
-                Discuss this service
-              </Link>
-            </article>
-          ))}
-        </div>
-
-        <div className="services-section-head" style={{ marginTop: '4rem' }}>
-          <p className="section-tag">Supporting capabilities</p>
-          <h2>Digital delivery and technical support</h2>
-          <p>
-            These services support campaign execution, digital performance, reporting, and internal systems.
-          </p>
-        </div>
-
-        <div className="cinematic-services-grid">
-          {supportingServiceCards.map((service) => (
-            <article
-              className="cinematic-service-card reveal-card"
-              key={service.title}
-              id={service.id}
-            >
-              <span className="card-glow" />
-              <span className="card-line" />
-              <span className="card-shine" />
-
-              <div
-                className={`service-icon service-icon-${service.icon}`}
-                aria-hidden="true"
-              >
-                {serviceIcons[service.icon]}
-              </div>
-
-              <h3>{service.title}</h3>
-              <p className="service-card-desc">{service.desc}</p>
-
-              <ul>
-                {service.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-
-              <Link className="text-link" href={service.href}>
-                View service details
-              </Link>
-            </article>
-          ))}
-        </div>
-
-        <div className="home-cta-panel" style={{ marginTop: '4rem' }}>
-          <div>
-            <p className="section-tag">Need a clearer recommendation?</p>
-            <h3>Tell us your goal and we’ll recommend the right service mix.</h3>
-          </div>
-          <Link className="services-cta" href="/contact">
-            Talk to Armedia
-          </Link>
+        <div className="mt-24">
+          <SectionHeading
+            tag="Supporting capabilities"
+            title="Digital delivery and technical support"
+            description="These services support campaign execution, digital performance, reporting, and internal systems."
+          />
+          <ServiceCardGrid services={supportingServiceCards} linkLabel="View service details" />
         </div>
       </div>
-    </section>
+
+      <CTABanner
+        tag="Need a clearer recommendation?"
+        title="Tell us your goal and we'll recommend the right service mix"
+        primaryLabel="Talk to Armedia"
+        primaryHref="/contact"
+      />
+    </>
   )
 }
 

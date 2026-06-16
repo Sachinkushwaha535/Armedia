@@ -22,6 +22,8 @@ export const featuredWork = [
     date: 'Jan 2026',
     client: 'Anonymised example',
     service: 'Website Design',
+    gradient: 'from-emerald-600/40 via-teal-800/30 to-void',
+    href: '/contact',
   },
   {
     title: 'Retail product growth system',
@@ -30,6 +32,8 @@ export const featuredWork = [
     date: 'Mar 2026',
     client: 'Anonymised example',
     service: 'E-commerce',
+    gradient: 'from-violet-600/40 via-purple-900/30 to-void',
+    href: '/ecommerce-website-auckland',
   },
   {
     title: 'Public information journey',
@@ -38,6 +42,8 @@ export const featuredWork = [
     date: 'Apr 2026',
     client: 'Anonymised example',
     service: 'Digital Platform',
+    gradient: 'from-blue-600/40 via-indigo-900/30 to-void',
+    href: '/contact',
   },
   {
     title: 'Resource hub architecture',
@@ -46,6 +52,52 @@ export const featuredWork = [
     date: 'May 2026',
     client: 'Anonymised example',
     service: 'Resource Hub',
+    gradient: 'from-amber-600/40 via-orange-900/30 to-void',
+    href: '/react-development-nz',
+  },
+]
+
+export const agencyStats = [
+  { value: 6, suffix: '', label: 'Integrated growth pillars across strategy, media, and intelligence' },
+  { value: 5, suffix: '', label: 'Step campaign process from diagnosis to improvement' },
+  { value: 24, suffix: 'h', label: 'Business-day reply target for new enquiries' },
+]
+
+export const serviceShowcaseSlides = [
+  {
+    title: 'AI Marketing Studio',
+    subtitle: 'Intelligence',
+    description:
+      'AI-assisted workflows for content planning, campaign summaries, lead qualification, customer support, and faster marketing operations — built to reduce manual work and sharpen weekly decisions.',
+    tags: ['AI workflows', 'Campaign summaries', 'Lead qualification', 'Marketing automation'],
+  },
+  {
+    title: 'Business Intelligence',
+    subtitle: 'Analytics',
+    description:
+      'Dashboards, campaign analytics, market insight, and reporting systems that turn scattered data into confident decisions your team can act on every week.',
+    tags: ['BI dashboards', 'Campaign analytics', 'Market insight', 'Performance reviews'],
+  },
+  {
+    title: 'Advertising & Performance',
+    subtitle: 'Media',
+    description:
+      'Paid search, paid social, retargeting, creative testing, media buying, and conversion tracking built around lead quality and measurable commercial outcomes.',
+    tags: ['Google Ads', 'Meta Ads', 'Retargeting', 'Conversion tracking'],
+  },
+  {
+    title: 'Digital Media & SEO',
+    subtitle: 'Visibility',
+    description:
+      'SEO, landing pages, social campaigns, content systems, and digital journeys that make your brand easier to find, trust, and choose across every touchpoint.',
+    tags: ['SEO', 'Landing pages', 'Social media', 'Content systems'],
+  },
+  {
+    title: 'OOH & Offline Media',
+    subtitle: 'Reach',
+    description:
+      'Outdoor advertising, print, activations, retail visibility, and local media planned with digital follow-through, recall strategy, and connected campaign measurement.',
+    tags: ['Billboards', 'Print media', 'Activations', 'Brand recall'],
   },
 ]
 

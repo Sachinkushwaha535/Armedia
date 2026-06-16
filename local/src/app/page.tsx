@@ -79,9 +79,9 @@ export default function Page() {
   }
 
   return (
-    <div className="site-shell page-home">
+    <div className="relative min-h-screen">
       <Header />
-      <main id="main-content">
+      <main id="main-content" className="relative">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
