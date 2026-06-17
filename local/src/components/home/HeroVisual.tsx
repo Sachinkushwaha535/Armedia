@@ -96,8 +96,8 @@ const panels: HeroPanel[] = [
     label: 'Media Mix',
     value: '6 channels',
     detail: 'Digital · OOH · Offline',
-    x: '56%',
-    y: '82%',
+    x: '52%',
+    y: '74%',
     floatDelay: 0.8,
     signalId: 'c',
     flow: { dx: 0.68, dy: 0.74 },
@@ -204,7 +204,7 @@ type HeroVisualProps = {
 }
 
 function HeroVisual({ pointerX, pointerY, enablePointer = false }: HeroVisualProps) {
-  const { shouldAnimate } = useMotionPreset()
+  const { shouldAnimate, mounted } = useMotionPreset()
   const springX = pointerX
   const springY = pointerY
   const stageRotateY = useTransform(springX, [-0.5, 0.5], [-8, 8])
@@ -214,9 +214,8 @@ function HeroVisual({ pointerX, pointerY, enablePointer = false }: HeroVisualPro
   const signalsShiftX = useTransform(springX, [-0.5, 0.5], [-10, 10])
   const signalsShiftY = useTransform(springY, [-0.5, 0.5], [-8, 8])
 
-  const enterProps = shouldAnimate
-    ? { initial: 'hidden' as const, animate: 'visible' as const }
-    : {}
+  const enterProps =
+    mounted && shouldAnimate ? { initial: 'hidden' as const, animate: 'visible' as const } : {}
 
   return (
     <div className="am-hero-visual" aria-hidden="true">

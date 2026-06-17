@@ -931,12 +931,13 @@
 /* ── Hero ── */
 .am-hero {
   position: relative;
-  min-height: 100svh;
+  min-height: min(100svh, 920px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: calc(var(--am-header-h) + 2.5rem) 0 clamp(4rem, 8vw, 6rem);
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .am-hero-bg {
@@ -1157,8 +1158,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 380px;
-  margin-top: -173px;
+  min-height: clamp(360px, 38vw, 480px);
+  align-self: center;
+  width: 100%;
 }
 
 .am-hero-visual {
@@ -1167,7 +1169,7 @@
   aspect-ratio: 1;
   position: relative;
   perspective: 1000px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .am-hero-signals {
@@ -3230,9 +3232,9 @@
 
   .am-hero-visual-wrap {
     order: -1;
-    min-height: 280px;
-    max-height: 360px;
-    margin-top: 110;
+    min-height: clamp(300px, 42vw, 400px);
+    max-height: none;
+    margin-top: 0;
   }
 
   .am-hero-visual {
@@ -3331,8 +3333,8 @@
   }
 
   .am-hero-visual-wrap {
-    min-height: 250px;
-    max-height: 300px;
+    min-height: clamp(260px, 58vw, 320px);
+    max-height: none;
   }
 
   .am-hero-panel {

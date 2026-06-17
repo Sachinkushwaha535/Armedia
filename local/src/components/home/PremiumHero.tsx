@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import MagneticButton from '../ui/MagneticButton'
 import Hero3DModel from './Hero3DModel'
 import HeroRotatingWords from './HeroRotatingWords'
@@ -15,8 +15,7 @@ import {
 import { useMotionPreset } from '../../lib/useMotionPreset'
 
 function PremiumHero() {
-  const { shouldAnimate } = useMotionPreset()
-  const [hydrated, setHydrated] = useState(false)
+  const { shouldAnimate, mounted } = useMotionPreset()
   const sectionRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -25,12 +24,8 @@ function PremiumHero() {
   const bgY = useTransform(scrollYProgress, [0, 1], [0, shouldAnimate ? 60 : 0])
   const copyY = useTransform(scrollYProgress, [0, 1], [0, shouldAnimate ? 24 : 0])
 
-  useEffect(() => {
-    setHydrated(true)
-  }, [])
-
   const animateProps =
-    hydrated && shouldAnimate ? { initial: 'hidden' as const, animate: 'visible' as const } : {}
+    mounted && shouldAnimate ? { initial: 'hidden' as const, animate: 'visible' as const } : {}
 
   const titleLines = [
     { className: 'am-hero-title-line', text: 'Build a connected' },
@@ -86,7 +81,7 @@ function PremiumHero() {
 
           <h1 className="am-hero-title" id="home-hero-title">
             {titleLines.map((line, index) =>
-              hydrated && shouldAnimate ? (
+              mounted && shouldAnimate ? (
                 <motion.span
                   key={line.text}
                   className={line.className}
@@ -108,7 +103,7 @@ function PremiumHero() {
             )}
           </h1>
 
-          {hydrated && shouldAnimate ? (
+          {mounted && shouldAnimate ? (
             <motion.p
               className="am-hero-lead"
               {...animateProps}
@@ -146,14 +141,9 @@ function PremiumHero() {
           </ul>
         </motion.div>
 
-        <motion.div
-          className="am-hero-visual-wrap"
-          {...animateProps}
-          variants={heroCinematicLineVariants}
-          transition={{ ...softTransition, delay: 0.36 }}
-        >
+        <div className="am-hero-visual-wrap">
           <Hero3DModel />
-        </motion.div>
+        </div>
       </div>
     </section>
   )
