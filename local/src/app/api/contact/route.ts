@@ -1,18 +1,5 @@
-import nodemailer from 'nodemailer'
+import { escapeHtml, isValidEmail, sendStudioEmail } from '../../../lib/mailer'
 import { contactEmail } from '../../../components/siteConfig'
-
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;')
-}
-
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-}
 
 export async function POST(req: Request) {
   try {
@@ -23,61 +10,16 @@ export async function POST(req: Request) {
     const message = String(body.message ?? '').trim()
 
     if (!name || !email || !phone || !message) {
-      return Response.json(
-        { message: 'All fields are required.' },
-        { status: 400 }
-      )
+      return Response.json({ message: 'All fields are required.' }, { status: 400 })
     }
 
     if (!isValidEmail(email)) {
-      return Response.json(
-        { message: 'Please enter a valid email address.' },
-        { status: 400 }
-      )
+      return Response.json({ message: 'Please enter a valid email address.' }, { status: 400 })
     }
 
-    const toEmail = process.env.CONTACT_TO_EMAIL ?? process.env.EMAIL_USER ?? contactEmail
-    const smtpHost = process.env.SMTP_HOST ?? 'smtp.gmail.com'
-    const smtpPort = Number(process.env.SMTP_PORT ?? 465)
-    const smtpSecure = process.env.SMTP_SECURE
-      ? process.env.SMTP_SECURE === 'true'
-      : smtpPort === 465
-
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error('Contact form SMTP credentials are missing.')
-      return Response.json(
-        {
-          message: `The contact form is not configured yet. Please email ${contactEmail} directly.`,
-        },
-        { status: 503 }
-      )
-    }
-
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpSecure,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    })
-
-    try {
-      await transporter.verify()
-    } catch (verifyError) {
-      console.error('SMTP verify failed:', verifyError)
-      return Response.json(
-        { message: `Email server connection failed. Please email ${contactEmail} directly.` },
-        { status: 503 }
-      )
-    }
-
-    const info = await transporter.sendMail({
-      from: `"Armedia website" <${process.env.EMAIL_USER}>`,
-      replyTo: email,
-      to: toEmail,
+    const result = await sendStudioEmail({
       subject: `New website inquiry from ${name}`,
+      replyTo: email,
       text: [
         'New Contact Inquiry',
         '',
@@ -98,17 +40,27 @@ export async function POST(req: Request) {
       `,
     })
 
-    console.log('Contact email sent:', info.messageId ?? info.response)
+    if (!result.ok) {
+      if (result.reason === 'missing_smtp') {
+        return Response.json(
+          { message: `The contact form is not configured yet. Please email ${contactEmail} directly.` },
+          { status: 503 },
+        )
+      }
+      return Response.json(
+        { message: `Email server connection failed. Please email ${contactEmail} directly.` },
+        { status: 503 },
+      )
+    }
 
     return Response.json({
       message: 'Inquiry submitted successfully. We will be in touch soon.',
     })
   } catch (error) {
     console.error('Contact form error:', error)
-
     return Response.json(
       { message: `Email failed to send. Please email ${contactEmail} directly.` },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }

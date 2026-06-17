@@ -3,7 +3,7 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import BlogPage from '../../components/BlogPage'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
+import { siteUrl } from '../../components/siteConfig'
 
 const posts = [
   {

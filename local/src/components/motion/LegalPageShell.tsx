@@ -10,6 +10,7 @@ type LegalPageShellProps = {
   title: string
   description: string
   titleId?: string
+  actions?: ReactNode
   children: ReactNode
 }
 
@@ -18,6 +19,7 @@ function LegalPageShell({
   title,
   description,
   titleId,
+  actions,
   children,
 }: LegalPageShellProps) {
   const { shouldAnimate } = useMotionPreset()
@@ -44,7 +46,7 @@ function LegalPageShell({
       />
 
       <motion.div
-        className="page-legal-header-wrap"
+        className="page-legal-header-wrap am-container"
         style={shouldAnimate ? { y: headerY, opacity: headerOpacity } : undefined}
       >
         <PageHeader
@@ -53,6 +55,7 @@ function LegalPageShell({
           description={description}
           titleId={titleId ?? 'page-title'}
           withScrollProgress
+          actions={actions}
         />
       </motion.div>
 

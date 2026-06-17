@@ -9,10 +9,8 @@ const routes = [
   '/contact',
   '/start-project',
   '/web-design-auckland',
-  '/react-development-nz',
   '/seo-agency-auckland',
   '/ecommerce-website-auckland',
-  '/nextjs-agency-new-zealand',
   '/blog/media-plan-digital-ooh-offline',
   '/blog/ai-workflows-service-teams',
   '/blog/business-intelligence-campaign-decisions',
@@ -21,6 +19,7 @@ const routes = [
   '/blog/website-trust-auckland-2026',
   '/privacy',
   '/terms',
+  '/resources/campaign-checklist',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

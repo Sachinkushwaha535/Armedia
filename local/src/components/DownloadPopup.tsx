@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { defaultTransition, fadeUpVariants } from '../lib/motion'
 
 const STORAGE_KEY = 'armedia-download-popup-dismissed'
@@ -12,9 +13,14 @@ type DownloadPopupProps = {
   delayMs?: number
 }
 
-function DownloadPopup({ scrollDepth = 0.35, delayMs = 8000 }: DownloadPopupProps) {
+function DownloadPopup({ scrollDepth = 0.55, delayMs = 12000 }: DownloadPopupProps) {
   const prefersReducedMotion = useReducedMotion()
   const [isVisible, setIsVisible] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     if (sessionStorage.getItem(STORAGE_KEY)) return
@@ -49,39 +55,69 @@ function DownloadPopup({ scrollDepth = 0.35, delayMs = 8000 }: DownloadPopupProp
     setIsVisible(false)
   }
 
-  return (
+  if (!mounted) return null
+
+  return createPortal(
     <AnimatePresence>
       {isVisible ? (
-        <motion.aside
-          className="download-popup"
-          role="dialog"
-          aria-labelledby="download-popup-title"
-          initial={prefersReducedMotion ? false : 'hidden'}
-          animate="visible"
-          exit={prefersReducedMotion ? undefined : 'hidden'}
-          variants={fadeUpVariants}
-          transition={defaultTransition}
-        >
-          <button
+        <>
+          <motion.button
+            key="download-popup-backdrop"
             type="button"
-            className="download-popup-close"
-            onClick={dismiss}
+            className="download-popup-backdrop"
             aria-label="Dismiss offer"
+            onClick={dismiss}
+            initial={prefersReducedMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={prefersReducedMotion ? undefined : { opacity: 0 }}
+            transition={defaultTransition}
+          />
+          <motion.aside
+            key="download-popup-panel"
+            className="download-popup"
+            role="dialog"
+            aria-labelledby="download-popup-title"
+            aria-modal="true"
+            initial={prefersReducedMotion ? false : 'hidden'}
+            animate="visible"
+            exit={prefersReducedMotion ? undefined : 'hidden'}
+            variants={fadeUpVariants}
+            transition={defaultTransition}
           >
-            ×
-          </button>
-          <p className="section-tag">Free resource</p>
-          <h3 id="download-popup-title">Download our campaign planning checklist</h3>
-          <p>
-            A practical guide to shaping your next growth campaign — goals, channels, assets,
-            tracking, and review rhythms in one place.
-          </p>
-          <Link className="btn-primary" href="/start-project" onClick={dismiss}>
-            Get the checklist
-          </Link>
-        </motion.aside>
+            <button
+              type="button"
+              className="download-popup-close"
+              onClick={dismiss}
+              aria-label="Dismiss offer"
+            >
+              ×
+            </button>
+
+            <p className="download-popup-kicker">Free resource</p>
+            <h3 id="download-popup-title">Campaign planning checklist</h3>
+            <p className="download-popup-copy">
+              Goals, channels, assets, tracking, and review rhythms — a practical checklist before
+              your next campaign goes live.
+            </p>
+
+            <div className="download-popup-actions">
+              <Link
+                className="download-popup-btn"
+                href="/resources/campaign-checklist"
+                onClick={dismiss}
+              >
+                Open checklist
+                <span aria-hidden="true">→</span>
+              </Link>
+              <button type="button" className="download-popup-dismiss" onClick={dismiss}>
+                Not now
+              </button>
+            </div>
+          </motion.aside>
+        </>
       ) : null}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   )
 }
 

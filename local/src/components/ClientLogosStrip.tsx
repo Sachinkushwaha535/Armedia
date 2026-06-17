@@ -21,7 +21,7 @@ function ClientLogosStrip({ clients }: ClientLogosStripProps) {
     <ScrollReveal
       as="section"
       className="client-logos-strip am-twg-section am-theme-snow client-logos-strip--animated"
-      aria-label="Client types we work with"
+      aria-label="Industries we serve"
       variants={testimonialDriftVariants}
     >
       <div className="client-logos-glow" aria-hidden="true" />
@@ -34,7 +34,7 @@ function ClientLogosStrip({ clients }: ClientLogosStripProps) {
         transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
       >
         <span className="client-logos-kicker-line" aria-hidden="true" />
-        Trusted by growth-focused brands
+        Trusted by growth-focused brands across key industries
         <span className="client-logos-kicker-line" aria-hidden="true" />
       </motion.p>
 

@@ -1,19 +1,13 @@
 export const tickerItems = [
-  'AI Marketing Tools',
-  'Business Intelligence',
-  'Performance Advertising',
-  'Google Ads Auckland',
-  'Meta Advertising',
-  'Digital Media',
-  'SEO Auckland',
-  'Web Design NZ',
-  'OOH Media',
-  'Offline Marketing',
-  'Brand Strategy',
-  'Campaign Analytics',
-  'Lead Generation',
-  'E-commerce Marketing',
-  'Growth Strategy',
+  'Strategy before spend',
+  'Connected media planning',
+  'Performance advertising',
+  'AI-assisted workflows',
+  'Business intelligence',
+  'Digital & offline media',
+  'Campaign measurement',
+  'Clear reporting rhythms',
+  'Growth-focused execution',
 ]
 
 export const heroImages = [
@@ -304,7 +298,7 @@ export const faqItems = [
   {
     question: 'What does Armedia do as a marketing media agency?',
     answer:
-      'Armedia is a New Zealand marketing media agency that helps brands with strategy, advertising, Google Ads, Meta ads, SEO, digital media, OOH, offline marketing, AI workflows, BI dashboards, web design, and campaign reporting.',
+      'Armedia helps New Zealand brands plan and run connected marketing campaigns — covering strategy, advertising, digital and offline media, AI workflows, BI reporting, and web support when campaigns need it.',
   },
   {
     question: 'Do you work with businesses across Auckland and New Zealand?',

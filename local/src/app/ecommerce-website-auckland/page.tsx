@@ -6,7 +6,7 @@ import ServiceLandingPage from '../../components/ServiceLandingPage'
 export const metadata: Metadata = {
   title: 'Ecommerce Website Auckland | Online Store Design & Development',
   description:
-    'Ecommerce Website Auckland service for product pages, checkout journeys, integrations, tracking, pricing, timeline, technologies, portfolio fit, and FAQ.',
+    'E-commerce website planning and development for Auckland brands that need clearer product pages, checkout journeys, and tracking foundations.',
   alternates: { canonical: '/ecommerce-website-auckland' },
   openGraph: {
     title: 'Ecommerce Website Auckland | Online Store Design & Development',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="site-shell armedia-site">
+    <div className="site-shell page-service-landing armedia-site">
       <Header />
       <main id="main-content">
         <ServiceLandingPage
@@ -52,7 +52,6 @@ export default function Page() {
             'Tracking foundations for smarter marketing decisions',
             'Cleaner content structure for product and category growth',
           ]}
-          // pricing="Ecommerce Website Auckland projects usually start from NZD 5,500. Larger catalogues, subscriptions, custom checkout logic, and integrations are quoted after discovery."
           timeline={[
             'Store audit and requirements: 3-5 days',
             'Storefront and product UX: 1-2 weeks',
@@ -72,18 +71,18 @@ export default function Page() {
             'Checkout and enquiry flows',
             'Analytics-ready store launch checklists',
           ]}
-          // faq={[
-          //   {
-          //     question: 'Can you work with Shopify?',
-          //     answer:
-          //       'Yes. Armedia can plan Shopify storefront UX, product page structure, and supporting landing pages or integrations.',
-          //   },
-          //   {
-          //     question: 'Do you include analytics tracking?',
-          //     answer:
-          //       'Yes. Tracking requirements are included in the project plan so product, checkout, and campaign activity can be measured.',
-          //   },
-          // ]}
+          faq={[
+            {
+              question: 'Can you work with Shopify?',
+              answer:
+                'Yes. Armedia can plan Shopify storefront UX, product page structure, and supporting landing pages or integrations.',
+            },
+            {
+              question: 'Do you include analytics tracking?',
+              answer:
+                'Yes. Tracking requirements are included in the project plan so product, checkout, and campaign activity can be measured.',
+            },
+          ]}
         />
       </main>
       <Footer />

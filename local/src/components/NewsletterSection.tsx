@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { type FormEvent, useState } from 'react'
 import TwgSectionHeader from './motion/TwgSectionHeader'
 import {
@@ -16,12 +17,32 @@ function NewsletterSection() {
   const { shouldAnimate } = useMotionPreset()
   const [form, setForm] = useState({ name: '', phone: '', email: '' })
   const [status, setStatus] = useState('')
+  const [guideUrl, setGuideUrl] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (!form.email.trim()) return
-    setStatus('Thanks — your guide request is noted. We will be in touch shortly.')
-    setForm({ name: '', phone: '', email: '' })
+    if (!form.email.trim() || loading) return
+
+    setLoading(true)
+    setStatus('')
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await response.json()
+      setStatus(data.message ?? 'Thanks — your guide is ready.')
+      if (data.guideUrl) setGuideUrl(data.guideUrl)
+      setForm({ name: '', phone: '', email: '' })
+    } catch {
+      setStatus('Something went wrong. You can open the guide directly below.')
+      setGuideUrl('/resources/campaign-checklist')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -44,7 +65,7 @@ function NewsletterSection() {
           >
             <TwgSectionHeader
               tag="Free resource"
-              title="Download a transparent guide to smarter campaign growth"
+              title="Campaign growth guide for New Zealand teams"
               titleId="newsletter-heading"
             />
             <motion.p
@@ -53,9 +74,8 @@ function NewsletterSection() {
               viewport={viewportOnce}
               transition={{ duration: 0.55, delay: 0.15 }}
             >
-              A practical, no-fluff playbook on media mix, AI workflows, reporting, and what
-              actually moves results for New Zealand brands —{' '}
-              <strong className="twg-highlight twg-highlight--pulse">built for real teams</strong>.
+              A practical playbook on media mix, AI workflows, reporting, and review rhythms — or{' '}
+              <Link href="/resources/campaign-checklist">open the guide directly</Link>.
             </motion.p>
           </motion.div>
 
@@ -84,6 +104,7 @@ function NewsletterSection() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   autoComplete="name"
+                  required
                 />
               </motion.label>
               <motion.label variants={fadeUpVariants}>
@@ -91,7 +112,7 @@ function NewsletterSection() {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Phone number"
+                  placeholder="Phone number (optional)"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   autoComplete="tel"
@@ -115,24 +136,25 @@ function NewsletterSection() {
                 variants={fadeUpVariants}
                 whileHover={shouldAnimate ? { scale: 1.02 } : undefined}
                 whileTap={shouldAnimate ? { scale: 0.98 } : undefined}
+                disabled={loading}
               >
                 <span className="twg-pill-dot" aria-hidden="true" />
-                Download
+                {loading ? 'Sending…' : 'Get the guide'}
               </motion.button>
             </motion.div>
-            {status ? <p className="newsletter-status" role="status">{status}</p> : null}
+            {status ? (
+              <p className="newsletter-status" role="status">
+                {status}
+                {guideUrl ? (
+                  <>
+                    {' '}
+                    <Link href={guideUrl}>Open guide</Link>
+                  </>
+                ) : null}
+              </p>
+            ) : null}
           </motion.form>
         </div>
-
-        <motion.div
-          className="twg-download-tagline"
-          initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
-          whileInView={shouldAnimate ? { opacity: 1, y: 0 } : undefined}
-          viewport={viewportOnce}
-          transition={{ duration: 0.6, delay: 0.15 }}
-        >
-          <p>We&apos;re a forward-thinking marketing media agency</p>
-        </motion.div>
       </div>
     </section>
   )

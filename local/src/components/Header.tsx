@@ -25,8 +25,8 @@ function Header() {
 
         <div className="header-actions">
           <HeaderNav items={navItems} />
-          <Link className="topbar-cta" href="/start-project">
-            Start a project
+          <Link className="topbar-cta" href="/contact">
+            Book a call
           </Link>
         </div>
       </header>

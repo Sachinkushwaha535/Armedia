@@ -4,35 +4,35 @@ import Header from '../../components/Header'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 
 export const metadata: Metadata = {
-  title: 'Web Design Auckland | Premium Website Design by Armedia',
+  title: 'Web Design Auckland | Campaign-Ready Websites by Armedia',
   description:
-    'Premium Web Design Auckland service for mobile-first websites with clear messaging, conversion-focused UX, and SEO foundations.',
+    'Auckland web design for campaign-ready websites with clear messaging, conversion-focused UX, and SEO foundations.',
   alternates: { canonical: '/web-design-auckland' },
   openGraph: {
-    title: 'Web Design Auckland | Premium Website Design by Armedia',
+    title: 'Web Design Auckland | Campaign-Ready Websites by Armedia',
     description:
-      'Auckland website design for stronger trust, clearer service pages, better inquiry paths, and launch-ready frontend systems.',
+      'Auckland website design for stronger trust, clearer service pages, better inquiry paths, and launch-ready digital foundations.',
     url: '/web-design-auckland',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Web Design Auckland | Premium Website Design by Armedia',
+    title: 'Web Design Auckland | Campaign-Ready Websites by Armedia',
     description:
-      'Mobile-first Auckland website design for trust, clarity, inquiry paths, SEO foundations, and launch-ready frontend systems.',
+      'Mobile-first Auckland website design for trust, clarity, inquiry paths, and SEO foundations.',
   },
 }
 
 export default function Page() {
   return (
-    <div className="site-shell armedia-site">
+    <div className="site-shell page-service-landing armedia-site">
       <Header />
       <main id="main-content">
         <ServiceLandingPage
           kicker="Web design Auckland"
           path="/web-design-auckland"
-          title="Premium web design for Auckland businesses."
-          description="Armedia designs clear, credible, mobile-first websites that help visitors understand your offer and take the next step."
+          title="Campaign-ready web design for Auckland businesses."
+          description="Armedia designs clear, credible, mobile-first websites that support marketing campaigns, explain your offer, and help visitors take the next step."
           points={[
             'UX planning and content hierarchy',
             'Responsive homepage and service page design',
@@ -49,10 +49,9 @@ export default function Page() {
           benefits={[
             'Built around real customer questions and buying intent',
             'Mobile-first layouts that make services easier to scan',
-            'Trust-building sections for proof, process, pricing, and contact',
+            'Trust-building sections for proof, process, and contact',
             'Design direction your team can reuse across future pages',
           ]}
-          pricing="Most Web Design Auckland projects start from NZD 2,500. Multi-page websites, copy support, and advanced interaction design are scoped after a short discovery call."
           timeline={[
             'Discovery and page plan: 2-3 days',
             'Homepage and visual direction: 4-7 days',
@@ -81,7 +80,7 @@ export default function Page() {
             {
               question: 'Can you also build the website after design?',
               answer:
-                'Yes. The design can move directly into a Next.js or React build with the same structure and conversion goals.',
+                'Yes. The design can move directly into a Next.js build with the same structure and conversion goals.',
             },
           ]}
         />

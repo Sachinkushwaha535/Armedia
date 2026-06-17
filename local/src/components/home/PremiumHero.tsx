@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import MagneticButton from '../ui/MagneticButton'
 import Hero3DModel from './Hero3DModel'
 import HeroRotatingWords from './HeroRotatingWords'
@@ -16,6 +16,7 @@ import { useMotionPreset } from '../../lib/useMotionPreset'
 
 function PremiumHero() {
   const { shouldAnimate } = useMotionPreset()
+  const [hydrated, setHydrated] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -24,9 +25,18 @@ function PremiumHero() {
   const bgY = useTransform(scrollYProgress, [0, 1], [0, shouldAnimate ? 60 : 0])
   const copyY = useTransform(scrollYProgress, [0, 1], [0, shouldAnimate ? 24 : 0])
 
-  const animateProps = shouldAnimate
-    ? { initial: 'hidden' as const, animate: 'visible' as const }
-    : {}
+  useEffect(() => {
+    setHydrated(true)
+  }, [])
+
+  const animateProps =
+    hydrated && shouldAnimate ? { initial: 'hidden' as const, animate: 'visible' as const } : {}
+
+  const titleLines = [
+    { className: 'am-hero-title-line', text: 'Build a connected' },
+    { className: 'am-hero-title-line am-hero-title-accent', text: 'growth system' },
+    { className: 'am-hero-title-line am-hero-title-sub', text: 'for smarter campaigns' },
+  ]
 
   return (
     <section ref={sectionRef} className="am-hero" aria-labelledby="home-hero-title">
@@ -61,10 +71,7 @@ function PremiumHero() {
       </motion.div>
 
       <div className="am-container am-hero-layout">
-        <motion.div
-          className="am-hero-copy"
-          style={shouldAnimate ? { y: copyY } : undefined}
-        >
+        <motion.div className="am-hero-copy" style={shouldAnimate ? { y: copyY } : undefined}>
           <HeroRotatingWords />
 
           <motion.div
@@ -78,68 +85,65 @@ function PremiumHero() {
           </motion.div>
 
           <h1 className="am-hero-title" id="home-hero-title">
-            <motion.span
-              className="am-hero-title-line"
-              {...animateProps}
-              variants={heroCinematicLineVariants}
-              transition={{ ...softTransition, delay: 0.18, ease: easeCinematic }}
-            >
-              Build a connected
-            </motion.span>
-            <motion.span
-              className="am-hero-title-line am-hero-title-accent"
-              {...animateProps}
-              variants={heroCinematicLineVariants}
-              transition={{ ...softTransition, delay: 0.3, ease: easeCinematic }}
-            >
-              growth system
-            </motion.span>
-            <motion.span
-              className="am-hero-title-line am-hero-title-sub"
-              {...animateProps}
-              variants={heroCinematicLineVariants}
-              transition={{ ...softTransition, delay: 0.42, ease: easeCinematic }}
-            >
-              for smarter campaigns
-            </motion.span>
+            {titleLines.map((line, index) =>
+              hydrated && shouldAnimate ? (
+                <motion.span
+                  key={line.text}
+                  className={line.className}
+                  {...animateProps}
+                  variants={heroCinematicLineVariants}
+                  transition={{
+                    ...softTransition,
+                    delay: 0.18 + index * 0.12,
+                    ease: easeCinematic,
+                  }}
+                >
+                  {line.text}
+                </motion.span>
+              ) : (
+                <span key={line.text} className={line.className}>
+                  {line.text}
+                </span>
+              ),
+            )}
           </h1>
 
-          <motion.p
-            className="am-hero-lead"
-            {...animateProps}
-            variants={heroCinematicLineVariants}
-            transition={{ ...softTransition, delay: 0.54 }}
-          >
-            Armedia is a New Zealand marketing media agency that unifies strategy, advertising,
-            Google Ads, Meta ads, SEO, AI workflows, BI reporting, and media planning into one
-            growth engine — so your brand moves with clarity, momentum, and measurable performance.
-          </motion.p>
+          {hydrated && shouldAnimate ? (
+            <motion.p
+              className="am-hero-lead"
+              {...animateProps}
+              variants={heroCinematicLineVariants}
+              transition={{ ...softTransition, delay: 0.54 }}
+            >
+              Armedia is a New Zealand marketing media agency that connects strategy, advertising,
+              paid media, SEO, AI workflows, BI reporting, and media planning — so your brand moves
+              with clarity, momentum, and measurable performance.
+            </motion.p>
+          ) : (
+            <p className="am-hero-lead">
+              Armedia is a New Zealand marketing media agency that connects strategy, advertising,
+              paid media, SEO, AI workflows, BI reporting, and media planning — so your brand moves
+              with clarity, momentum, and measurable performance.
+            </p>
+          )}
 
-          <motion.div
-            className="am-hero-actions"
-            {...animateProps}
-            variants={heroCinematicLineVariants}
-            transition={{ ...softTransition, delay: 0.72 }}
-          >
+          <div className="am-hero-actions">
             <MagneticButton href="/contact" variant="primary">
               Book a growth consultation
-              <span className="am-btn-icon" aria-hidden="true">→</span>
+              <span className="am-btn-icon" aria-hidden="true">
+                →
+              </span>
             </MagneticButton>
-            <MagneticButton href="/services" variant="ghost">
-              Explore services
+            <MagneticButton href="/start-project" variant="ghost">
+              Start a project brief
             </MagneticButton>
-          </motion.div>
+          </div>
 
-          <motion.ul
-            className="am-hero-trust"
-            {...animateProps}
-            variants={heroCinematicLineVariants}
-            transition={{ ...softTransition, delay: 0.84 }}
-          >
+          <ul className="am-hero-trust">
             <li>Google Ads &amp; Meta advertising</li>
             <li>SEO, web &amp; digital media</li>
             <li>AI + BI reporting clarity</li>
-          </motion.ul>
+          </ul>
         </motion.div>
 
         <motion.div
@@ -151,7 +155,6 @@ function PremiumHero() {
           <Hero3DModel />
         </motion.div>
       </div>
-
     </section>
   )
 }

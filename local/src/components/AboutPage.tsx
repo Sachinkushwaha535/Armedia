@@ -77,7 +77,7 @@ const proofAreas = [
   },
   {
     title: 'Verification policy',
-    body: 'Named logos, testimonials, screenshots, and performance numbers are used only when they are accurate and approved.',
+    body: 'Named logos, screenshots, and performance numbers are used only when they are accurate and approved.',
   },
   {
     title: 'Performance reviews',

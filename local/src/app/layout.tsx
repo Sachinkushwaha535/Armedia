@@ -2,7 +2,14 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Syne, Plus_Jakarta_Sans } from 'next/font/google'
 import { ThemeProvider } from '../components/ThemeProvider'
-import { contactEmail, contactPhone, marketFocus, siteUrl } from '../components/siteConfig'
+import {
+  businessAddress,
+  contactEmail,
+  contactPhone,
+  getSameAsLinks,
+  marketFocus,
+  siteUrl,
+} from '../components/siteConfig'
 import '../index.css'
 import '../App.css'
 import '../styles/armedia-system.css'
@@ -62,21 +69,12 @@ export const metadata: Metadata = {
     title: 'Armedia | Marketing Media Agency for Strategy, AI, BI & Advertising',
     description:
       'New Zealand marketing media agency for strategy, advertising, AI workflows, business intelligence, digital media, and campaign reporting.',
-    images: [
-      {
-        url: '/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'Armedia marketing media agency',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Armedia | Strategy, AI, BI & Advertising',
     description:
       'Marketing media agency for strategy, advertising, AI workflows, BI dashboards, digital media, and growth planning.',
-    images: ['/logo.png'],
   },
   robots: {
     index: true,
@@ -101,6 +99,8 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode
 }>) {
+  const sameAs = getSameAsLinks()
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -111,8 +111,8 @@ export default function RootLayout({
         url: siteUrl,
         logo: `${siteUrl}/logo.png`,
         email: contactEmail,
-        ...(contactPhone ? { telephone: contactPhone } : {}),
-        sameAs: [siteUrl],
+        telephone: contactPhone,
+        sameAs,
         description:
           'Armedia is a New Zealand marketing media agency focused on strategy, advertising, AI workflows, business intelligence, digital media, and campaign reporting.',
       },
@@ -121,13 +121,17 @@ export default function RootLayout({
         '@id': `${siteUrl}/#localbusiness`,
         name: 'Armedia',
         url: siteUrl,
+        image: `${siteUrl}/opengraph-image`,
         logo: `${siteUrl}/logo.png`,
         email: contactEmail,
-        ...(contactPhone ? { telephone: contactPhone } : {}),
+        telephone: contactPhone,
+        parentOrganization: { '@id': `${siteUrl}/#organization` },
         address: {
           '@type': 'PostalAddress',
+          streetAddress: `${businessAddress.streetAddress}, ${businessAddress.addressLocality}`,
           addressLocality: 'Auckland',
-          addressCountry: 'NZ',
+          addressRegion: businessAddress.addressRegion,
+          addressCountry: businessAddress.addressCountry,
         },
         priceRange: '$$',
         areaServed: marketFocus,
@@ -151,24 +155,17 @@ export default function RootLayout({
         name: 'Armedia',
         url: siteUrl,
         inLanguage: 'en-NZ',
-        publisher: {
-          '@id': `${siteUrl}/#organization`,
-        },
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: `${siteUrl}/search?q={search_term_string}`,
-          'query-input': 'required name=search_term_string',
-        },
+        publisher: { '@id': `${siteUrl}/#organization` },
       },
     ],
   }
 
   return (
-    <html lang="en-NZ" data-scroll-behavior="smooth" data-theme="light" suppressHydrationWarning>
+    <html lang="en-NZ" data-scroll-behavior="smooth" data-theme="dark" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.documentElement.setAttribute('data-theme','light');`,
+            __html: `(function(){try{var t=localStorage.getItem('armedia-theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
           }}
         />
       </head>

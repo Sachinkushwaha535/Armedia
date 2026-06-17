@@ -320,7 +320,7 @@ const supportingServiceCards: ServiceCard[] = [
       'QA and deployment',
     ],
     icon: 'code',
-    href: '/react-development-nz',
+    href: '/contact',
   },
   {
     id: 'api-automation',

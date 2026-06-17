@@ -1,14 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import PageHeader from './motion/PageHeader'
 import PageGridItem from './motion/PageGridItem'
+import PageHeader from './motion/PageHeader'
 import StaggerReveal from './motion/StaggerReveal'
-import { viewportOnce } from '../lib/motion'
-import { useMotionPreset } from '../lib/useMotionPreset'
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
+import { siteUrl } from './siteConfig'
 
 type ServiceLandingPageProps = {
   kicker: string
@@ -18,7 +14,6 @@ type ServiceLandingPageProps = {
   points: string[]
   outcomes: string[]
   benefits: string[]
-  pricing?: string
   timeline: string[]
   technologies: string[]
   portfolio: string[]
@@ -36,14 +31,11 @@ function ServiceLandingPage({
   points,
   outcomes,
   benefits,
-  pricing,
   timeline,
   technologies,
   portfolio,
   faq,
 }: ServiceLandingPageProps) {
-  const { shouldAnimate } = useMotionPreset()
-
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -68,124 +60,117 @@ function ServiceLandingPage({
         },
       })),
     },
-    ...(faq && {
-      mainEntity: faq.map((item) => ({
-        '@type': 'Question',
-        name: item.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: item.answer,
-        },
-      })),
-    }),
+    ...(faq &&
+      faq.length > 0 && {
+        mainEntity: faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }),
   }
+
+  const sections = [
+    { title: 'What is included', items: points },
+    { title: 'Business outcomes', items: outcomes },
+    { title: 'Benefits', items: benefits },
+    { title: 'Timeline', items: timeline },
+    { title: 'Technologies', items: technologies },
+    { title: 'Portfolio fit', items: portfolio },
+  ]
 
   let cardIndex = 0
 
   return (
-    <section className="page-shell section page-landing-animated" aria-labelledby="service-landing-title">
+    <section
+      className="page-shell section page-shell-animated page-service-landing-scroll"
+      aria-labelledby="service-landing-title"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
-      <PageHeader
-        kicker={kicker}
-        title={title}
-        description={description}
-        titleId="service-landing-title"
-        actions={
-          <>
-            <Link className="button button-primary" href="/start-project">Start a project</Link>
-            <Link className="button button-secondary" href="/services">View all services</Link>
-          </>
-        }
-      />
 
-      {shouldAnimate ? (
-        <motion.div
-          className="page-landing-accent"
-          aria-hidden="true"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={viewportOnce}
-          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+      <div className="service-landing-scroll-bg" aria-hidden="true" />
+
+      <div className="service-landing-header-wrap am-container">
+        <PageHeader
+          kicker={kicker}
+          title={title}
+          description={description}
+          titleId="service-landing-title"
+          withScrollProgress
+          actions={
+            <>
+              <Link className="btn-primary" href="/contact">
+                Book a growth consultation
+                <span className="btn-arrow" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+              <Link className="btn-ghost" href="/services">
+                View all services
+              </Link>
+            </>
+          }
         />
-      ) : null}
+      </div>
 
-      <StaggerReveal className="studio-grid" stagger={0.07}>
-        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
-          <h2>What is included</h2>
-          <ul>
-            {points.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-        </PageGridItem>
+      <div className="am-container service-landing-layout">
+        <StaggerReveal className="service-landing-grid" stagger={0.07}>
+          {sections.map((section) => (
+            <PageGridItem
+              key={section.title}
+              className="service-landing-card"
+              index={cardIndex++}
+              variant="blur"
+            >
+              <p className="eyebrow">{section.title}</p>
+              <ul>
+                {section.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </PageGridItem>
+          ))}
 
-        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
-          <h2>Business outcomes</h2>
-          <ul>
-            {outcomes.map((outcome) => (
-              <li key={outcome}>{outcome}</li>
-            ))}
-          </ul>
-        </PageGridItem>
+          {faq && faq.length > 0 ? (
+            <PageGridItem
+              className="service-landing-card service-landing-card--faq"
+              index={cardIndex}
+              variant="blur"
+            >
+              <p className="eyebrow">FAQ</p>
+              {faq.map((item) => (
+                <div key={item.question} className="service-landing-faq-item">
+                  <h3>{item.question}</h3>
+                  <p>{item.answer}</p>
+                </div>
+              ))}
+            </PageGridItem>
+          ) : null}
+        </StaggerReveal>
 
-        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
-          <h2>Benefits</h2>
-          <ul>
-            {benefits.map((benefit) => (
-              <li key={benefit}>{benefit}</li>
-            ))}
-          </ul>
-        </PageGridItem>
-
-        {pricing ? (
-          <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
-            <h2>Pricing</h2>
-            <p>{pricing}</p>
-          </PageGridItem>
-        ) : null}
-
-        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
-          <h2>Timeline</h2>
-          <ul>
-            {timeline.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </PageGridItem>
-
-        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
-          <h2>Technologies</h2>
-          <ul>
-            {technologies.map((technology) => (
-              <li key={technology}>{technology}</li>
-            ))}
-          </ul>
-        </PageGridItem>
-
-        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
-          <h2>Portfolio fit</h2>
-          <ul>
-            {portfolio.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </PageGridItem>
-
-        {faq && faq.length > 0 ? (
-          <PageGridItem className="studio-card" index={cardIndex} variant="blur">
-            <h2>FAQ</h2>
-            {faq.map((item) => (
-              <div key={item.question}>
-                <h3>{item.question}</h3>
-                <p>{item.answer}</p>
-              </div>
-            ))}
-          </PageGridItem>
-        ) : null}
-      </StaggerReveal>
+        <aside className="service-landing-cta">
+          <p className="eyebrow">Next step</p>
+          <h2>Ready to shape this for your brand?</h2>
+          <p>
+            Share your goals, audience, and timeline — we will recommend the most practical mix of
+            strategy, media, creative, and delivery.
+          </p>
+          <div className="hero-actions">
+            <Link className="btn-primary" href="/contact">
+              Book a consultation
+              <span className="btn-arrow" aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </div>
+        </aside>
+      </div>
     </section>
   )
 }

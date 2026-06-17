@@ -8,16 +8,13 @@ function HomeSearchTopics() {
       aria-labelledby="home-topics-heading"
     >
       <div className="am-container">
-        <p className="am-home-seo-kicker">New Zealand marketing media agency</p>
+        <p className="am-home-seo-kicker">Explore Armedia</p>
         <h2 id="home-topics-heading" className="am-home-seo-title">
-          Strategy, advertising, AI, BI, SEO, web, and media planning in Auckland &amp; across NZ
+          Popular services and resources
         </h2>
         <p className="am-home-seo-lead">
-          Armedia is a marketing media agency based in Auckland, supporting growth-focused brands
-          across New Zealand with integrated strategy, performance advertising, Google Ads, Meta ads,
-          SEO, digital media, OOH, offline marketing, AI workflows, BI reporting, web design, and
-          campaign analytics — so every channel works toward clearer leads, stronger recall, and
-          measurable growth.
+          Browse the areas clients ask about most — from strategy and paid media to AI workflows,
+          reporting, SEO, and campaign planning resources.
         </p>
         <ul className="am-home-seo-tags">
           {homeSearchTopics.map((topic) => (

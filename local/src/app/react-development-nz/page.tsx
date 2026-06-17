@@ -6,8 +6,9 @@ import ServiceLandingPage from '../../components/ServiceLandingPage'
 export const metadata: Metadata = {
   title: 'React Developers NZ | React Development by Armedia',
   description:
-    'React Developers NZ service for fast websites, web apps, integrations, maintainable components, pricing, timeline, technologies, portfolio fit, and FAQ.',
+    'React and TypeScript development for New Zealand teams that need fast, maintainable websites, web apps, and integrations.',
   alternates: { canonical: '/react-development-nz' },
+  robots: { index: false, follow: true },
   openGraph: {
     title: 'React Developers NZ | React Development by Armedia',
     description:
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="site-shell armedia-site">
+    <div className="site-shell page-service-landing armedia-site">
       <Header />
       <main id="main-content">
         <ServiceLandingPage
@@ -52,7 +53,6 @@ export default function Page() {
             'Cleaner API integration patterns',
             'Production-ready structure for ongoing maintenance',
           ]}
-          // pricing="React development projects usually start from NZD 4,000. Smaller component builds and integration fixes can be scoped separately."
           timeline={[
             'Technical review and scope: 2-4 days',
             'Component architecture: 3-6 days',
@@ -73,18 +73,18 @@ export default function Page() {
             'CRM-connected lead forms',
             'Approved live links can be attached after client permission',
           ]}
-          // faq={[
-          //   {
-          //     question: 'Do you work on existing React projects?',
-          //     answer:
-          //       'Yes. Armedia can improve existing React codebases, add features, clean up components, or connect APIs.',
-          //   },
-          //   {
-          //     question: 'Is React right for a marketing website?',
-          //     answer:
-          //       'React is useful when the site needs reusable sections, interactive flows, integrations, or a scalable Next.js foundation.',
-          //   },
-          // ]}
+          faq={[
+            {
+              question: 'Do you work on existing React projects?',
+              answer:
+                'Yes. Armedia can improve existing React codebases, add features, clean up components, or connect APIs.',
+            },
+            {
+              question: 'Is React right for a marketing website?',
+              answer:
+                'React is useful when the site needs reusable sections, interactive flows, integrations, or a scalable Next.js foundation.',
+            },
+          ]}
         />
       </main>
       <Footer />
