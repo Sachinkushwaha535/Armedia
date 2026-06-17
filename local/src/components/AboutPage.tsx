@@ -1,5 +1,12 @@
+'use client'
+
 import Link from 'next/link'
 import PageShell from './PageShell'
+import PageGridItem from './motion/PageGridItem'
+import PageSectionHeading from './motion/PageSectionHeading'
+import ScrollReveal from './motion/ScrollReveal'
+import StaggerReveal from './motion/StaggerReveal'
+import { blurInSoftVariants, fadeLeftVariants, softTransition } from '../lib/motion'
 
 const agencyPillars = [
   {
@@ -92,7 +99,7 @@ function AboutPage() {
     >
       <section className="about-premium-layout">
         <div className="about-premium-content">
-          <div className="about-intro-card">
+          <ScrollReveal className="about-intro-card" variants={blurInSoftVariants} transition={softTransition}>
             <p className="eyebrow">Agency Positioning</p>
             <div className="about-profile-row">
               <div className="about-profile-photo" aria-label="Armedia agency mark">
@@ -105,86 +112,91 @@ function AboutPage() {
                   creatives. We help plan the right campaign system, choose the right media,
                   create clearer messages, connect reporting, and improve execution over time.
                 </p>
-                <div className="about-tech-grid">
-                  <span>AI</span>
-                  <span>BI</span>
-                  <span>Advertising</span>
-                  <span>OOH</span>
-                  <span>Offline</span>
-                  <span>Digital</span>
-                </div>
+                <StaggerReveal className="about-tech-grid" stagger={0.04}>
+                  {['AI', 'BI', 'Advertising', 'OOH', 'Offline', 'Digital'].map((tag, index) => (
+                    <PageGridItem key={tag} as="span" index={index} variant="scale" hoverLift={false}>
+                      {tag}
+                    </PageGridItem>
+                  ))}
+                </StaggerReveal>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          <div className="about-feature-card">
+          <ScrollReveal className="about-feature-card" variants={fadeLeftVariants} transition={softTransition}>
             <p className="eyebrow">What We Believe</p>
             <h3>Good media work starts with clarity, then becomes measurable.</h3>
-            <div className="about-feature-list">
+            <StaggerReveal className="about-feature-list" stagger={0.06}>
               {agencyPillars.map((item, index) => (
-                <div className="about-feature-row" key={item.title}>
+                <PageGridItem
+                  key={item.title}
+                  as="div"
+                  className="about-feature-row"
+                  index={index}
+                  variant="blur"
+                  hoverLift={false}
+                >
                   <div>
                     <strong>{item.title}</strong>
                     <p>{item.body}</p>
                   </div>
                   <span>{String(index + 1).padStart(2, '0')}</span>
-                </div>
+                </PageGridItem>
               ))}
-            </div>
-          </div>
+            </StaggerReveal>
+          </ScrollReveal>
 
-          <div className="about-stats-grid">
-            <div className="about-stat-card">
-              <strong>18</strong>
-              <span>Service capabilities</span>
-            </div>
-            <div className="about-stat-card">
-              <strong>6</strong>
-              <span>Core growth channels</span>
-            </div>
-            <div className="about-stat-card">
-              <strong>AI</strong>
-              <span>Workflow-ready thinking</span>
-            </div>
-            <div className="about-stat-card">
-              <strong>BI</strong>
-              <span>Reporting-led decisions</span>
-            </div>
-          </div>
+          <StaggerReveal className="about-stats-grid" stagger={0.07}>
+            {[
+              { value: '18', label: 'Service capabilities' },
+              { value: '6', label: 'Core growth channels' },
+              { value: 'AI', label: 'Workflow-ready thinking' },
+              { value: 'BI', label: 'Reporting-led decisions' },
+            ].map((stat, index) => (
+              <PageGridItem key={stat.label} className="about-stat-card" index={index} variant="scale">
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </PageGridItem>
+            ))}
+          </StaggerReveal>
         </div>
 
-        <div className="about-premium-side">
+        <ScrollReveal as="div" className="about-premium-side" delay={0.1} variants={fadeLeftVariants}>
           <div className="about-feature-card">
             <p className="eyebrow">Capabilities</p>
             <h3>Built for brands that need planning, execution, and measurement.</h3>
-            <div className="about-feature-list">
+            <StaggerReveal className="about-feature-list" stagger={0.06}>
               {capabilities.map((item, index) => (
-                <div className="about-feature-row" key={item.title}>
+                <PageGridItem
+                  key={item.title}
+                  as="div"
+                  className="about-feature-row"
+                  index={index}
+                  variant="blur"
+                  hoverLift={false}
+                >
                   <div>
                     <strong>{item.title}</strong>
                     <p>{item.body}</p>
                   </div>
                   <span>{String(index + 1).padStart(2, '0')}</span>
-                </div>
+                </PageGridItem>
               ))}
-            </div>
+            </StaggerReveal>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       <section className="about-section-stack">
-        <div className="section-heading">
-          <p className="eyebrow">Team Model</p>
-          <h2>Senior roles around strategy, creative, and intelligence.</h2>
-          <p>
-            The team structure reflects the core roles clients engage for campaign planning,
-            creative execution, and performance analysis.
-          </p>
-        </div>
+        <PageSectionHeading
+          kicker="Team Model"
+          title="Senior roles around strategy, creative, and intelligence."
+          description="The team structure reflects the core roles clients engage for campaign planning, creative execution, and performance analysis."
+        />
 
-        <div className="team-grid">
-          {team.map((member) => (
-            <article className="team-card" key={member.name}>
+        <StaggerReveal className="team-grid" stagger={0.09}>
+          {team.map((member, index) => (
+            <PageGridItem key={member.name} className="team-card" index={index} variant="blur">
               <div className={`team-avatar ${member.avatarClass}`} aria-label={`${member.name} profile mark`}>
                 {member.initials}
               </div>
@@ -195,29 +207,26 @@ function AboutPage() {
                   <span className="team-skill" key={skill}>{skill}</span>
                 ))}
               </div>
-            </article>
+            </PageGridItem>
           ))}
-        </div>
+        </StaggerReveal>
       </section>
 
       <section className="about-section-stack">
-        <div className="section-heading">
-          <p className="eyebrow">Proof System</p>
-          <h2>Professional trust areas focused on evidence.</h2>
-          <p>
-            Strong agency positioning depends on evidence. These sections focus on campaign
-            examples, verification standards, performance snapshots, and practical reporting.
-          </p>
-        </div>
+        <PageSectionHeading
+          kicker="Proof System"
+          title="Professional trust areas focused on evidence."
+          description="Strong agency positioning depends on evidence. These sections focus on campaign examples, verification standards, performance snapshots, and practical reporting."
+        />
 
-        <div className="studio-grid">
-          {proofAreas.map((signal) => (
-            <article className="studio-card" key={signal.title}>
+        <StaggerReveal className="studio-grid">
+          {proofAreas.map((signal, index) => (
+            <PageGridItem key={signal.title} className="studio-card" index={index}>
               <h3>{signal.title}</h3>
               <p>{signal.body}</p>
-            </article>
+            </PageGridItem>
           ))}
-        </div>
+        </StaggerReveal>
       </section>
     </PageShell>
   )

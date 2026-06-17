@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import BlogArticleShell, { ArticleSection } from '../../../components/motion/BlogArticleShell'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -37,26 +38,28 @@ export default function Page() {
   }
 
   return (
-    <div className="site-shell">
+    <div className="site-shell armedia-site">
       <Header />
       <main id="main-content">
-        <article className="page-shell section legal-content">
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-          <p className="eyebrow">Article</p>
-          <h1 className="page-title">How Auckland businesses can improve website trust in 2026</h1>
-          <section>
+        <BlogArticleShell
+          title="How Auckland businesses can improve website trust in 2026"
+          schemaScript={
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+          }
+        >
+          <ArticleSection index={0}>
             <h2>Start with clarity</h2>
             <p>Visitors should understand who you help, what you offer, where you operate, and what to do next within the first screen.</p>
-          </section>
-          <section>
+          </ArticleSection>
+          <ArticleSection index={1}>
             <h2>Add proof carefully</h2>
             <p>Use real client names, case studies, screenshots, project links, and metrics only when they are approved and accurate.</p>
-          </section>
-          <section>
+          </ArticleSection>
+          <ArticleSection index={2}>
             <h2>Make contact feel safe</h2>
             <p>Email, location, business hours, response expectations, and a clear project process reduce uncertainty before a visitor sends an inquiry.</p>
-          </section>
-        </article>
+          </ArticleSection>
+        </BlogArticleShell>
       </main>
       <Footer />
     </div>

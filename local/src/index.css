@@ -6,12 +6,18 @@
   line-height: 1.6;
   font-weight: 400;
   color-scheme: dark;
-  color: #e8e8f0;
-  background-color: #0a0a0f;
+  color: #f5f2eb;
+  background-color: #111114;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+  color: #1c1a22;
+  background-color: #f4f1ea;
 }
 
 /* CRITICAL: kill double scrollbar */
@@ -25,7 +31,8 @@ html { scroll-behavior: smooth; }
 
 body {
   min-height: 100vh;
-  background: #0a0a0f;
+  background: var(--am-bg, #111114);
+  color: var(--am-text, #f5f2eb);
 }
 
 *, *::before, *::after { box-sizing: border-box; }

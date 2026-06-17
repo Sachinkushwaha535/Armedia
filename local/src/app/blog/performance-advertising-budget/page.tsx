@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import BlogArticleShell, { ArticleSection } from '../../../components/motion/BlogArticleShell'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -38,30 +38,33 @@ export default function Page() {
   }
 
   return (
-    <div className="site-shell">
+    <div className="site-shell armedia-site">
       <Header />
       <main id="main-content">
-        <article className="page-shell section legal-content">
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-          <p className="eyebrow">Advertising</p>
-          <h1 className="page-title">Performance Advertising Without Wasting Budget</h1>
-          <p>
-            Ad budget gets wasted when campaigns launch without a clear offer, audience, landing
-            page, conversion event, and review rhythm. Performance marketing works better when the
-            campaign system is planned before spend begins.
-          </p>
-          <h2>Test creative with purpose</h2>
-          <p>
-            Test different angles, not just different colours. Compare pain points, benefits,
-            proof, offers, and calls to action so the data teaches you what the audience values.
-          </p>
-          <h2>Review weekly</h2>
-          <p>
-            Look at cost per lead, quality of lead, conversion rate, follow-up speed, and landing
-            page behaviour. The goal is not only cheaper clicks. The goal is better business results.
-          </p>
-          <Link className="text-link" href="/blog">Back to insights</Link>
-        </article>
+        <BlogArticleShell
+          kicker="Advertising"
+          title="Performance Advertising Without Wasting Budget"
+          intro="Ad budget gets wasted when campaigns launch without a clear offer, audience, landing page, conversion event, and review rhythm. Performance marketing works better when the campaign system is planned before spend begins."
+          showBackLink
+          schemaScript={
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+          }
+        >
+          <ArticleSection index={0}>
+            <h2>Test creative with purpose</h2>
+            <p>
+              Test different angles, not just different colours. Compare pain points, benefits,
+              proof, offers, and calls to action so the data teaches you what the audience values.
+            </p>
+          </ArticleSection>
+          <ArticleSection index={1}>
+            <h2>Review weekly</h2>
+            <p>
+              Look at cost per lead, quality of lead, conversion rate, follow-up speed, and landing
+              page behaviour. The goal is not only cheaper clicks. The goal is better business results.
+            </p>
+          </ArticleSection>
+        </BlogArticleShell>
       </main>
       <Footer />
     </div>

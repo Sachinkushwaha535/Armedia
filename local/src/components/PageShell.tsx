@@ -1,22 +1,27 @@
+'use client'
+
 import type { ReactNode } from 'react'
+import PageHeader from './motion/PageHeader'
 
 type PageShellProps = {
   kicker: string
   title: string
   description: string
+  titleId?: string
   actions?: ReactNode
   children: ReactNode
 }
 
-function PageShell({ kicker, title, description, actions, children }: PageShellProps) {
+function PageShell({ kicker, title, description, titleId, actions, children }: PageShellProps) {
   return (
-    <section className="page-shell section" aria-labelledby="page-title">
-      <div className="section-heading">
-        <p className="eyebrow">{kicker}</p>
-        <h1 className="page-title" id="page-title">{title}</h1>
-        <p>{description}</p>
-        {actions ? <div className="hero-actions">{actions}</div> : null}
-      </div>
+    <section className="page-shell section page-shell-animated" aria-labelledby={titleId ?? 'page-title'}>
+      <PageHeader
+        kicker={kicker}
+        title={title}
+        description={description}
+        titleId={titleId ?? 'page-title'}
+        actions={actions}
+      />
       {children}
     </section>
   )

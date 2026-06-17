@@ -102,12 +102,14 @@ export const testimonials = [
       'Verified client reviews are shown only after client approval or after connecting a public review source.',
     name: 'Armedia review policy',
     role: 'Verified-review policy',
+    company: 'Armedia',
   },
   {
     quote:
       'Google reviews can be connected here once the live Business Profile review feed is available.',
     name: 'Google reviews',
     role: 'Ready for verified reviews',
+    company: 'Armedia',
   },
 ]
 

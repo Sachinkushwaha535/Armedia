@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import BlogArticleShell, { ArticleSection } from '../../../components/motion/BlogArticleShell'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -38,31 +38,34 @@ export default function Page() {
   }
 
   return (
-    <div className="site-shell">
+    <div className="site-shell armedia-site">
       <Header />
       <main id="main-content">
-        <article className="page-shell section legal-content">
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-          <p className="eyebrow">Business Intelligence</p>
-          <h1 className="page-title">Business Intelligence for Campaign Decisions</h1>
-          <p>
-            Campaign reporting should not only show numbers. It should help teams decide what to
-            stop, what to improve, and what to scale. Business intelligence turns scattered data
-            into clearer action.
-          </p>
-          <h2>What to track</h2>
-          <p>
-            Useful dashboards combine ad spend, reach, leads, lead quality, conversion rate,
-            customer segments, sales follow-up, and campaign source. This creates a fuller picture
-            than ad platform reports alone.
-          </p>
-          <h2>What to decide</h2>
-          <p>
-            Good BI helps answer practical questions: which audience responds, which creative is
-            weak, which channel creates better leads, and which campaign deserves more budget.
-          </p>
-          <Link className="text-link" href="/blog">Back to insights</Link>
-        </article>
+        <BlogArticleShell
+          kicker="Business Intelligence"
+          title="Business Intelligence for Campaign Decisions"
+          intro="Campaign reporting should not only show numbers. It should help teams decide what to stop, what to improve, and what to scale. Business intelligence turns scattered data into clearer action."
+          showBackLink
+          schemaScript={
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+          }
+        >
+          <ArticleSection index={0}>
+            <h2>What to track</h2>
+            <p>
+              Useful dashboards combine ad spend, reach, leads, lead quality, conversion rate,
+              customer segments, sales follow-up, and campaign source. This creates a fuller picture
+              than ad platform reports alone.
+            </p>
+          </ArticleSection>
+          <ArticleSection index={1}>
+            <h2>What to decide</h2>
+            <p>
+              Good BI helps answer practical questions: which audience responds, which creative is
+              weak, which channel creates better leads, and which campaign deserves more budget.
+            </p>
+          </ArticleSection>
+        </BlogArticleShell>
       </main>
       <Footer />
     </div>

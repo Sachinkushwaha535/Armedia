@@ -1,106 +1,110 @@
 import Link from 'next/link'
 import ArmediaLogo from './ArmediaLogo'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaHome } from 'react-icons/fa'
+import { contactEmail } from './siteConfig'
 
-const footerGroups = [
-  {
-    title: 'Studio',
-    links: [
-      { label: 'Home', href: '/' },
-      { label: 'Contact', href: '/contact' },
-    ],
-  },
-  {
-    title: 'Services',
-    links: [
-      { label: 'AI Marketing Studio', href: '/services#ai-marketing-studio' },
-      { label: 'Business Intelligence', href: '/services#business-intelligence' },
-      { label: 'Advertising', href: '/services#advertising' },
-      { label: 'SEO Auckland', href: '/seo-agency-auckland' },
-    ],
-  },
-  {
-    title: 'Media',
-    links: [
-      { label: 'OOH media', href: '/services#ooh-offline-media' },
-      { label: 'Media buying', href: '/services#media-buying-planning' },
-      { label: 'Web design Auckland', href: '/web-design-auckland' },
-      { label: 'E-commerce Auckland', href: '/ecommerce-website-auckland' },
-    ],
-  },
-  {
-    title: 'Start',
-    links: [
-      { label: 'Start a project', href: '/start-project' },
-      { label: 'React development NZ', href: '/react-development-nz' },
-      { label: 'Next.js agency NZ', href: '/nextjs-agency-new-zealand' },
-      { label: 'Privacy', href: '/privacy' },
-      { label: 'Terms', href: '/terms' },
-    ],
-  },
-  {
-    title: 'Contact',
-    links: [
-      { label: (
-        <>
-          <FaEnvelope /> contact@armedia.co.nz
-        </>
-      ),
-      href: 'mailto:contact@armedia.co.nz',
-     },
-      { label: (
-        <>
-          <FaPhone /> +64 0223040716
-        </>
-      ),
-      href: 'tel:+64 0223040716' },
-      { label: (
-        <>
-          <FaMapMarkerAlt /> 7 Nordon Place Remuera, New Zealand
-        </>
-      ),
-      href: '/contact' },
-    ],
-  },
+const serviceLinks = [
+  { label: 'AI Marketing Studio', href: '/services#ai-marketing-studio' },
+  { label: 'Business Intelligence', href: '/services#business-intelligence' },
+  { label: 'Advertising', href: '/services#advertising' },
+  { label: 'Digital Media', href: '/services#digital-media' },
+  { label: 'OOH & Offline', href: '/services#ooh-offline-media' },
+  { label: 'Strategy & Growth', href: '/services#brand-growth-strategy' },
+  { label: 'SEO Auckland', href: '/seo-agency-auckland' },
+  { label: 'Web Design Auckland', href: '/web-design-auckland' },
+]
+
+const locationLinks = [
+  { label: 'Auckland', href: '/contact' },
+  { label: 'Wellington', href: '/contact' },
+  { label: 'Christchurch', href: '/contact' },
+  { label: 'New Zealand', href: '/contact' },
+  { label: 'Australia', href: '/contact' },
+]
+
+const industryLinks = [
+  { label: 'Professional services', href: '/services' },
+  { label: 'E-commerce', href: '/ecommerce-website-auckland' },
+  { label: 'Retail & local', href: '/services' },
+  { label: 'SaaS & tech', href: '/react-development-nz' },
+  { label: 'Healthcare', href: '/services' },
+  { label: 'Construction', href: '/services' },
+]
+
+const socialLinks = [
+  { label: 'LinkedIn', href: 'https://linkedin.com' },
+  { label: 'Instagram', href: 'https://instagram.com' },
+  { label: 'Facebook', href: 'https://facebook.com' },
 ]
 
 function Footer() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer twg-footer">
       <div className="footer-inner">
-        <div className="footer-brand-panel">
-          <Link className="footer-logo" href="/" aria-label="Armedia home">
+        <div className="twg-footer-brand">
+          <Link className="footer-logo twg-footer-logo twg-footer-logo--center" href="/" aria-label="Armedia home">
             <ArmediaLogo className="footer-logo-svg" title="Armedia logo" />
           </Link>
         </div>
 
-        {/* 5-column grid: sabhi ek row mein */}
-        <div className="footer-top">
-          {footerGroups.map((group) => (
-            <div className="footer-col" key={group.title}>
-              <span className="footer-col-title">{group.title}</span>
-              <div className="footer-links">
-                {group.links.map((link) =>
-                  link.href.startsWith('mailto:') || link.href.startsWith('tel:') ? (
-                    <a href={link.href} key={link.href}>
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link href={link.href} key={link.href}>
-                      {link.label}
-                    </Link>
-                  )
-                )}
-              </div>
+        <div className="twg-footer-top">
+          <div className="twg-footer-col twg-footer-col--center">
+            <h3>Start a conversation</h3>
+            <a className="twg-footer-contact" href="tel:+640223040716">+64 022 304 0716</a>
+            <a className="twg-footer-contact" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+            <div className="twg-footer-socials">
+              {socialLinks.map((link) => (
+                <a key={link.label} className="twg-social-pill" href={link.href} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div className="twg-footer-col twg-footer-col--center">
+            <h3>Services</h3>
+            <div className="footer-links">
+              {serviceLinks.map((link) => (
+                <Link key={link.href} href={link.href}>{link.label}</Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="twg-footer-col twg-footer-col--center">
+            <h3>Locations</h3>
+            <div className="footer-links">
+              {locationLinks.map((link) => (
+                <Link key={link.label} href={link.href}>{link.label}</Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="twg-footer-col twg-footer-col--center">
+            <h3>Industries</h3>
+            <div className="footer-links">
+              {industryLinks.map((link) => (
+                <Link key={link.label} href={link.href}>{link.label}</Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="twg-footer-col twg-footer-col--center twg-footer-address">
+            <h3>Address</h3>
+            <p>
+              <strong>New Zealand</strong><br />
+              7 Nordon Place, Remuera<br />
+              Auckland, New Zealand
+            </p>
+            <div className="twg-footer-legal">
+              <Link href="/start-project">Start a project</Link>
+              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/terms">Terms of Service</Link>
+            </div>
+          </div>
         </div>
 
-        <div className="footer-bottom">
-          <span>
-            &copy; 2026 Armedia. Marketing media agency for AI, BI, advertising, digital media, OOH,
-            offline marketing, media buying, content, PR, events, CRM, and growth strategy.
-          </span>
+        <div className="footer-bottom twg-footer-bottom">
+          <span>&copy; 2026 Armedia. Strategy, media, AI, BI, advertising, and growth for New Zealand brands.</span>
         </div>
       </div>
     </footer>

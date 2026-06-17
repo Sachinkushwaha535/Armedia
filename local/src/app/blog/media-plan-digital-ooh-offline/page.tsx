@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import BlogArticleShell, { ArticleSection } from '../../../components/motion/BlogArticleShell'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -38,31 +38,34 @@ export default function Page() {
   }
 
   return (
-    <div className="site-shell">
+    <div className="site-shell armedia-site">
       <Header />
       <main id="main-content">
-        <article className="page-shell section legal-content">
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-          <p className="eyebrow">Media Planning</p>
-          <h1 className="page-title">How to Build a Media Plan Across Digital, OOH, and Offline Channels</h1>
-          <p>
-            A strong media plan starts with the business goal, not the channel. Before choosing
-            Meta Ads, Google Ads, billboards, print, events, or offline activations, define the
-            audience, offer, budget, geography, timeline, and measurement plan.
-          </p>
-          <h2>Start with the role of each channel</h2>
-          <p>
-            Digital media is strong for targeting, traffic, retargeting, and fast testing. OOH
-            media supports visibility and recall. Offline marketing helps local awareness, trust,
-            and physical presence. The best plan gives every channel a clear job.
-          </p>
-          <h2>Plan measurement early</h2>
-          <p>
-            Use landing pages, QR codes, campaign URLs, call tracking, CRM tags, and weekly reports
-            so campaign performance is easier to review.
-          </p>
-          <Link className="text-link" href="/blog">Back to insights</Link>
-        </article>
+        <BlogArticleShell
+          kicker="Media Planning"
+          title="How to Build a Media Plan Across Digital, OOH, and Offline Channels"
+          intro="A strong media plan starts with the business goal, not the channel. Before choosing Meta Ads, Google Ads, billboards, print, events, or offline activations, define the audience, offer, budget, geography, timeline, and measurement plan."
+          showBackLink
+          schemaScript={
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+          }
+        >
+          <ArticleSection index={0}>
+            <h2>Start with the role of each channel</h2>
+            <p>
+              Digital media is strong for targeting, traffic, retargeting, and fast testing. OOH
+              media supports visibility and recall. Offline marketing helps local awareness, trust,
+              and physical presence. The best plan gives every channel a clear job.
+            </p>
+          </ArticleSection>
+          <ArticleSection index={1}>
+            <h2>Plan measurement early</h2>
+            <p>
+              Use landing pages, QR codes, campaign URLs, call tracking, CRM tags, and weekly reports
+              so campaign performance is easier to review.
+            </p>
+          </ArticleSection>
+        </BlogArticleShell>
       </main>
       <Footer />
     </div>

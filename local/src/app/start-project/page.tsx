@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="site-shell">
+    <div className="site-shell page-start-project armedia-site">
       <Header />
       <main id="main-content">
         <StartProjectPage />

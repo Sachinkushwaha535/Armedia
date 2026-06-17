@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
+import BlogPage from '../../components/BlogPage'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -50,15 +50,6 @@ const posts = [
   },
 ]
 
-const categories = [
-  'Media Planning',
-  'AI Workflows',
-  'Business Intelligence',
-  'Advertising',
-  'OOH + Offline',
-  'Conversion',
-]
-
 export const metadata: Metadata = {
   title: 'Blog | Strategy, Media, AI & Campaign Insights',
   description:
@@ -103,40 +94,14 @@ export default function Page() {
   }
 
   return (
-    <div className="site-shell">
+    <div className="site-shell page-blog armedia-site">
       <Header />
       <main id="main-content">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
         />
-        <section className="page-shell section">
-          <div className="section-heading">
-            <p className="eyebrow">Insights</p>
-            <h1 className="page-title">Practical thinking for smarter campaigns.</h1>
-            <p>
-              Clear insights on media planning, AI workflows, business intelligence,
-              advertising, OOH, offline campaigns, and conversion strategy.
-            </p>
-          </div>
-
-          <div className="about-tech-grid" aria-label="Blog categories">
-            {categories.map((category) => (
-              <span key={category}>{category}</span>
-            ))}
-          </div>
-
-          <div className="studio-grid">
-            {posts.map((post) => (
-              <article className="studio-card" key={post.title}>
-                <p className="eyebrow">{post.category}</p>
-                <h2>{post.title}</h2>
-                <p>{post.description}</p>
-                <Link className="text-link" href={post.href}>Read insight</Link>
-              </article>
-            ))}
-          </div>
-        </section>
+        <BlogPage />
       </main>
       <Footer />
     </div>

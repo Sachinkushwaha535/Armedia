@@ -1,8 +1,23 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import { Syne, Plus_Jakarta_Sans } from 'next/font/google'
+import { ThemeProvider } from '../components/ThemeProvider'
 import { contactEmail, contactPhone, marketFocus, siteUrl } from '../components/siteConfig'
 import '../index.css'
 import '../App.css'
+import '../styles/armedia-system.css'
+
+const fontDisplay = Syne({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const fontBody = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -149,8 +164,15 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en-NZ" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body>
+    <html lang="en-NZ" data-scroll-behavior="smooth" data-theme="light" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.setAttribute('data-theme','light');`,
+          }}
+        />
+      </head>
+      <body className={`${fontDisplay.variable} ${fontBody.variable}`}>
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
@@ -158,7 +180,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   )

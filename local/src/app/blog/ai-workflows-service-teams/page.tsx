@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import BlogArticleShell, { ArticleSection } from '../../../components/motion/BlogArticleShell'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -37,26 +38,28 @@ export default function Page() {
   }
 
   return (
-    <div className="site-shell">
+    <div className="site-shell armedia-site">
       <Header />
       <main id="main-content">
-        <article className="page-shell section legal-content">
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-          <p className="eyebrow">Article</p>
-          <h1 className="page-title">Where AI workflows help small service teams first</h1>
-          <section>
+        <BlogArticleShell
+          title="Where AI workflows help small service teams first"
+          schemaScript={
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+          }
+        >
+          <ArticleSection index={0}>
             <h2>Lead qualification</h2>
             <p>AI can turn messy inquiry details into a structured summary covering goals, budget, timeline, risks, and next steps.</p>
-          </section>
-          <section>
+          </ArticleSection>
+          <ArticleSection index={1}>
             <h2>Internal admin</h2>
             <p>Useful early workflows include email summaries, CRM updates, meeting notes, document drafting, and follow-up reminders.</p>
-          </section>
-          <section>
+          </ArticleSection>
+          <ArticleSection index={2}>
             <h2>Reporting</h2>
             <p>AI is most useful when paired with clean data fields, analytics events, and clear human review before anything reaches customers.</p>
-          </section>
-        </article>
+          </ArticleSection>
+        </BlogArticleShell>
       </main>
       <Footer />
     </div>

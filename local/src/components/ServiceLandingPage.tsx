@@ -1,4 +1,12 @@
+'use client'
+
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+import PageHeader from './motion/PageHeader'
+import PageGridItem from './motion/PageGridItem'
+import StaggerReveal from './motion/StaggerReveal'
+import { viewportOnce } from '../lib/motion'
+import { useMotionPreset } from '../lib/useMotionPreset'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -34,6 +42,8 @@ function ServiceLandingPage({
   portfolio,
   faq,
 }: ServiceLandingPageProps) {
+  const { shouldAnimate } = useMotionPreset()
+
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -70,82 +80,102 @@ function ServiceLandingPage({
     }),
   }
 
+  let cardIndex = 0
+
   return (
-    <section className="page-shell section" aria-labelledby="service-landing-title">
+    <section className="page-shell section page-landing-animated" aria-labelledby="service-landing-title">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
-      <div className="section-heading">
-        <p className="eyebrow">{kicker}</p>
-        <h1 className="page-title" id="service-landing-title">{title}</h1>
-        <p>{description}</p>
-        <div className="hero-actions">
-          <Link className="button button-primary" href="/start-project">Start a project</Link>
-          <Link className="button button-secondary" href="/services">View all services</Link>
-        </div>
-      </div>
+      <PageHeader
+        kicker={kicker}
+        title={title}
+        description={description}
+        titleId="service-landing-title"
+        actions={
+          <>
+            <Link className="button button-primary" href="/start-project">Start a project</Link>
+            <Link className="button button-secondary" href="/services">View all services</Link>
+          </>
+        }
+      />
 
-      <div className="studio-grid">
-        <article className="studio-card">
+      {shouldAnimate ? (
+        <motion.div
+          className="page-landing-accent"
+          aria-hidden="true"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={viewportOnce}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+        />
+      ) : null}
+
+      <StaggerReveal className="studio-grid" stagger={0.07}>
+        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
           <h2>What is included</h2>
           <ul>
             {points.map((point) => (
               <li key={point}>{point}</li>
             ))}
           </ul>
-        </article>
-        <article className="studio-card">
+        </PageGridItem>
+
+        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
           <h2>Business outcomes</h2>
           <ul>
             {outcomes.map((outcome) => (
               <li key={outcome}>{outcome}</li>
             ))}
           </ul>
-        </article>
-        <article className="studio-card">
+        </PageGridItem>
+
+        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
           <h2>Benefits</h2>
           <ul>
             {benefits.map((benefit) => (
               <li key={benefit}>{benefit}</li>
             ))}
           </ul>
-        </article>
+        </PageGridItem>
 
-        {pricing && (
-          <article className="studio-card">
+        {pricing ? (
+          <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
             <h2>Pricing</h2>
             <p>{pricing}</p>
-          </article>
-        )}
+          </PageGridItem>
+        ) : null}
 
-        <article className="studio-card">
+        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
           <h2>Timeline</h2>
           <ul>
             {timeline.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </article>
-        <article className="studio-card">
+        </PageGridItem>
+
+        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
           <h2>Technologies</h2>
           <ul>
             {technologies.map((technology) => (
               <li key={technology}>{technology}</li>
             ))}
           </ul>
-        </article>
-        <article className="studio-card">
+        </PageGridItem>
+
+        <PageGridItem className="studio-card" index={cardIndex++} variant="blur">
           <h2>Portfolio fit</h2>
           <ul>
             {portfolio.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </article>
+        </PageGridItem>
 
-        {faq && faq.length > 0 && (
-          <article className="studio-card">
+        {faq && faq.length > 0 ? (
+          <PageGridItem className="studio-card" index={cardIndex} variant="blur">
             <h2>FAQ</h2>
             {faq.map((item) => (
               <div key={item.question}>
@@ -153,9 +183,9 @@ function ServiceLandingPage({
                 <p>{item.answer}</p>
               </div>
             ))}
-          </article>
-        )}
-      </div>
+          </PageGridItem>
+        ) : null}
+      </StaggerReveal>
     </section>
   )
 }

@@ -1,4 +1,24 @@
+'use client'
+
 import Link from 'next/link'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+import ServicesPageHero from './services/ServicesPageHero'
+import ServicesSectionHeading from './services/ServicesSectionHeading'
+import ScrollReveal from './motion/ScrollReveal'
+import {
+  defaultTransition,
+  fadeUpVariants,
+  getServiceIconTone,
+  scaleInVariants,
+  serviceCardScrollWithStagger,
+  serviceCardViewport,
+  serviceIconPopVariants,
+  slowTransition,
+  staggerContainer,
+  type ServiceCardSection,
+} from '../lib/motion'
+import { useMotionPreset } from '../lib/useMotionPreset'
 
 type ServiceIconKey = keyof typeof serviceIcons
 
@@ -12,8 +32,6 @@ interface ServiceCard {
 }
 
 const serviceIcons = {
-
-
   web: (
     <svg viewBox="0 0 24 24" role="img" aria-label="Web development icon">
       <path d="M4 5.5h16v10.8H4z" />
@@ -348,125 +366,175 @@ const supportingServiceCards: ServiceCard[] = [
   },
 ]
 
-function ServicesPage() {
+function AnimatedCinematicCard({
+  service,
+  index,
+  section,
+}: {
+  service: ServiceCard
+  index: number
+  section: ServiceCardSection
+}) {
+  const { shouldAnimate, isMobile } = useMotionPreset()
+  const prefersReducedMotion = useReducedMotion()
+  const iconTone = getServiceIconTone(index)
+  const cardVariants = serviceCardScrollWithStagger(isMobile ? 0.04 : 0.065, 0.1)
+
+  if (!shouldAnimate) {
+    return (
+      <article
+        className={`cinematic-service-card services-card-scroll service-card-tone-${iconTone}`}
+        id={service.id}
+      >
+        <span className="card-glow" />
+        <span className="card-line" />
+        <span className="card-shine" />
+        <div
+          className={`service-icon service-icon-${service.icon} service-icon-tone-${iconTone}`}
+          aria-hidden="true"
+        >
+          {serviceIcons[service.icon]}
+        </div>
+        <h3>{service.title}</h3>
+        <p className="service-card-desc">{service.desc}</p>
+        <ul>
+          {service.items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <Link className="text-link" href={service.href}>Discuss this service</Link>
+      </article>
+    )
+  }
+
   return (
-    <section className="services-cinematic" aria-labelledby="services-title">
+    <motion.article
+      className={`cinematic-service-card services-card-scroll service-card-tone-${iconTone} services-card-scroll--${section}`}
+      id={service.id}
+      initial="hidden"
+      whileInView="visible"
+      viewport={serviceCardViewport}
+      variants={cardVariants}
+      transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={
+        prefersReducedMotion
+          ? undefined
+          : { y: -10, transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] } }
+      }
+    >
+      <span className="card-glow" />
+      <span className="card-line" />
+      <span className="card-shine" />
+
+      <motion.div
+        className={`service-icon service-icon-${service.icon} service-icon-tone-${iconTone}`}
+        aria-hidden="true"
+        variants={serviceIconPopVariants}
+        whileHover={prefersReducedMotion ? undefined : { scale: 1.1, rotate: 4 }}
+        transition={{ type: 'spring', stiffness: 380, damping: 20 }}
+      >
+        {serviceIcons[service.icon]}
+      </motion.div>
+
+      <motion.h3 variants={fadeUpVariants} transition={defaultTransition}>
+        {service.title}
+      </motion.h3>
+      <motion.p className="service-card-desc" variants={fadeUpVariants} transition={defaultTransition}>
+        {service.desc}
+      </motion.p>
+
+      <motion.ul variants={staggerContainer(0.04, 0.02)}>
+        {service.items.map((item) => (
+          <motion.li key={item} variants={fadeUpVariants} transition={defaultTransition}>
+            {item}
+          </motion.li>
+        ))}
+      </motion.ul>
+
+      <motion.div variants={fadeUpVariants} transition={defaultTransition}>
+        <Link className="text-link" href={service.href}>
+          Discuss this service
+        </Link>
+      </motion.div>
+    </motion.article>
+  )
+}
+
+function ServicesPage() {
+  const { shouldAnimate } = useMotionPreset()
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end end'],
+  })
+  const scrollBgY = useTransform(scrollYProgress, [0, 1], [0, shouldAnimate ? 120 : 0])
+  const scrollGlowOpacity = useTransform(scrollYProgress, [0, 0.35, 0.7, 1], [0.55, 0.85, 0.7, 0.5])
+
+  return (
+    <section
+      ref={sectionRef}
+      className="services-cinematic page-services-animated"
+      aria-labelledby="services-title"
+    >
+      <motion.div
+        className="services-page-scroll-bg"
+        aria-hidden="true"
+        style={shouldAnimate ? { y: scrollBgY, opacity: scrollGlowOpacity } : undefined}
+      />
+
       <div className="services-cinematic-inner">
-        <div className="services-copy">
-          <p className="services-kicker">Armedia Services</p>
-          <h1 id="services-title">
-            Strategy, media, AI, and campaign systems built for growth
-          </h1>
-          <p>
-            Armedia helps brands plan smarter campaigns with integrated strategy, advertising,
-            digital media, business intelligence, AI workflows, and supporting delivery systems
-            designed to improve visibility, lead quality, and reporting clarity.
-          </p>
+        <ServicesPageHero scrollProgress={scrollYProgress} />
 
-          <div className="hero-actions">
-            <Link className="services-cta" href="/contact">
-              Start your project
-            </Link>
-            <Link className="btn-ghost" href="/contact">
-              Book a consultation
-            </Link>
-          </div>
-        </div>
+        <ServicesSectionHeading
+          variant="core"
+          kicker="Core services"
+          title="Growth, media, and intelligence services"
+          description="These are the main services Armedia should lead with because they align most clearly with the brand promise shown on the homepage."
+        />
 
-        <div className="services-section-head">
-          <p className="section-tag">Core services</p>
-          <h2>Growth, media, and intelligence services</h2>
-          <p>
-            These are the main services Armedia should lead with because they align most clearly
-            with the brand promise shown on the homepage.
-          </p>
-        </div>
-
-        <div className="cinematic-services-grid">
-          {coreServiceCards.map((service) => (
-            <article
-              className="cinematic-service-card reveal-card"
+        <div className="cinematic-services-grid services-grid-core services-grid-scroll">
+          {coreServiceCards.map((service, index) => (
+            <AnimatedCinematicCard
               key={service.title}
-              id={service.id}
-            >
-              <span className="card-glow" />
-              <span className="card-line" />
-              <span className="card-shine" />
-
-              <div
-                className={`service-icon service-icon-${service.icon}`}
-                aria-hidden="true"
-              >
-                {serviceIcons[service.icon]}
-              </div>
-
-              <h3>{service.title}</h3>
-              <p className="service-card-desc">{service.desc}</p>
-
-              <ul>
-                {service.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-
-              <Link className="text-link" href={service.href}>
-                Discuss this service
-              </Link>
-            </article>
+              service={service}
+              index={index}
+              section="core"
+            />
           ))}
         </div>
 
-        <div className="services-section-head" style={{ marginTop: '4rem' }}>
-          <p className="section-tag">Supporting capabilities</p>
-          <h2>Digital delivery and technical support</h2>
-          <p>
-            These services support campaign execution, digital performance, reporting, and internal systems.
-          </p>
-        </div>
+        <ServicesSectionHeading
+          variant="supporting"
+          className="services-section-head services-section-head-spaced"
+          kicker="Supporting capabilities"
+          title="Digital delivery and technical support"
+          description="These services support campaign execution, digital performance, reporting, and internal systems."
+        />
 
-        <div className="cinematic-services-grid">
-          {supportingServiceCards.map((service) => (
-            <article
-              className="cinematic-service-card reveal-card"
+        <div className="cinematic-services-grid services-grid-supporting services-grid-scroll">
+          {supportingServiceCards.map((service, index) => (
+            <AnimatedCinematicCard
               key={service.title}
-              id={service.id}
-            >
-              <span className="card-glow" />
-              <span className="card-line" />
-              <span className="card-shine" />
-
-              <div
-                className={`service-icon service-icon-${service.icon}`}
-                aria-hidden="true"
-              >
-                {serviceIcons[service.icon]}
-              </div>
-
-              <h3>{service.title}</h3>
-              <p className="service-card-desc">{service.desc}</p>
-
-              <ul>
-                {service.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-
-              <Link className="text-link" href={service.href}>
-                View service details
-              </Link>
-            </article>
+              service={service}
+              index={index}
+              section="supporting"
+            />
           ))}
         </div>
 
-        <div className="home-cta-panel" style={{ marginTop: '4rem' }}>
+        <ScrollReveal
+          className="home-cta-panel services-cta-panel-spaced"
+          variants={scaleInVariants}
+          transition={slowTransition}
+        >
           <div>
             <p className="section-tag">Need a clearer recommendation?</p>
-            <h3>Tell us your goal and we’ll recommend the right service mix.</h3>
+            <h3>Tell us your goal and we&apos;ll recommend the right service mix.</h3>
           </div>
           <Link className="services-cta" href="/contact">
             Talk to Armedia
           </Link>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )

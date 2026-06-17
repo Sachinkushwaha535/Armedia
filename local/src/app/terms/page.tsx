@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
-import PageShell from '../../components/PageShell'
+import LegalContentReveal, { LegalSection } from '../../components/motion/LegalContentReveal'
+import LegalPageShell from '../../components/motion/LegalPageShell'
 import { contactEmail } from '../../components/siteConfig'
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Armedia Marketing Media Agency New Zealand',
-  description: 'General website, campaign inquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
+  description:
+    'Terms governing use of the Armedia website, campaign inquiries, and marketing media, advertising, AI, BI, and strategy services in New Zealand.',
   alternates: {
     canonical: '/terms',
   },
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Terms of Service | Armedia',
     description:
-      'General website, campaign inquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
+      'Terms governing use of the Armedia website, campaign inquiries, and marketing media services.',
     url: '/terms',
     type: 'website',
   },
@@ -31,100 +33,105 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="site-shell page-terms">
+    <div className="site-shell page-terms armedia-site">
       <Header />
       <main id="main-content">
-        <PageShell
+        <LegalPageShell
           kicker="Terms"
           title="Terms of Service"
-          description="These terms cover use of the Armedia website, campaign inquiries, and initial discussions for marketing media, advertising, AI, BI, and strategy work."
+          titleId="terms-title"
+          description="These terms govern your use of the Armedia website and initial discussions relating to marketing media, advertising, AI, business intelligence, and growth strategy work."
         >
-          <div className="legal-content">
+          <LegalContentReveal>
+            <LegalSection index={0}>
+              <h2>Agreement overview</h2>
+              <p>
+                By accessing this website or submitting an inquiry, you agree to these Terms of
+                Service. If you do not agree, please do not use the site. A separate written agreement
+                is required before Armedia commences paid campaign or project work.
+              </p>
+            </LegalSection>
 
-            <section>
+            <LegalSection index={1}>
               <h2>Website use</h2>
               <p>
-                The content on this website is provided for general information purposes only.
-                You agree not to misuse the site, attempt unauthorized access, interfere with
-                functionality, or use the website in any way that could harm the platform or its users.
+                Content on this website is provided for general information purposes. You agree not to
+                misuse the site, attempt unauthorized access, interfere with functionality, scrape
+                content without permission, or use the website in any way that could harm Armedia,
+                its users, or third parties.
               </p>
-            </section>
+            </LegalSection>
 
-            <section>
-              <h2>Project inquiries</h2>
+            <LegalSection index={2}>
+              <h2>Inquiries and engagements</h2>
               <p>
-                Submitting an inquiry does not establish a client relationship. All projects are
-                subject to formal agreement, including defined scope, timelines, pricing, and
-                responsibilities agreed upon in writing.
+                Submitting a contact form, brief, or inquiry does not create a client relationship or
+                binding contract. All engagements are subject to a formal agreement that defines scope,
+                deliverables, timelines, fees, approvals, and responsibilities in writing.
               </p>
-            </section>
+            </LegalSection>
 
-            <section>
-              <h2>Marketing and media services</h2>
+            <LegalSection index={3}>
+              <h2>Services we provide</h2>
               <p>
-                Armedia may provide services such as AI marketing tools, business intelligence,
-                advertising, media planning, digital media, OOH media, offline marketing, content
-                direction, influencer planning, PR support, event marketing, CRM campaigns, and
-                growth strategy. Exact deliverables depend on the written scope agreed for each project.
+                Armedia may provide strategy, advertising, digital media, OOH and offline marketing,
+                content and creative direction, AI workflows, business intelligence, reporting, CRM
+                support, web-related delivery, and growth planning. Exact services depend on the written
+                scope agreed for each project.
               </p>
-            </section>
+            </LegalSection>
 
-            <section>
-              <h2>Campaign performance</h2>
+            <LegalSection index={4}>
+              <h2>Performance expectations</h2>
               <p>
-                Marketing results can vary based on budget, audience, creative quality, market
-                conditions, media availability, platform changes, and client inputs. We work toward
-                measurable improvement, but we do not guarantee specific sales, leads, rankings,
-                reach, impressions, or revenue unless a separate written agreement clearly states otherwise.
+                Marketing outcomes can vary based on budget, audience, creative quality, market
+                conditions, media availability, platform changes, seasonality, and client inputs.
+                Armedia works toward measurable improvement, but we do not guarantee specific sales,
+                leads, rankings, reach, impressions, or revenue unless a separate written agreement
+                clearly states otherwise.
               </p>
-            </section>
+            </LegalSection>
 
-            <section>
+            <LegalSection index={5}>
               <h2>Client responsibilities</h2>
               <p>
                 Clients are responsible for providing accurate business information, timely feedback,
-                approved brand assets, access to required tools or accounts, legal permissions for
-                content, and final approval for campaigns before launch where approval is required.
+                approved brand assets, access to required tools or ad accounts, legal permissions for
+                content and claims, and final campaign approval where approval is required before launch.
               </p>
-            </section>
+            </LegalSection>
 
-            <section>
+            <LegalSection index={6}>
               <h2>Intellectual property</h2>
               <p>
-                All website content, including text, design, graphics, and code, is owned by Armedia
-                or used under license. Unauthorized use, reproduction, or distribution is prohibited.
-                Ownership of client deliverables is defined within individual project agreements.
+                Website content — including text, design, graphics, and code — is owned by Armedia or
+                used under licence. Unauthorized copying, distribution, or commercial use is prohibited.
+                Ownership and usage rights for client deliverables are defined in the relevant project
+                agreement.
               </p>
-            </section>
+            </LegalSection>
 
-            <section>
+            <LegalSection index={7}>
               <h2>Limitation of liability</h2>
               <p>
-                Armedia is not liable for any direct or indirect damages arising from the use or
-                inability to use this website. We do not guarantee uninterrupted access or error-free
-                operation. For campaign work, liability is limited to the terms agreed in the relevant
-                project agreement.
+                To the fullest extent permitted by law, Armedia is not liable for indirect, incidental,
+                or consequential loss arising from use of this website. We do not guarantee
+                uninterrupted or error-free access. For campaign work, liability is limited to the terms
+                set out in the applicable project agreement.
               </p>
-            </section>
+            </LegalSection>
 
-            <section>
-              <h2>Changes to terms</h2>
+            <LegalSection index={8}>
+              <h2>Updates and contact</h2>
               <p>
-                We may update these terms from time to time. Continued use of the website after
-                changes indicates acceptance of the updated terms.
-              </p>
-            </section>
-
-            <section>
-              <h2>Email contact</h2>
-              <p>
-                For any questions regarding these terms, please contact us at{' '}
+                We may update these terms from time to time. Continued use of the website after changes
+                are published constitutes acceptance of the updated terms. Questions about these terms
+                can be sent to{' '}
                 <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
               </p>
-            </section>
-
-          </div>
-        </PageShell>
+            </LegalSection>
+          </LegalContentReveal>
+        </LegalPageShell>
       </main>
       <Footer />
     </div>
