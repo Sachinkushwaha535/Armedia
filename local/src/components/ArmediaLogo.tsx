@@ -12,13 +12,17 @@ function ArmediaLogo({
   title = 'Armedia logo',
   variant = 'lockup',
 }: ArmediaLogoProps) {
+  const size = variant === 'mark' ? 44 : 160
+
   return (
     <Image
       className={className}
       src={logoPng}
       alt={title}
+      width={size}
+      height={size}
       priority={variant === 'mark'}
-      sizes={variant === 'mark' ? '64px' : '160px'}
+      sizes={variant === 'mark' ? '44px' : '160px'}
     />
   )
 }

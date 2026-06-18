@@ -1,8 +1,29 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import { Montserrat, Open_Sans, Playfair_Display } from 'next/font/google'
 import { contactEmail, contactPhone, marketFocus, siteUrl } from '../components/siteConfig'
 import '../index.css'
 import '../App.css'
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  display: 'swap',
+  weight: ['600', '700', '800', '900'],
+})
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -150,7 +171,7 @@ export default function RootLayout({
 
   return (
     <html lang="en-NZ" data-scroll-behavior="smooth" suppressHydrationWarning>
-      <body>
+      <body className={`${montserrat.variable} ${openSans.variable} ${playfair.variable} font-body`}>
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
