@@ -1,59 +1,65 @@
 'use client'
 
-import { type ChangeEvent, type FormEvent, useState } from 'react'
+import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 import Link from 'next/link'
-import PageShell from './PageShell'
-import { contactEmail, contactFallbackText, contactPhone, contactPhoneHref } from './siteConfig'
+import { useSearchParams } from 'next/navigation'
+import { displayPhone, displayPhoneHref, officeAddress } from '../data/contactPageContent'
+import { contactEmail, contactFallbackText } from './siteConfig'
 
 function ContactPage() {
+  const searchParams = useSearchParams()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: '',
   })
-
   const [loading, setLoading] = useState(false)
   const [statusMessage, setStatusMessage] = useState('')
+  const [isError, setIsError] = useState(false)
+
+  useEffect(() => {
+    const name = searchParams.get('name')
+    const email = searchParams.get('email')
+    const phone = searchParams.get('phone')
+    const guide = searchParams.get('guide')
+
+    setFormData((prev) => ({
+      name: name ?? prev.name,
+      email: email ?? prev.email,
+      phone: phone ?? prev.phone,
+      message: guide === '1' ? 'Please send me the connected marketing guide.' : prev.message,
+    }))
+  }, [searchParams])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-
     setLoading(true)
     setStatusMessage('')
+    setIsError(false)
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-
       const data = await response.json()
 
       if (!response.ok) {
+        setIsError(true)
         setStatusMessage(data.message ?? `Something went wrong. ${contactFallbackText}`)
         return
       }
 
-      setStatusMessage(data.message ?? 'Inquiry submitted successfully.')
-
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-      })
+      setStatusMessage(data.message ?? 'Thank you — we will be in touch shortly.')
+      setFormData({ name: '', email: '', phone: '', message: '' })
     } catch {
+      setIsError(true)
       setStatusMessage(`Something went wrong. ${contactFallbackText}`)
     } finally {
       setLoading(false)
@@ -61,131 +67,170 @@ function ContactPage() {
   }
 
   return (
-    <PageShell
-      kicker="Contact"
-      title="Let us shape your next growth campaign."
-      description="Share your brand goal, audience, campaign idea, timeline, and preferred channels. Armedia will help you turn it into a clear plan for AI, BI, advertising, media, offline marketing, and technology support."
-    >
-      <div className="contact-pro-layout">
-        <section className="contact-pro-main">
-          <div className="contact-method-grid">
-            <article>
-              <span>Email</span>
-              <strong>Drop us a line</strong>
-              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-            </article>
-            <article>
-              <span>Call</span>
-              <strong>{contactPhone ? 'Call the studio' : 'Request a call back'}</strong>
-              {contactPhone && contactPhoneHref ? (
-                <a href={contactPhoneHref}>{contactPhone}</a>
-              ) : (
-                <p>Share your number and we will respond with the right next step.</p>
-              )}
-            </article>
-            <article>
-              <span>Plan</span>
-              <strong>Get a clear next step</strong>
-              <p>We help shape strategy, media, creative, AI, BI, and execution.</p>
-            </article>
-          </div>
-
-          <form className="contact-pro-form" onSubmit={handleSubmit}>
-            <div className="contact-form-heading">
-              <p className="eyebrow">Project Inquiry</p>
-              <h2>Share your vision with us</h2>
-              <p>Tell us your current challenge and we will help turn it into a sharper growth strategy.</p>
-            </div>
-
-            <div className="contact-grid">
-              <label>
-                <span>Full name</span>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  autoComplete="name"
-                  required
-                />
-              </label>
-
-              <label>
-                <span>Email</span>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="you@example.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  autoComplete="email"
-                  required
-                />
-              </label>
-
-              <label>
-                <span>Phone number</span>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Your phone number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  autoComplete="tel"
-                  required
-                />
-              </label>
-            </div>
-
-            <label>
-              <span>Project details</span>
-              <textarea
-                name="message"
-                rows={6}
-                placeholder="Tell us your brand, campaign goal, audience, timeline, channels you want to use, and the result you want to achieve."
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-            </label>
-
-            <button
-              type="submit"
-              className="button button-primary contact-submit"
-              disabled={loading}
-            >
-              {loading ? 'Sending...' : 'Launch message'}
-            </button>
-
-            {statusMessage ? (
-              <p className="contact-status" role="status">
-                {statusMessage}
-              </p>
-            ) : null}
-          </form>
-        </section>
-
-        <aside className="contact-growth-panel">
-          <p className="eyebrow">Why choose us</p>
-          <h2>Your growth plan starts with clarity.</h2>
-          <div className="contact-growth-stats">
-            <span><strong>&lt; 1h</strong>Response focus</span>
-            <span><strong>18</strong>Service capabilities</span>
-            <span><strong>AI</strong>Workflow-ready</span>
-            <span><strong>BI</strong>Reporting-led</span>
-          </div>
-          <p>
-            We connect media planning, creative direction, advertising, OOH, offline marketing,
-            AI workflows, dashboards, and campaign-supporting technology into one practical growth system.
+    <>
+      <section className="contact-page-hero armedia-section-dark">
+        <div className="armedia-hero-bg absolute inset-0" aria-hidden="true" />
+        <div className="armedia-container relative z-10">
+          <nav className="services-breadcrumb" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <span className="text-white/80">Contact</span>
+          </nav>
+          <p className="armedia-eyebrow text-brand-gold">Get in touch</p>
+          <h1 className="services-page-title mt-4">Contact us</h1>
+          <p className="armedia-lead mt-5 max-w-2xl text-brand-muted">
+            Share your campaign goal, audience, and timeline. We will reply with practical next steps
+            for strategy, media, advertising, AI workflows, or reporting.
           </p>
-          <div className="contact-panel-links">
-            <Link className="text-link" href="/services">Explore services</Link>
-            <Link className="text-link" href="/start-project">Build a brief</Link>
+        </div>
+      </section>
+
+      <section className="armedia-section-light border-t border-black/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <div className="contact-page-grid">
+            <aside>
+              <p className="armedia-eyebrow text-black/50">Start a conversation</p>
+              <h2 className="armedia-heading mt-4 text-black">Talk to the Armedia team</h2>
+              <p className="armedia-body mt-4 max-w-md text-black/70">
+                Whether you need a campaign audit, media plan, BI dashboard, or a clearer growth
+                strategy — tell us where you are today and what result you need next.
+              </p>
+
+              <div className="contact-direct-block">
+                <div className="contact-direct-item">
+                  <span>Email</span>
+                  <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+                </div>
+                <div className="contact-direct-item">
+                  <span>Phone</span>
+                  <a href={displayPhoneHref}>{displayPhone}</a>
+                </div>
+                <div className="contact-direct-item">
+                  <span>Response time</span>
+                  <p>We aim to reply within one business day.</p>
+                </div>
+              </div>
+
+              <Link href="/services" className="armedia-btn-secondary mt-10 inline-flex">
+                View services
+              </Link>
+            </aside>
+
+            <form className="contact-form-panel" onSubmit={handleSubmit}>
+              <p className="armedia-eyebrow text-black/50">Send a message</p>
+              <h3 className="mt-3 font-heading text-xl font-bold text-black">Project inquiry</h3>
+
+              <div className="mt-6 grid gap-5">
+                <label>
+                  Your name
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    autoComplete="name"
+                    className="armedia-input"
+                  />
+                </label>
+
+                <label>
+                  Phone number
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    autoComplete="tel"
+                    className="armedia-input"
+                  />
+                </label>
+
+                <label>
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    autoComplete="email"
+                    className="armedia-input"
+                  />
+                </label>
+
+                <label>
+                  Message
+                  <textarea
+                    name="message"
+                    rows={6}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    placeholder="Tell us your brand, campaign goal, audience, channels, and timeline."
+                    className="armedia-input min-h-[140px] resize-y"
+                  />
+                </label>
+
+                <button type="submit" className="armedia-btn-primary w-fit" disabled={loading}>
+                  {loading ? 'Sending…' : 'Send message'}
+                </button>
+
+                {statusMessage ? (
+                  <p
+                    className={[
+                      'contact-form-status',
+                      isError ? 'contact-form-status--error' : '',
+                    ].join(' ')}
+                    role="status"
+                  >
+                    {statusMessage}
+                  </p>
+                ) : null}
+              </div>
+            </form>
           </div>
-        </aside>
-      </div>
-    </PageShell>
+        </div>
+      </section>
+
+      <section className="armedia-section-muted border-t border-black/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <div className="contact-visit-grid">
+            <div>
+              <p className="armedia-eyebrow text-black/50">Visit us</p>
+              <h2 className="armedia-heading mt-4 text-black">Our Auckland office</h2>
+              <address className="armedia-body mt-6 not-italic text-black/75">
+                <strong className="block font-heading text-base text-black">{officeAddress.name}</strong>
+                {officeAddress.lines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </address>
+              <a
+                href={officeAddress.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-directions-link"
+              >
+                Get directions →
+              </a>
+            </div>
+
+            <div className="contact-map-frame">
+              <iframe
+                title="Armedia office location map"
+                src={officeAddress.mapsEmbedUrl}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
 

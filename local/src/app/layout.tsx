@@ -5,6 +5,8 @@ import { contactEmail, contactPhone, marketFocus, siteUrl } from '../components/
 import '../index.css'
 import '../App.css'
 import '../styles/armedia-pro.css'
+import '../styles/armedia-services.css'
+import '../styles/armedia-contact.css'
 
 const montserrat = Montserrat({
   subsets: ['latin'],

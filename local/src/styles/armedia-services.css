@@ -1,0 +1,163 @@
+/* Services page — TWG-inspired layout, Armedia branding */
+
+.services-page-hero {
+  @apply relative overflow-hidden border-b border-white/10 pb-16 pt-28 lg:pb-20 lg:pt-36;
+}
+
+.services-breadcrumb {
+  @apply mb-8 flex flex-wrap items-center gap-2 font-heading text-[11px] uppercase tracking-[0.14em] text-white/50;
+}
+
+.services-breadcrumb a {
+  @apply transition-colors hover:text-brand-gold;
+}
+
+.services-breadcrumb span[aria-hidden='true'] {
+  @apply text-white/30;
+}
+
+.services-page-title {
+  @apply font-heading text-[clamp(2.25rem,5vw,4rem)] font-bold leading-[1.08] tracking-tight text-white;
+}
+
+.services-tech-grid {
+  @apply grid gap-0 border border-black/10 sm:grid-cols-2 lg:grid-cols-3;
+}
+
+.services-tech-item {
+  @apply flex items-center justify-between border-b border-r border-black/10 bg-white px-5 py-4 transition-colors duration-200 hover:bg-[#fafaf8] lg:px-6 lg:py-5;
+}
+
+.services-tech-name {
+  @apply font-heading text-sm font-bold uppercase tracking-[0.08em] text-black lg:text-base;
+}
+
+.services-tech-index {
+  @apply font-heading text-xs tabular-nums text-black/35;
+}
+
+.services-method-tabs {
+  @apply flex gap-2 overflow-x-auto pb-2;
+}
+
+.services-method-tab {
+  @apply shrink-0 rounded-full px-4 py-2 font-heading text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors;
+}
+
+.services-method-tab--active {
+  @apply bg-brand-dark text-white;
+}
+
+.services-method-tab--idle {
+  @apply border border-black/15 text-black/60 hover:border-black/30 hover:text-black;
+}
+
+.services-strategy-list {
+  @apply divide-y divide-black/10 border-y border-black/10;
+}
+
+.services-strategy-item {
+  @apply py-5 lg:py-6;
+}
+
+.services-strategy-trigger {
+  @apply flex w-full items-start justify-between gap-4 text-left;
+}
+
+.services-strategy-step {
+  @apply font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-brand-gold;
+}
+
+.services-strategy-title {
+  @apply mt-2 font-heading text-lg font-bold text-black lg:text-xl;
+}
+
+.services-strategy-toggle {
+  @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-dark text-lg text-white transition-colors;
+}
+
+.services-strategy-toggle--open {
+  @apply bg-brand-red;
+}
+
+.services-strategy-body {
+  @apply mt-4 max-w-3xl text-sm leading-relaxed text-black/75 md:text-[0.95rem];
+}
+
+.services-strategy-bullets {
+  @apply mt-4 grid gap-2 sm:grid-cols-2;
+}
+
+.services-strategy-bullets li {
+  @apply flex items-start gap-2 text-sm text-black/70;
+}
+
+.services-strategy-bullets li::before {
+  content: '';
+  @apply mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-gold;
+}
+
+.services-discover-grid {
+  @apply grid gap-4 sm:grid-cols-2;
+}
+
+.services-discover-card {
+  @apply flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.03] p-6 transition-colors duration-200 hover:border-brand-gold/40 lg:p-8;
+}
+
+.services-discover-card h3 {
+  @apply font-heading text-xl font-bold text-white lg:text-2xl;
+}
+
+.services-discover-card:hover h3 {
+  @apply text-brand-gold;
+}
+
+.services-discover-label {
+  @apply mt-6 inline-flex items-center gap-2 font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-brand-gold;
+}
+
+.services-expertise-card:hover {
+  @apply bg-[#fafaf8];
+}
+
+.services-offerings-grid {
+  @apply grid gap-5 md:grid-cols-2 xl:grid-cols-3;
+}
+
+.services-offering-card {
+  @apply flex h-full flex-col rounded-xl border border-black/10 bg-[#fafaf8] p-6 transition-shadow duration-200 hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] lg:p-7;
+}
+
+.services-offering-icon {
+  @apply flex h-11 w-11 items-center justify-center rounded-lg border border-black/10 bg-white text-black;
+}
+
+.services-offering-icon svg {
+  @apply h-5 w-5;
+}
+
+.services-offering-link {
+  @apply font-heading text-[11px] font-bold uppercase tracking-[0.12em] text-black transition-colors hover:text-brand-gold;
+}
+
+.service-landing-grid {
+  @apply grid gap-5 md:grid-cols-2 xl:grid-cols-3;
+}
+
+.service-landing-card {
+  @apply rounded-xl border border-black/10 bg-[#fafaf8] p-6 lg:p-7;
+}
+
+.service-landing-card--wide {
+  @apply md:col-span-2 xl:col-span-3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-expertise-card,
+  .services-tech-item,
+  .services-discover-card,
+  .services-offering-card {
+    transition: none !important;
+  }
+}
