@@ -17,7 +17,7 @@ function DownloadGuideSection() {
   const titleParts = downloadGuide.title.split(downloadGuide.highlight)
 
   return (
-    <section className="armedia-section-dark border-t border-white/10">
+    <section id="download-guide" className="armedia-section-dark border-t border-white/10">
       <div className="armedia-container py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <div>
@@ -28,8 +28,8 @@ function DownloadGuideSection() {
               {titleParts[1]}
             </h2>
             <p className="armedia-body mt-5 max-w-md text-brand-muted">
-              A practical overview of how connected strategy, media, and reporting work together —
-              no fluff, no hard sell.
+              Share your details and we will send a practical overview of how connected strategy,
+              media, and reporting work together — no fluff, no hard sell.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ function DownloadGuideSection() {
               />
             </label>
             <button type="submit" className="armedia-btn-primary w-fit">
-              {downloadGuide.button}
+              Send me the guide
             </button>
           </form>
         </div>

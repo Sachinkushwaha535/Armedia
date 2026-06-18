@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import { portfolioItems } from '../data/homeContent'
 import DownloadGuideSection from './twg/DownloadGuideSection'
@@ -18,7 +18,15 @@ function HomeSite() {
   const [showPreloader, setShowPreloader] = useState(true)
   const [entering, setEntering] = useState(false)
 
+  useEffect(() => {
+    if (sessionStorage.getItem('armedia-visited') === '1') {
+      setShowPreloader(false)
+      setEntering(true)
+    }
+  }, [])
+
   const handlePreloaderComplete = useCallback(() => {
+    sessionStorage.setItem('armedia-visited', '1')
     setShowPreloader(false)
     requestAnimationFrame(() => setEntering(true))
   }, [])

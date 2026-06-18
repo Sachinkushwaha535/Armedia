@@ -153,6 +153,39 @@
   @apply md:col-span-2 xl:col-span-3;
 }
 
+/* About / Who we are page */
+.about-pillar-grid {
+  @apply grid gap-5 md:grid-cols-3;
+}
+
+.about-pillar-card {
+  @apply rounded-xl border border-black/10 bg-[#fafaf8] p-6 lg:p-7;
+}
+
+.about-pillar-index {
+  @apply font-heading text-sm font-bold tabular-nums text-brand-gold;
+}
+
+.about-capability-row {
+  @apply grid gap-3 lg:grid-cols-[4rem_1fr] lg:items-start lg:gap-8;
+}
+
+.about-team-grid {
+  @apply grid gap-5 md:grid-cols-3;
+}
+
+.about-team-card {
+  @apply rounded-xl border border-black/10 bg-[#fafaf8] p-6 lg:p-7;
+}
+
+.about-team-avatar {
+  @apply flex h-12 w-12 items-center justify-center rounded-full border border-black/15 bg-white font-heading text-sm font-bold text-black;
+}
+
+.about-proof-grid {
+  @apply grid gap-5 md:grid-cols-3;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .services-expertise-card,
   .services-tech-item,

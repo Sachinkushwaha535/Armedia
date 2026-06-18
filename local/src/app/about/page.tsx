@@ -1,48 +1,57 @@
 import type { Metadata } from 'next'
 import AboutPage from '../../components/AboutPage'
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
+import Navbar from '../../components/Navbar'
+import TWGFooter from '../../components/twg/TWGFooter'
+import { siteUrl } from '../../components/siteConfig'
 
 export const metadata: Metadata = {
-  title: 'About Armedia | Founder-Led Strategy, Media & Growth Agency',
+  title: 'Who We Are | Strategy, Media & Growth Agency',
   description:
-    'Learn about Armedia, a founder-led New Zealand agency combining strategy, advertising, media planning, AI workflows, business intelligence, and campaign reporting for smarter growth.',
+    'Learn about Armedia, a New Zealand agency combining strategy, advertising, media planning, AI workflows, business intelligence, and campaign reporting.',
   keywords: [
     'about Armedia',
-    'founder led agency New Zealand',
     'marketing media agency Auckland',
     'strategy and media agency NZ',
     'advertising and growth agency',
     'AI and business intelligence agency',
-    'campaign planning agency',
-    'brand growth strategy',
   ],
   alternates: {
     canonical: '/about',
   },
   openGraph: {
-    title: 'About Armedia | Founder-Led Strategy, Media & Growth Agency',
+    title: 'Who We Are | Strategy, Media & Growth Agency',
     description:
-      'A founder-led New Zealand agency combining strategy, advertising, media planning, AI workflows, BI dashboards, and reporting for smarter growth.',
+      'Strategy, advertising, media planning, AI workflows, BI dashboards, and reporting for growth-focused brands.',
     url: '/about',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Armedia | Founder-Led Strategy, Media & Growth Agency',
+    title: 'Who We Are | Strategy, Media & Growth Agency',
     description:
-      'Strategy, advertising, media planning, AI workflows, business intelligence, and campaign reporting for growth-focused brands.',
+      'Strategy, advertising, media planning, AI workflows, business intelligence, and campaign reporting.',
   },
 }
 
 export default function Page() {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Who we are', item: `${siteUrl}/about` },
+    ],
+  }
+
   return (
-    <div className="site-shell page-about">
-      <Header />
-      <main id="main-content">
-        <AboutPage />
-      </main>
-      <Footer />
-    </div>
+    <main id="main-content" className="bg-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <Navbar />
+      <AboutPage />
+      <TWGFooter />
+    </main>
   )
 }

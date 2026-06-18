@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServicesPage from '../../components/ServicesPage'
 import TWGFooter from '../../components/twg/TWGFooter'
+import { siteUrl } from '../../components/siteConfig'
 
 export const metadata: Metadata = {
   title: 'Services | AI, BI, Advertising & Marketing Media',
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     canonical: '/services',
   },
   openGraph: {
-    title: 'Armedia Services | Strategy, Advertising, AI & BI',
+    title: 'Services | Strategy, Advertising, AI & BI',
     description:
       'Explore strategy, creative, web development, digital marketing, insights, and connected campaign services from Armedia.',
     url: '/services',
@@ -29,15 +30,28 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Armedia Services | Strategy, Advertising, AI & BI',
+    title: 'Services | Strategy, Advertising, AI & BI',
     description:
       'Full-service marketing media agency services for New Zealand brands.',
   },
 }
 
 export default function Page() {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteUrl}/services` },
+    ],
+  }
+
   return (
     <main id="main-content" className="bg-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
       <ServicesPage />
       <TWGFooter />

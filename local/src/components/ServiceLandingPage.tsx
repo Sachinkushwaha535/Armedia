@@ -1,6 +1,5 @@
 import Link from 'next/link'
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
+import { siteUrl } from './siteConfig'
 
 type ServiceLandingPageProps = {
   kicker: string
@@ -37,41 +36,74 @@ function ServiceLandingPage({
   faq,
 }: ServiceLandingPageProps) {
   const breadcrumbLabel = breadcrumb ?? kicker
+  const pageUrl = `${siteUrl}${path}`
 
-  const serviceSchema = {
+  const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: title,
-    description,
-    url: `${siteUrl}${path}`,
-    provider: {
-      '@type': 'Organization',
-      name: 'Armedia',
-      url: siteUrl,
-    },
-    areaServed: ['Auckland', 'New Zealand', 'Australia'],
-    serviceType: kicker,
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: `${title} deliverables`,
-      itemListElement: points.map((point) => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: point,
+    '@graph': [
+      {
+        '@type': 'Service',
+        name: title,
+        description,
+        url: pageUrl,
+        provider: {
+          '@type': 'Organization',
+          name: 'Armedia',
+          url: siteUrl,
         },
-      })),
-    },
-    ...(faq && {
-      mainEntity: faq.map((item) => ({
-        '@type': 'Question',
-        name: item.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: item.answer,
+        areaServed: ['Auckland', 'New Zealand', 'Australia'],
+        serviceType: kicker,
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: `${title} deliverables`,
+          itemListElement: points.map((point) => ({
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: point,
+            },
+          })),
         },
-      })),
-    }),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: siteUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Services',
+            item: `${siteUrl}/services`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: breadcrumbLabel,
+            item: pageUrl,
+          },
+        ],
+      },
+      ...(faq && faq.length > 0
+        ? [
+            {
+              '@type': 'FAQPage',
+              mainEntity: faq.map((item) => ({
+                '@type': 'Question',
+                name: item.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: item.answer,
+                },
+              })),
+            },
+          ]
+        : []),
+    ],
   }
 
   const blocks = [
@@ -87,7 +119,7 @@ function ServiceLandingPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
       <section className="contact-page-hero armedia-section-dark">

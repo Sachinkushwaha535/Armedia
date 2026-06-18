@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
+import Navbar from '../../components/Navbar'
 import StartProjectPage from '../../components/StartProjectPage'
+import TWGFooter from '../../components/twg/TWGFooter'
 
 export const metadata: Metadata = {
   title: 'Start a Project | Marketing Media, AI, BI & Advertising Brief',
@@ -27,12 +27,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="site-shell">
-      <Header />
-      <main id="main-content">
-        <StartProjectPage />
-      </main>
-      <Footer />
-    </div>
+    <main id="main-content" className="bg-black">
+      <Navbar />
+      <StartProjectPage />
+      <TWGFooter />
+    </main>
   )
 }
