@@ -1,0 +1,60 @@
+/* Armedia professional home UI */
+
+.armedia-container {
+  @apply mx-auto w-full max-w-content px-5 lg:px-12;
+}
+
+.armedia-section-dark {
+  @apply bg-brand-dark text-white;
+}
+
+.armedia-section-light {
+  @apply bg-white text-black;
+}
+
+.armedia-section-muted {
+  @apply bg-[#f6f5f2] text-black;
+}
+
+.armedia-eyebrow {
+  @apply font-heading text-[11px] font-semibold uppercase tracking-[0.22em];
+}
+
+.armedia-heading {
+  @apply font-heading text-[clamp(1.75rem,3.2vw,2.75rem)] font-bold leading-[1.12] tracking-tight;
+}
+
+.armedia-lead {
+  @apply text-base leading-relaxed md:text-lg;
+}
+
+.armedia-body {
+  @apply text-sm leading-relaxed md:text-[0.95rem];
+}
+
+.armedia-btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-brand-gold px-6 py-3 font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-brand-dark transition-all duration-200 hover:bg-[#c9a030] hover:shadow-[0_8px_24px_rgba(212,175,55,0.25)];
+}
+
+.armedia-btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-black/20 bg-transparent px-6 py-3 font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-black transition-colors duration-200 hover:border-black hover:bg-black hover:text-white;
+}
+
+.armedia-btn-secondary-light {
+  @apply inline-flex items-center justify-center rounded-full border border-white/30 bg-transparent px-6 py-3 font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-white transition-colors duration-200 hover:border-brand-gold hover:text-brand-gold;
+}
+
+.armedia-stat-value {
+  @apply font-display text-[clamp(2.25rem,4.5vw,3.5rem)] leading-none text-brand-gold;
+}
+
+.armedia-input {
+  @apply w-full rounded-lg border border-black/15 bg-white px-4 py-3 text-sm text-black outline-none transition-colors focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/30;
+}
+
+.armedia-hero-bg {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(212, 175, 55, 0.08), transparent 40%),
+    radial-gradient(circle at 80% 75%, rgba(255, 255, 255, 0.04), transparent 35%),
+    linear-gradient(180deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+}

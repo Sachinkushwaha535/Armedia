@@ -13,32 +13,30 @@ function TWGHeroSection() {
   }, [])
 
   return (
-    <section className="relative flex min-h-screen w-full items-end overflow-hidden bg-black pb-16 pt-28 lg:pb-24 lg:pt-32">
-      <div className="twg-hero-bg absolute inset-0" aria-hidden="true" />
+    <section className="relative flex min-h-screen w-full items-end overflow-hidden bg-brand-dark pb-16 pt-28 lg:pb-24 lg:pt-32">
+      <div className="armedia-hero-bg absolute inset-0" aria-hidden="true" />
 
       <div
         className={[
-          'relative z-10 w-full px-5 transition-all duration-700 ease-out lg:px-12 xl:px-16',
-          visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0',
+          'relative z-10 w-full px-5 transition-all duration-700 ease-out lg:px-12',
+          visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         ].join(' ')}
       >
-        <div className="mx-auto max-w-content">
-          <h1 className="max-w-5xl font-heading text-[clamp(2rem,5vw,4.5rem)] font-bold leading-[1.08] tracking-tight text-white">
+        <div className="armedia-container !px-0 lg:!px-0">
+          <p className="armedia-eyebrow text-brand-gold">Auckland · New Zealand</p>
+          <h1 className="armedia-heading mt-5 max-w-4xl text-[clamp(2.25rem,5vw,4rem)] text-white">
             {heroContent.headline}
           </h1>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-brand-muted md:text-lg">
-            {heroContent.subheadline}
-          </p>
+          <p className="armedia-lead mt-6 max-w-2xl text-brand-muted">{heroContent.subheadline}</p>
 
-          <div className="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center">
-            <Link href={heroContent.primaryCta.href} className="twg-pill-btn twg-pill-btn-yellow">
-              <span className="twg-pill-dot bg-black" />
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link href={heroContent.primaryCta.href} className="armedia-btn-primary">
               {heroContent.primaryCta.label}
             </Link>
-            <Link href={heroContent.secondaryCta.href} className="twg-pill-link group">
-              <span className="twg-pill-circle">
-                <span className="block h-2 w-2 rotate-45 border-b-2 border-r-2 border-white" />
-              </span>
+            <Link
+              href={heroContent.secondaryCta.href}
+              className="armedia-btn-secondary-light w-fit"
+            >
               {heroContent.secondaryCta.label}
             </Link>
           </div>

@@ -17,17 +17,26 @@ function DownloadGuideSection() {
   const titleParts = downloadGuide.title.split(downloadGuide.highlight)
 
   return (
-    <section className="twg-section border-t border-brand-line bg-black py-16 lg:py-24">
-      <div className="mx-auto max-w-content px-5 lg:px-12">
-        <p className="twg-kicker">Download guide</p>
-        <div className="mt-4 grid gap-12 border-t border-brand-line pt-10 lg:grid-cols-2 lg:items-start">
-          <h2 className="font-heading text-[clamp(1.75rem,3vw,2.75rem)] font-bold leading-tight text-white">
-            {titleParts[0]}
-            <span className="text-brand-yellow">{downloadGuide.highlight}</span>
-            {titleParts[1]}
-          </h2>
+    <section className="armedia-section-dark border-t border-white/10">
+      <div className="armedia-container py-16 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+          <div>
+            <p className="armedia-eyebrow text-brand-gold">Download guide</p>
+            <h2 className="armedia-heading mt-4 text-white">
+              {titleParts[0]}
+              <span className="text-brand-gold">{downloadGuide.highlight}</span>
+              {titleParts[1]}
+            </h2>
+            <p className="armedia-body mt-5 max-w-md text-brand-muted">
+              A practical overview of how connected strategy, media, and reporting work together —
+              no fluff, no hard sell.
+            </p>
+          </div>
 
-          <form onSubmit={onSubmit} className="grid gap-5">
+          <form
+            onSubmit={onSubmit}
+            className="grid gap-5 rounded-xl border border-white/10 bg-white/[0.03] p-6 lg:p-8"
+          >
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="grid gap-2 text-sm text-brand-muted">
                 Your name
@@ -35,7 +44,7 @@ function DownloadGuideSection() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white outline-none focus:border-brand-yellow"
+                  className="armedia-input-dark"
                 />
               </label>
               <label className="grid gap-2 text-sm text-brand-muted">
@@ -43,7 +52,7 @@ function DownloadGuideSection() {
                 <input
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white outline-none focus:border-brand-yellow"
+                  className="armedia-input-dark"
                 />
               </label>
             </div>
@@ -54,11 +63,10 @@ function DownloadGuideSection() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="rounded-md border border-white/15 bg-white/5 px-4 py-3 text-white outline-none focus:border-brand-yellow"
+                className="armedia-input-dark"
               />
             </label>
-            <button type="submit" className="twg-pill-btn twg-pill-btn-light w-fit">
-              <span className="twg-pill-dot bg-black" />
+            <button type="submit" className="armedia-btn-primary w-fit">
               {downloadGuide.button}
             </button>
           </form>

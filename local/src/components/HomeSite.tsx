@@ -6,10 +6,10 @@ import { portfolioItems } from '../data/homeContent'
 import DownloadGuideSection from './twg/DownloadGuideSection'
 import FeaturedProjectsList from './twg/FeaturedProjectsList'
 import HelpCarousel from './twg/HelpCarousel'
-import ProcessRevealSection from './twg/ProcessRevealSection'
+import ProcessSection from './twg/ProcessSection'
 import ServicesStickySection from './twg/ServicesStickySection'
 import StatisticsSection from './twg/StatisticsSection'
-import TestimonialsSection from './twg/TestimonialsSection'
+import TrustSection from './twg/TrustSection'
 import TWGFooter from './twg/TWGFooter'
 import TWGHeroSection from './twg/TWGHeroSection'
 import TWGPreloader from './twg/TWGPreloader'
@@ -32,9 +32,9 @@ function HomeSite() {
         <TWGHeroSection />
         <HelpCarousel />
         <FeaturedProjectsList items={portfolioItems} />
-        <ProcessRevealSection />
+        <ProcessSection />
         <StatisticsSection />
-        <TestimonialsSection />
+        <TrustSection />
         <ServicesStickySection />
         <DownloadGuideSection />
         <TWGFooter />

@@ -4,6 +4,7 @@ import { Montserrat, Open_Sans, Playfair_Display } from 'next/font/google'
 import { contactEmail, contactPhone, marketFocus, siteUrl } from '../components/siteConfig'
 import '../index.css'
 import '../App.css'
+import '../styles/armedia-pro.css'
 
 const montserrat = Montserrat({
   subsets: ['latin'],

@@ -66,11 +66,11 @@ function FeaturedProjectsList({ items }: FeaturedProjectsListProps) {
 
   return (
     <section
-      className="twg-section relative overflow-hidden border-t border-brand-line bg-black py-16 lg:py-24"
+      className="armedia-section-dark relative overflow-hidden border-t border-white/10 py-16 lg:py-20"
       onMouseLeave={handleSectionLeave}
     >
-      <div className="mx-auto max-w-content px-5 lg:px-12">
-        <p className="twg-kicker">Featured Projects</p>
+      <div className="armedia-container">
+        <p className="armedia-eyebrow text-brand-gold">Featured work</p>
 
         <div className="mt-4 border-t border-brand-line pt-6">
           <ul className="w-full">
@@ -80,15 +80,6 @@ function FeaturedProjectsList({ items }: FeaturedProjectsListProps) {
               return (
                 <li key={item.title} className="border-t border-white/10 first:border-t-0">
                   <Link href={item.href} className="group block">
-                    <span
-                      className={[
-                        'block py-1 font-heading text-xs tracking-widest transition-colors duration-300',
-                        isActive ? 'text-brand-gold' : 'text-white/35',
-                      ].join(' ')}
-                    >
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-
                     <div
                       className={[
                         'twg-featured-label relative w-full overflow-hidden',
@@ -107,39 +98,58 @@ function FeaturedProjectsList({ items }: FeaturedProjectsListProps) {
                           }}
                           aria-hidden="true"
                         >
-                          <Image
-                            src={item.image}
-                            alt=""
-                            width={210}
-                            height={580}
-                            className="twg-featured-card-img"
-                            sizes="210px"
-                            priority={false}
-                          />
+                          <div className="twg-featured-card-img relative">
+                            <Image
+                              src={item.image}
+                              alt=""
+                              fill
+                              className="object-cover opacity-[0.92]"
+                              sizes="210px"
+                              priority={false}
+                            />
+                          </div>
                         </div>
                       ) : null}
 
-                      <div className="relative z-10 px-2 py-2 text-center">
-                        {isActive ? (
-                          <p className="mb-2 font-heading text-[10px] uppercase tracking-[0.14em] text-brand-gold">
-                            {item.tags.map((tag, tagIndex) => (
-                              <span key={tag} className="mx-1.5 inline-block">
-                                {TAG_MARKERS[tagIndex] ?? `${tagIndex + 1}.`} {tag}
-                              </span>
-                            ))}
-                          </p>
-                        ) : null}
-
+                      <div className="relative z-10 flex min-h-[3rem] items-center justify-center px-10 py-2">
                         <span
                           className={[
-                            'block text-[clamp(1.65rem,4.5vw,3.4rem)] leading-[1.05] transition-all duration-300',
-                            isActive
-                              ? 'font-display italic text-brand-gold'
-                              : 'font-heading text-[clamp(1.5rem,4vw,3rem)] font-bold uppercase tracking-tight text-white',
+                            'absolute left-0 top-1/2 -translate-y-1/2 font-heading text-xs tracking-widest transition-colors duration-300',
+                            isActive ? 'text-brand-gold' : 'text-white/35',
                           ].join(' ')}
                         >
-                          {item.title}
+                          {String(index + 1).padStart(2, '0')}
                         </span>
+
+                        <div className="max-w-full text-center">
+                          {isActive ? (
+                            <p className="mb-2 font-heading text-[10px] uppercase tracking-[0.14em] text-brand-gold">
+                              {item.tags.map((tag, tagIndex) => (
+                                <span key={tag} className="mx-1.5 inline-block">
+                                  {TAG_MARKERS[tagIndex] ?? `${tagIndex + 1}.`} {tag}
+                                </span>
+                              ))}
+                            </p>
+                          ) : null}
+
+                          <span
+                            className={[
+                              'block text-[clamp(1.65rem,4.5vw,3.4rem)] leading-[1.05] transition-all duration-300',
+                              isActive
+                                ? 'font-display italic text-brand-gold'
+                                : 'font-heading text-[clamp(1.5rem,4vw,3rem)] font-bold uppercase tracking-tight text-white',
+                            ].join(' ')}
+                          >
+                            {item.title}
+                          </span>
+                        </div>
+
+                        {isActive ? (
+                          <span className="absolute right-0 top-1/2 hidden -translate-y-1/2 items-center gap-2 font-heading text-[10px] font-semibold uppercase tracking-[0.18em] text-white sm:inline-flex">
+                            <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
+                            Visit site
+                          </span>
+                        ) : null}
                       </div>
                     </div>
 
@@ -150,17 +160,6 @@ function FeaturedProjectsList({ items }: FeaturedProjectsListProps) {
                           isActive ? 'w-full bg-brand-gold' : 'w-0 bg-white',
                         ].join(' ')}
                       />
-                    </div>
-
-                    <div className="flex items-center justify-end py-1.5">
-                      {isActive ? (
-                        <span className="inline-flex items-center gap-2 font-heading text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
-                          <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
-                          Visit site
-                        </span>
-                      ) : (
-                        <span className="h-4" aria-hidden="true" />
-                      )}
                     </div>
                   </Link>
                 </li>

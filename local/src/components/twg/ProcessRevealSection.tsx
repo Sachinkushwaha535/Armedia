@@ -31,8 +31,9 @@ function ProcessRevealSection() {
     }
   }, [])
 
-  const processLift = Math.min(1, Math.max(0, (progress - 0.28) / 0.52)) * 100
+  const processLift = Math.min(1, Math.max(0, (progress - 0.18) / 0.62)) * 100
   const ideasParallax = processLift * 0.06
+  const ideasFade = processLift >= 88 ? Math.max(0, 1 - (processLift - 88) / 12) : 1
 
   useEffect(() => {
     if (processLift >= 52 && !revealed) {
@@ -41,10 +42,13 @@ function ProcessRevealSection() {
   }, [processLift, revealed])
 
   return (
-    <div ref={wrapRef} className="relative" style={{ height: '280vh' }}>
+    <div ref={wrapRef} className="relative bg-black" style={{ height: '140vh' }}>
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* What we do layer (revealed behind) */}
-        <section className="twg-ideas-layer absolute inset-0 z-0 flex h-full flex-col justify-center overflow-hidden bg-black px-5 py-10 lg:px-12 lg:py-14,mt-[32rem]">
+        <section
+          className="twg-ideas-layer absolute inset-0 z-0 flex h-full flex-col justify-center overflow-hidden bg-black px-5 py-10 lg:px-12 lg:py-14"
+          style={{ opacity: ideasFade }}
+        >
           <div className="twg-ideas-glow twg-ideas-glow-a" aria-hidden="true" />
           <div className="twg-ideas-glow twg-ideas-glow-b" aria-hidden="true" />
           <div className="twg-ideas-gridline" aria-hidden="true" />
@@ -112,7 +116,7 @@ function ProcessRevealSection() {
             >
               Our Process
             </p>
-            <div className="mt-4 grid min-h-0 flex-1 gap-6 border-t border-black/15 pt-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-8 lg:pt-8">
+            <div className="mt-4 grid min-h-0 flex-1 gap-6 border-t border-black/15 pt-6 lg:grid-cols-2 lg:gap-8 lg:pt-8">
               <div
                 className={[
                   'twg-process-intro shrink-0 transition-all duration-700 lg:max-w-md',

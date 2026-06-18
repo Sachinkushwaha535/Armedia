@@ -287,14 +287,14 @@
   display: block;
   height: min(58vh, 580px);
   width: min(20vw, 210px);
-  object-fit: cover;
-  opacity: 0.92;
 }
 
 /* Process section reveal */
 .twg-process-step {
   opacity: 0;
   transform: translateY(36px);
+  border-left: 3px solid transparent;
+  padding-left: 0.75rem;
 }
 
 .twg-process-step--visible {
@@ -303,8 +303,8 @@
 }
 
 .twg-process-step--open {
-  border-left: 3px solid #c0392b;
-  padding-left: 0.75rem;
+  border-left-color: #c0392b;
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .twg-process-step--open .twg-process-step-body {

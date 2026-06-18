@@ -4,18 +4,20 @@ import { contactEmail } from '../siteConfig'
 
 function TWGFooter() {
   return (
-    <footer className="border-t border-brand-line bg-black text-white">
-      <div className="mx-auto max-w-content px-5 py-14 lg:px-12 lg:py-20">
-        <div className="grid gap-10 border-b border-brand-line pb-12 lg:grid-cols-[1.2fr_0.8fr]">
-          <h2 className="max-w-xl font-heading text-[clamp(2rem,4vw,3.5rem)] font-bold leading-tight">
-            We&apos;re a forward thinking marketing media agency
+    <footer className="armedia-section-dark border-t border-white/10">
+      <div className="armedia-container py-14 lg:py-16">
+        <div className="grid gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <h2 className="armedia-heading max-w-lg text-white">
+            Forward-thinking marketing media for growth-focused brands
           </h2>
-          <div className="hidden h-48 rounded-sm bg-gradient-to-br from-white/10 to-white/5 lg:block" />
+          <p className="armedia-body text-brand-muted">
+            Strategy, advertising, AI workflows, BI dashboards, and campaign reporting — Auckland and across New Zealand.
+          </p>
         </div>
 
-        <div className="grid gap-10 py-12 lg:grid-cols-4">
+        <div className="grid gap-10 py-10 lg:grid-cols-4">
           <div>
-            <p className="mb-4 font-heading text-xs uppercase tracking-[0.15em] text-brand-muted">Start a conversation</p>
+            <p className="armedia-eyebrow mb-4 text-brand-gold">Contact</p>
             <a href="tel:+640223040716" className="block font-heading text-3xl font-bold underline decoration-white/30">
               +64 022 304 0716
             </a>
@@ -36,7 +38,7 @@ function TWGFooter() {
           </div>
 
           <div>
-            <p className="mb-4 font-heading text-xs uppercase tracking-[0.15em] text-brand-muted">Services</p>
+            <p className="armedia-eyebrow mb-4 text-brand-gold">Services</p>
             <ul className="space-y-2 text-sm underline decoration-white/20">
               <li><Link href="/services">Strategy</Link></li>
               <li><Link href="/services">Advertising</Link></li>
@@ -49,14 +51,14 @@ function TWGFooter() {
           </div>
 
           <div>
-            <p className="mb-4 font-heading text-xs uppercase tracking-[0.15em] text-brand-muted">Locations</p>
+            <p className="armedia-eyebrow mb-4 text-brand-gold">Locations</p>
             <ul className="space-y-2 text-sm underline decoration-white/20">
               <li>Auckland</li>
               <li>Wellington</li>
               <li>Christchurch</li>
               <li>Queenstown</li>
             </ul>
-            <p className="mb-4 mt-8 font-heading text-xs uppercase tracking-[0.15em] text-brand-muted">Industries</p>
+            <p className="armedia-eyebrow mb-4 mt-8 text-brand-gold">Industries</p>
             <ul className="space-y-2 text-sm text-brand-muted">
               <li>Construction</li>
               <li>eCommerce</li>
@@ -66,7 +68,7 @@ function TWGFooter() {
           </div>
 
           <div>
-            <p className="mb-4 font-heading text-xs uppercase tracking-[0.15em] text-brand-muted">Address</p>
+            <p className="armedia-eyebrow mb-4 text-brand-gold">Address</p>
             <p className="text-sm leading-relaxed text-brand-muted">
               <strong className="text-white">Armedia New Zealand</strong>
               <br />
