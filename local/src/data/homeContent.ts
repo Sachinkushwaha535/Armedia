@@ -167,10 +167,22 @@ export const statistics = {
   ],
 }
 
-export const serviceAreas = [
+export type ServiceAreaIconKey =
+  | 'strategy'
+  | 'creative'
+  | 'web'
+  | 'design'
+  | 'marketing'
+  | 'insights'
+
+export const serviceAreas: Array<{
+  title: string
+  icon: ServiceAreaIconKey
+  items: string[]
+}> = [
   {
     title: 'Strategy',
-    image: labImages.brandMedia,
+    icon: 'strategy',
     items: [
       'Brand Strategy',
       'Marketing Campaign Strategy',
@@ -182,12 +194,12 @@ export const serviceAreas = [
   },
   {
     title: 'Creative Content',
-    image: labImages.creativeContent,
+    icon: 'creative',
     items: ['Art Direction', 'Photography', 'Videography', 'Campaign creative'],
   },
   {
     title: 'Web Development',
-    image: labImages.webDevelopment,
+    icon: 'web',
     items: [
       'Bespoke Website Development',
       'Ecommerce Website Development',
@@ -197,7 +209,7 @@ export const serviceAreas = [
   },
   {
     title: 'Design Services',
-    image: labImages.webDevelopment,
+    icon: 'design',
     items: [
       'Application Design',
       'Content Creation',
@@ -209,7 +221,7 @@ export const serviceAreas = [
   },
   {
     title: 'Digital Marketing',
-    image: labImages.paidMarketing,
+    icon: 'marketing',
     items: [
       'Email Marketing',
       'Google Ads Management',
@@ -220,7 +232,7 @@ export const serviceAreas = [
   },
   {
     title: 'Insights',
-    image: labImages.businessIntelligence,
+    icon: 'insights',
     items: [
       'Analytics and Metrics',
       'Campaign Optimisation',

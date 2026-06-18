@@ -1,20 +1,19 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import ContactPage from '../../components/ContactPage'
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
+import Navbar from '../../components/Navbar'
+import TWGFooter from '../../components/twg/TWGFooter'
 
 export const metadata: Metadata = {
   title: 'Contact | Start a Marketing Media Project',
   description:
-    'Contact Armedia to discuss AI marketing tools, business intelligence, advertising, digital media, OOH media, offline marketing, or growth strategy.',
+    'Contact Armedia to discuss strategy, advertising, AI workflows, business intelligence, digital media, or campaign reporting in Auckland and across New Zealand.',
   keywords: [
     'contact Armedia',
     'marketing media agency contact',
-    'advertising agency inquiry',
+    'advertising agency Auckland',
     'AI marketing project',
     'business intelligence project',
-    'OOH media planning',
-    'offline marketing campaign',
   ],
   alternates: {
     canonical: '/contact',
@@ -22,26 +21,29 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Armedia | Start a Marketing Media Project',
     description:
-      'Share your campaign goal and get practical next steps for AI, BI, advertising, digital media, OOH, offline marketing, or strategy.',
+      'Share your campaign goal and get practical next steps for strategy, media, advertising, AI, and BI.',
     url: '/contact',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Armedia | Start a Marketing Media Project',
-    description:
-      'Contact Armedia for AI, BI, advertising, digital media, OOH, offline marketing, SEO, and growth strategy projects.',
+    description: 'Contact Armedia for strategy, advertising, AI workflows, BI, and growth planning.',
   },
+}
+
+function ContactPageFallback() {
+  return <div className="armedia-section-dark min-h-[50vh]" aria-hidden="true" />
 }
 
 export default function Page() {
   return (
-    <div className="site-shell page-contact">
-      <Header />
-      <main id="main-content">
+    <main id="main-content" className="bg-black">
+      <Navbar />
+      <Suspense fallback={<ContactPageFallback />}>
         <ContactPage />
-      </main>
-      <Footer />
-    </div>
+      </Suspense>
+      <TWGFooter />
+    </main>
   )
 }

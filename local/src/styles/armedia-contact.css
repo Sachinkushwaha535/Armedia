@@ -1,0 +1,78 @@
+/* Contact page — TWG-inspired layout, Armedia branding */
+
+.contact-page-hero {
+  @apply relative overflow-hidden border-b border-white/10 pb-14 pt-28 lg:pb-16 lg:pt-36;
+}
+
+.contact-page-grid {
+  @apply grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16;
+}
+
+.contact-direct-block {
+  @apply mt-8 space-y-6 border-t border-black/10 pt-8;
+}
+
+.contact-direct-item span {
+  @apply block font-heading text-[11px] font-semibold uppercase tracking-[0.16em] text-black/45;
+}
+
+.contact-direct-item a {
+  @apply mt-2 block font-heading text-lg font-bold text-black transition-colors hover:text-brand-gold;
+}
+
+.contact-direct-item p {
+  @apply mt-2 text-sm text-black/70;
+}
+
+.contact-form-panel {
+  @apply rounded-xl border border-black/10 bg-[#fafaf8] p-6 lg:p-8;
+}
+
+.contact-form-panel label {
+  @apply grid gap-2 text-sm text-black/70;
+}
+
+.contact-form-status {
+  @apply mt-4 rounded-lg border border-brand-gold/30 bg-brand-gold/10 px-4 py-3 text-sm text-black;
+}
+
+.contact-form-status--error {
+  @apply border-red-300 bg-red-50 text-red-900;
+}
+
+.contact-visit-grid {
+  @apply grid gap-10 lg:grid-cols-2 lg:items-center;
+}
+
+.contact-map-frame {
+  @apply relative aspect-[4/3] overflow-hidden rounded-xl border border-black/10 bg-white;
+}
+
+.contact-map-frame iframe {
+  @apply absolute inset-0 h-full w-full border-0;
+}
+
+.contact-directions-link {
+  @apply mt-6 inline-flex font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-black transition-colors hover:text-brand-gold;
+}
+
+/* Legal pages (Privacy, Terms) */
+.legal-page-content {
+  @apply mx-auto max-w-3xl;
+}
+
+.legal-page-content section + section {
+  @apply mt-10 border-t border-black/10 pt-10;
+}
+
+.legal-page-content h2 {
+  @apply font-heading text-xl font-bold text-black lg:text-2xl;
+}
+
+.legal-page-content p {
+  @apply mt-4 text-sm leading-relaxed text-black/75 md:text-[0.95rem];
+}
+
+.legal-page-content a {
+  @apply text-black underline decoration-brand-gold/50 underline-offset-4 transition-colors hover:text-brand-gold;
+}

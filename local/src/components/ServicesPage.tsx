@@ -1,474 +1,207 @@
+'use client'
+
 import Link from 'next/link'
-
-type ServiceIconKey = keyof typeof serviceIcons
-
-interface ServiceCard {
-  id: string
-  title: string
-  desc: string
-  items: string[]
-  icon: ServiceIconKey
-  href: string
-}
-
-const serviceIcons = {
-
-
-  web: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="Web development icon">
-      <path d="M4 5.5h16v10.8H4z" />
-      <path d="M8.5 20h7" />
-      <path d="M12 16.3V20" />
-      <path d="M4 8.8h16" />
-    </svg>
-  ),
-  mobile: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="Mobile app development icon">
-      <rect x="7" y="3" width="10" height="18" rx="2" ry="2" />
-      <path d="M12 18.5h.01" />
-    </svg>
-  ),
-  design: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="UX/UI design icon">
-      <path d="M12 4.2a7.8 7.8 0 0 0 0 15.6h1.1a1.9 1.9 0 0 0 1.3-3.2l-.3-.3a1.4 1.4 0 0 1 1-2.4h1.2A3.7 3.7 0 0 0 20 10.2c0-3.3-3.6-6-8-6Z" />
-      <path d="M7.6 10.1h.1" />
-      <path d="M10 7.8h.1" />
-      <path d="M13.6 7.8h.1" />
-      <path d="M16.2 10.2h.1" />
-    </svg>
-  ),
-  code: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="Software development icon">
-      <path d="m9 8-4 4 4 4" />
-      <path d="m15 8 4 4-4 4" />
-      <path d="m13 5-2 14" />
-    </svg>
-  ),
-  strategy: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="Strategy icon">
-      <path d="M4.8 18.8 9 14.6l3 2.5 6.8-8.2" />
-      <path d="M15 8.9h3.8v3.8" />
-      <path d="M5 6h5" />
-      <path d="M5 10h3" />
-    </svg>
-  ),
-  security: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="Cybersecurity icon">
-      <path d="M12 3.8 18.4 6v5.2c0 4-2.5 7.6-6.4 9-3.9-1.4-6.4-5-6.4-9V6z" />
-      <path d="m9.4 12 1.8 1.8 3.6-4" />
-    </svg>
-  ),
-  data: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="Data analytics icon">
-      <path d="M5.5 18.5V11" />
-      <path d="M12 18.5v-13" />
-      <path d="M18.5 18.5v-8" />
-      <path d="M4 18.5h16" />
-    </svg>
-  ),
-  ai: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="AI icon">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M8 12h8" />
-      <path d="M12 8v8" />
-    </svg>
-  ),
-  agents: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="AI agents icon">
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 4v2M12 18v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M6.3 17.7l1.4-1.4M16.3 7.7l1.4-1.4" />
-    </svg>
-  ),
-  aiapi: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="AI API integration icon">
-      <path d="m9 8-4 4 4 4" />
-      <path d="m15 8 4 4-4 4" />
-      <path d="M12 5v14" />
-    </svg>
-  ),
-  aistrategy: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="AI strategy icon">
-      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-      <line x1="4" y1="22" x2="4" y2="15" />
-    </svg>
-  ),
-  docai: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="AI document processing icon">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <path d="M14 2v6h6" />
-      <path d="M8 13h8" />
-      <path d="M8 17h5" />
-      <path d="M10 9H8" />
-    </svg>
-  ),
-  leads: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="Lead generation icon">
-      <circle cx="12" cy="8" r="3" />
-      <path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" />
-      <path d="M19 5v4" />
-      <path d="M17 7h4" />
-    </svg>
-  ),
-  workflow: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="Workflow icon">
-      <rect x="3" y="4" width="6" height="6" rx="1" />
-      <rect x="15" y="14" width="6" height="6" rx="1" />
-      <path d="M9 7h6" />
-      <path d="M15 7v7" />
-      <path d="M12 14h3" />
-    </svg>
-  ),
-  framework: (
-    <svg viewBox="0 0 24 24" role="img" aria-label="Framework icon">
-      <rect x="3" y="3" width="7" height="7" rx="1" />
-      <rect x="14" y="3" width="7" height="7" rx="1" />
-      <rect x="3" y="14" width="7" height="7" rx="1" />
-      <rect x="14" y="14" width="7" height="7" rx="1" />
-      <path d="M10 6.5h4" />
-      <path d="M6.5 10v4" />
-      <path d="M17.5 10v4" />
-      <path d="M10 17.5h4" />
-    </svg>
-  ),
-}
-
-const coreServiceCards: ServiceCard[] = [
-  {
-    id: 'ai-marketing-studio',
-    title: 'AI Marketing Studio',
-    desc: 'Use AI to speed up content workflows, campaign summaries, lead qualification, customer support, and reporting.',
-    items: [
-      'AI content workflows',
-      'Campaign summary generation',
-      'Lead qualification support',
-      'Marketing assistants',
-      'Automated weekly reporting',
-    ],
-    icon: 'ai',
-    href: '/contact',
-  },
-  {
-    id: 'business-intelligence',
-    title: 'Business Intelligence & Strategy',
-    desc: 'Turn marketing, sales, and customer data into dashboards and decisions your team can act on with confidence.',
-    items: [
-      'BI dashboards',
-      'Campaign reporting',
-      'Lead and customer insights',
-      'Performance review systems',
-      'Growth strategy planning',
-    ],
-    icon: 'data',
-    href: '/contact',
-  },
-  {
-    id: 'advertising',
-    title: 'Advertising & Performance Marketing',
-    desc: 'Plan, launch, and optimise paid campaigns across search, social, retargeting, and lead generation funnels.',
-    items: [
-      'Google Ads',
-      'Meta Ads',
-      'Retargeting funnels',
-      'Creative testing',
-      'Conversion tracking',
-    ],
-    icon: 'leads',
-    href: '/contact',
-  },
-  {
-    id: 'digital-media',
-    title: 'Digital Media',
-    desc: 'Build visibility with landing pages, SEO structure, content systems, and campaign-ready digital journeys.',
-    items: [
-      'Landing pages',
-      'SEO structure',
-      'Social campaign planning',
-      'Content direction',
-      'Digital customer journeys',
-    ],
-    icon: 'web',
-    href: '/contact',
-  },
-  {
-    id: 'ooh-offline-media',
-    title: 'OOH & Offline Media',
-    desc: 'Connect outdoor visibility and offline brand activation with digital campaign goals, tracking, and recall.',
-    items: [
-      'Billboard planning',
-      'Print campaigns',
-      'Local activations',
-      'Offline promotional strategy',
-      'Digital-to-offline flow',
-    ],
-    icon: 'design',
-    href: '/contact',
-  },
-  {
-    id: 'brand-growth-strategy',
-    title: 'Brand, Media & Growth Strategy',
-    desc: 'Shape the message, offer, audience, media mix, and execution plan before budget is spent.',
-    items: [
-      'Brand positioning',
-      'Go-to-market planning',
-      'Media mix strategy',
-      'Funnel planning',
-      'Monthly performance review',
-    ],
-    icon: 'strategy',
-    href: '/contact',
-  },
-  {
-    id: 'media-buying-planning',
-    title: 'Media Planning & Buying',
-    desc: 'Plan where your brand should appear, how budget should be split, and which placements can create the strongest reach.',
-    items: [
-      'Media mix planning',
-      'Budget allocation',
-      'Placement strategy',
-      'Vendor coordination',
-      'Reach and frequency planning',
-    ],
-    icon: 'framework',
-    href: '/contact',
-  },
-  {
-    id: 'content-creative-production',
-    title: 'Content & Creative Production',
-    desc: 'Create campaign-ready ideas, ad creatives, social content, landing page copy, and supporting brand assets.',
-    items: [
-      'Ad creative direction',
-      'Social media content',
-      'Landing page copy',
-      'Short-form video concepts',
-      'Campaign asset planning',
-    ],
-    icon: 'design',
-    href: '/contact',
-  },
-  {
-    id: 'crm-retention-marketing',
-    title: 'CRM & Retention Marketing',
-    desc: 'Improve repeat business with email campaigns, retention offers, customer segmentation, and CRM reporting.',
-    items: [
-      'Email campaigns',
-      'Customer segmentation',
-      'Retention offers',
-      'CRM planning',
-      'Reporting structure',
-    ],
-    icon: 'workflow',
-    href: '/contact',
-  },
-]
-
-const supportingServiceCards: ServiceCard[] = [
-  {
-    id: 'web-development',
-    title: 'Web Development',
-    desc: 'Build websites and landing pages that support campaigns, create trust, and convert traffic into enquiries.',
-    items: [
-      'Business websites',
-      'Campaign landing pages',
-      'Responsive development',
-      'Performance optimisation',
-      'Lead capture forms',
-    ],
-    icon: 'web',
-    href: '/web-design-auckland',
-  },
-  {
-    id: 'seo-landing-pages',
-    title: 'SEO & Landing Pages',
-    desc: 'Improve search visibility with focused landing pages, metadata, schema, and stronger content structure.',
-    items: [
-      'SEO content structure',
-      'Keyword landing pages',
-      'Metadata and schema',
-      'Conversion copy',
-      'Page speed basics',
-    ],
-    icon: 'web',
-    href: '/seo-agency-auckland',
-  },
-  {
-    id: 'software-engineering',
-    title: 'Software Engineering',
-    desc: 'Build custom dashboards, portals, and internal tools that support reporting and business operations.',
-    items: [
-      'Custom dashboards',
-      'Internal portals',
-      'Full-stack development',
-      'Scalable systems',
-      'QA and deployment',
-    ],
-    icon: 'code',
-    href: '/react-development-nz',
-  },
-  {
-    id: 'api-automation',
-    title: 'API Integration & Automation',
-    desc: 'Connect CRM, forms, analytics, email, dashboards, and reporting systems into smoother workflows.',
-    items: [
-      'CRM integrations',
-      'Analytics connections',
-      'Webhook workflows',
-      'Email automation',
-      'Reporting pipelines',
-    ],
-    icon: 'aiapi',
-    href: '/contact',
-  },
-  {
-    id: 'ai-api',
-    title: 'AI API Integration',
-    desc: 'Add AI features into products and workflows with scalable architecture, cost control, and reliable integrations.',
-    items: [
-      'OpenAI / Claude / Gemini APIs',
-      'Custom AI middleware',
-      'Streaming responses',
-      'Rate limiting',
-      'Cost control',
-    ],
-    icon: 'aiapi',
-    href: '/contact',
-  },
-  {
-    id: 'doc-ai',
-    title: 'AI Document Processing',
-    desc: 'Extract, classify, summarise, and structure documents for faster internal operations and reporting.',
-    items: [
-      'OCR and extraction',
-      'Document classification',
-      'Invoice and contract analysis',
-      'Summaries',
-      'Multi-format parsing',
-    ],
-    icon: 'docai',
-    href: '/contact',
-  },
-]
+import { useState } from 'react'
+import { coreServiceCards, supportingServiceCards } from '../data/armediaServices'
+import ServicesOfferingsSection from './services/ServicesOfferingsSection'
+import {
+  servicesDiscoverLinks,
+  servicesMethodSlides,
+  servicesStrategies,
+  servicesTechStack,
+} from '../data/servicesPageContent'
+import { whatWeDo } from '../data/homeContent'
+import ServicesExpertiseSection from './twg/ServicesExpertiseSection'
 
 function ServicesPage() {
+  const [methodIndex, setMethodIndex] = useState(0)
+  const [openStrategy, setOpenStrategy] = useState(0)
+  const method = servicesMethodSlides[methodIndex]
+
   return (
-    <section className="services-cinematic" aria-labelledby="services-title">
-      <div className="services-cinematic-inner">
-        <div className="services-copy">
-          <p className="services-kicker">Armedia Services</p>
-          <h1 id="services-title">
-            Strategy, media, AI, and campaign systems built for growth
-          </h1>
-          <p>
-            Armedia helps brands plan smarter campaigns with integrated strategy, advertising,
-            digital media, business intelligence, AI workflows, and supporting delivery systems
-            designed to improve visibility, lead quality, and reporting clarity.
+    <>
+      {/* Hero */}
+      <section className="services-page-hero armedia-section-dark">
+        <div className="armedia-hero-bg absolute inset-0" aria-hidden="true" />
+        <div className="armedia-container relative z-10">
+          <nav className="services-breadcrumb" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <span className="text-white/80">Services</span>
+          </nav>
+          <p className="armedia-eyebrow text-brand-gold">How we help your business</p>
+          <h1 className="services-page-title mt-4 max-w-4xl">Services built for strategy, media, and measurable growth</h1>
+          <p className="armedia-lead mt-6 max-w-2xl text-brand-muted">
+            Armedia connects strategy, advertising, digital media, AI workflows, business intelligence,
+            and reporting — so your campaigns are easier to plan, launch, and improve.
           </p>
-
-          <div className="hero-actions">
-            <Link className="services-cta" href="/contact">
-              Start your project
-            </Link>
-            <Link className="btn-ghost" href="/contact">
-              Book a consultation
-            </Link>
-          </div>
-        </div>
-
-        <div className="services-section-head">
-          <p className="section-tag">Core services</p>
-          <h2>Growth, media, and intelligence services</h2>
-          <p>
-            These are the main services Armedia should lead with because they align most clearly
-            with the brand promise shown on the homepage.
-          </p>
-        </div>
-
-        <div className="cinematic-services-grid">
-          {coreServiceCards.map((service) => (
-            <article
-              className="cinematic-service-card reveal-card"
-              key={service.title}
-              id={service.id}
-            >
-              <span className="card-glow" />
-              <span className="card-line" />
-              <span className="card-shine" />
-
-              <div
-                className={`service-icon service-icon-${service.icon}`}
-                aria-hidden="true"
-              >
-                {serviceIcons[service.icon]}
-              </div>
-
-              <h3>{service.title}</h3>
-              <p className="service-card-desc">{service.desc}</p>
-
-              <ul>
-                {service.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-
-              <Link className="text-link" href={service.href}>
-                Discuss this service
-              </Link>
-            </article>
-          ))}
-        </div>
-
-        <div className="services-section-head" style={{ marginTop: '4rem' }}>
-          <p className="section-tag">Supporting capabilities</p>
-          <h2>Digital delivery and technical support</h2>
-          <p>
-            These services support campaign execution, digital performance, reporting, and internal systems.
-          </p>
-        </div>
-
-        <div className="cinematic-services-grid">
-          {supportingServiceCards.map((service) => (
-            <article
-              className="cinematic-service-card reveal-card"
-              key={service.title}
-              id={service.id}
-            >
-              <span className="card-glow" />
-              <span className="card-line" />
-              <span className="card-shine" />
-
-              <div
-                className={`service-icon service-icon-${service.icon}`}
-                aria-hidden="true"
-              >
-                {serviceIcons[service.icon]}
-              </div>
-
-              <h3>{service.title}</h3>
-              <p className="service-card-desc">{service.desc}</p>
-
-              <ul>
-                {service.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-
-              <Link className="text-link" href={service.href}>
-                View service details
-              </Link>
-            </article>
-          ))}
-        </div>
-
-        <div className="home-cta-panel" style={{ marginTop: '4rem' }}>
-          <div>
-            <p className="section-tag">Need a clearer recommendation?</p>
-            <h3>Tell us your goal and we’ll recommend the right service mix.</h3>
-          </div>
-          <Link className="services-cta" href="/contact">
-            Talk to Armedia
+          <Link href="/contact" className="armedia-btn-primary mt-10">
+            Request consultation
           </Link>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Core Armedia services (restored) */}
+      <ServicesOfferingsSection
+        kicker="Our services"
+        title="Growth, media, and intelligence services"
+        description="These are the main services Armedia leads with — aligned with strategy, advertising, AI workflows, BI, and connected campaign delivery."
+        services={coreServiceCards}
+      />
+
+      <ServicesOfferingsSection
+        kicker="Supporting capabilities"
+        title="Digital delivery and technical support"
+        description="These services support campaign execution, digital performance, reporting, and internal systems."
+        services={supportingServiceCards}
+      />
+
+      {/* Areas of expertise (TWG-style taxonomy) */}
+      <ServicesExpertiseSection />
+
+      {/* Technology */}
+      <section className="armedia-section-muted border-t border-black/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <p className="armedia-eyebrow text-black/50">Tools of the trade</p>
+          <h2 className="armedia-heading mt-4 text-black">Technology capabilities</h2>
+          <div className="services-tech-grid mt-10">
+            {servicesTechStack.map((tool) => (
+              <div key={tool.name} className="services-tech-item">
+                <span className="services-tech-name">{tool.name}</span>
+                <span className="services-tech-index">{tool.index}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What we do */}
+      <section className="armedia-section-dark border-t border-white/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <p className="armedia-eyebrow text-brand-gold">{whatWeDo.kicker}</p>
+          <div className="mt-8 grid gap-10 border-t border-white/10 pt-10 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <h2 className="font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[0.95] text-white">
+                <span className="block">ideas</span>
+                <span className="mt-1 block italic text-brand-gold">around</span>
+              </h2>
+              <p className="armedia-lead mt-6 max-w-md text-brand-muted">{whatWeDo.subline}</p>
+            </div>
+            <Link href={whatWeDo.cta.href} className="armedia-btn-primary w-fit shrink-0">
+              {whatWeDo.cta.label}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Method */}
+      <section className="armedia-section-light border-t border-black/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <p className="armedia-eyebrow text-black/50">How can we help you?</p>
+          <h2 className="armedia-heading mt-4 text-black">Method</h2>
+
+          <div className="services-method-tabs mt-8">
+            {servicesMethodSlides.map((slide, index) => (
+              <button
+                key={slide.title}
+                type="button"
+                className={[
+                  'services-method-tab',
+                  index === methodIndex ? 'services-method-tab--active' : 'services-method-tab--idle',
+                ].join(' ')}
+                onClick={() => setMethodIndex(index)}
+              >
+                {String(index + 1).padStart(2, '0')}
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-10 border-t border-black/10 pt-10 lg:grid-cols-[1fr_auto] lg:items-start">
+            <div>
+              <p className="font-heading text-sm font-bold tabular-nums text-brand-gold">
+                {String(methodIndex + 1).padStart(2, '0')}
+              </p>
+              <h3 className="armedia-heading mt-3 text-black">{method.title}</h3>
+              <p className="armedia-body mt-4 max-w-2xl text-black/75">{method.body}</p>
+            </div>
+            <Link href="/contact" className="armedia-btn-secondary w-fit shrink-0">
+              {method.cta}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Strategies */}
+      <section className="armedia-section-muted border-t border-black/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <p className="armedia-eyebrow text-black/50">Our strategies</p>
+          <h2 className="armedia-heading mt-4 text-black">From strategy to measurement</h2>
+
+          <div className="services-strategy-list mt-10">
+            {servicesStrategies.map((item, index) => {
+              const isOpen = openStrategy === index
+              return (
+                <article key={item.step} className="services-strategy-item">
+                  <button
+                    type="button"
+                    className="services-strategy-trigger"
+                    onClick={() => setOpenStrategy(index)}
+                    aria-expanded={isOpen}
+                  >
+                    <span>
+                      <span className="services-strategy-step">{item.step}</span>
+                      <span className="services-strategy-title block">{item.title}</span>
+                    </span>
+                    <span
+                      className={[
+                        'services-strategy-toggle',
+                        isOpen ? 'services-strategy-toggle--open' : '',
+                      ].join(' ')}
+                      aria-hidden="true"
+                    >
+                      {isOpen ? '−' : '+'}
+                    </span>
+                  </button>
+                  <div
+                    className={[
+                      'overflow-hidden transition-all duration-300',
+                      isOpen ? 'max-h-[520px] opacity-100' : 'max-h-0 opacity-0',
+                    ].join(' ')}
+                  >
+                    <p className="services-strategy-body">{item.body}</p>
+                    <ul className="services-strategy-bullets">
+                      {item.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Discover CTA */}
+      <section className="armedia-section-dark border-t border-white/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <p className="armedia-eyebrow text-brand-gold">Find out why we&apos;re the right fit</p>
+          <div className="services-discover-grid mt-8">
+            {servicesDiscoverLinks.map((item) => (
+              <Link key={item.label} href={item.href} className="services-discover-card">
+                <h3>{item.title}</h3>
+                <span className="services-discover-label">
+                  {item.label} <span aria-hidden="true">→</span>
+                </span>
+              </Link>
+            ))}
+          </div>
+          <Link href="/contact" className="armedia-btn-primary mt-10">
+            Contact us
+          </Link>
+        </div>
+      </section>
+    </>
   )
 }
 

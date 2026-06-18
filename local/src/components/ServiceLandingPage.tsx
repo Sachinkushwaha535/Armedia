@@ -4,6 +4,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
 type ServiceLandingPageProps = {
   kicker: string
+  breadcrumb?: string
   title: string
   path: string
   description: string
@@ -22,6 +23,7 @@ type ServiceLandingPageProps = {
 
 function ServiceLandingPage({
   kicker,
+  breadcrumb,
   title,
   path,
   description,
@@ -34,6 +36,8 @@ function ServiceLandingPage({
   portfolio,
   faq,
 }: ServiceLandingPageProps) {
+  const breadcrumbLabel = breadcrumb ?? kicker
+
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -70,93 +74,99 @@ function ServiceLandingPage({
     }),
   }
 
+  const blocks = [
+    { heading: 'What is included', items: points },
+    { heading: 'Business outcomes', items: outcomes },
+    { heading: 'Benefits', items: benefits },
+    { heading: 'Timeline', items: timeline },
+    { heading: 'Technologies', items: technologies },
+    { heading: 'Portfolio fit', items: portfolio },
+  ]
+
   return (
-    <section className="page-shell section" aria-labelledby="service-landing-title">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
-      <div className="section-heading">
-        <p className="eyebrow">{kicker}</p>
-        <h1 className="page-title" id="service-landing-title">{title}</h1>
-        <p>{description}</p>
-        <div className="hero-actions">
-          <Link className="button button-primary" href="/start-project">Start a project</Link>
-          <Link className="button button-secondary" href="/services">View all services</Link>
+
+      <section className="contact-page-hero armedia-section-dark">
+        <div className="armedia-hero-bg absolute inset-0" aria-hidden="true" />
+        <div className="armedia-container relative z-10">
+          <nav className="services-breadcrumb" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <Link href="/services">Services</Link>
+            <span aria-hidden="true">/</span>
+            <span className="text-white/80">{breadcrumbLabel}</span>
+          </nav>
+          <p className="armedia-eyebrow text-brand-gold">{kicker}</p>
+          <h1 className="services-page-title mt-4 max-w-4xl">{title}</h1>
+          <p className="armedia-lead mt-6 max-w-2xl text-brand-muted">{description}</p>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link href="/contact" className="armedia-btn-primary">
+              Request consultation
+            </Link>
+            <Link href="/services" className="armedia-btn-secondary-light w-fit">
+              All services
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="studio-grid">
-        <article className="studio-card">
-          <h2>What is included</h2>
-          <ul>
-            {points.map((point) => (
-              <li key={point}>{point}</li>
+      <section className="armedia-section-light border-t border-black/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <div className="service-landing-grid">
+            {blocks.map((block) => (
+              <article key={block.heading} className="service-landing-card">
+                <h2 className="font-heading text-lg font-bold text-black">{block.heading}</h2>
+                <ul className="mt-4 space-y-2">
+                  {block.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-black/75">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-gold" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
             ))}
-          </ul>
-        </article>
-        <article className="studio-card">
-          <h2>Business outcomes</h2>
-          <ul>
-            {outcomes.map((outcome) => (
-              <li key={outcome}>{outcome}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="studio-card">
-          <h2>Benefits</h2>
-          <ul>
-            {benefits.map((benefit) => (
-              <li key={benefit}>{benefit}</li>
-            ))}
-          </ul>
-        </article>
 
-        {pricing && (
-          <article className="studio-card">
-            <h2>Pricing</h2>
-            <p>{pricing}</p>
-          </article>
-        )}
+            {pricing ? (
+              <article className="service-landing-card">
+                <h2 className="font-heading text-lg font-bold text-black">Pricing</h2>
+                <p className="mt-4 text-sm leading-relaxed text-black/75">{pricing}</p>
+              </article>
+            ) : null}
 
-        <article className="studio-card">
-          <h2>Timeline</h2>
-          <ul>
-            {timeline.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="studio-card">
-          <h2>Technologies</h2>
-          <ul>
-            {technologies.map((technology) => (
-              <li key={technology}>{technology}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="studio-card">
-          <h2>Portfolio fit</h2>
-          <ul>
-            {portfolio.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
+            {faq && faq.length > 0 ? (
+              <article className="service-landing-card service-landing-card--wide">
+                <h2 className="font-heading text-lg font-bold text-black">FAQ</h2>
+                <div className="mt-4 space-y-6">
+                  {faq.map((item) => (
+                    <div key={item.question}>
+                      <h3 className="font-heading text-base font-bold text-black">{item.question}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-black/75">{item.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ) : null}
+          </div>
+        </div>
+      </section>
 
-        {faq && faq.length > 0 && (
-          <article className="studio-card">
-            <h2>FAQ</h2>
-            {faq.map((item) => (
-              <div key={item.question}>
-                <h3>{item.question}</h3>
-                <p>{item.answer}</p>
-              </div>
-            ))}
-          </article>
-        )}
-      </div>
-    </section>
+      <section className="armedia-section-muted border-t border-black/10">
+        <div className="armedia-container py-14 lg:py-16">
+          <h2 className="armedia-heading text-black">Ready to talk about {breadcrumbLabel.toLowerCase()}?</h2>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-black/70">
+            Share your goal and timeline — we will reply with practical next steps.
+          </p>
+          <Link href="/contact" className="armedia-btn-secondary mt-8 inline-flex">
+            Contact Armedia
+          </Link>
+        </div>
+      </section>
+    </>
   )
 }
 
