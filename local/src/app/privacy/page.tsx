@@ -5,7 +5,7 @@ import TWGFooter from '../../components/twg/TWGFooter'
 import { contactEmail } from '../../components/siteConfig'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Armedia Marketing Media Agency New Zealand',
+  title: 'Privacy Policy',
   description: 'How Armedia handles contact details, campaign inquiries, analytics information, and project communication.',
   alternates: {
     canonical: '/privacy',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: 'Privacy Policy | Armedia',
+    title: 'Privacy Policy',
     description:
       'How Armedia handles contact details, campaign inquiries, analytics information, and project communication.',
     url: '/privacy',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Privacy Policy | Armedia',
+    title: 'Privacy Policy',
     description:
       'How Armedia handles contact details, campaign inquiries, analytics information, and project communication.',
   },

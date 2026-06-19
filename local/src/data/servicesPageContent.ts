@@ -18,7 +18,7 @@ export const servicesMethodSlides = [
     title: 'Need a clearer campaign plan?',
     body:
       'Many brands spend budget before the offer, audience, channel roles, and measurement plan are aligned. We map the commercial goal first, then build the campaign structure around it.',
-    cta: 'Request free consultation',
+    cta: 'Request a consultation',
   },
   {
     title: 'Need more qualified leads?',
@@ -87,13 +87,13 @@ export const servicesStrategies = [
 
 export const servicesDiscoverLinks = [
   {
-    label: 'Contact us',
-    title: 'Get in touch with us',
-    href: '/contact',
+    label: 'Who we are',
+    title: 'Learn how we plan and deliver campaigns',
+    href: '/about',
   },
   {
-    label: 'Our work',
-    title: 'See how we approach campaigns',
+    label: 'Contact us',
+    title: 'Get in touch with us',
     href: '/contact',
   },
 ]

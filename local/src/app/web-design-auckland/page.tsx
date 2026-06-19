@@ -4,12 +4,12 @@ import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 
 export const metadata: Metadata = {
-  title: 'Web Design Auckland | Premium Website Design by Armedia',
+  title: 'Web Design Auckland | Premium Website Design',
   description:
     'Premium Web Design Auckland service for mobile-first websites with clear messaging, conversion-focused UX, and SEO foundations.',
   alternates: { canonical: '/web-design-auckland' },
   openGraph: {
-    title: 'Web Design Auckland | Premium Website Design by Armedia',
+    title: 'Web Design Auckland | Premium Website Design',
     description:
       'Auckland website design for stronger trust, clearer service pages, better inquiry paths, and launch-ready frontend systems.',
     url: '/web-design-auckland',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Web Design Auckland | Premium Website Design by Armedia',
+    title: 'Web Design Auckland | Premium Website Design',
     description:
       'Mobile-first Auckland website design for trust, clarity, inquiry paths, SEO foundations, and launch-ready frontend systems.',
   },

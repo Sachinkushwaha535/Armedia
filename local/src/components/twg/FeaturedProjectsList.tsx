@@ -70,7 +70,7 @@ function FeaturedProjectsList({ items }: FeaturedProjectsListProps) {
       onMouseLeave={handleSectionLeave}
     >
       <div className="armedia-container">
-        <p className="armedia-eyebrow text-brand-gold">Featured work</p>
+        <p className="armedia-eyebrow text-brand-gold">Capability areas</p>
 
         <div className="mt-4 border-t border-brand-line pt-6">
           <ul className="w-full">
@@ -101,7 +101,7 @@ function FeaturedProjectsList({ items }: FeaturedProjectsListProps) {
                           <div className="twg-featured-card-img relative">
                             <Image
                               src={item.image}
-                              alt=""
+                              alt={item.title}
                               fill
                               className="object-cover opacity-[0.92]"
                               sizes="210px"
@@ -147,7 +147,7 @@ function FeaturedProjectsList({ items }: FeaturedProjectsListProps) {
                         {isActive ? (
                           <span className="absolute right-0 top-1/2 hidden -translate-y-1/2 items-center gap-2 font-heading text-[10px] font-semibold uppercase tracking-[0.18em] text-white sm:inline-flex">
                             <span className="h-1.5 w-1.5 rounded-full bg-brand-gold" />
-                            Visit site
+                            View service
                           </span>
                         ) : null}
                       </div>

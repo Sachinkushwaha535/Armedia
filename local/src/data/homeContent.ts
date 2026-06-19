@@ -1,12 +1,11 @@
 export const preloaderWords = ['We Listen', 'We Research', 'We Design', 'We Build', 'We Deliver']
 
 export const heroContent = {
-  headline:
-    'We deliver marketing media, strategy, and performance campaigns in Auckland that generate measurable results for our clients.',
+  headline: 'Marketing media agency in Auckland for strategy, advertising, and measurable growth.',
   subheadline:
     'Looking for a partner that connects strategy, advertising, AI workflows, BI dashboards, and media planning? Armedia helps New Zealand brands grow with clearer campaigns and stronger reporting.',
-  primaryCta: { label: 'Request Free Audit', href: '/contact' },
-  secondaryCta: { label: 'Download Our Guide', href: '/start-project' },
+  primaryCta: { label: 'Book a strategy call', href: '/contact' },
+  secondaryCta: { label: 'Get the marketing guide', href: '/#download-guide' },
 }
 
 export const labImages = {
@@ -65,61 +64,61 @@ export const portfolioItems = [
     title: 'Creative Content Lab',
     tags: ['Content', 'Video', 'Social'],
     image: labImages.creativeContent,
-    href: '/contact',
+    href: '/services#content-creative-production',
   },
   {
     title: 'Media Planning Lab',
     tags: ['Strategy', 'Media mix', 'Planning'],
     image: labImages.mediaPlanning,
-    href: '/contact',
+    href: '/services#media-buying-planning',
   },
   {
     title: 'Enterprise Software Lab',
     tags: ['Software', 'Integrations', 'Systems'],
     image: labImages.software,
-    href: '/contact',
+    href: '/services#software-engineering',
   },
   {
     title: 'SEO & Visibility Lab',
     tags: ['SEO', 'Search', 'Analytics'],
     image: labImages.seo,
-    href: '/contact',
+    href: '/seo-agency-auckland',
   },
   {
     title: 'Brand & Media Lab',
     tags: ['Brand', 'Media', 'Strategy'],
     image: labImages.brandMedia,
-    href: '/contact',
+    href: '/services#brand-growth-strategy',
   },
   {
     title: 'AI & API Lab',
     tags: ['AI', 'API', 'Automation'],
     image: labImages.aiApi,
-    href: '/contact',
+    href: '/services#ai-api',
   },
   {
     title: 'Web Development Lab',
     tags: ['Next.js', 'React', 'UX'],
     image: labImages.webDevelopment,
-    href: '/contact',
+    href: '/web-design-auckland',
   },
   {
     title: 'OOH & Outdoor Lab',
     tags: ['OOH', 'Billboards', 'Offline'],
     image: labImages.ooh,
-    href: '/contact',
+    href: '/services#ooh-offline-media',
   },
   {
     title: 'Paid Marketing Lab',
     tags: ['Paid ads', 'Performance', 'CRO'],
     image: labImages.paidMarketing,
-    href: '/contact',
+    href: '/services#advertising',
   },
   {
     title: 'Business Intelligence Lab',
     tags: ['BI', 'Dashboards', 'Reporting'],
     image: labImages.businessIntelligence,
-    href: '/contact',
+    href: '/services#business-intelligence',
   },
 ]
 
@@ -163,7 +162,7 @@ export const statistics = {
   items: [
     { value: '6+', label: 'Integrated growth pillars across strategy, media, and reporting' },
     { value: '5', label: 'Step campaign process from diagnosis to improvement' },
-    { value: '24h', label: 'Business-day reply target for new enquiries' },
+    { value: '1 day', label: 'Business-day reply target for new enquiries' },
   ],
 }
 
@@ -245,14 +244,14 @@ export const serviceAreas: Array<{
 ]
 
 export const testimonials = {
-  kicker: 'What our clients are saying',
-  title: 'Testimonials',
-  subtitle: 'We design & build connected campaigns that are easier to measure and improve.',
+  kicker: 'Client feedback',
+  title: 'Verified reviews',
+  subtitle: 'We share client feedback only when it is accurate and approved.',
   quote:
-    'Armedia helped us connect strategy, media, and reporting into one clearer plan. The team communicates practically and keeps the next step obvious.',
-  author: 'Campaign lead',
-  role: 'Growth-focused NZ brand',
-  cta: { label: 'View all testimonials', href: '/contact' },
+    'Verified client reviews and testimonials are published only after client approval or when connected to a public review source.',
+  author: 'Review policy',
+  role: 'Armedia',
+  cta: { label: 'Contact us', href: '/contact' },
   image: labImages.brandMedia,
 }
 

@@ -28,7 +28,7 @@ function ContactPage() {
       name: name ?? prev.name,
       email: email ?? prev.email,
       phone: phone ?? prev.phone,
-      message: guide === '1' ? 'Please send me the connected marketing guide.' : prev.message,
+      message: guide === '1' ? 'Please send me the connected marketing guide by email.' : prev.message,
     }))
   }, [searchParams])
 

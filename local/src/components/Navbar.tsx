@@ -7,6 +7,7 @@ import { navItems } from './siteData'
 import { contactPhone, contactPhoneHref } from './siteConfig'
 
 const navLinks = [
+  { label: 'Home', path: '/' },
   { label: 'Who we are', path: '/about' },
   ...navItems.filter((item) => item.path !== '/'),
 ]

@@ -5,7 +5,7 @@ import TWGFooter from '../../components/twg/TWGFooter'
 import { contactEmail } from '../../components/siteConfig'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Armedia Marketing Media Agency New Zealand',
+  title: 'Terms of Service',
   description: 'General website, campaign inquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
   alternates: {
     canonical: '/terms',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: 'Terms of Service | Armedia',
+    title: 'Terms of Service',
     description:
       'General website, campaign inquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
     url: '/terms',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Terms of Service | Armedia',
+    title: 'Terms of Service',
     description:
       'General website, campaign inquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
   },

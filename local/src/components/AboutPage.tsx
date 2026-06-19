@@ -1,225 +1,147 @@
 import Link from 'next/link'
-import PageShell from './PageShell'
-
-const agencyPillars = [
-  {
-    title: 'Strategy before spending',
-    body: 'We clarify the audience, offer, message, media mix, funnel, and measurement plan before campaign execution begins.',
-  },
-  {
-    title: 'Media across channels',
-    body: 'Digital media, OOH, offline activations, content, PR, social, CRM, and advertising are planned as one connected growth system.',
-  },
-  {
-    title: 'AI and intelligence layer',
-    body: 'AI workflows and BI dashboards help teams move faster, review performance clearly, and find the next best action.',
-  },
-]
-
-const capabilities = [
-  {
-    title: 'AI marketing tools and automation',
-    body: 'Practical workflows for campaign summaries, content planning, lead qualification, support prompts, and weekly reporting.',
-  },
-  {
-    title: 'Business intelligence and campaign dashboards',
-    body: 'Dashboards and review rhythms that help teams see channel performance, lead quality, spend, and next actions clearly.',
-  },
-  {
-    title: 'Performance advertising and media buying',
-    body: 'Paid search, paid social, retargeting, placement planning, creative testing, and conversion tracking shaped around business goals.',
-  },
-  {
-    title: 'Digital, OOH, offline, PR, event, and retail marketing',
-    body: 'Connected campaign planning across online reach, physical visibility, launch activity, retail moments, and local awareness.',
-  },
-  {
-    title: 'Web development, mobile apps, SEO, e-commerce, and software support',
-    body: 'Campaign-ready digital foundations: fast pages, forms, analytics, integrations, search structure, and customer journeys.',
-  },
-]
-
-const team = [
-  {
-    initials: 'ST',
-    name: 'Strategy Lead',
-    role: 'Brand direction, campaign planning, and media roadmap',
-    skills: ['Positioning', 'Media mix', 'Funnel', 'Growth'],
-    avatarClass: 'ta1',
-  },
-  {
-    initials: 'CR',
-    name: 'Creative Lead',
-    role: 'Campaign ideas, content direction, ad creative, and brand systems',
-    skills: ['Creative', 'Content', 'Ads', 'Brand'],
-    avatarClass: 'ta2',
-  },
-  {
-    initials: 'BI',
-    name: 'Intelligence Lead',
-    role: 'AI workflows, reporting, dashboards, tracking, and optimisation',
-    skills: ['AI', 'BI', 'Analytics', 'Automation'],
-    avatarClass: 'ta3',
-  },
-]
-
-const proofAreas = [
-  {
-    title: 'Campaign portfolio',
-    body: 'Prospects can review example systems for media plans, ad creative, landing page concepts, dashboards, and launch structures.',
-  },
-  {
-    title: 'Verification policy',
-    body: 'Named logos, testimonials, screenshots, and performance numbers are used only when they are accurate and approved.',
-  },
-  {
-    title: 'Performance reviews',
-    body: 'Every campaign should connect to reporting so awareness, enquiries, leads, conversion, and recall can be reviewed.',
-  },
-]
+import {
+  aboutCapabilities,
+  aboutPillars,
+  aboutProofAreas,
+  aboutTeamRoles,
+} from '../data/aboutPageContent'
 
 function AboutPage() {
   return (
-    <PageShell
-      kicker="About Armedia"
-      title="A marketing media agency built for smarter growth."
-      description="Armedia brings strategy, media planning, AI tools, business intelligence, advertising, creative direction, and campaign-supporting technology into one clear agency system."
-      actions={
-        <Link className="button button-primary" href="/contact">
-          Book a strategy call
-        </Link>
-      }
-    >
-      <section className="about-premium-layout">
-        <div className="about-premium-content">
-          <div className="about-intro-card">
-            <p className="eyebrow">Agency Positioning</p>
-            <div className="about-profile-row">
-              <div className="about-profile-photo" aria-label="Armedia agency mark">
-                AR
-              </div>
-              <div>
-                <h2>Media, intelligence, creative, and technology working together.</h2>
-                <p>
-                  Armedia is shaped for brands that need more than isolated ads or one-off
-                  creatives. We help plan the right campaign system, choose the right media,
-                  create clearer messages, connect reporting, and improve execution over time.
-                </p>
-                <div className="about-tech-grid">
-                  <span>AI</span>
-                  <span>BI</span>
-                  <span>Advertising</span>
-                  <span>OOH</span>
-                  <span>Offline</span>
-                  <span>Digital</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="about-feature-card">
-            <p className="eyebrow">What We Believe</p>
-            <h3>Good media work starts with clarity, then becomes measurable.</h3>
-            <div className="about-feature-list">
-              {agencyPillars.map((item, index) => (
-                <div className="about-feature-row" key={item.title}>
-                  <div>
-                    <strong>{item.title}</strong>
-                    <p>{item.body}</p>
-                  </div>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="about-stats-grid">
-            <div className="about-stat-card">
-              <strong>18</strong>
-              <span>Service capabilities</span>
-            </div>
-            <div className="about-stat-card">
-              <strong>6</strong>
-              <span>Core growth channels</span>
-            </div>
-            <div className="about-stat-card">
-              <strong>AI</strong>
-              <span>Workflow-ready thinking</span>
-            </div>
-            <div className="about-stat-card">
-              <strong>BI</strong>
-              <span>Reporting-led decisions</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="about-premium-side">
-          <div className="about-feature-card">
-            <p className="eyebrow">Capabilities</p>
-            <h3>Built for brands that need planning, execution, and measurement.</h3>
-            <div className="about-feature-list">
-              {capabilities.map((item, index) => (
-                <div className="about-feature-row" key={item.title}>
-                  <div>
-                    <strong>{item.title}</strong>
-                    <p>{item.body}</p>
-                  </div>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                </div>
-              ))}
-            </div>
+    <>
+      <section className="contact-page-hero armedia-section-dark">
+        <div className="armedia-hero-bg absolute inset-0" aria-hidden="true" />
+        <div className="armedia-container relative z-10">
+          <nav className="services-breadcrumb" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <span className="text-white/80">Who we are</span>
+          </nav>
+          <p className="armedia-eyebrow text-brand-gold">About Armedia</p>
+          <h1 className="services-page-title mt-4 max-w-4xl">
+            A marketing media agency built for smarter growth
+          </h1>
+          <p className="armedia-lead mt-6 max-w-2xl text-brand-muted">
+            Armedia brings strategy, media planning, AI workflows, business intelligence,
+            advertising, creative direction, and campaign-supporting technology into one clear
+            agency system.
+          </p>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link href="/contact" className="armedia-btn-primary">
+              Book a strategy call
+            </Link>
+            <Link href="/services" className="armedia-btn-secondary-light w-fit">
+              Our services
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="about-section-stack">
-        <div className="section-heading">
-          <p className="eyebrow">Team Model</p>
-          <h2>Senior roles around strategy, creative, and intelligence.</h2>
-          <p>
+      <section className="armedia-section-light border-t border-black/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <p className="armedia-eyebrow text-black/50">Agency positioning</p>
+          <h2 className="armedia-heading mt-4 max-w-3xl text-black">
+            Media, intelligence, creative, and technology — working together
+          </h2>
+          <p className="armedia-body mt-5 max-w-2xl text-black/70">
+            Armedia is shaped for brands that need more than isolated ads or one-off creatives.
+            We help plan the right campaign system, choose the right media, create clearer
+            messages, connect reporting, and improve execution over time.
+          </p>
+
+          <div className="about-pillar-grid mt-12">
+            {aboutPillars.map((item, index) => (
+              <article key={item.title} className="about-pillar-card">
+                <span className="about-pillar-index">{String(index + 1).padStart(2, '0')}</span>
+                <h3 className="mt-4 font-heading text-lg font-bold text-black">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-black/70">{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="armedia-section-muted border-t border-black/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <p className="armedia-eyebrow text-black/50">Capabilities</p>
+          <h2 className="armedia-heading mt-4 text-black">Built for planning, execution, and measurement</h2>
+
+          <div className="about-capability-list mt-10 divide-y divide-black/10 border-y border-black/10">
+            {aboutCapabilities.map((item, index) => (
+              <article key={item.title} className="about-capability-row py-6 lg:py-7">
+                <span className="font-heading text-sm font-bold tabular-nums text-brand-gold">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div className="mt-2 lg:mt-0">
+                  <h3 className="font-heading text-base font-bold text-black lg:text-lg">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-black/70">{item.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="armedia-section-light border-t border-black/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <p className="armedia-eyebrow text-black/50">Team model</p>
+          <h2 className="armedia-heading mt-4 text-black">Senior roles around strategy, creative, and intelligence</h2>
+          <p className="armedia-body mt-4 max-w-2xl text-black/70">
             The team structure reflects the core roles clients engage for campaign planning,
             creative execution, and performance analysis.
           </p>
-        </div>
 
-        <div className="team-grid">
-          {team.map((member) => (
-            <article className="team-card" key={member.name}>
-              <div className={`team-avatar ${member.avatarClass}`} aria-label={`${member.name} profile mark`}>
-                {member.initials}
-              </div>
-              <h3 className="team-name">{member.name}</h3>
-              <p className="team-role">{member.role}</p>
-              <div className="team-skills">
-                {member.skills.map((skill) => (
-                  <span className="team-skill" key={skill}>{skill}</span>
-                ))}
-              </div>
-            </article>
-          ))}
+          <div className="about-team-grid mt-10">
+            {aboutTeamRoles.map((member) => (
+              <article key={member.name} className="about-team-card">
+                <span className="about-team-avatar" aria-hidden="true">
+                  {member.initials}
+                </span>
+                <h3 className="mt-5 font-heading text-lg font-bold text-black">{member.name}</h3>
+                <p className="mt-2 text-sm text-black/70">{member.role}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {member.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-medium text-black/70"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="about-section-stack">
-        <div className="section-heading">
-          <p className="eyebrow">Proof System</p>
-          <h2>Professional trust areas focused on evidence.</h2>
-          <p>
-            Strong agency positioning depends on evidence. These sections focus on campaign
-            examples, verification standards, performance snapshots, and practical reporting.
+      <section className="armedia-section-dark border-t border-white/10">
+        <div className="armedia-container py-16 lg:py-20">
+          <p className="armedia-eyebrow text-brand-gold">Proof system</p>
+          <h2 className="armedia-heading mt-4 text-white">Professional trust built on evidence</h2>
+          <p className="armedia-body mt-4 max-w-2xl text-brand-muted">
+            Strong agency positioning depends on evidence — campaign examples, verification
+            standards, and practical reporting.
           </p>
-        </div>
 
-        <div className="studio-grid">
-          {proofAreas.map((signal) => (
-            <article className="studio-card" key={signal.title}>
-              <h3>{signal.title}</h3>
-              <p>{signal.body}</p>
-            </article>
-          ))}
+          <div className="about-proof-grid mt-10">
+            {aboutProofAreas.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-6 lg:p-7"
+              >
+                <h3 className="font-heading text-lg font-bold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-brand-muted">{item.body}</p>
+              </article>
+            ))}
+          </div>
+
+          <Link href="/contact" className="armedia-btn-primary mt-10 inline-flex">
+            Start a conversation
+          </Link>
         </div>
       </section>
-    </PageShell>
+    </>
   )
 }
 
