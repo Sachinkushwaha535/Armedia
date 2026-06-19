@@ -38,7 +38,7 @@ function TWGFooter() {
             >
               {contactEmail}
             </a>
-            <Link
+            {/* <Link
               href="/contact"
               className="mt-5 inline-flex font-heading text-[11px] font-bold uppercase tracking-[0.12em] text-brand-gold transition-opacity hover:opacity-80"
             >
@@ -54,7 +54,7 @@ function TWGFooter() {
                   {social.label} ↗
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div>
