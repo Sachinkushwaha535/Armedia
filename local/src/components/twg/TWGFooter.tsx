@@ -24,7 +24,7 @@ function TWGFooter() {
             <a href={`mailto:${contactEmail}`} className="mt-3 inline-block text-sm underline text-brand-muted">
               {contactEmail}
             </a>
-            <div className="mt-6 flex flex-col gap-2">
+            {/* <div className="mt-6 flex flex-col gap-2">
               {['Facebook', 'Instagram', 'LinkedIn', 'Youtube'].map((social) => (
                 <a
                   key={social}
@@ -34,7 +34,7 @@ function TWGFooter() {
                   {social} ↗
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div>
