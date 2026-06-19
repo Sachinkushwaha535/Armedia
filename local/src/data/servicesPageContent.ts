@@ -35,7 +35,7 @@ export const servicesMethodSlides = [
   {
     title: 'Need something else?',
     body:
-      'We also support OOH and offline media, AI-assisted workflows, content direction, ecommerce builds, and practical strategy workshops.',
+      'We also support OOH and offline media, AI-assisted workflows, content direction, e-commerce builds, and practical strategy workshops.',
     cta: 'Start a conversation',
   },
 ]

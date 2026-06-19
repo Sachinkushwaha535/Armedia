@@ -201,7 +201,7 @@ export const serviceAreas: Array<{
     icon: 'web',
     items: [
       'Bespoke Website Development',
-      'Ecommerce Website Development',
+      'E-commerce Website Development',
       'React / Next.js builds',
       'Responsive Web Development',
     ],

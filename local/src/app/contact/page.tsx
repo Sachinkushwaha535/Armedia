@@ -8,13 +8,23 @@ import { siteUrl } from '../../components/siteConfig'
 export const metadata: Metadata = {
   title: 'Contact | Start a Marketing Media Project',
   description:
-    'Contact Armedia to discuss strategy, advertising, AI workflows, business intelligence, digital media, or campaign reporting in Auckland and across New Zealand.',
+    'Contact Armedia to discuss strategy, advertising, AI workflows, business intelligence, digital media, or campaign reporting in Auckland and NZ.',
   keywords: [
     'contact Armedia',
     'marketing media agency contact',
     'advertising agency Auckland',
     'AI marketing project',
     'business intelligence project',
+    'get a quote marketing agency Auckland',
+    'request marketing audit Auckland',
+    'start marketing project NZ',
+    'campaign enquiry Auckland',
+    'media planning consultation',
+    'digital marketing contact Auckland',
+    'marketing agency phone Auckland',
+    'hire marketing agency New Zealand',
+    'free campaign audit Auckland',
+    'marketing strategy consultation NZ',
   ],
   alternates: {
     canonical: '/contact',

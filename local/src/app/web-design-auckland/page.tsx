@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Web Design Auckland | Premium Website Design',
     description:
-      'Auckland website design for stronger trust, clearer service pages, better inquiry paths, and launch-ready frontend systems.',
+      'Auckland website design for stronger trust, clearer service pages, better enquiry paths, and launch-ready frontend systems.',
     url: '/web-design-auckland',
     type: 'website',
   },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Web Design Auckland | Premium Website Design',
     description:
-      'Mobile-first Auckland website design for trust, clarity, inquiry paths, SEO foundations, and launch-ready frontend systems.',
+      'Mobile-first Auckland website design for trust, clarity, enquiry paths, SEO foundations, and launch-ready frontend systems.',
   },
 }
 
@@ -43,7 +43,7 @@ export default function Page() {
         outcomes={[
           'Stronger first impression',
           'Clearer service pages',
-          'Better inquiry flow',
+          'Better enquiry flow',
           'A design foundation ready for development',
         ]}
         benefits={[

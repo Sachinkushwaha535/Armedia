@@ -88,7 +88,7 @@ export default function HomeContactForm() {
         </label>
       </div>
       <label>
-        <span className="sr-only">Project or inquiry details</span>
+        <span className="sr-only">Project or enquiry details</span>
         <textarea
           name="message"
           value={formData.message}

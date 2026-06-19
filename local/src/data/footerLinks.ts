@@ -16,11 +16,11 @@ export const footerServiceLinks: FooterServiceLink[] = [
 
 export const footerLocations = ['Auckland', 'Wellington', 'Christchurch', 'Queenstown']
 
-export const footerIndustries = ['Construction', 'eCommerce', 'Healthcare', 'Tourism']
+export const footerIndustries = ['Construction', 'E-commerce', 'Healthcare', 'Tourism']
 
 export const footerSocialLinks = [
   { label: 'Facebook', href: '/contact' },
   { label: 'Instagram', href: '/contact' },
   { label: 'LinkedIn', href: '/contact' },
-  { label: 'Youtube', href: '/contact' },
+  { label: 'YouTube', href: '/contact' },
 ]

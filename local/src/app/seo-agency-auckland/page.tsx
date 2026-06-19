@@ -6,7 +6,7 @@ import TWGFooter from '../../components/twg/TWGFooter'
 export const metadata: Metadata = {
   title: 'SEO Agency Auckland | Technical SEO & Search Strategy',
   description:
-    'Auckland SEO agency helping businesses improve rankings with technical SEO, schema, Core Web Vitals and content optimization.',
+    'Auckland SEO agency helping businesses improve rankings with technical SEO, schema, Core Web Vitals and content optimisation.',
   alternates: { canonical: '/seo-agency-auckland' },
   openGraph: {
     title: 'SEO Agency Auckland | Technical SEO & Search Strategy',
@@ -69,7 +69,7 @@ export default function Page() {
         portfolio={[
           'Web Design Auckland landing page structure',
           'React Developers NZ landing page structure',
-          'Ecommerce Website Auckland landing page structure',
+          'E-commerce website Auckland landing page structure',
           'Search Console and analytics review roadmap',
         ]}
         faq={[

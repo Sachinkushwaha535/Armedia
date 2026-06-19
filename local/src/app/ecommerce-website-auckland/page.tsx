@@ -4,12 +4,12 @@ import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 
 export const metadata: Metadata = {
-  title: 'Ecommerce Website Auckland | Online Store Design & Development',
+  title: 'E-commerce Website Auckland | Online Store Design & Development',
   description:
-    'Ecommerce Website Auckland service for product pages, checkout journeys, integrations, tracking, pricing, timeline, technologies, portfolio fit, and FAQ.',
+    'E-commerce website Auckland service for product pages, checkout journeys, integrations, tracking, pricing, timeline, technologies, portfolio fit, and FAQ.',
   alternates: { canonical: '/ecommerce-website-auckland' },
   openGraph: {
-    title: 'Ecommerce Website Auckland | Online Store Design & Development',
+    title: 'E-commerce Website Auckland | Online Store Design & Development',
     description:
       'E-commerce website planning and development for Auckland brands that need clearer product pages, better checkout journeys, and tracking foundations.',
     url: '/ecommerce-website-auckland',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ecommerce Website Auckland | Online Store Design & Development',
+    title: 'E-commerce Website Auckland | Online Store Design & Development',
     description:
       'E-commerce website planning and development for clearer product pages, smoother checkout journeys, and tracking foundations.',
   },
@@ -28,9 +28,9 @@ export default function Page() {
     <main id="main-content" className="bg-black">
       <Navbar />
       <ServiceLandingPage
-        kicker="Ecommerce website Auckland"
+        kicker="E-commerce website Auckland"
         path="/ecommerce-website-auckland"
-        title="Ecommerce websites built around product clarity and conversion."
+        title="E-commerce websites built around product clarity and conversion."
         description="Armedia helps Auckland businesses plan storefronts, product pages, checkout journeys, and tracking foundations."
         points={[
           'Storefront UX planning',
@@ -43,7 +43,7 @@ export default function Page() {
           'Clearer shopping journeys',
           'Better product discovery',
           'Reduced checkout friction',
-          'Data-ready ecommerce decisions',
+          'Data-ready e-commerce decisions',
         ]}
         benefits={[
           'Product pages that answer buying questions faster',

@@ -46,7 +46,7 @@ export default function Page() {
           <h1 className="page-title">Where AI workflows help small service teams first</h1>
           <section>
             <h2>Lead qualification</h2>
-            <p>AI can turn messy inquiry details into a structured summary covering goals, budget, timeline, risks, and next steps.</p>
+            <p>AI can turn messy enquiry details into a structured summary covering goals, budget, timeline, risks, and next steps.</p>
           </section>
           <section>
             <h2>Internal admin</h2>

@@ -54,7 +54,7 @@ export default function Page() {
           </section>
           <section>
             <h2>Make contact feel safe</h2>
-            <p>Email, location, business hours, response expectations, and a clear project process reduce uncertainty before a visitor sends an inquiry.</p>
+            <p>Email, location, business hours, response expectations, and a clear project process reduce uncertainty before a visitor sends an enquiry.</p>
           </section>
         </article>
       </main>

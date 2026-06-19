@@ -77,7 +77,7 @@ export async function POST(req: Request) {
       from: `"Armedia website" <${process.env.EMAIL_USER}>`,
       replyTo: email,
       to: toEmail,
-      subject: `New website inquiry from ${name}`,
+      subject: `New website enquiry from ${name}`,
       text: [
         'New Contact Inquiry',
         '',

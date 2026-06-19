@@ -46,7 +46,7 @@ function StartProjectPage() {
           Build a sharper brief for your next campaign.
         </h1>
         <p>
-          Use this page to prepare a professional project inquiry for marketing media, AI, BI,
+          Use this page to prepare a professional project enquiry for marketing media, AI, BI,
           advertising, OOH, offline campaigns, content, web, app, or growth strategy work.
         </p>
       </div>

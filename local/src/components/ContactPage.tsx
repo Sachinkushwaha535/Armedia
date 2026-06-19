@@ -118,7 +118,7 @@ function ContactPage() {
 
             <form className="contact-form-panel" onSubmit={handleSubmit}>
               <p className="armedia-eyebrow text-black/50">Send a message</p>
-              <h3 className="mt-3 font-heading text-xl font-bold text-black">Project inquiry</h3>
+              <h3 className="mt-3 font-heading text-xl font-bold text-black">Project enquiry</h3>
 
               <div className="mt-6 grid gap-5">
                 <label>

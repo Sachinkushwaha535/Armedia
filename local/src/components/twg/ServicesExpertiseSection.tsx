@@ -21,7 +21,7 @@ function ServicesExpertiseSection({ showViewAllLink = false }: ServicesExpertise
               of expertise
             </h2>
             <p className="armedia-body mt-5 max-w-sm font-heading text-base font-semibold text-black/85">
-              Multidisciplined gameplan
+              Multidisciplinary game plan
             </p>
             <p className="armedia-body mt-4 max-w-sm text-black/70">
               We are a full-service marketing media agency. Our team works together to build connected
