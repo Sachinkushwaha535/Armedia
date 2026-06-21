@@ -3,10 +3,12 @@ import LegalPageShell from '../../components/LegalPageShell'
 import Navbar from '../../components/Navbar'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { contactEmail } from '../../components/siteConfig'
+import { legalKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Website Use & Project Terms',
   description: 'General website, campaign enquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
+  keywords: [...legalKeywords],
   alternates: {
     canonical: '/terms',
   },

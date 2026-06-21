@@ -3,33 +3,13 @@ import Navbar from '../../components/Navbar'
 import ServicesPage from '../../components/ServicesPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { siteUrl } from '../../components/siteConfig'
+import { servicesKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
   title: 'Services | AI, BI, Advertising & Marketing Media',
   description:
     'Armedia is a NZ marketing agency offering strategy, advertising, AI workflows, BI dashboards, digital media, web development, and campaign reporting.',
-  keywords: [
-    'Armedia services',
-    'marketing media services',
-    'advertising agency Auckland',
-    'business intelligence dashboards',
-    'digital media planning',
-    'SEO agency Auckland',
-    'web development Auckland',
-    'campaign strategy',
-    'creative content services Auckland',
-    'paid marketing services NZ',
-    'OOH advertising services',
-    'media planning services Auckland',
-    'AI API integration marketing',
-    'enterprise software marketing',
-    'e-commerce marketing services',
-    'marketing analytics reporting',
-    'brand media strategy services',
-    'performance advertising Auckland',
-    'digital OOH media planning',
-    'marketing technology services NZ',
-  ],
+  keywords: [...servicesKeywords],
   alternates: {
     canonical: '/services',
   },

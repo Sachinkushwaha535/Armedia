@@ -2,26 +2,30 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import StartProjectPage from '../../components/StartProjectPage'
 import TWGFooter from '../../components/twg/TWGFooter'
+import { startProjectKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
-  title: 'Start a Project | Marketing Media, AI, BI & Advertising Brief',
+  title: {
+    absolute: 'Start a Project | Web, Media & Business Systems — Armedia',
+  },
   description:
-    'Start a project with Armedia and get a tailored brief for AI, BI, advertising, media planning, and growth strategy.',
+    'Start a project with Armedia for website development, media, CRM, workflow automation, reporting, or end-to-end business support.',
+  keywords: [...startProjectKeywords],
   alternates: {
     canonical: '/start-project',
   },
   openGraph: {
-    title: 'Start a Project | Marketing Media, AI, BI & Advertising Brief',
+    title: 'Start a Project | Web, Media & Business Systems — Armedia',
     description:
-      'Prepare a focused project brief for marketing media, AI, BI, advertising, OOH, offline marketing, content, web, app, or growth strategy work.',
+      'Tell us what your business needs — website, media, sales systems, operations, automation, reporting, or full end-to-end support.',
     url: '/start-project',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Start a Project | Marketing Media, AI, BI & Advertising Brief',
+    title: 'Start a Project | Web, Media & Business Systems — Armedia',
     description:
-      'Start a focused Armedia project brief for AI, BI, advertising, media, content, web, app, SEO, or growth strategy work.',
+      'Project intake for website development, media, CRM, automation, reporting, and end-to-end business support.',
   },
 }
 

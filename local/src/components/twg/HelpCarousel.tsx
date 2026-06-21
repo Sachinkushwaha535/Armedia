@@ -14,8 +14,12 @@ function HelpCarousel() {
       <div className="armedia-container py-16 lg:py-20">
         <p className="armedia-eyebrow text-black/50">How we can help</p>
         <h2 className="armedia-heading mt-4 max-w-3xl text-black">
-          Campaign systems your business can count on
+          Business systems your team can actually use
         </h2>
+        <p className="armedia-body mt-5 max-w-3xl text-black/75">
+          We help businesses build, run, and connect the parts that drive growth — website, media,
+          sales systems, operations, automation, and reporting.
+        </p>
 
         <div className="mt-8 flex gap-2 overflow-x-auto pb-2">
           {helpSlides.map((item, i) => (

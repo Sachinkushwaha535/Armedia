@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import { blogAdvertisingKeywords } from '../../../data/siteKeywords'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   title: 'Performance Advertising Without Wasting Budget',
   description:
     'How to reduce wasted ad spend with clearer offers, better creative testing, retargeting, conversion tracking, and campaign reviews.',
+  keywords: [...blogAdvertisingKeywords],
   alternates: { canonical: '/blog/performance-advertising-budget' },
   openGraph: {
     title: 'Performance Advertising Without Wasting Budget',

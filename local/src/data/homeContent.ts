@@ -1,9 +1,9 @@
 export const preloaderWords = ['We Listen', 'We Research', 'We Design', 'We Build', 'We Deliver']
 
 export const heroContent = {
-  headline: 'Marketing media agency in Auckland for strategy, advertising, and measurable growth.',
+  headline: 'Web development and media agency in Auckland — built for end-to-end business growth.',
   subheadline:
-    'Looking for a partner that connects strategy, advertising, AI workflows, BI dashboards, and media planning? Armedia helps New Zealand brands grow with clearer campaigns and stronger reporting.',
+    'Armedia helps businesses build and connect the systems they run on — from websites and media to sales flow, CRM, reporting, workflow automation, and business operations.',
   primaryCta: { label: 'Book a strategy call', href: '/contact' },
   secondaryCta: { label: 'Get the marketing guide', href: '/#download-guide' },
 }
@@ -152,7 +152,8 @@ export const processSteps = [
 export const whatWeDo = {
   kicker: 'What we do',
   headline: 'ideas / around',
-  subline: "Let's get together and throw some ideas around.",
+  subline:
+    'Work with one team across delivery, optimisation, and execution — not five disconnected vendors.',
   cta: { label: 'Contact us', href: '/contact' },
   image: labImages.creativeContent,
 }
@@ -160,7 +161,7 @@ export const whatWeDo = {
 export const statistics = {
   heading: 'Why Choose Armedia?',
   items: [
-    { value: '6+', label: 'Integrated growth pillars across strategy, media, and reporting' },
+    { value: '6+', label: 'Connected capability across web, media, systems, and business operations' },
     { value: '5', label: 'Step campaign process from diagnosis to improvement' },
     { value: '1 day', label: 'Business-day reply target for new enquiries' },
   ],

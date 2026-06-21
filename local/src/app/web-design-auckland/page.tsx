@@ -2,11 +2,13 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
+import { webDesignKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
   title: 'Web Design Auckland | Premium Website Design',
   description:
     'Premium Web Design Auckland service for mobile-first websites with clear messaging, conversion-focused UX, and SEO foundations.',
+  keywords: [...webDesignKeywords],
   alternates: { canonical: '/web-design-auckland' },
   openGraph: {
     title: 'Web Design Auckland | Premium Website Design',

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
+import { blogKeywords } from '../../data/siteKeywords'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -63,6 +64,7 @@ export const metadata: Metadata = {
   title: 'Blog | Strategy, Media, AI & Campaign Insights',
   description:
     'Armedia shares practical insights on media planning, AI workflows, business intelligence, advertising, OOH, offline campaigns, and conversion strategy.',
+  keywords: [...blogKeywords],
   alternates: { canonical: '/blog' },
   openGraph: {
     title: 'Blog | Strategy, Media, AI & Campaign Insights',

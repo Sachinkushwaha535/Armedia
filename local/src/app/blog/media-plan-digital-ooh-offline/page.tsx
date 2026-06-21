@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import { blogMediaPlanKeywords } from '../../../data/siteKeywords'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   title: 'How to Build a Media Plan Across Digital, OOH, and Offline Channels',
   description:
     'A practical media planning framework for digital campaigns, OOH media, offline marketing, budget allocation, and campaign measurement.',
+  keywords: [...blogMediaPlanKeywords],
   alternates: { canonical: '/blog/media-plan-digital-ooh-offline' },
   openGraph: {
     title: 'How to Build a Media Plan Across Digital, OOH, and Offline Channels',

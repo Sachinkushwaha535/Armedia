@@ -4,42 +4,30 @@ import ContactPage from '../../components/ContactPage'
 import Navbar from '../../components/Navbar'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { siteUrl } from '../../components/siteConfig'
+import { contactKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
-  title: 'Contact | Start a Marketing Media Project',
+  title: {
+    absolute: 'Contact Armedia | Start a Web, Media or Business Systems Project',
+  },
   description:
-    'Contact Armedia to discuss strategy, advertising, AI workflows, business intelligence, digital media, or campaign reporting in Auckland and NZ.',
-  keywords: [
-    'contact Armedia',
-    'marketing media agency contact',
-    'advertising agency Auckland',
-    'AI marketing project',
-    'business intelligence project',
-    'get a quote marketing agency Auckland',
-    'request marketing audit Auckland',
-    'start marketing project NZ',
-    'campaign enquiry Auckland',
-    'media planning consultation',
-    'digital marketing contact Auckland',
-    'marketing agency phone Auckland',
-    'hire marketing agency New Zealand',
-    'free campaign audit Auckland',
-    'marketing strategy consultation NZ',
-  ],
+    'Contact Armedia about web development, media, sales systems, CRM, workflow automation, reporting, or end-to-end business support in Auckland and NZ.',
+  keywords: [...contactKeywords],
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
-    title: 'Contact | Start a Marketing Media Project',
+    title: 'Contact Armedia | Start a Web, Media or Business Systems Project',
     description:
-      'Share your campaign goal and get practical next steps for strategy, media, advertising, AI, and BI.',
+      'Talk to Armedia about web, media, systems, and business growth — from websites and CRM to automation and reporting.',
     url: '/contact',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact | Start a Marketing Media Project',
-    description: 'Contact Armedia for strategy, advertising, AI workflows, BI, and growth planning.',
+    title: 'Contact Armedia | Start a Web, Media or Business Systems Project',
+    description:
+      'Contact Armedia for web, media, sales systems, workflow automation, reporting, or full end-to-end support.',
   },
 }
 

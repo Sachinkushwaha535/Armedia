@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import { blogWebTrustKeywords } from '../../../data/siteKeywords'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   title: 'How Auckland Businesses Can Improve Website Trust in 2026',
   description:
     'A practical guide for Auckland service businesses improving website trust, speed, contact clarity, proof, and conversion paths in 2026.',
+  keywords: [...blogWebTrustKeywords],
   alternates: { canonical: '/blog/website-trust-auckland-2026' },
   openGraph: {
     title: 'How Auckland Businesses Can Improve Website Trust in 2026',

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import { blogBiKeywords } from '../../../data/siteKeywords'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   title: 'Business Intelligence for Campaign Decisions',
   description:
     'How BI dashboards, customer data, campaign analytics, and competitor signals help marketing teams decide what to improve next.',
+  keywords: [...blogBiKeywords],
   alternates: { canonical: '/blog/business-intelligence-campaign-decisions' },
   openGraph: {
     title: 'Business Intelligence for Campaign Decisions',

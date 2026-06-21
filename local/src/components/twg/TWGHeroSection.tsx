@@ -13,7 +13,7 @@ function TWGHeroSection() {
   }, [])
 
   return (
-    <section className="relative flex min-h-screen w-full items-end overflow-hidden bg-brand-dark pb-16 pt-28 lg:pb-24 lg:pt-32">
+    <section className="relative flex w-full overflow-hidden bg-brand-dark pb-16 pt-20 lg:min-h-screen lg:items-end lg:pb-24 lg:pt-32">
       <div className="armedia-hero-bg absolute inset-0" aria-hidden="true" />
 
       <div

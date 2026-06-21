@@ -3,15 +3,19 @@ import Link from 'next/link'
 const pillars = [
   {
     title: 'Clear commercial focus',
-    body: 'Campaigns start with audience, offer, and measurement — so budget maps to outcomes, not activity for its own sake.',
+    body: 'Every engagement starts with the business goal — leads, sales, systems, efficiency, visibility, or execution.',
   },
   {
-    title: 'Connected channel execution',
-    body: 'Strategy, advertising, media, AI workflows, and reporting work as one system instead of disconnected vendor silos.',
+    title: 'Connected execution',
+    body: 'Website, media, CRM, reporting, and workflow all work together instead of sitting across disconnected tools and suppliers.',
   },
   {
-    title: 'Honest reporting',
-    body: 'Dashboards and reviews are built for decisions — what to scale, refine, or pause — with plain-language summaries.',
+    title: 'Operational thinking',
+    body: 'We do more than launch campaigns. We help improve the systems, processes, and handoffs your business depends on.',
+  },
+  {
+    title: 'Practical reporting',
+    body: 'Dashboards and reviews are built to support decisions — what to fix, what to scale, and what to automate next.',
   },
 ]
 
@@ -26,7 +30,7 @@ function TrustSection() {
           </h2>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {pillars.map((pillar) => (
             <article
               key={pillar.title}

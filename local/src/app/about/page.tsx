@@ -3,43 +3,30 @@ import AboutPage from '../../components/AboutPage'
 import Navbar from '../../components/Navbar'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { siteUrl } from '../../components/siteConfig'
+import { aboutKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
-  title: 'Who We Are | Strategy, Media & Growth Agency',
+  title: {
+    absolute: 'About Armedia | Web Development, Media & Business Systems Partner',
+  },
   description:
-    'Learn about Armedia, a New Zealand agency combining strategy, advertising, media planning, AI workflows, business intelligence, and campaign reporting.',
-  keywords: [
-    'about Armedia',
-    'marketing media agency Auckland',
-    'strategy and media agency NZ',
-    'advertising and growth agency',
-    'AI and business intelligence agency',
-    'who we are Armedia',
-    'New Zealand marketing agency team',
-    'full service agency Auckland',
-    'media planning experts NZ',
-    'campaign strategy specialists',
-    'marketing technology agency Auckland',
-    'growth marketing agency New Zealand',
-    'brand and media agency Auckland',
-    'digital transformation marketing NZ',
-    'marketing insights agency Auckland',
-  ],
+    'Learn about Armedia — an Auckland web development and media agency supporting businesses end to end across web, media, systems, and operations.',
+  keywords: [...aboutKeywords],
   alternates: {
     canonical: '/about',
   },
   openGraph: {
-    title: 'Who We Are | Strategy, Media & Growth Agency',
+    title: 'About Armedia | Web Development, Media & Business Systems Partner',
     description:
-      'Strategy, advertising, media planning, AI workflows, BI dashboards, and reporting for growth-focused brands.',
+      'An Auckland agency built to support your business end to end across web, media, sales systems, workflow, automation, and reporting.',
     url: '/about',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Who We Are | Strategy, Media & Growth Agency',
+    title: 'About Armedia | Web Development, Media & Business Systems Partner',
     description:
-      'Strategy, advertising, media planning, AI workflows, business intelligence, and campaign reporting.',
+      'A practical partner for web, media, systems, and business growth — not just a marketing agency.',
   },
 }
 

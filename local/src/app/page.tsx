@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import HomeSite from '../components/HomeSite'
+import { homepageKeywords } from '../data/siteKeywords'
 
 const faqItems = [
   {
@@ -30,46 +31,27 @@ const faqItems = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Marketing Media Agency for Strategy, Advertising, AI & BI',
+  title: {
+    absolute: 'Web Development & Media Agency Auckland | End-to-End Business Growth — Armedia',
+  },
   description:
-    'Armedia helps New Zealand brands grow through strategy, advertising, AI workflows, business intelligence, media planning and reporting.',
-  keywords: [
-    'marketing media agency New Zealand',
-    'advertising agency Auckland',
-    'AI marketing agency New Zealand',
-    'business intelligence agency Auckland',
-    'media planning agency NZ',
-    'growth strategy agency',
-    'campaign reporting agency',
-    'OOH advertising New Zealand',
-    'SEO agency Auckland',
-    'performance marketing Auckland',
-    'paid advertising agency NZ',
-    'brand media agency Auckland',
-    'digital campaign agency New Zealand',
-    'marketing strategy Auckland',
-    'media agency Auckland',
-    'integrated marketing agency NZ',
-    'B2B marketing agency Auckland',
-    'marketing reporting dashboards',
-    'AI workflows marketing agency',
-    'offline and digital media planning',
-  ],
+    'Armedia is a web and media agency in Auckland helping businesses with websites, sales systems, workflow automation, reporting, and end-to-end growth.',
+  keywords: [...homepageKeywords],
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Armedia | Marketing Media Agency for Strategy, Advertising, AI & BI',
+    title: 'Web Development & Media Agency Auckland | End-to-End Business Growth — Armedia',
     description:
-      'Strategy, media planning, AI workflows, BI dashboards, advertising, and campaign reporting for growth-focused brands in New Zealand.',
+      'Armedia is a web and media agency in Auckland helping businesses with websites, sales systems, workflow automation, reporting, and end-to-end growth.',
     url: '/',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Armedia | Strategy, Advertising, AI & BI',
+    title: 'Web Development & Media Agency Auckland | End-to-End Business Growth — Armedia',
     description:
-      'New Zealand marketing media agency for strategy, media planning, AI workflows, BI dashboards, advertising, and campaign reporting.',
+      'Armedia is a web and media agency in Auckland helping businesses with websites, sales systems, workflow automation, reporting, and end-to-end growth.',
   },
 }
 

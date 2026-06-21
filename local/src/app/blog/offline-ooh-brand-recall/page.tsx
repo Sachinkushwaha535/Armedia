@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import { blogOohKeywords } from '../../../data/siteKeywords'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   title: 'Why Brand Recall Needs Offline and OOH Media',
   description:
     'Why outdoor advertising, print media, local activations, and retail visibility can strengthen digital campaigns and brand recall.',
+  keywords: [...blogOohKeywords],
   alternates: { canonical: '/blog/offline-ooh-brand-recall' },
   openGraph: {
     title: 'Why Brand Recall Needs Offline and OOH Media',

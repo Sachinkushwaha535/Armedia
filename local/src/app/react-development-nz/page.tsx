@@ -2,11 +2,13 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
+import { reactAgencyKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
   title: 'React Developers NZ | React Development',
   description:
     'React Developers NZ service for fast websites, web apps, integrations, maintainable components, pricing, timeline, technologies, portfolio fit, and FAQ.',
+  keywords: [...reactAgencyKeywords],
   alternates: { canonical: '/react-development-nz' },
   openGraph: {
     title: 'React Developers NZ | React Development',

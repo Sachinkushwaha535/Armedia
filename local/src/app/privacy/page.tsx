@@ -3,10 +3,12 @@ import LegalPageShell from '../../components/LegalPageShell'
 import Navbar from '../../components/Navbar'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { contactEmail } from '../../components/siteConfig'
+import { legalKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Data, Enquiries & Analytics',
   description: 'How Armedia handles contact details, campaign enquiries, analytics information, and project communication.',
+  keywords: [...legalKeywords],
   alternates: {
     canonical: '/privacy',
   },

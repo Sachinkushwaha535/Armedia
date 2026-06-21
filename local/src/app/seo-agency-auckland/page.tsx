@@ -2,11 +2,13 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
+import { seoAgencyKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
   title: 'SEO Agency Auckland | Technical SEO & Search Strategy',
   description:
     'Auckland SEO agency helping businesses improve rankings with technical SEO, schema, Core Web Vitals and content optimisation.',
+  keywords: [...seoAgencyKeywords],
   alternates: { canonical: '/seo-agency-auckland' },
   openGraph: {
     title: 'SEO Agency Auckland | Technical SEO & Search Strategy',

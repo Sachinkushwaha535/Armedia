@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Montserrat, Open_Sans, Playfair_Display } from 'next/font/google'
 import { contactEmail, contactPhone, marketFocus, siteUrl } from '../components/siteConfig'
+import { siteKeywords } from '../data/siteKeywords'
 import '../index.css'
 import '../App.css'
 import '../styles/armedia-pro.css'
@@ -46,36 +47,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  keywords: [
-    'Armedia',
-    'marketing media agency New Zealand',
-    'marketing agency Auckland',
-    'advertising agency Auckland',
-    'AI marketing agency New Zealand',
-    'business intelligence agency Auckland',
-    'digital media agency NZ',
-    'media planning agency Auckland',
-    'OOH advertising New Zealand',
-    'campaign reporting agency',
-    'growth strategy agency',
-    'SEO agency Auckland',
-    'performance marketing agency Auckland',
-    'paid media agency New Zealand',
-    'brand strategy agency NZ',
-    'content marketing agency Auckland',
-    'social media marketing agency Auckland',
-    'digital marketing agency Auckland',
-    'full service marketing agency NZ',
-    'marketing agency Wellington',
-    'marketing agency Christchurch',
-    'media buying agency New Zealand',
-    'marketing analytics agency Auckland',
-    'campaign management Auckland',
-    'marketing consultancy Auckland',
-    'OOH media planning Auckland',
-    'influencer marketing agency NZ',
-    'marketing automation agency Auckland',
-  ],
+  keywords: [...siteKeywords],
   alternates: {
     canonical: '/',
   },

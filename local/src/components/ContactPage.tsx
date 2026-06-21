@@ -3,7 +3,7 @@
 import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { displayPhone, displayPhoneHref, officeAddress } from '../data/contactPageContent'
+import { contactServicesList, displayPhone, displayPhoneHref, officeAddress } from '../data/contactPageContent'
 import { contactEmail, contactFallbackText } from './siteConfig'
 
 function ContactPage() {
@@ -77,10 +77,12 @@ function ContactPage() {
             <span className="text-white/80">Contact</span>
           </nav>
           <p className="armedia-eyebrow text-brand-gold">Get in touch</p>
-          <h1 className="services-page-title mt-4">Contact us</h1>
+          <h1 className="services-page-title mt-4 max-w-4xl">
+            Talk to Armedia about web, media, systems, and business growth.
+          </h1>
           <p className="armedia-lead mt-5 max-w-2xl text-brand-muted">
-            Share your campaign goal, audience, and timeline. We will reply with practical next steps
-            for strategy, media, advertising, AI workflows, or reporting.
+            Whether you need a website, media execution, CRM setup, workflow automation, reporting,
+            or full end-to-end support, Armedia helps connect the systems your business depends on.
           </p>
         </div>
       </section>
@@ -89,12 +91,20 @@ function ContactPage() {
         <div className="armedia-container py-16 lg:py-20">
           <div className="contact-page-grid">
             <aside>
-              <p className="armedia-eyebrow text-black/50">Start a conversation</p>
-              <h2 className="armedia-heading mt-4 text-black">Talk to the Armedia team</h2>
+              <p className="armedia-eyebrow text-black/50">How we can help</p>
+              <h2 className="armedia-heading mt-4 text-black">Services we support</h2>
               <p className="armedia-body mt-4 max-w-md text-black/70">
-                Whether you need a campaign audit, media plan, BI dashboard, or a clearer growth
-                strategy — tell us where you are today and what result you need next.
+                Tell us what you need and we will map the best next step for your business.
               </p>
+
+              <ul className="mt-6 space-y-2 text-sm text-black/75">
+                {contactServicesList.map((service) => (
+                  <li key={service} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-gold" aria-hidden="true" />
+                    {service}
+                  </li>
+                ))}
+              </ul>
 
               <div className="contact-direct-block">
                 <div className="contact-direct-item">
@@ -168,7 +178,7 @@ function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    placeholder="Tell us your brand, campaign goal, audience, channels, and timeline."
+                    placeholder="Tell us what you need — website, media, systems, automation, reporting, or full support."
                     className="armedia-input min-h-[140px] resize-y"
                   />
                 </label>

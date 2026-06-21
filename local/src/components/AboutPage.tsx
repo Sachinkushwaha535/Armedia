@@ -19,12 +19,16 @@ function AboutPage() {
           </nav>
           <p className="armedia-eyebrow text-brand-gold">About Armedia</p>
           <h1 className="services-page-title mt-4 max-w-4xl">
-            A marketing media agency built for smarter growth
+            An Auckland agency built to support your business end to end.
           </h1>
           <p className="armedia-lead mt-6 max-w-2xl text-brand-muted">
-            Armedia brings strategy, media planning, AI workflows, business intelligence,
-            advertising, creative direction, and campaign-supporting technology into one clear
-            agency system.
+            Armedia is a web development and media agency that helps businesses build stronger
+            systems across website, media, sales, workflow, automation, and reporting.
+          </p>
+          <p className="armedia-body mt-4 max-w-2xl text-brand-muted">
+            We work across the parts of the business that usually get split between multiple
+            suppliers — web, creative, campaigns, dashboards, integrations, and operational support
+            — so execution stays connected.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link href="/contact" className="armedia-btn-primary">
@@ -41,12 +45,12 @@ function AboutPage() {
         <div className="armedia-container py-16 lg:py-20">
           <p className="armedia-eyebrow text-black/50">Agency positioning</p>
           <h2 className="armedia-heading mt-4 max-w-3xl text-black">
-            Media, intelligence, creative, and technology — working together
+            Not just a marketing agency. A practical partner for web, media, systems, and business
+            growth.
           </h2>
           <p className="armedia-body mt-5 max-w-2xl text-black/70">
-            Armedia is shaped for brands that need more than isolated ads or one-off creatives.
-            We help plan the right campaign system, choose the right media, create clearer
-            messages, connect reporting, and improve execution over time.
+            Armedia is shaped for businesses that need connected delivery across web, media, sales
+            systems, operations, and reporting — not disconnected vendor handoffs.
           </p>
 
           <div className="about-pillar-grid mt-12">

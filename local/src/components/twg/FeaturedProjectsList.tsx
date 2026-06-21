@@ -70,7 +70,7 @@ function FeaturedProjectsList({ items }: FeaturedProjectsListProps) {
       onMouseLeave={handleSectionLeave}
     >
       <div className="armedia-container">
-        <p className="armedia-eyebrow text-brand-gold">Capability areas</p>
+        <p className="armedia-eyebrow text-brand-gold">Our services</p>
 
         <div className="mt-4 border-t border-brand-line pt-6">
           <ul className="w-full">

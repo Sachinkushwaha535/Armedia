@@ -2,11 +2,13 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
+import { ecommerceKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
   title: 'E-commerce Website Auckland | Online Store Design & Development',
   description:
     'E-commerce website Auckland service for product pages, checkout journeys, integrations, tracking, pricing, timeline, technologies, portfolio fit, and FAQ.',
+  keywords: [...ecommerceKeywords],
   alternates: { canonical: '/ecommerce-website-auckland' },
   openGraph: {
     title: 'E-commerce Website Auckland | Online Store Design & Development',

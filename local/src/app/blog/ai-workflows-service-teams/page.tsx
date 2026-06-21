@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
+import { blogAiWorkflowsKeywords } from '../../../data/siteKeywords'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   title: 'Where AI Workflows Help Small Service Teams First',
   description:
     'A practical guide to AI workflows for service teams, including lead qualification, intake summaries, follow-up, and reporting.',
+  keywords: [...blogAiWorkflowsKeywords],
   alternates: { canonical: '/blog/ai-workflows-service-teams' },
   openGraph: {
     title: 'Where AI Workflows Help Small Service Teams First',

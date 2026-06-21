@@ -2,11 +2,13 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
+import { nextjsAgencyKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
   title: 'Next.js Agency New Zealand | Fast Web Apps & Marketing Sites',
   description:
     'Next.js agency in New Zealand building fast marketing sites, web apps, SEO pages, and conversion-focused digital systems.',
+  keywords: [...nextjsAgencyKeywords],
   alternates: { canonical: '/nextjs-agency-new-zealand' },
   openGraph: {
     title: 'Next.js Agency New Zealand | Fast Web Apps & Marketing Sites',

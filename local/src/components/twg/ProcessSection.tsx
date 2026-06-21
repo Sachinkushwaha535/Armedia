@@ -15,8 +15,8 @@ function ProcessSection() {
             <div className="max-w-2xl">
               <p className="armedia-eyebrow">{whatWeDo.kicker}</p>
               <h2 className="armedia-heading mt-4 text-white">
-                Strategy, media, and reporting —{' '}
-                <span className="font-display italic text-brand-gold">connected in one plan.</span>
+                Web, media, sales systems, and operations —{' '}
+                <span className="font-display italic text-brand-gold">connected in one business system.</span>
               </h2>
               <p className="armedia-lead mt-5 text-brand-muted">{whatWeDo.subline}</p>
             </div>
