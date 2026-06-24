@@ -1,5 +1,5 @@
-import nodemailer from 'nodemailer'
 import { contactEmail } from '../../../components/siteConfig'
+import { getMailConfig, sendWebsiteEmail } from '../../../lib/mail'
 
 function escapeHtml(value: string) {
   return value
@@ -23,60 +23,27 @@ export async function POST(req: Request) {
     const message = String(body.message ?? '').trim()
 
     if (!name || !email || !phone || !message) {
-      return Response.json(
-        { message: 'All fields are required.' },
-        { status: 400 }
-      )
+      return Response.json({ message: 'All fields are required.' }, { status: 400 })
     }
 
     if (!isValidEmail(email)) {
-      return Response.json(
-        { message: 'Please enter a valid email address.' },
-        { status: 400 }
-      )
+      return Response.json({ message: 'Please enter a valid email address.' }, { status: 400 })
     }
 
-    const toEmail = process.env.CONTACT_TO_EMAIL ?? process.env.EMAIL_USER ?? contactEmail
-    const smtpHost = process.env.SMTP_HOST ?? 'smtp.gmail.com'
-    const smtpPort = Number(process.env.SMTP_PORT ?? 465)
-    const smtpSecure = process.env.SMTP_SECURE
-      ? process.env.SMTP_SECURE === 'true'
-      : smtpPort === 465
+    const { emailUser, emailPass } = getMailConfig()
 
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error('Contact form SMTP credentials are missing.')
+    if (!emailUser || !emailPass) {
+      console.error('Contact form SMTP credentials are missing. Add EMAIL_USER and EMAIL_PASS to .env in the project root.')
       return Response.json(
         {
           message: `The contact form is not configured yet. Please email ${contactEmail} directly.`,
         },
-        { status: 503 }
+        { status: 503 },
       )
     }
 
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpSecure,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    })
-
-    try {
-      await transporter.verify()
-    } catch (verifyError) {
-      console.error('SMTP verify failed:', verifyError)
-      return Response.json(
-        { message: `Email server connection failed. Please email ${contactEmail} directly.` },
-        { status: 503 }
-      )
-    }
-
-    const info = await transporter.sendMail({
-      from: `"Armedia website" <${process.env.EMAIL_USER}>`,
+    const info = await sendWebsiteEmail({
       replyTo: email,
-      to: toEmail,
       subject: `New website enquiry from ${name}`,
       text: [
         'New Contact Inquiry',
@@ -104,11 +71,22 @@ export async function POST(req: Request) {
       message: 'Inquiry submitted successfully. We will be in touch soon.',
     })
   } catch (error) {
+    if (error instanceof Error && error.message === 'SMTP_NOT_CONFIGURED') {
+      return Response.json(
+        {
+          message: `The contact form is not configured yet. Please email ${contactEmail} directly.`,
+        },
+        { status: 503 },
+      )
+    }
+
     console.error('Contact form error:', error)
 
     return Response.json(
-      { message: `Email failed to send. Please email ${contactEmail} directly.` },
-      { status: 500 }
+      {
+        message: `Email failed to send. Please email ${contactEmail} directly.`,
+      },
+      { status: 500 },
     )
   }
 }

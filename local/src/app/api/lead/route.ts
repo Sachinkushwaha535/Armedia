@@ -1,5 +1,5 @@
-import nodemailer from 'nodemailer'
 import { contactEmail } from '../../../components/siteConfig'
+import { getMailConfig, sendWebsiteEmail } from '../../../lib/mail'
 
 function escapeHtml(value: string) {
   return value
@@ -36,40 +36,23 @@ export async function POST(req: Request) {
       return Response.json({ message: 'Please enter a valid email address.' }, { status: 400 })
     }
 
-    const toEmail = process.env.CONTACT_TO_EMAIL ?? process.env.EMAIL_USER ?? contactEmail
-    const smtpHost = process.env.SMTP_HOST ?? 'smtp.gmail.com'
-    const smtpPort = Number(process.env.SMTP_PORT ?? 465)
-    const smtpSecure = process.env.SMTP_SECURE
-      ? process.env.SMTP_SECURE === 'true'
-      : smtpPort === 465
+    const { emailUser, emailPass } = getMailConfig()
 
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    if (!emailUser || !emailPass) {
       console.error('Lead capture SMTP credentials are missing.')
       return Response.json(
         {
           message: `Thanks — access the checklist anytime at /resources/campaign-checklist. For help, email ${contactEmail}.`,
           checklistUrl: '/resources/campaign-checklist',
         },
-        { status: 200 }
+        { status: 200 },
       )
     }
 
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpSecure,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    })
-
     const label = sourceLabels[source] ?? 'Website lead'
 
-    await transporter.sendMail({
-      from: `"Armedia website" <${process.env.EMAIL_USER}>`,
+    await sendWebsiteEmail({
       replyTo: email,
-      to: toEmail,
       subject: `${label} from ${name}`,
       text: [label, '', `Name: ${name}`, `Email: ${email}`, `Phone: ${phone || 'Not provided'}`, `Source: ${source}`].join('\n'),
       html: `
@@ -92,7 +75,7 @@ export async function POST(req: Request) {
         message: `Something went wrong. You can still access the checklist at /resources/campaign-checklist or email ${contactEmail}.`,
         checklistUrl: '/resources/campaign-checklist',
       },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }
