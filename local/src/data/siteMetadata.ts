@@ -22,8 +22,6 @@ export const defaultTwitterDescription =
 
 export const pageDescriptions = {
   home: 'Auckland web development and media agency. Websites, sales systems, advertising, AI, BI, and operations for NZ businesses. 1-day reply.',
-  about:
-    'Armedia is an Auckland web and media agency for websites, sales systems, advertising, operations, AI automation, and BI reporting in NZ.',
   contact:
     'Contact Armedia in Auckland. Web development, sales systems, advertising, operations, AI, BI, SEO, and media. Phone +64 22 040 716.',
   startProject:

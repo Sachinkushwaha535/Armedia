@@ -29,15 +29,9 @@ function TWGHeroSection() {
           </h1>
           <p className="armedia-lead mt-6 max-w-2xl text-brand-muted">{heroContent.subheadline}</p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-10">
             <Link href={heroContent.primaryCta.href} className="armedia-btn-primary">
               {heroContent.primaryCta.label}
-            </Link>
-            <Link
-              href={heroContent.secondaryCta.href}
-              className="armedia-btn-secondary-light w-fit"
-            >
-              {heroContent.secondaryCta.label}
             </Link>
           </div>
         </div>

@@ -43,7 +43,7 @@ export default function Page() {
       />
       <Navbar />
       <ServicesPage />
-      <TWGFooter />
+      <TWGFooter hideIntro />
     </main>
   )
 }

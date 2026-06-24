@@ -1,29 +1,38 @@
 import Link from 'next/link'
 import ArmediaLogo from '../ArmediaLogo'
 import {
-  footerIndustries,
   footerLocations,
   footerServiceLinks,
-  footerSocialLinks,
 } from '../../data/footerLinks'
 import { displayPhone, displayPhoneHref, officeAddress } from '../../data/contactPageContent'
 import { contactEmail } from '../siteConfig'
 
-function TWGFooter() {
-  return (
-    <footer className="armedia-section-dark border-t border-white/10">
-      <div className="armedia-container py-14 lg:py-16">
-        <div className="grid gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-          <h2 className="armedia-heading max-w-lg text-white">
-            Web development, media, sales systems, and operations — connected for growth
-          </h2>
-          <p className="text-sm leading-relaxed text-brand-muted md:text-[0.95rem]">
-            Websites, media, CRM, workflow automation, reporting, and end-to-end business support
-            — Auckland and across New Zealand.
-          </p>
-        </div>
+type TWGFooterProps = {
+  hideIntro?: boolean
+}
 
-        <div className="grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-4">
+function TWGFooter({ hideIntro = false }: TWGFooterProps) {
+  return (
+    <footer>
+      {!hideIntro ? (
+        <div className="armedia-section-light border-t border-black/10">
+          <div className="armedia-container py-12 lg:py-14">
+            <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+              <h2 className="armedia-heading max-w-lg text-black">
+                Web development, media, sales systems, and operations — connected for growth
+              </h2>
+              <p className="text-sm leading-relaxed text-black/70 md:text-[0.95rem]">
+                Websites, media, CRM, workflow automation, reporting, and end-to-end business support
+                — Auckland and across New Zealand.
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      <div className="armedia-section-dark border-t border-white/10">
+        <div className="armedia-container py-14 lg:py-16">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="armedia-eyebrow mb-4 text-brand-gold">Contact</p>
             <a
@@ -80,12 +89,6 @@ function TWGFooter() {
                 <li key={city}>{city}</li>
               ))}
             </ul>
-            <p className="armedia-eyebrow mb-4 mt-8 text-brand-gold">Industries</p>
-            <ul className="space-y-2 text-sm text-brand-muted">
-              {footerIndustries.map((industry) => (
-                <li key={industry}>{industry}</li>
-              ))}
-            </ul>
           </div>
 
           <div>
@@ -129,6 +132,7 @@ function TWGFooter() {
               Terms of Service
             </Link>
           </div>
+        </div>
         </div>
       </div>
     </footer>

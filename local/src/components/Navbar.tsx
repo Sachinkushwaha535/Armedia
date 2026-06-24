@@ -8,14 +8,17 @@ import { contactPhone, contactPhoneHref } from './siteConfig'
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'Who we are', path: '/about' },
   ...navItems.filter((item) => item.path !== '/'),
 ]
+
+/** Pages whose top section is light — navbar needs solid background from load */
+const SOLID_NAV_PATHS = ['/contact']
 
 function Navbar() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const solidNav = scrolled || menuOpen || SOLID_NAV_PATHS.includes(pathname)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)
@@ -39,7 +42,7 @@ function Navbar() {
     <header
       className={[
         'fixed inset-x-0 top-0 z-50 w-full transition-all duration-300 ease-in-out',
-        scrolled || menuOpen
+        solidNav
           ? 'bg-[rgba(10,10,10,0.95)] shadow-[0_8px_32px_rgba(0,0,0,0.45)]'
           : 'bg-transparent',
       ].join(' ')}

@@ -1,10 +1,12 @@
 'use client'
 
 import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
-import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { contactServicesList, displayPhone, displayPhoneHref, officeAddress } from '../data/contactPageContent'
-import { contactEmail, contactFallbackText } from './siteConfig'
+import { officeAddress } from '../data/contactPageContent'
+import { contactFallbackText } from './siteConfig'
+
+const SUCCESS_MESSAGE = 'Your request was sent successfully. We will be in touch soon.'
+const SUCCESS_TOAST_MS = 2500
 
 function ContactPage() {
   const searchParams = useSearchParams()
@@ -17,6 +19,7 @@ function ContactPage() {
   const [loading, setLoading] = useState(false)
   const [statusMessage, setStatusMessage] = useState('')
   const [isError, setIsError] = useState(false)
+  const [showSuccessToast, setShowSuccessToast] = useState(false)
 
   useEffect(() => {
     const name = searchParams.get('name')
@@ -31,6 +34,12 @@ function ContactPage() {
       message: guide === '1' ? 'Please send me the connected marketing guide by email.' : prev.message,
     }))
   }, [searchParams])
+
+  useEffect(() => {
+    if (!showSuccessToast) return
+    const timer = window.setTimeout(() => setShowSuccessToast(false), SUCCESS_TOAST_MS)
+    return () => window.clearTimeout(timer)
+  }, [showSuccessToast])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -56,8 +65,8 @@ function ContactPage() {
         return
       }
 
-      setStatusMessage(data.message ?? 'Thank you — we will be in touch shortly.')
       setFormData({ name: '', email: '', phone: '', message: '' })
+      setShowSuccessToast(true)
     } catch {
       setIsError(true)
       setStatusMessage(`Something went wrong. ${contactFallbackText}`)
@@ -68,142 +77,91 @@ function ContactPage() {
 
   return (
     <>
-      <section className="contact-page-hero armedia-section-dark">
-        <div className="armedia-hero-bg absolute inset-0" aria-hidden="true" />
-        <div className="armedia-container relative z-10">
-          <nav className="services-breadcrumb" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-white/80">Contact</span>
-          </nav>
-          <p className="armedia-eyebrow text-brand-gold">Get in touch</p>
-          <h1 className="services-page-title mt-4 max-w-4xl">
-            Web development, media, sales systems and operations — Auckland, NZ
-          </h1>
-          <p className="armedia-lead mt-5 max-w-2xl text-brand-muted">
-            Whether you need a website, media execution, CRM setup, workflow automation, reporting,
-            or full end-to-end support, Armedia helps connect the systems your business depends on.
-          </p>
-          <p className="mt-6 max-w-4xl font-heading text-[11px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-brand-gold/90">
-            {contactServicesList.join(' · ')}
-          </p>
+      {showSuccessToast ? (
+        <div className="contact-success-toast" role="status" aria-live="polite">
+          <p className="font-heading text-sm font-bold text-black">{SUCCESS_MESSAGE}</p>
         </div>
-      </section>
+      ) : null}
 
-      <section className="armedia-section-light border-t border-black/10">
-        <div className="armedia-container py-16 lg:py-20">
-          <div className="contact-page-grid">
-            <aside>
-              <p className="armedia-eyebrow text-black/50">How we can help</p>
-              <h2 className="armedia-heading mt-4 text-black">Services we support</h2>
-              <p className="armedia-body mt-4 max-w-md text-black/70">
-                Tell us what you need and we will map the best next step for your business.
-              </p>
+      <section className="armedia-section-light border-b border-black/10 pt-28 lg:pt-32">
+        <div className="armedia-container py-10 lg:py-12">
+          <div className="mx-auto mb-8 max-w-4xl text-center">
+            <p className="armedia-eyebrow text-black/50">Get in touch</p>
+            <h1 className="armedia-heading mt-4 text-black">Contact us</h1>
+            <p className="armedia-body mt-3 text-black/70">
+              Send your details and we will reply with practical next steps for your project.
+            </p>
+          </div>
 
-              <ul className="mt-6 space-y-2 text-sm text-black/75">
-                {contactServicesList.map((service) => (
-                  <li key={service} className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-gold" aria-hidden="true" />
-                    {service}
-                  </li>
-                ))}
-              </ul>
+          <form className="contact-form-panel mx-auto max-w-4xl" onSubmit={handleSubmit}>
+            <h2 className="font-heading text-base font-bold text-black lg:text-lg">Send a message</h2>
 
-              <div className="contact-direct-block">
-                <div className="contact-direct-item">
-                  <span>Email</span>
-                  <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-                </div>
-                <div className="contact-direct-item">
-                  <span>Phone</span>
-                  <a href={displayPhoneHref}>{displayPhone}</a>
-                </div>
-                <div className="contact-direct-item">
-                  <span>Response time</span>
-                  <p>We aim to reply within one business day.</p>
-                </div>
-              </div>
+            <div className="contact-form-fields mt-5">
+              <label className="contact-form-label">
+                Your name:
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  autoComplete="name"
+                  className="armedia-input contact-form-input"
+                />
+              </label>
 
-              <Link href="/services" className="armedia-btn-secondary mt-10 inline-flex">
-                View services
-              </Link>
-            </aside>
+              <label className="contact-form-label">
+                Phone number:
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  autoComplete="tel"
+                  className="armedia-input contact-form-input"
+                />
+              </label>
 
-            <form className="contact-form-panel" onSubmit={handleSubmit}>
-              <p className="armedia-eyebrow text-black/50">Send a message</p>
-              <h3 className="mt-3 font-heading text-xl font-bold text-black">Project enquiry</h3>
+              <label className="contact-form-label">
+                Email:
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  autoComplete="email"
+                  className="armedia-input contact-form-input"
+                />
+              </label>
 
-              <div className="mt-6 grid gap-5">
-                <label>
-                  Your name
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    autoComplete="name"
-                    className="armedia-input"
-                  />
-                </label>
+              <label className="contact-form-label contact-form-label--full">
+                Message:
+                <textarea
+                  name="message"
+                  rows={3}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  placeholder="Tell us what you need — website, media, systems, automation, reporting, or full support."
+                  className="armedia-input contact-form-input min-h-[88px] resize-y"
+                />
+              </label>
 
-                <label>
-                  Phone number
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    autoComplete="tel"
-                    className="armedia-input"
-                  />
-                </label>
-
-                <label>
-                  Email
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    autoComplete="email"
-                    className="armedia-input"
-                  />
-                </label>
-
-                <label>
-                  Message
-                  <textarea
-                    name="message"
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Tell us what you need — website, media, systems, automation, reporting, or full support."
-                    className="armedia-input min-h-[140px] resize-y"
-                  />
-                </label>
-
+              <div className="contact-form-actions">
                 <button type="submit" className="armedia-btn-primary w-fit" disabled={loading}>
                   {loading ? 'Sending…' : 'Send message'}
                 </button>
 
-                {statusMessage ? (
-                  <p
-                    className={[
-                      'contact-form-status',
-                      isError ? 'contact-form-status--error' : '',
-                    ].join(' ')}
-                    role="status"
-                  >
+                {statusMessage && isError ? (
+                  <p className="contact-form-status contact-form-status--error" role="alert">
                     {statusMessage}
                   </p>
                 ) : null}
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </section>
 

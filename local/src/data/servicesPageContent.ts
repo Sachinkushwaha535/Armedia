@@ -87,11 +87,6 @@ export const servicesStrategies = [
 
 export const servicesDiscoverLinks = [
   {
-    label: 'Who we are',
-    title: 'Learn how we plan and deliver campaigns',
-    href: '/about',
-  },
-  {
     label: 'Contact us',
     title: 'Get in touch with us',
     href: '/contact',

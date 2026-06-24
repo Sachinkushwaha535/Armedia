@@ -52,19 +52,6 @@ export const homepageKeywords = [
   'reporting dashboards Auckland',
 ] as const
 
-export const aboutKeywords = [
-  'about Armedia',
-  'web development and media agency Auckland',
-  'web development agency New Zealand',
-  'business systems agency Auckland',
-  'business growth partner Auckland',
-  'end-to-end business growth agency',
-  'web media and business systems agency NZ',
-  'custom website development NZ',
-  'advertising and media agency NZ',
-  'business intelligence agency Auckland',
-] as const
-
 export const contactKeywords = [
   'contact Armedia',
   'web development agency Auckland',

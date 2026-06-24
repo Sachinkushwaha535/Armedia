@@ -49,7 +49,7 @@ export default function Page() {
       <Suspense fallback={<ContactPageFallback />}>
         <ContactPage />
       </Suspense>
-      <TWGFooter />
+      <TWGFooter hideIntro />
     </main>
   )
 }

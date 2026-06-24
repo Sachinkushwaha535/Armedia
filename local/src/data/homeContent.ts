@@ -5,7 +5,6 @@ export const heroContent = {
   subheadline:
     'Armedia helps businesses build and connect the systems they run on — from websites and media to sales flow, CRM, reporting, workflow automation, and business operations.',
   primaryCta: { label: 'Book a strategy call', href: '/contact' },
-  secondaryCta: { label: 'Get the marketing guide', href: '/#download-guide' },
 }
 
 export const labImages = {

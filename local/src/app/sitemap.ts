@@ -4,7 +4,6 @@ import { siteUrl } from '../components/siteConfig'
 const routes = [
   '',
   '/services',
-  '/about',
   '/blog',
   '/contact',
   '/start-project',
