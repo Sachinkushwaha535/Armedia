@@ -1,7 +1,16 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Montserrat, Open_Sans, Playfair_Display } from 'next/font/google'
-import { contactEmail, contactPhone, marketFocus, siteUrl } from '../components/siteConfig'
+import { contactEmail, contactPhone, siteUrl } from '../components/siteConfig'
+import {
+  defaultOgDescription,
+  defaultOgTitle,
+  defaultTwitterDescription,
+  defaultTwitterTitle,
+  ogImage,
+  organizationSchema,
+  pageDescriptions,
+} from '../data/siteMetadata'
 import { siteKeywords } from '../data/siteKeywords'
 import '../index.css'
 import '../App.css'
@@ -32,16 +41,15 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Armedia | Marketing Media Agency for Strategy, AI, BI & Advertising',
+    default: defaultOgTitle,
     template: '%s | Armedia',
   },
-  description:
-    'Armedia is a New Zealand marketing media agency helping brands with strategy, advertising, AI workflows, business intelligence, digital media, and campaign reporting.',
+  description: pageDescriptions.home,
   applicationName: 'Armedia',
   authors: [{ name: 'Armedia' }],
   creator: 'Armedia',
   publisher: 'Armedia',
-  category: 'Marketing',
+  category: 'Web Development',
   formatDetection: {
     email: false,
     address: false,
@@ -56,24 +64,15 @@ export const metadata: Metadata = {
     locale: 'en_NZ',
     url: '/',
     siteName: 'Armedia',
-    title: 'Armedia | Marketing Media Agency for Strategy, AI, BI & Advertising',
-    description:
-      'New Zealand marketing media agency for strategy, advertising, AI workflows, business intelligence, digital media, and campaign reporting.',
-    images: [
-      {
-        url: '/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'Armedia marketing media agency',
-      },
-    ],
+    title: defaultOgTitle,
+    description: defaultOgDescription,
+    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Armedia | Strategy, AI, BI & Advertising',
-    description:
-      'Marketing media agency for strategy, advertising, AI workflows, BI dashboards, digital media, and growth planning.',
-    images: ['/logo.png'],
+    title: defaultTwitterTitle,
+    description: defaultTwitterDescription,
+    images: [ogImage.url],
   },
   robots: {
     index: true,
@@ -102,45 +101,12 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'Organization',
+        ...organizationSchema,
         '@id': `${siteUrl}/#organization`,
-        name: 'Armedia',
-        url: siteUrl,
-        logo: `${siteUrl}/logo.png`,
-        email: contactEmail,
+        logo: `${siteUrl}${ogImage.url}`,
         ...(contactPhone ? { telephone: contactPhone } : {}),
-        sameAs: [siteUrl],
-        description:
-          'Armedia is a New Zealand marketing media agency focused on strategy, advertising, AI workflows, business intelligence, digital media, and campaign reporting.',
-      },
-      {
-        '@type': 'LocalBusiness',
-        '@id': `${siteUrl}/#localbusiness`,
-        name: 'Armedia',
-        url: siteUrl,
-        logo: `${siteUrl}/logo.png`,
         email: contactEmail,
-        ...(contactPhone ? { telephone: contactPhone } : {}),
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Auckland',
-          addressCountry: 'NZ',
-        },
-        priceRange: '$$',
-        areaServed: marketFocus,
-        description:
-          'Armedia helps brands plan and improve campaigns through strategy, advertising, AI systems, BI dashboards, digital media, and reporting.',
-        serviceType: [
-          'Marketing Strategy',
-          'Advertising',
-          'Digital Media',
-          'Business Intelligence',
-          'AI Workflows',
-          'Media Planning',
-          'Campaign Reporting',
-          'OOH Media',
-          'Growth Strategy',
-        ],
+        url: siteUrl,
       },
       {
         '@type': 'WebSite',
@@ -150,11 +116,6 @@ export default function RootLayout({
         inLanguage: 'en-NZ',
         publisher: {
           '@id': `${siteUrl}/#organization`,
-        },
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: `${siteUrl}/search?q={search_term_string}`,
-          'query-input': 'required name=search_term_string',
         },
       },
     ],

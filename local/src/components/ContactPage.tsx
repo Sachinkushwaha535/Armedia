@@ -78,11 +78,14 @@ function ContactPage() {
           </nav>
           <p className="armedia-eyebrow text-brand-gold">Get in touch</p>
           <h1 className="services-page-title mt-4 max-w-4xl">
-            Talk to Armedia about web, media, systems, and business growth.
+            Web development, media, sales systems and operations — Auckland, NZ
           </h1>
           <p className="armedia-lead mt-5 max-w-2xl text-brand-muted">
             Whether you need a website, media execution, CRM setup, workflow automation, reporting,
             or full end-to-end support, Armedia helps connect the systems your business depends on.
+          </p>
+          <p className="mt-6 max-w-4xl font-heading text-[11px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-brand-gold/90">
+            {contactServicesList.join(' · ')}
           </p>
         </div>
       </section>

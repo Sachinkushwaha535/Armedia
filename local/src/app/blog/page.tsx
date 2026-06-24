@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import { blogKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata } from '../../data/siteMetadata'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
@@ -60,25 +61,21 @@ const categories = [
   'Conversion',
 ]
 
+const blogDescription =
+  'Practical insights on web development, media planning, AI workflows, business intelligence, advertising, OOH, and business systems from Armedia Auckland.'
+
 export const metadata: Metadata = {
-  title: 'Blog | Strategy, Media, AI & Campaign Insights',
-  description:
-    'Armedia shares practical insights on media planning, AI workflows, business intelligence, advertising, OOH, offline campaigns, and conversion strategy.',
+  title: 'Blog | Web, Media, AI & Business Systems Insights',
+  description: blogDescription,
   keywords: [...blogKeywords],
   alternates: { canonical: '/blog' },
-  openGraph: {
-    title: 'Blog | Strategy, Media, AI & Campaign Insights',
-    description:
-      'Practical insights on media planning, AI workflows, BI dashboards, advertising, OOH, offline campaigns, and conversion strategy.',
-    url: '/blog',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Blog | Strategy, Media, AI & Campaign Insights',
-    description:
-      'Practical campaign insights across strategy, media planning, AI workflows, BI, advertising, OOH, offline, and conversion.',
-  },
+  ...buildSocialMetadata({
+    description: blogDescription,
+    path: '/blog',
+    openGraphTitle: 'Blog | Web, Media, AI & Business Systems Insights — Armedia',
+    twitterTitle: 'Armedia Blog | Auckland',
+    twitterDescription: blogDescription,
+  }),
 }
 
 export default function Page() {

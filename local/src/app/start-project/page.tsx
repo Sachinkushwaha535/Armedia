@@ -3,30 +3,24 @@ import Navbar from '../../components/Navbar'
 import StartProjectPage from '../../components/StartProjectPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { startProjectKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata, pageDescriptions } from '../../data/siteMetadata'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Start a Project | Web, Media & Business Systems — Armedia',
+    absolute: 'Start a Project | Web Development, Sales Systems, Media & Operations — Armedia',
   },
-  description:
-    'Start a project with Armedia for website development, media, CRM, workflow automation, reporting, or end-to-end business support.',
+  description: pageDescriptions.startProject,
   keywords: [...startProjectKeywords],
   alternates: {
     canonical: '/start-project',
   },
-  openGraph: {
-    title: 'Start a Project | Web, Media & Business Systems — Armedia',
-    description:
-      'Tell us what your business needs — website, media, sales systems, operations, automation, reporting, or full end-to-end support.',
-    url: '/start-project',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Start a Project | Web, Media & Business Systems — Armedia',
-    description:
-      'Project intake for website development, media, CRM, automation, reporting, and end-to-end business support.',
-  },
+  ...buildSocialMetadata({
+    description: pageDescriptions.startProject,
+    path: '/start-project',
+    openGraphTitle: 'Start a Project | Web Development, Sales Systems, Media & Operations — Armedia',
+    twitterTitle: 'Start a Project | Armedia Auckland',
+    twitterDescription: pageDescriptions.startProject,
+  }),
 }
 
 export default function Page() {

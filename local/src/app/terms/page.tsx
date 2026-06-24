@@ -4,10 +4,14 @@ import Navbar from '../../components/Navbar'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { contactEmail } from '../../components/siteConfig'
 import { legalKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata } from '../../data/siteMetadata'
+
+const termsDescription =
+  'Website use and project terms for Armedia web development, media, sales systems, operations, AI, and BI services in Auckland and NZ.'
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Website Use & Project Terms',
-  description: 'General website, campaign enquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
+  description: termsDescription,
   keywords: [...legalKeywords],
   alternates: {
     canonical: '/terms',
@@ -16,19 +20,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  openGraph: {
-    title: 'Terms of Service | Website Use & Project Terms',
-    description:
-      'General website, campaign enquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
-    url: '/terms',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary',
-    title: 'Terms of Service | Website Use & Project Terms',
-    description:
-      'General website, campaign enquiry, marketing media, advertising, AI, and BI project terms for Armedia.',
-  },
+  ...buildSocialMetadata({
+    description: termsDescription,
+    path: '/terms',
+    openGraphTitle: 'Terms of Service | Website Use & Project Terms — Armedia',
+    twitterTitle: 'Terms of Service | Armedia',
+    twitterDescription: termsDescription,
+  }),
 }
 
 export default function Page() {

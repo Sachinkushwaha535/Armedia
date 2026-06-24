@@ -1,6 +1,13 @@
 import type { Metadata } from 'next'
 import HomeSite from '../components/HomeSite'
 import { homepageKeywords } from '../data/siteKeywords'
+import {
+  buildSocialMetadata,
+  defaultOgTitle,
+  defaultTwitterTitle,
+  organizationSchema,
+  pageDescriptions,
+} from '../data/siteMetadata'
 
 const faqItems = [
   {
@@ -34,25 +41,17 @@ export const metadata: Metadata = {
   title: {
     absolute: 'Web Development & Media Agency Auckland | End-to-End Business Growth — Armedia',
   },
-  description:
-    'Armedia is a web and media agency in Auckland helping businesses with websites, sales systems, workflow automation, reporting, and end-to-end growth.',
+  description: pageDescriptions.home,
   keywords: [...homepageKeywords],
   alternates: {
     canonical: '/',
   },
-  openGraph: {
-    title: 'Web Development & Media Agency Auckland | End-to-End Business Growth — Armedia',
-    description:
-      'Armedia is a web and media agency in Auckland helping businesses with websites, sales systems, workflow automation, reporting, and end-to-end growth.',
-    url: '/',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Web Development & Media Agency Auckland | End-to-End Business Growth — Armedia',
-    description:
-      'Armedia is a web and media agency in Auckland helping businesses with websites, sales systems, workflow automation, reporting, and end-to-end growth.',
-  },
+  ...buildSocialMetadata({
+    description: pageDescriptions.home,
+    path: '/',
+    openGraphTitle: defaultOgTitle,
+    twitterTitle: defaultTwitterTitle,
+  }),
 }
 
 export default function Page() {
@@ -71,6 +70,10 @@ export default function Page() {
 
   return (
     <main id="main-content" className="bg-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

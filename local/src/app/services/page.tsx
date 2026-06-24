@@ -4,28 +4,25 @@ import ServicesPage from '../../components/ServicesPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { siteUrl } from '../../components/siteConfig'
 import { servicesKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata } from '../../data/siteMetadata'
+
+const servicesDescription =
+  'Web development, media, sales systems, SEO, BI dashboards, AI automation, and operations support for NZ businesses — from Armedia Auckland.'
 
 export const metadata: Metadata = {
-  title: 'Services | AI, BI, Advertising & Marketing Media',
-  description:
-    'Armedia is a NZ marketing agency offering strategy, advertising, AI workflows, BI dashboards, digital media, web development, and campaign reporting.',
+  title: 'Services | Web Development, Media & Business Systems',
+  description: servicesDescription,
   keywords: [...servicesKeywords],
   alternates: {
     canonical: '/services',
   },
-  openGraph: {
-    title: 'Services | Strategy, Advertising, AI & BI',
-    description:
-      'Explore strategy, creative, web development, digital marketing, insights, and connected campaign services from Armedia.',
-    url: '/services',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Services | Strategy, Advertising, AI & BI',
-    description:
-      'Full-service marketing media agency services for New Zealand brands.',
-  },
+  ...buildSocialMetadata({
+    description: servicesDescription,
+    path: '/services',
+    openGraphTitle: 'Services | Web Development, Media & Business Systems — Armedia',
+    twitterTitle: 'Armedia Services | Web, Media & Systems Auckland',
+    twitterDescription: servicesDescription,
+  }),
 }
 
 export default function Page() {

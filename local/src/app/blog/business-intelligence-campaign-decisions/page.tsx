@@ -3,28 +3,26 @@ import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
 import { blogBiKeywords } from '../../../data/siteKeywords'
+import { buildSocialMetadata } from '../../../data/siteMetadata'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
+const articleDescription =
+  'How BI dashboards, customer data, campaign analytics, and competitor signals help marketing teams decide what to improve next.'
+
 export const metadata: Metadata = {
   title: 'Business Intelligence for Campaign Decisions',
-  description:
-    'How BI dashboards, customer data, campaign analytics, and competitor signals help marketing teams decide what to improve next.',
+  description: articleDescription,
   keywords: [...blogBiKeywords],
   alternates: { canonical: '/blog/business-intelligence-campaign-decisions' },
-  openGraph: {
-    title: 'Business Intelligence for Campaign Decisions',
-    description:
-      'How BI dashboards, customer data, campaign analytics, and competitor signals help marketing teams decide what to improve next.',
-    url: '/blog/business-intelligence-campaign-decisions',
+  ...buildSocialMetadata({
+    description: articleDescription,
+    path: '/blog/business-intelligence-campaign-decisions',
+    openGraphTitle: 'Business Intelligence for Campaign Decisions',
+    twitterTitle: 'Business Intelligence for Decisions | Armedia',
+    twitterDescription: articleDescription,
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Business Intelligence for Campaign Decisions',
-    description:
-      'How dashboards, customer data, campaign analytics, and competitor signals help teams decide what to scale next.',
-  },
+  }),
 }
 
 export default function Page() {

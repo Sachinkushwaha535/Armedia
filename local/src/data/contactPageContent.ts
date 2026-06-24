@@ -13,11 +13,12 @@ export const displayPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || '+64 022 30
 export const displayPhoneHref = `tel:${displayPhone.replace(/[^\d+]/g, '')}`
 
 export const contactServicesList = [
-  'Web development',
+  'Web Development',
   'Media and advertising',
   'SEO and visibility',
-  'Sales systems and CRM',
-  'Operations and workflow automation',
+  'Sales Systems & CRM',
+  'Operations & Workflow',
+  'AI & Automation',
   'Business intelligence and dashboards',
   'End-to-end business support',
 ] as const

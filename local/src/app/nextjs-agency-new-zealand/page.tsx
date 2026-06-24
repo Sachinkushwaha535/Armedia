@@ -3,26 +3,24 @@ import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { nextjsAgencyKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata } from '../../data/siteMetadata'
+
+const nextjsDescription =
+  'Next.js agency in New Zealand building fast marketing sites, web apps, SEO pages, and conversion-focused digital systems.'
 
 export const metadata: Metadata = {
   title: 'Next.js Agency New Zealand | Fast Web Apps & Marketing Sites',
-  description:
-    'Next.js agency in New Zealand building fast marketing sites, web apps, SEO pages, and conversion-focused digital systems.',
+  description: nextjsDescription,
   keywords: [...nextjsAgencyKeywords],
   alternates: { canonical: '/nextjs-agency-new-zealand' },
-  openGraph: {
-    title: 'Next.js Agency New Zealand | Fast Web Apps & Marketing Sites',
+  ...buildSocialMetadata({
     description:
       'Fast Next.js websites, web apps, SEO pages, schema, metadata, and conversion-focused digital systems for New Zealand teams.',
-    url: '/nextjs-agency-new-zealand',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Next.js Agency New Zealand | Fast Web Apps & Marketing Sites',
-    description:
-      'Next.js websites and web apps with fast performance, SEO foundations, metadata, schema, and scalable routing.',
-  },
+    path: '/nextjs-agency-new-zealand',
+    openGraphTitle: 'Next.js Agency New Zealand | Fast Web Apps & Marketing Sites — Armedia',
+    twitterTitle: 'Next.js Agency New Zealand | Armedia',
+    twitterDescription: nextjsDescription,
+  }),
 }
 
 export default function Page() {

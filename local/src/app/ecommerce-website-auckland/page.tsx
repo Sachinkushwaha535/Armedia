@@ -3,26 +3,24 @@ import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { ecommerceKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata } from '../../data/siteMetadata'
+
+const ecommerceDescription =
+  'E-commerce website Auckland service for product pages, checkout journeys, integrations, tracking, pricing, timeline, technologies, portfolio fit, and FAQ.'
 
 export const metadata: Metadata = {
   title: 'E-commerce Website Auckland | Online Store Design & Development',
-  description:
-    'E-commerce website Auckland service for product pages, checkout journeys, integrations, tracking, pricing, timeline, technologies, portfolio fit, and FAQ.',
+  description: ecommerceDescription,
   keywords: [...ecommerceKeywords],
   alternates: { canonical: '/ecommerce-website-auckland' },
-  openGraph: {
-    title: 'E-commerce Website Auckland | Online Store Design & Development',
+  ...buildSocialMetadata({
     description:
       'E-commerce website planning and development for Auckland brands that need clearer product pages, better checkout journeys, and tracking foundations.',
-    url: '/ecommerce-website-auckland',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'E-commerce Website Auckland | Online Store Design & Development',
-    description:
-      'E-commerce website planning and development for clearer product pages, smoother checkout journeys, and tracking foundations.',
-  },
+    path: '/ecommerce-website-auckland',
+    openGraphTitle: 'E-commerce Website Auckland | Online Store Design & Development — Armedia',
+    twitterTitle: 'E-commerce Website Auckland | Armedia',
+    twitterDescription: ecommerceDescription,
+  }),
 }
 
 export default function Page() {

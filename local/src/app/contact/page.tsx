@@ -5,30 +5,24 @@ import Navbar from '../../components/Navbar'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { siteUrl } from '../../components/siteConfig'
 import { contactKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata, pageDescriptions } from '../../data/siteMetadata'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Contact Armedia | Start a Web, Media or Business Systems Project',
+    absolute: 'Contact Armedia | Web Development, Media, Sales & Operations — Auckland, NZ',
   },
-  description:
-    'Contact Armedia about web development, media, sales systems, CRM, workflow automation, reporting, or end-to-end business support in Auckland and NZ.',
+  description: pageDescriptions.contact,
   keywords: [...contactKeywords],
   alternates: {
     canonical: '/contact',
   },
-  openGraph: {
-    title: 'Contact Armedia | Start a Web, Media or Business Systems Project',
-    description:
-      'Talk to Armedia about web, media, systems, and business growth — from websites and CRM to automation and reporting.',
-    url: '/contact',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Contact Armedia | Start a Web, Media or Business Systems Project',
-    description:
-      'Contact Armedia for web, media, sales systems, workflow automation, reporting, or full end-to-end support.',
-  },
+  ...buildSocialMetadata({
+    description: pageDescriptions.contact,
+    path: '/contact',
+    openGraphTitle: 'Contact Armedia | Web Development, Media, Sales & Operations — Auckland, NZ',
+    twitterTitle: 'Contact Armedia | Web Development & Media Agency Auckland',
+    twitterDescription: pageDescriptions.contact,
+  }),
 }
 
 function ContactPageFallback() {

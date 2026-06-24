@@ -3,28 +3,26 @@ import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
 import { blogAdvertisingKeywords } from '../../../data/siteKeywords'
+import { buildSocialMetadata } from '../../../data/siteMetadata'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
+const articleDescription =
+  'How to reduce wasted ad spend with clearer offers, better creative testing, retargeting, conversion tracking, and campaign reviews.'
+
 export const metadata: Metadata = {
   title: 'Performance Advertising Without Wasting Budget',
-  description:
-    'How to reduce wasted ad spend with clearer offers, better creative testing, retargeting, conversion tracking, and campaign reviews.',
+  description: articleDescription,
   keywords: [...blogAdvertisingKeywords],
   alternates: { canonical: '/blog/performance-advertising-budget' },
-  openGraph: {
-    title: 'Performance Advertising Without Wasting Budget',
-    description:
-      'How to reduce wasted ad spend with clearer offers, better creative testing, retargeting, conversion tracking, and campaign reviews.',
-    url: '/blog/performance-advertising-budget',
+  ...buildSocialMetadata({
+    description: articleDescription,
+    path: '/blog/performance-advertising-budget',
+    openGraphTitle: 'Performance Advertising Without Wasting Budget',
+    twitterTitle: 'Performance Advertising | Armedia',
+    twitterDescription: articleDescription,
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Performance Advertising Without Wasting Budget',
-    description:
-      'A practical way to reduce wasted ad spend through offer clarity, testing, retargeting, conversion tracking, and reviews.',
-  },
+  }),
 }
 
 export default function Page() {

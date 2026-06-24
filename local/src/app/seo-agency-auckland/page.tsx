@@ -3,26 +3,24 @@ import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { seoAgencyKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata } from '../../data/siteMetadata'
+
+const seoDescription =
+  'Auckland SEO agency helping businesses improve rankings with technical SEO, schema, Core Web Vitals and content optimisation.'
 
 export const metadata: Metadata = {
   title: 'SEO Agency Auckland | Technical SEO & Search Strategy',
-  description:
-    'Auckland SEO agency helping businesses improve rankings with technical SEO, schema, Core Web Vitals and content optimisation.',
+  description: seoDescription,
   keywords: [...seoAgencyKeywords],
   alternates: { canonical: '/seo-agency-auckland' },
-  openGraph: {
-    title: 'SEO Agency Auckland | Technical SEO & Search Strategy',
+  ...buildSocialMetadata({
     description:
       'Technical SEO, content structure, schema, and search-ready website improvements for Auckland and New Zealand businesses.',
-    url: '/seo-agency-auckland',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'SEO Agency Auckland | Technical SEO & Search Strategy',
-    description:
-      'Technical SEO, metadata, content structure, schema, Core Web Vitals, and search-ready website improvements.',
-  },
+    path: '/seo-agency-auckland',
+    openGraphTitle: 'SEO Agency Auckland | Technical SEO & Search Strategy — Armedia',
+    twitterTitle: 'SEO Agency Auckland | Armedia',
+    twitterDescription: seoDescription,
+  }),
 }
 
 export default function Page() {

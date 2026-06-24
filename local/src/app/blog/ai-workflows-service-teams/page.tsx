@@ -2,28 +2,26 @@ import type { Metadata } from 'next'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
 import { blogAiWorkflowsKeywords } from '../../../data/siteKeywords'
+import { buildSocialMetadata } from '../../../data/siteMetadata'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
+const articleDescription =
+  'A practical guide to AI workflows for service teams, including lead qualification, intake summaries, follow-up, and reporting.'
+
 export const metadata: Metadata = {
   title: 'Where AI Workflows Help Small Service Teams First',
-  description:
-    'A practical guide to AI workflows for service teams, including lead qualification, intake summaries, follow-up, and reporting.',
+  description: articleDescription,
   keywords: [...blogAiWorkflowsKeywords],
   alternates: { canonical: '/blog/ai-workflows-service-teams' },
-  openGraph: {
-    title: 'Where AI Workflows Help Small Service Teams First',
-    description:
-      'A practical guide to AI workflows for service teams, including lead qualification, intake summaries, follow-up, and reporting.',
-    url: '/blog/ai-workflows-service-teams',
+  ...buildSocialMetadata({
+    description: articleDescription,
+    path: '/blog/ai-workflows-service-teams',
+    openGraphTitle: 'Where AI Workflows Help Small Service Teams First',
+    twitterTitle: 'AI Workflows for Service Teams | Armedia',
+    twitterDescription: articleDescription,
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Where AI Workflows Help Small Service Teams First',
-    description:
-      'Where service teams can use AI first: lead qualification, intake summaries, follow-up, admin, and reporting.',
-  },
+  }),
 }
 
 export default function Page() {

@@ -3,28 +3,26 @@ import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
 import { blogOohKeywords } from '../../../data/siteKeywords'
+import { buildSocialMetadata } from '../../../data/siteMetadata'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
+const articleDescription =
+  'Why outdoor advertising, print media, local activations, and retail visibility can strengthen digital campaigns and brand recall.'
+
 export const metadata: Metadata = {
   title: 'Why Brand Recall Needs Offline and OOH Media',
-  description:
-    'Why outdoor advertising, print media, local activations, and retail visibility can strengthen digital campaigns and brand recall.',
+  description: articleDescription,
   keywords: [...blogOohKeywords],
   alternates: { canonical: '/blog/offline-ooh-brand-recall' },
-  openGraph: {
-    title: 'Why Brand Recall Needs Offline and OOH Media',
-    description:
-      'Why outdoor advertising, print media, local activations, and retail visibility can strengthen digital campaigns and brand recall.',
-    url: '/blog/offline-ooh-brand-recall',
+  ...buildSocialMetadata({
+    description: articleDescription,
+    path: '/blog/offline-ooh-brand-recall',
+    openGraphTitle: 'Why Brand Recall Needs Offline and OOH Media',
+    twitterTitle: 'Offline & OOH Brand Recall | Armedia',
+    twitterDescription: articleDescription,
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Why Brand Recall Needs Offline and OOH Media',
-    description:
-      'How outdoor media, print, retail visibility, and local activations strengthen digital campaigns and brand recall.',
-  },
+  }),
 }
 
 export default function Page() {

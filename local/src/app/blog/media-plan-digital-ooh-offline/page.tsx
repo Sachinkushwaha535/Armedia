@@ -3,28 +3,26 @@ import Link from 'next/link'
 import Footer from '../../../components/Footer'
 import Header from '../../../components/Header'
 import { blogMediaPlanKeywords } from '../../../data/siteKeywords'
+import { buildSocialMetadata } from '../../../data/siteMetadata'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://armedia.co.nz'
 
+const articleDescription =
+  'A practical media planning framework for digital campaigns, OOH media, offline marketing, budget allocation, and campaign measurement.'
+
 export const metadata: Metadata = {
   title: 'How to Build a Media Plan Across Digital, OOH, and Offline Channels',
-  description:
-    'A practical media planning framework for digital campaigns, OOH media, offline marketing, budget allocation, and campaign measurement.',
+  description: articleDescription,
   keywords: [...blogMediaPlanKeywords],
   alternates: { canonical: '/blog/media-plan-digital-ooh-offline' },
-  openGraph: {
-    title: 'How to Build a Media Plan Across Digital, OOH, and Offline Channels',
-    description:
-      'A practical media planning framework for digital campaigns, OOH media, offline marketing, budget allocation, and campaign measurement.',
-    url: '/blog/media-plan-digital-ooh-offline',
+  ...buildSocialMetadata({
+    description: articleDescription,
+    path: '/blog/media-plan-digital-ooh-offline',
+    openGraphTitle: 'How to Build a Media Plan Across Digital, OOH, and Offline Channels',
+    twitterTitle: 'Media Plan: Digital, OOH & Offline | Armedia',
+    twitterDescription: articleDescription,
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'How to Build a Media Plan Across Digital, OOH, and Offline Channels',
-    description:
-      'A practical framework for choosing channel mix, message, budget, geography, and campaign measurement.',
-  },
+  }),
 }
 
 export default function Page() {

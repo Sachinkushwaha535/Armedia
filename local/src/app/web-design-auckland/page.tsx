@@ -3,26 +3,24 @@ import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { webDesignKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata } from '../../data/siteMetadata'
+
+const webDesignDescription =
+  'Premium Web Design Auckland service for mobile-first websites with clear messaging, conversion-focused UX, and SEO foundations.'
 
 export const metadata: Metadata = {
   title: 'Web Design Auckland | Premium Website Design',
-  description:
-    'Premium Web Design Auckland service for mobile-first websites with clear messaging, conversion-focused UX, and SEO foundations.',
+  description: webDesignDescription,
   keywords: [...webDesignKeywords],
   alternates: { canonical: '/web-design-auckland' },
-  openGraph: {
-    title: 'Web Design Auckland | Premium Website Design',
+  ...buildSocialMetadata({
     description:
       'Auckland website design for stronger trust, clearer service pages, better enquiry paths, and launch-ready frontend systems.',
-    url: '/web-design-auckland',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Web Design Auckland | Premium Website Design',
-    description:
-      'Mobile-first Auckland website design for trust, clarity, enquiry paths, SEO foundations, and launch-ready frontend systems.',
-  },
+    path: '/web-design-auckland',
+    openGraphTitle: 'Web Design Auckland | Premium Website Design — Armedia',
+    twitterTitle: 'Web Design Auckland | Armedia',
+    twitterDescription: webDesignDescription,
+  }),
 }
 
 export default function Page() {

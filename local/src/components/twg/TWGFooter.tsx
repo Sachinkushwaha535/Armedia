@@ -15,11 +15,11 @@ function TWGFooter() {
       <div className="armedia-container py-14 lg:py-16">
         <div className="grid gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <h2 className="armedia-heading max-w-lg text-white">
-            Forward-thinking marketing media for growth-focused brands
+            Web development, media, sales systems, and operations — connected for growth
           </h2>
           <p className="text-sm leading-relaxed text-brand-muted md:text-[0.95rem]">
-            Strategy, advertising, AI workflows, BI dashboards, and campaign reporting — Auckland
-            and across New Zealand.
+            Websites, media, CRM, workflow automation, reporting, and end-to-end business support
+            — Auckland and across New Zealand.
           </p>
         </div>
 

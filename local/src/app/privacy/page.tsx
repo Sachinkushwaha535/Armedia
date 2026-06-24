@@ -4,10 +4,14 @@ import Navbar from '../../components/Navbar'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { contactEmail } from '../../components/siteConfig'
 import { legalKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata } from '../../data/siteMetadata'
+
+const privacyDescription =
+  'How Armedia handles contact details, project enquiries, analytics information, and client communication for web, media, and systems work.'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Data, Enquiries & Analytics',
-  description: 'How Armedia handles contact details, campaign enquiries, analytics information, and project communication.',
+  description: privacyDescription,
   keywords: [...legalKeywords],
   alternates: {
     canonical: '/privacy',
@@ -16,19 +20,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  openGraph: {
-    title: 'Privacy Policy | Data, Enquiries & Analytics',
-    description:
-      'How Armedia handles contact details, campaign enquiries, analytics information, and project communication.',
-    url: '/privacy',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary',
-    title: 'Privacy Policy | Data, Enquiries & Analytics',
-    description:
-      'How Armedia handles contact details, campaign enquiries, analytics information, and project communication.',
-  },
+  ...buildSocialMetadata({
+    description: privacyDescription,
+    path: '/privacy',
+    openGraphTitle: 'Privacy Policy | Data, Enquiries & Analytics — Armedia',
+    twitterTitle: 'Privacy Policy | Armedia',
+    twitterDescription: privacyDescription,
+  }),
 }
 
 export default function Page() {

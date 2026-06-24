@@ -3,26 +3,24 @@ import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { reactAgencyKeywords } from '../../data/siteKeywords'
+import { buildSocialMetadata } from '../../data/siteMetadata'
+
+const reactDescription =
+  'React Developers NZ service for fast websites, web apps, integrations, maintainable components, pricing, timeline, technologies, portfolio fit, and FAQ.'
 
 export const metadata: Metadata = {
   title: 'React Developers NZ | React Development',
-  description:
-    'React Developers NZ service for fast websites, web apps, integrations, maintainable components, pricing, timeline, technologies, portfolio fit, and FAQ.',
+  description: reactDescription,
   keywords: [...reactAgencyKeywords],
   alternates: { canonical: '/react-development-nz' },
-  openGraph: {
-    title: 'React Developers NZ | React Development',
+  ...buildSocialMetadata({
     description:
       'React and TypeScript development for New Zealand teams that need fast, maintainable websites, web apps, and integrations.',
-    url: '/react-development-nz',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'React Developers NZ | React Development',
-    description:
-      'React and TypeScript development for fast, maintainable websites, web apps, components, and integrations.',
-  },
+    path: '/react-development-nz',
+    openGraphTitle: 'React Developers NZ | React Development — Armedia',
+    twitterTitle: 'React Developers NZ | Armedia',
+    twitterDescription: reactDescription,
+  }),
 }
 
 export default function Page() {
