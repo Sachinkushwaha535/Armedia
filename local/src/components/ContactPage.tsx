@@ -26,13 +26,24 @@ function ContactPage() {
     const email = searchParams.get('email')
     const phone = searchParams.get('phone')
     const guide = searchParams.get('guide')
+    const intent = searchParams.get('intent')
 
-    setFormData((prev) => ({
-      name: name ?? prev.name,
-      email: email ?? prev.email,
-      phone: phone ?? prev.phone,
-      message: guide === '1' ? 'Please send me the connected marketing guide by email.' : prev.message,
-    }))
+    setFormData((prev) => {
+      let message = prev.message
+      if (guide === '1') {
+        message = 'Please send me the connected marketing guide by email.'
+      } else if (intent === 'diagnosis') {
+        message =
+          'I would like a free diagnosis of my current website, ads, CRM, and reporting setup. Please assess what is working and what to prioritise.'
+      }
+
+      return {
+        name: name ?? prev.name,
+        email: email ?? prev.email,
+        phone: phone ?? prev.phone,
+        message,
+      }
+    })
   }, [searchParams])
 
   useEffect(() => {
@@ -168,7 +179,7 @@ function ContactPage() {
       <section className="armedia-section-muted border-t border-black/10">
         <div className="armedia-container py-16 lg:py-20">
           <div className="contact-visit-grid">
-            <div>
+            <div className="contact-visit-copy">
               <p className="armedia-eyebrow text-black/50">Visit us</p>
               <h2 className="armedia-heading mt-4 text-black">Our Auckland office</h2>
               <address className="armedia-body mt-6 not-italic text-black/75">

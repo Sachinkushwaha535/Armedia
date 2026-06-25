@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import StartProjectPage from '../../components/StartProjectPage'
 import TWGFooter from '../../components/twg/TWGFooter'
-import { startProjectKeywords } from '../../data/siteKeywords'
 import { buildSocialMetadata, pageDescriptions } from '../../data/siteMetadata'
+import { startProjectKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
   title: {

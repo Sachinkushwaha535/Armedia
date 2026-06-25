@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
-import { nextjsAgencyKeywords } from '../../data/siteKeywords'
 import { buildSocialMetadata } from '../../data/siteMetadata'
+import { nextjsAgencyKeywords } from '../../data/siteKeywords'
 
 const nextjsDescription =
   'Next.js agency in New Zealand building fast marketing sites, web apps, SEO pages, and conversion-focused digital systems.'

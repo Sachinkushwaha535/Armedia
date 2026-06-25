@@ -4,8 +4,8 @@ import ContactPage from '../../components/ContactPage'
 import Navbar from '../../components/Navbar'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { siteUrl } from '../../components/siteConfig'
-import { contactKeywords } from '../../data/siteKeywords'
 import { buildSocialMetadata, pageDescriptions } from '../../data/siteMetadata'
+import { contactKeywords } from '../../data/siteKeywords'
 
 export const metadata: Metadata = {
   title: {

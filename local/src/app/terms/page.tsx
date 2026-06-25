@@ -3,8 +3,8 @@ import LegalPageShell from '../../components/LegalPageShell'
 import Navbar from '../../components/Navbar'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { contactEmail } from '../../components/siteConfig'
-import { legalKeywords } from '../../data/siteKeywords'
 import { buildSocialMetadata } from '../../data/siteMetadata'
+import { legalKeywords } from '../../data/siteKeywords'
 
 const termsDescription =
   'Website use and project terms for Armedia web development, media, sales systems, operations, AI, and BI services in Auckland and NZ.'

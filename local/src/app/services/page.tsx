@@ -3,8 +3,8 @@ import Navbar from '../../components/Navbar'
 import ServicesPage from '../../components/ServicesPage'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { siteUrl } from '../../components/siteConfig'
-import { servicesKeywords } from '../../data/siteKeywords'
 import { buildSocialMetadata } from '../../data/siteMetadata'
+import { servicesKeywords } from '../../data/siteKeywords'
 
 const servicesDescription =
   'Web development, media, sales systems, SEO, BI dashboards, AI automation, and operations support for NZ businesses — from Armedia Auckland.'

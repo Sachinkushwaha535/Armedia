@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
-import { ecommerceKeywords } from '../../data/siteKeywords'
 import { buildSocialMetadata } from '../../data/siteMetadata'
+import { ecommerceKeywords } from '../../data/siteKeywords'
 
 const ecommerceDescription =
   'E-commerce website Auckland service for product pages, checkout journeys, integrations, tracking, pricing, timeline, technologies, portfolio fit, and FAQ.'

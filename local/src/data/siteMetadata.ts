@@ -1,6 +1,14 @@
 import type { Metadata } from 'next'
 
 export const OG_IMAGE_PATH = '/og-image.jpg'
+export const LOGO_ICON_PATH = '/logo-icon.png'
+
+export const organizationLogoSchema = {
+  '@type': 'ImageObject' as const,
+  url: `https://www.armedia.co.nz${LOGO_ICON_PATH}`,
+  width: 512,
+  height: 512,
+}
 
 export const ogImage = {
   url: OG_IMAGE_PATH,
@@ -25,7 +33,9 @@ export const pageDescriptions = {
   contact:
     'Contact Armedia in Auckland. Web development, sales systems, advertising, operations, AI, BI, SEO, and media. Phone +64 22 040 716.',
   startProject:
-    "Tell Armedia what your business needs — website, sales systems, operations, media, or full end-to-end support. We'll scope the right system for your NZ business.",
+    "Tell Armedia what your business needs—we'll build the right solution for your NZ business.",
+  about:
+    'Who we are — an Auckland web development and media agency connecting websites, media, workflows, and reporting into one working system for NZ businesses.',
 } as const
 
 type SocialMetadataInput = {
@@ -65,14 +75,14 @@ export function buildSocialMetadata({
 }
 
 export const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': ['Organization', 'LocalBusiness', 'ProfessionalService'],
   name: 'Armedia',
   url: 'https://www.armedia.co.nz',
   description:
     'Auckland web development and media agency covering websites, sales systems, advertising, AI workflows, BI dashboards, and business operations for NZ businesses.',
-  telephone: '+6422040716',
+  telephone: '+64223040716',
   email: 'contact@armedia.co.nz',
+  logo: organizationLogoSchema,
   address: {
     '@type': 'PostalAddress',
     streetAddress: '7 Nordon Place',

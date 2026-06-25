@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
-import { reactAgencyKeywords } from '../../data/siteKeywords'
 import { buildSocialMetadata } from '../../data/siteMetadata'
+import { reactAgencyKeywords } from '../../data/siteKeywords'
 
 const reactDescription =
   'React Developers NZ service for fast websites, web apps, integrations, maintainable components, pricing, timeline, technologies, portfolio fit, and FAQ.'

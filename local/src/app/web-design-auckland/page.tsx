@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
-import { webDesignKeywords } from '../../data/siteKeywords'
 import { buildSocialMetadata } from '../../data/siteMetadata'
+import { webDesignKeywords } from '../../data/siteKeywords'
 
 const webDesignDescription =
   'Premium Web Design Auckland service for mobile-first websites with clear messaging, conversion-focused UX, and SEO foundations.'

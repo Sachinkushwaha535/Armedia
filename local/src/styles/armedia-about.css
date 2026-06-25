@@ -1,0 +1,189 @@
+/* Who we are page */
+
+.about-hero {
+  @apply relative overflow-hidden border-b border-white/10;
+}
+
+.about-hero-grid {
+  @apply grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-16;
+}
+
+.about-hero-stats {
+  @apply grid gap-8 border-t border-white/10 pt-8 sm:grid-cols-3 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0;
+}
+
+.about-stat-value {
+  @apply font-display text-[clamp(2rem,4vw,2.75rem)] leading-none text-brand-gold;
+}
+
+.about-stat-label {
+  @apply mt-2 text-sm leading-relaxed text-brand-muted;
+}
+
+.about-why-grid {
+  @apply grid gap-10 lg:grid-cols-[0.42fr_1fr] lg:items-start lg:gap-16;
+}
+
+.about-section-shell {
+  @apply grid gap-10 lg:grid-cols-[0.42fr_1fr] lg:items-start lg:gap-16;
+}
+
+.about-section-shell--stacked {
+  @apply lg:grid-cols-1;
+}
+
+.about-section-shell--stacked .about-section-heading {
+  @apply max-w-xl;
+}
+
+.about-section-kicker {
+  @apply font-heading text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-gold;
+}
+
+.about-section-title {
+  @apply mt-4 font-heading text-[clamp(1.75rem,3.2vw,2.75rem)] font-bold leading-[1.12] tracking-tight text-white;
+}
+
+.about-section-title--solo {
+  @apply mt-0;
+}
+
+.about-section-subline {
+  @apply mt-4 max-w-xl text-sm leading-relaxed text-brand-muted md:text-[0.95rem];
+}
+
+.about-section-content {
+  @apply min-w-0;
+}
+
+.about-section-below {
+  @apply mt-10 lg:mt-12;
+}
+
+.about-capability-grid {
+  @apply grid gap-5 sm:grid-cols-2 xl:grid-cols-4;
+}
+
+.about-capability-card {
+  @apply rounded-xl border border-white/10 bg-white/[0.03] p-6 transition-colors duration-200 hover:border-brand-gold/30 lg:p-7;
+}
+
+.about-capability-index {
+  @apply font-heading text-sm font-bold tabular-nums text-white/35;
+}
+
+.about-method-grid {
+  @apply grid gap-10 lg:grid-cols-5;
+}
+
+.about-method-step {
+  @apply relative lg:pt-2;
+}
+
+.about-method-circle {
+  @apply flex h-14 w-14 items-center justify-center rounded-full border-2 border-brand-gold bg-brand-gold/10 font-heading text-sm font-bold text-brand-gold;
+}
+
+.about-fit-grid {
+  @apply grid gap-6 lg:grid-cols-2;
+}
+
+.about-fit-card {
+  @apply rounded-xl border bg-white/[0.02] p-6 lg:p-8;
+}
+
+.about-fit-card--good {
+  @apply border-emerald-500/40;
+}
+
+.about-fit-card--bad {
+  @apply border-red-500/40;
+}
+
+.about-fit-list {
+  @apply space-y-3;
+}
+
+.about-fit-list li {
+  @apply flex items-start gap-3 text-sm leading-relaxed text-brand-muted;
+}
+
+.about-fit-card--good .about-fit-list li::before {
+  content: '✓';
+  @apply shrink-0 font-bold text-emerald-400;
+}
+
+.about-fit-card--bad .about-fit-list li::before {
+  content: '✗';
+  @apply shrink-0 font-bold text-red-400;
+}
+
+.about-protection-grid {
+  @apply grid gap-5 md:grid-cols-2 xl:grid-cols-3;
+}
+
+.about-protection-card {
+  @apply rounded-xl border border-white/10 bg-white/[0.03] p-6 lg:p-7;
+}
+
+.about-protection-dot {
+  @apply mb-4 block h-2 w-2 rounded-full bg-brand-gold;
+}
+
+.about-faq-list {
+  @apply divide-y divide-white/10 border-y border-white/10;
+}
+
+.about-faq-row {
+  @apply px-4 py-5 lg:px-6 lg:py-6;
+}
+
+.about-faq-row--alt {
+  @apply bg-white/[0.03];
+}
+
+.about-faq-trigger {
+  @apply flex w-full items-start justify-between gap-6 text-left;
+}
+
+.about-faq-question {
+  @apply max-w-[42%] font-heading text-base font-bold text-white lg:text-lg;
+}
+
+.about-faq-toggle {
+  @apply flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 font-heading text-lg text-white/70;
+}
+
+.about-faq-answer-wrap {
+  @apply lg:pl-[42%] lg:pr-12;
+}
+
+.about-faq-answer {
+  @apply pt-4 text-sm leading-relaxed text-brand-muted lg:max-w-[54%] lg:pt-0;
+}
+
+.about-cta-grid {
+  @apply grid gap-5 lg:grid-cols-2;
+}
+
+.about-cta-card {
+  @apply rounded-xl border border-white/10 bg-white/[0.03] p-6 lg:p-8;
+}
+
+.about-cta-link {
+  @apply font-heading text-[11px] font-bold uppercase tracking-[0.14em] text-brand-gold transition-opacity hover:opacity-80;
+}
+
+@media (max-width: 1023px) {
+  .about-faq-question {
+    @apply max-w-none flex-1;
+  }
+
+  .about-faq-answer {
+    @apply max-w-none;
+  }
+
+  .about-faq-answer-wrap {
+    @apply pl-0 pr-0;
+  }
+}

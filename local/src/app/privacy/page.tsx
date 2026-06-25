@@ -3,8 +3,8 @@ import LegalPageShell from '../../components/LegalPageShell'
 import Navbar from '../../components/Navbar'
 import TWGFooter from '../../components/twg/TWGFooter'
 import { contactEmail } from '../../components/siteConfig'
-import { legalKeywords } from '../../data/siteKeywords'
 import { buildSocialMetadata } from '../../data/siteMetadata'
+import { legalKeywords } from '../../data/siteKeywords'
 
 const privacyDescription =
   'How Armedia handles contact details, project enquiries, analytics information, and client communication for web, media, and systems work.'

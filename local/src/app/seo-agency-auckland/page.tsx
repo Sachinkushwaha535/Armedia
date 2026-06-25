@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Navbar from '../../components/Navbar'
 import ServiceLandingPage from '../../components/ServiceLandingPage'
 import TWGFooter from '../../components/twg/TWGFooter'
-import { seoAgencyKeywords } from '../../data/siteKeywords'
 import { buildSocialMetadata } from '../../data/siteMetadata'
+import { seoAgencyKeywords } from '../../data/siteKeywords'
 
 const seoDescription =
   'Auckland SEO agency helping businesses improve rankings with technical SEO, schema, Core Web Vitals and content optimisation.'

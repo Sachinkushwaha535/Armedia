@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 import HomeSite from '../components/HomeSite'
-import { homepageKeywords } from '../data/siteKeywords'
 import {
   buildSocialMetadata,
   defaultOgTitle,
   defaultTwitterTitle,
-  organizationSchema,
   pageDescriptions,
 } from '../data/siteMetadata'
+import { homepageKeywords } from '../data/siteKeywords'
 
 const faqItems = [
   {
@@ -70,10 +69,6 @@ export default function Page() {
 
   return (
     <main id="main-content" className="bg-black">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

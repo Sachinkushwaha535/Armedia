@@ -3,13 +3,10 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { navItems } from './siteData'
+import { navCta, navItems } from './siteData'
 import { contactPhone, contactPhoneHref } from './siteConfig'
 
-const navLinks = [
-  { label: 'Home', path: '/' },
-  ...navItems.filter((item) => item.path !== '/'),
-]
+const navLinks = navItems
 
 /** Pages whose top section is light — navbar needs solid background from load */
 const SOLID_NAV_PATHS = ['/contact']
@@ -76,12 +73,12 @@ function Navbar() {
               {contactPhone}
             </a>
           ) : null}
-          <Link href="/contact" className="armedia-btn-primary hidden !px-5 !py-2.5 lg:inline-flex">
-            Contact
+          <Link href={navCta.path} className="armedia-btn-primary hidden !px-5 !py-2.5 lg:inline-flex">
+            {navCta.label}
           </Link>
           <button
             type="button"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/50 lg:hidden"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/50 lg:hidden"
             aria-expanded={menuOpen}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             onClick={() => setMenuOpen((open) => !open)}
@@ -158,11 +155,11 @@ function Navbar() {
               </a>
             ) : null}
             <Link
-              href="/contact"
+              href={navCta.path}
               onClick={() => setMenuOpen(false)}
               className="armedia-btn-primary inline-flex"
             >
-              Contact
+              {navCta.label}
             </Link>
           </div>
         </div>

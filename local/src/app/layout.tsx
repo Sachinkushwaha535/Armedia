@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Montserrat, Open_Sans, Playfair_Display } from 'next/font/google'
-import { contactEmail, contactPhone, siteUrl } from '../components/siteConfig'
+import { contactEmail, siteUrl } from '../components/siteConfig'
 import {
   defaultOgDescription,
   defaultOgTitle,
   defaultTwitterDescription,
   defaultTwitterTitle,
+  LOGO_ICON_PATH,
   ogImage,
   organizationSchema,
   pageDescriptions,
@@ -17,6 +18,7 @@ import '../App.css'
 import '../styles/armedia-pro.css'
 import '../styles/armedia-services.css'
 import '../styles/armedia-contact.css'
+import '../styles/armedia-about.css'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -45,6 +47,7 @@ export const metadata: Metadata = {
     template: '%s | Armedia',
   },
   description: pageDescriptions.home,
+  keywords: [...siteKeywords],
   applicationName: 'Armedia',
   authors: [{ name: 'Armedia' }],
   creator: 'Armedia',
@@ -55,7 +58,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  keywords: [...siteKeywords],
   alternates: {
     canonical: '/',
   },
@@ -103,8 +105,12 @@ export default function RootLayout({
       {
         ...organizationSchema,
         '@id': `${siteUrl}/#organization`,
-        logo: `${siteUrl}${ogImage.url}`,
-        ...(contactPhone ? { telephone: contactPhone } : {}),
+        logo: {
+          '@type': 'ImageObject',
+          url: `${siteUrl}${LOGO_ICON_PATH}`,
+          width: 512,
+          height: 512,
+        },
         email: contactEmail,
         url: siteUrl,
       },

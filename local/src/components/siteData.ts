@@ -1,4 +1,4 @@
-export type PageKey = 'home' | 'services' | 'contact'
+export type PageKey = 'home' | 'about' | 'services' | 'contact' | 'start-project'
 
 export type NavItem = {
   key: PageKey
@@ -8,11 +8,15 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { key: 'home', label: 'Home', path: '/' },
+  { key: 'about', label: 'Who we are', path: '/about' },
   { key: 'services', label: 'Services', path: '/services' },
-  // { key: 'about', label: 'About', path: '/about' },
-  // { key: 'blog', label: 'Blog', path: '/blog' },
   { key: 'contact', label: 'Contact', path: '/contact' },
 ]
+
+export const navCta = {
+  label: 'Start a project',
+  path: '/start-project',
+} as const
 
 export const featuredWork = [
   {

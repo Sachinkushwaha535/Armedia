@@ -28,7 +28,7 @@ function HelpCarousel() {
               type="button"
               onClick={() => setIndex(i)}
               className={[
-                'shrink-0 rounded-full px-4 py-2 font-heading text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors',
+                'shrink-0 rounded-full px-4 py-2 min-h-[48px] font-heading text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors',
                 i === index
                   ? 'bg-brand-dark text-white'
                   : 'border border-black/15 text-black/60 hover:border-black/30 hover:text-black',

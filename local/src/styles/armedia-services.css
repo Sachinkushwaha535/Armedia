@@ -41,7 +41,7 @@
 }
 
 .services-method-tab {
-  @apply shrink-0 rounded-full px-4 py-2 font-heading text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors;
+  @apply shrink-0 min-h-[48px] rounded-full px-4 py-2 font-heading text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors;
 }
 
 .services-method-tab--active {
