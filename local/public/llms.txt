@@ -1,4 +1,4 @@
-# Armedia — Web Development & Media Agency Auckland
+﻿# Armedia — Web Development & Media Agency Auckland
 
 > Armedia is an Auckland-based web development and media agency
 > helping NZ businesses with websites, media, AI workflows,
@@ -7,11 +7,11 @@
 ## Services
 - Web development (Next.js, React, custom builds)
 - SEO and search visibility
-- Media planning and advertising (Google Ads, Meta Ads)
+- Digital advertising (Google Ads, Meta Ads)
 - AI marketing automation
 - Business intelligence and reporting dashboards
-- OOH and offline media
 - CRM and sales systems
+- Operations and workflow automation
 
 ## Location
 Auckland, New Zealand. Also serving Wellington, Christchurch, Queenstown.
@@ -26,3 +26,8 @@ Phone: +64223040716
 - https://www.armedia.co.nz/services
 - https://www.armedia.co.nz/web-design-auckland
 - https://www.armedia.co.nz/seo-agency-auckland
+- https://www.armedia.co.nz/react-development-nz
+- https://www.armedia.co.nz/ecommerce-website-auckland
+- https://www.armedia.co.nz/nextjs-agency-new-zealand
+- https://www.armedia.co.nz/contact
+- https://www.armedia.co.nz/start-project
