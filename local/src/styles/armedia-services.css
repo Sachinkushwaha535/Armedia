@@ -134,7 +134,11 @@
 }
 
 .services-offering-card {
-  @apply flex h-full flex-col rounded-xl border border-black/10 bg-[#fafaf8] p-6 transition-shadow duration-200 hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] lg:p-7;
+  @apply relative flex h-full flex-col rounded-xl border border-black/10 bg-[#fafaf8] p-6 transition-shadow duration-200 hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] lg:p-7;
+}
+
+.services-offering-badge {
+  @apply absolute right-5 top-5 rounded-full bg-brand-gold px-3 py-1 font-heading text-[10px] font-bold uppercase tracking-[0.1em] text-brand-dark;
 }
 
 .services-offering-icon {

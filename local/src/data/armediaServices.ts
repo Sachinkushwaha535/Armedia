@@ -18,6 +18,8 @@ export type ArmediaServiceCard = {
   items: string[]
   icon: ArmediaServiceIconKey
   href: string
+  badge?: string
+  linkLabel?: string
 }
 
 export const coreServiceCards: ArmediaServiceCard[] = [
@@ -146,6 +148,100 @@ export const coreServiceCards: ArmediaServiceCard[] = [
     ],
     icon: 'workflow',
     href: '/contact',
+  },
+]
+
+export const aiServiceCards: ArmediaServiceCard[] = [
+  {
+    id: 'custom-ai-development',
+    title: 'Custom AI Development',
+    desc: 'Tailored AI models, pipelines, and intelligent systems built from scratch, designed around your unique business logic.',
+    items: [
+      'Custom model development',
+      'AI pipeline design',
+      'Business logic integration',
+      'Scalable intelligent systems',
+      'End-to-end AI architecture',
+    ],
+    icon: 'ai',
+    href: '/contact',
+    linkLabel: 'Learn More →',
+  },
+  {
+    id: 'ai-voice-agents',
+    title: 'AI Voice Agents',
+    desc: '24/7 intelligent voice bots that handle calls, qualify leads, book appointments, and answer queries. Fully automated.',
+    items: [
+      '24/7 inbound call handling',
+      'Lead qualification',
+      'Appointment booking',
+      'Query resolution',
+      'Fully automated voice flows',
+    ],
+    icon: 'aiapi',
+    href: '/contact',
+    badge: 'Most Popular',
+    linkLabel: 'Learn More →',
+  },
+  {
+    id: 'business-process-automation',
+    title: 'Business Process Automation',
+    desc: 'Eliminate repetitive bottlenecks. We automate your workflows, saving dozens of hours weekly across your team.',
+    items: [
+      'Workflow automation',
+      'Repetitive task elimination',
+      'Cross-team efficiency gains',
+      'Process mapping and optimisation',
+      'Hours saved weekly',
+    ],
+    icon: 'workflow',
+    href: '/contact',
+    linkLabel: 'Learn More →',
+  },
+  {
+    id: 'ai-chatbots-support',
+    title: 'AI Chatbots & Support Systems',
+    desc: 'Deploy AI-powered support agents on your website, WhatsApp, or Slack, trained on your business knowledge.',
+    items: [
+      'Website chat agents',
+      'WhatsApp integration',
+      'Slack support bots',
+      'Business knowledge training',
+      'Always-on customer support',
+    ],
+    icon: 'docai',
+    href: '/contact',
+    linkLabel: 'Learn More →',
+  },
+  {
+    id: 'smart-data-dashboards',
+    title: 'Smart Data & Dashboards',
+    desc: 'Turn raw data into actionable insights with AI-powered analytics, forecasting, and real-time reporting dashboards.',
+    items: [
+      'AI-powered analytics',
+      'Forecasting models',
+      'Real-time reporting',
+      'Actionable insights',
+      'Executive dashboards',
+    ],
+    icon: 'data',
+    href: '/contact',
+    linkLabel: 'Learn More →',
+  },
+  {
+    id: 'ai-powered-web-app-dev',
+    title: 'AI-Powered Web & App Dev',
+    desc: 'Full-stack apps and websites supercharged with AI: personalization engines, recommendation systems, and smart UX.',
+    items: [
+      'Full-stack AI applications',
+      'Personalization engines',
+      'Recommendation systems',
+      'Smart UX patterns',
+      'Intelligent web products',
+    ],
+    icon: 'code',
+    href: '/contact',
+    linkLabel: 'Learn More →',
   },
 ]
 

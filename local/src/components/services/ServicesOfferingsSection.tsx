@@ -20,6 +20,9 @@ function ServicesOfferingsSection({ kicker, title, description, services }: Serv
         <div className="services-offerings-grid mt-12">
           {services.map((service) => (
             <article key={service.id} id={service.id} className="services-offering-card scroll-mt-28">
+              {service.badge ? (
+                <span className="services-offering-badge">{service.badge}</span>
+              ) : null}
               <ArmediaServiceIcon variant={service.icon} />
               <h3 className="mt-5 font-heading text-lg font-bold text-black">{service.title}</h3>
               <p className="armedia-body mt-3 text-black/70">{service.desc}</p>
@@ -32,7 +35,7 @@ function ServicesOfferingsSection({ kicker, title, description, services }: Serv
                 ))}
               </ul>
               <Link href={service.href} className="services-offering-link mt-6 inline-flex">
-                Discuss this service →
+                {service.linkLabel ?? 'Discuss this service →'}
               </Link>
             </article>
           ))}

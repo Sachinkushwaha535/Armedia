@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { coreServiceCards, supportingServiceCards } from '../data/armediaServices'
+import { aiServiceCards, coreServiceCards, supportingServiceCards } from '../data/armediaServices'
 import ServicesOfferingsSection from './services/ServicesOfferingsSection'
 import {
   servicesMethodSlides,
@@ -45,6 +45,13 @@ function ServicesPage() {
         title="Growth, media, and intelligence services"
         description="These are the main services Armedia leads with — aligned with strategy, advertising, AI workflows, BI, and connected campaign delivery."
         services={coreServiceCards}
+      />
+
+      <ServicesOfferingsSection
+        kicker="AI solutions"
+        title="Intelligent automation and custom AI systems"
+        description="From voice agents and chatbots to custom models, dashboards, and AI-powered apps — built around how your business actually works."
+        services={aiServiceCards}
       />
 
       <ServicesOfferingsSection
